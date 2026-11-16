@@ -677,3 +677,7 @@ Trying to load the model directly from the local cache, if it exists.
 ## 许可证 📝
 
 点击查看 [`LICENSE`](LICENSE) 文件
+
+## 本地 2D 讲解视频（免费、离线）
+
+完全本地渲染竖屏 9:16 的 2D 动画讲解视频（Pillow + numpy + FFmpeg、免费 TTS、程序化音乐与音效、同步字幕），不调用任何付费视频生成 API。详见 [docs/animated-explainer.md](docs/animated-explainer.md)。

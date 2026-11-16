@@ -704,3 +704,13 @@ Click to view the [`LICENSE`](LICENSE) file
 ### Editable local video projects
 
 Use [revision-aware local projects](docs/video-projects.md) to replace prepared scene media, compare revisions and rebuild only affected stages. The opt-in CLI preserves verified artifacts and the last successful export; it makes no provider calls or automatic posts.
+
+## Local 2D explainer videos (free, offline)
+
+An alternative pipeline that renders vertical 9:16 2D animated explainer videos entirely locally
+(Pillow + numpy + FFmpeg, free TTS, procedural music/SFX, synced subtitles) — no paid video-generation APIs.
+See [docs/animated-explainer.md](docs/animated-explainer.md) and run:
+
+```bash
+python -m app.services.animated_explainer examples/autoridad_limitada.json out.mp4
+```

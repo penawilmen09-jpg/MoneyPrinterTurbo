@@ -1,0 +1,165 @@
+{
+  "title": "El truco psicológico de los vendedores de coches",
+  "language": "es",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+4%",
+  "music": "builtin:upbeat",
+  "characters": {
+    "cliente":  {"preset": "cliente"},
+    "vendedor": {"preset": "vendedor"},
+    "jefe":     {"preset": "jefe"}
+  },
+  "scenes": [
+    {
+      "setting": "dealership_desk",
+      "narration": "Un cliente pregunta si pueden hacerle un descuento. El vendedor sonríe, nervioso, y responde: déjame consultarlo con mi jefe.",
+      "speaker": "cliente",
+      "characters": [
+        {"id": "cliente",  "x": 0.27, "y": 0.80, "pose": "sit", "expression": "neutral", "scale": 1.25},
+        {"id": "vendedor", "x": 0.73, "y": 0.80, "pose": "sit", "expression": "happy",   "scale": 1.25, "flip": true}
+      ],
+      "events": [
+        {"type": "emote", "who": "cliente", "value": "question", "at": 0.12, "dur": 0.2},
+        {"type": "pose", "who": "cliente", "value": "present", "at": 0.15},
+        {"type": "pose", "who": "cliente", "value": "sit", "at": 0.38},
+        {"type": "speaker", "who": "vendedor", "at": 0.5},
+        {"type": "expression", "who": "vendedor", "value": "nervous", "at": 0.45},
+        {"type": "emote", "who": "vendedor", "value": "sweat", "at": 0.55, "dur": 0.4},
+        {"type": "look", "who": "vendedor", "to": [-1, 0.2], "at": 0.7}
+      ],
+      "sfx": [{"name": "ding", "at": 0.0, "gain": 0.5}],
+      "camera": [
+        {"at": 0.0, "zoom": 1.0, "cx": 0.5, "cy": 0.55},
+        {"at": 0.5, "zoom": 1.18, "cx": 0.3, "cy": 0.52},
+        {"at": 1.0, "zoom": 1.32, "cx": 0.7, "cy": 0.52}
+      ],
+      "transition": "slideleft"
+    },
+    {
+      "setting": "manager_office",
+      "narration": "Camina rápido hacia la oficina, entra con cara de preocupación y finge discutir el caso con su supuesto jefe. Todo parece muy serio.",
+      "speaker": "vendedor",
+      "characters": [
+        {"id": "vendedor", "x": -0.2, "y": 0.84, "pose": "stand", "expression": "worried", "scale": 1.05},
+        {"id": "jefe",     "x": 0.76, "y": 0.80, "pose": "sit", "expression": "serious", "scale": 1.25, "flip": true}
+      ],
+      "events": [
+        {"type": "sfx", "name": "door", "at": 0.0},
+        {"type": "move", "who": "vendedor", "to": [0.36, 0.84], "at": 0.04, "dur": 0.3},
+        {"type": "pose", "who": "vendedor", "value": "present", "at": 0.4},
+        {"type": "emote", "who": "jefe", "value": "question", "at": 0.5, "dur": 0.2},
+        {"type": "speaker", "who": "jefe", "at": 0.72},
+        {"type": "expression", "who": "jefe", "value": "smug", "at": 0.75},
+        {"type": "expression", "who": "vendedor", "value": "nervous", "at": 0.5}
+      ],
+      "camera": [
+        {"at": 0.0, "zoom": 1.0, "cx": 0.35, "cy": 0.55},
+        {"at": 0.5, "zoom": 1.1, "cx": 0.5, "cy": 0.55},
+        {"at": 1.0, "zoom": 1.3, "cx": 0.62, "cy": 0.5, "roll": -1.5}
+      ],
+      "transition": "wipeleft"
+    },
+    {
+      "setting": "waiting_area",
+      "narration": "Mientras tanto, el cliente espera, mira su reloj y empieza a impacientarse. Y detrás de las persianas, vendedor y jefe lo observan, analizando cada gesto.",
+      "speaker": "",
+      "characters": [
+        {"id": "vendedor", "x": 0.66, "y": 0.46, "pose": "stand", "expression": "suspicious", "scale": 0.5},
+        {"id": "jefe",     "x": 0.84, "y": 0.46, "pose": "arms_crossed", "expression": "smug", "scale": 0.5, "flip": true},
+        {"id": "cliente",  "x": 0.40, "y": 0.53, "pose": "sit", "expression": "neutral", "scale": 1.2}
+      ],
+      "events": [
+        {"type": "sfx", "name": "tick", "at": 0.02, "gain": 0.6},
+        {"type": "emote", "who": "cliente", "value": "clock", "at": 0.12, "dur": 0.25},
+        {"type": "expression", "who": "cliente", "value": "impatient", "at": 0.35},
+        {"type": "look", "who": "vendedor", "to": [-1, 0.5], "at": 0.0},
+        {"type": "look", "who": "jefe", "to": [-1, 0.5], "at": 0.0},
+        {"type": "emote", "who": "cliente", "value": "anger", "at": 0.62, "dur": 0.2},
+        {"type": "sfx", "name": "sting", "at": 0.55, "gain": 0.5}
+      ],
+      "camera": [
+        {"at": 0.0, "zoom": 1.0, "cx": 0.4, "cy": 0.5},
+        {"at": 0.5, "zoom": 1.15, "cx": 0.4, "cy": 0.45},
+        {"at": 1.0, "zoom": 1.55, "cx": 0.72, "cy": 0.36, "roll": 1.5}
+      ],
+      "transition": "circleopen"
+    },
+    {
+      "setting": "strategy",
+      "narration": "Esto se llama autoridad limitada. El vendedor aparenta no tener poder para decidir, pero es parte de una estrategia: el jefe invisible es quien dice que no.",
+      "title": "AUTORIDAD\nLIMITADA",
+      "items": [
+        {"type": "node", "id": "c", "x": 0.5, "y": 0.27, "icon": "person", "label": "CLIENTE", "color": "#2F9E8F", "at": 0.10},
+        {"type": "node", "id": "v", "x": 0.5, "y": 0.44, "icon": "person", "label": "VENDEDOR", "color": "#1F5FBF", "at": 0.22},
+        {"type": "node", "id": "j", "x": 0.5, "y": 0.61, "icon": "boss", "label": "EL JEFE (INVISIBLE)", "color": "#6C4BD6", "at": 0.50, "size": 34},
+        {"type": "link", "from": "c", "to": "v", "label": "¿Me das descuento?", "at": 0.28},
+        {"type": "link", "from": "v", "to": "j", "label": "«Debo consultarlo»", "at": 0.55, "dashed": true},
+        {"type": "badge", "label": "SIN PODER REAL", "x": 0.80, "y": 0.44, "color": "#E8384F", "at": 0.40, "size": 34},
+        {"type": "icon", "icon": "lock", "x": 0.14, "y": 0.44, "r": 70, "color": "#FFD23F", "at": 0.45},
+        {"type": "badge", "label": "ES PARTE DE LA ESTRATEGIA", "x": 0.5, "y": 0.72, "color": "#FF9F1A", "at": 0.78, "size": 38}
+      ],
+      "events": [
+        {"type": "sfx", "name": "whoosh", "at": 0.1},
+        {"type": "sfx", "name": "pop", "at": 0.22},
+        {"type": "sfx", "name": "pop", "at": 0.5},
+        {"type": "sfx", "name": "sparkle", "at": 0.78},
+        {"type": "shake", "at": 0.78, "amount": 10}
+      ],
+      "camera": [
+        {"at": 0.0, "zoom": 1.0, "cx": 0.5, "cy": 0.5},
+        {"at": 1.0, "zoom": 1.12, "cx": 0.5, "cy": 0.45}
+      ],
+      "transition": "zoomin"
+    },
+    {
+      "setting": "dealership_desk",
+      "narration": "Al volver, llega sudando, se afloja la corbata y dice que tuvo que pelear muchísimo para conseguirte ese descuento. El cliente sonríe, agradecido.",
+      "speaker": "vendedor",
+      "characters": [
+        {"id": "cliente",  "x": 0.27, "y": 0.80, "pose": "sit", "expression": "neutral", "scale": 1.25},
+        {"id": "vendedor", "x": 0.73, "y": 0.80, "pose": "sit", "expression": "tired",   "scale": 1.25, "flip": true}
+      ],
+      "events": [
+        {"type": "emote", "who": "vendedor", "value": "sweat", "at": 0.02, "dur": 0.5},
+        {"type": "pose", "who": "vendedor", "value": "wipe", "at": 0.08},
+        {"type": "pose", "who": "vendedor", "value": "loosen_tie", "at": 0.3},
+        {"type": "expression", "who": "vendedor", "value": "worried", "at": 0.35},
+        {"type": "pose", "who": "vendedor", "value": "present", "at": 0.5},
+        {"type": "expression", "who": "vendedor", "value": "happy", "at": 0.58},
+        {"type": "expression", "who": "cliente", "value": "grateful", "at": 0.72},
+        {"type": "emote", "who": "cliente", "value": "heart", "at": 0.76, "dur": 0.2},
+        {"type": "speaker", "who": "cliente", "at": 0.82},
+        {"type": "sfx", "name": "sparkle", "at": 0.74},
+        {"type": "sfx", "name": "cash", "at": 0.8}
+      ],
+      "camera": [
+        {"at": 0.0, "zoom": 1.25, "cx": 0.72, "cy": 0.5},
+        {"at": 0.6, "zoom": 1.2, "cx": 0.6, "cy": 0.52},
+        {"at": 1.0, "zoom": 1.3, "cx": 0.3, "cy": 0.5}
+      ],
+      "transition": "slideup"
+    },
+    {
+      "setting": "modern_office",
+      "narration": "Si quieres proteger tus ganancias, deja que tu lista de precios diga que no. No conviertas cada negociación en una decisión personal.",
+      "speaker": "vendedor",
+      "characters": [
+        {"id": "vendedor", "x": 0.42, "y": 0.86, "pose": "present", "expression": "smug", "scale": 1.15}
+      ],
+      "events": [
+        {"type": "label", "text": "LA LISTA DE PRECIOS DICE NO", "at": 0.28, "dur": 0.3, "pos": [0.5, 0.09], "size": 52},
+        {"type": "pose", "who": "vendedor", "value": "point", "at": 0.35},
+        {"type": "expression", "who": "vendedor", "value": "serious", "at": 0.5},
+        {"type": "label", "text": "NO LO HAGAS PERSONAL", "at": 0.62, "dur": 0.34, "pos": [0.5, 0.09], "size": 52, "color": "#7CFFB2"},
+        {"type": "pose", "who": "vendedor", "value": "present", "at": 0.7},
+        {"type": "expression", "who": "vendedor", "value": "happy", "at": 0.8},
+        {"type": "sfx", "name": "ding", "at": 0.9, "gain": 0.5}
+      ],
+      "camera": [
+        {"at": 0.0, "zoom": 1.0, "cx": 0.5, "cy": 0.55},
+        {"at": 1.0, "zoom": 1.2, "cx": 0.44, "cy": 0.5}
+      ],
+      "transition": "none"
+    }
+  ]
+}
