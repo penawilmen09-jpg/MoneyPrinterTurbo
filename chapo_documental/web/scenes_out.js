@@ -48,10 +48,8 @@ function buildS1() {
   o.pris.lamps.forEach(x => { rect(g, x - 3, 920, 6, 260, '#191a20'); rect(g, x - 40, 916, 80, 8, '#191a20'); });
   s1 = o;
 }
-const S1 = {
-  draw(ctx, lt, f) {
+function drawPrison(ctx, lt, f, camX, z, op = {}) {
     if (!s1) buildS1();
-    const p = ease(lt / 7), camX = lerp(0, 1550, p), z = lerp(1.0, 1.07, p);
     sky(ctx, W, 1010, [[0, '#04061a'], [.3, '#0f1332'], [.55, '#2d2150'], [.78, '#7a3d5e'], [.92, '#d4754f'], [1, '#f5a86a']]); rect(ctx, 0, 1010, W, H - 1010, '#07080c');
     stars(ctx, W, 700, 140, 3, .8 + .2 * Math.sin(f / 9));
     glow(ctx, 420 - camX * .08, 980, 520, '255,150,90', .55);
@@ -73,9 +71,19 @@ const S1 = {
     ctx.fillStyle = lg(ctx, 0, 1230, 0, 1500, [[0, '#0e1016'], [1, '#05060a']]); ctx.fillRect(-100, 1230, W + 200, 800);
     ctx.restore();
     ctx.save(); ctx.fillStyle = '#07080c'; for (let x = -((camX * 1.7) % 220); x < W + 220; x += 220) { ctx.fillRect(x, 1180, 14, 420); ctx.fillStyle = '#07080c'; } ctx.strokeStyle = 'rgba(180,185,200,.5)'; ctx.lineWidth = 2; for (let x = -((camX * 1.7) % 220) - 220; x < W + 220; x += 220) { ctx.beginPath(); ctx.moveTo(x + 7, 1198); ctx.quadraticCurveTo(x + 117, 1232, x + 227, 1198); ctx.stroke(); } ctx.restore();
-    post(ctx, f, { vig: .62 });
-  }
-};
+    if (op.dawn) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = lg(ctx, 0, 560, 0, 1080, [[0, 'rgba(255,150,90,0)'], [1, `rgba(255,150,90,${.32 * op.dawn})`]]); ctx.fillRect(0, 560, W, 520); ctx.restore(); }
+    post(ctx, f, { vig: op.vig ?? .62 });
+}
+const S1 = { draw(ctx, lt, f) { const p = ease(lt / 7); drawPrison(ctx, lt, f, lerp(0, 1550, p), lerp(1.0, 1.07, p)); } };
+// Introducción: el penal de noche, cámara acercándose lentamente
+const INTRO = { draw(ctx, lt, f) { const u = clamp(lt / 4); drawPrison(ctx, lt + 3, f, lerp(520, 760, u), lerp(1.0, 1.5, ease(u)), { vig: .72 }); } };
+// Vista cinematográfica del penal (cámara retrocede) antes de la recaptura
+const PV = { draw(ctx, lt, f) { const u = clamp(lt / 2.8); drawPrison(ctx, lt + 9, f, lerp(1250, 1000, u), lerp(1.5, 1.18, ease(u)), { dawn: .4 * u, vig: .66 }); } };
+// Cierre: vista amplia del penal al amanecer y transición de salida (barrotes + negro)
+const CLOSE = { draw(ctx, lt, f) {
+  const u = clamp(lt / 4.8); drawPrison(ctx, lt + 14, f, lerp(1000, 1500, ease(u)), lerp(1.18, 1.0, ease(u)), { dawn: lerp(.4, 1, u), vig: .66 });
+  const bk = ease(seg(lt, 3.2, 4.1)); if (bk > 0) { const bw = 70, n = 8; ctx.save(); ctx.fillStyle = '#0a0b0f'; for (let i = 0; i < n; i++) { const x = (i + .5) * (W / n) - bw / 2, h = H * bk; ctx.fillStyle = '#0a0b0f'; ctx.fillRect(x, 0, bw, h); ctx.fillStyle = 'rgba(255,255,255,.12)'; ctx.fillRect(x + 6, 0, 8, h); } ctx.fillStyle = '#0a0b0f'; ctx.fillRect(0, 0, W, 90 * bk); ctx.restore(); }
+} };
 // ===== ESCENA 5: el túnel (corte lateral) =====
 const TN = { w: 6600, y: 1000, h: 190, surf: 560, shaftA: 380, shaftB: 6200 };
 let s5 = null;
@@ -390,9 +398,6 @@ const S8 = {
     ctx.save(); ctx.globalCompositeOperation = 'lighter'; glow(ctx, 1650, GY8 - 60, 700, '255,160,90', .22); ctx.restore();
     ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = lg(ctx, 0, 0, 0, 1500, [[0, 'rgba(70,80,140,.55)'], [1, 'rgba(120,100,120,.1)']]); ctx.fillRect(-300, -300, 3000, 2200); ctx.restore();
     ctx.restore();
-    // transición final: barrotes cerrándose (el penal) y fundido
-    const bk = ease(seg(t, 58.1, 59.1));
-    if (bk > 0) { const bw = 70, n = 8; ctx.save(); ctx.fillStyle = '#0a0b0f'; for (let i = 0; i < n; i++) { const x = (i + .5) * (W / n) - bw / 2; const h = H * bk; ctx.fillRect(x, 0, bw, h); ctx.fillStyle = 'rgba(255,255,255,.12)'; ctx.fillRect(x + 6, 0, 8, h); ctx.fillStyle = '#0a0b0f'; } ctx.fillRect(0, 0, W, 90 * bk); ctx.restore(); ctx.save(); ctx.fillStyle = `rgba(0,0,0,${ease(seg(t, 58.7, 59.5))})`; ctx.fillRect(0, 0, W, H); ctx.restore(); }
     post(ctx, f, { vig: .6 });
   }
 };

@@ -3,106 +3,154 @@
  "fps": 30,
  "scenes": [
   {
-   "id": "s1",
+   "id": "intro",
    "start": 0,
-   "end": 7
+   "end": 4,
+   "o0": 0,
+   "o1": 4
+  },
+  {
+   "id": "s1",
+   "start": 4,
+   "end": 9.6,
+   "o0": 0,
+   "o1": 7
   },
   {
    "id": "s2",
-   "start": 7,
-   "end": 14
+   "start": 9.6,
+   "end": 14.8,
+   "o0": 7,
+   "o1": 14
   },
   {
    "id": "s3",
-   "start": 14,
-   "end": 22
+   "start": 14.8,
+   "end": 21.2,
+   "o0": 14,
+   "o1": 22
   },
   {
    "id": "s4",
-   "start": 22,
-   "end": 30
+   "start": 21.2,
+   "end": 27.6,
+   "o0": 22,
+   "o1": 30
   },
   {
    "id": "s5",
-   "start": 30,
-   "end": 40
+   "start": 27.6,
+   "end": 35.6,
+   "o0": 30,
+   "o1": 40
   },
   {
    "id": "s6",
-   "start": 40,
-   "end": 48
+   "start": 35.6,
+   "end": 42.0,
+   "o0": 40,
+   "o1": 48
   },
   {
    "id": "s7",
-   "start": 48,
-   "end": 55
+   "start": 42.0,
+   "end": 47.4,
+   "o0": 48,
+   "o1": 55
+  },
+  {
+   "id": "pv",
+   "start": 47.4,
+   "end": 50.2,
+   "o0": 0,
+   "o1": 2.8
   },
   {
    "id": "s8",
-   "start": 55,
-   "end": 60
+   "start": 50.2,
+   "end": 55.2,
+   "o0": 55,
+   "o1": 60
+  },
+  {
+   "id": "close",
+   "start": 55.2,
+   "end": 60,
+   "o0": 0,
+   "o1": 4.8
   }
  ],
  "subs": [
   {
-   "a": 0.4,
-   "b": 2.7,
+   "a": 4.25,
+   "b": 5.4,
    "text": "[[11 DE JULIO DE 2015.]]"
   },
   {
-   "a": 2.8,
-   "b": 6.9,
+   "a": 5.45,
+   "b": 9.45,
    "text": "Un acontecimiento inesperado estaba a punto de cambiar la historia de una de las prisiones más vigiladas de [[México]]."
   },
   {
-   "a": 7.3,
-   "b": 13.8,
+   "a": 9.85,
+   "b": 14.62,
    "text": "[[Joaquín Guzmán Loera]] estaba detenido en el penal de máxima seguridad del [[Altiplano]]."
   },
   {
-   "a": 14.4,
-   "b": 21.8,
+   "a": 15.15,
+   "b": 21.01,
    "text": "A las [[20:52]] fue visto por última vez acercándose al área de las [[regaderas]]."
   },
   {
-   "a": 22.3,
-   "b": 25.9,
+   "a": 21.47,
+   "b": 24.29,
    "text": "Los custodios descubrieron que había [[desaparecido]]."
   },
   {
-   "a": 26.0,
-   "b": 29.8,
+   "a": 24.43,
+   "b": 27.41,
    "text": "Debajo de la ducha encontraron una [[abertura]] que conducía a un [[túnel]]."
   },
   {
-   "a": 30.3,
-   "b": 34.6,
+   "a": 27.87,
+   "b": 31.25,
    "text": "El túnel tenía más de [[un kilómetro]] de longitud"
   },
   {
-   "a": 34.7,
-   "b": 39.8,
+   "a": 31.39,
+   "b": 35.41,
    "text": "y contaba con [[iluminación]], [[ventilación]] y una [[motocicleta sobre rieles]]."
   },
   {
-   "a": 40.3,
-   "b": 44.1,
+   "a": 35.87,
+   "b": 38.85,
    "text": "El túnel terminaba en una [[construcción]] situada fuera del penal."
   },
   {
-   "a": 44.2,
-   "b": 47.8,
+   "a": 38.99,
+   "b": 41.81,
    "text": "Por allí consiguió [[escapar]]."
   },
   {
-   "a": 48.3,
-   "b": 54.8,
+   "a": 42.26,
+   "b": 47.22,
    "text": "La fuga provocó una [[movilización nacional]] para encontrar al prisionero."
   },
   {
-   "a": 55.2,
-   "b": 59.5,
-   "text": "Seis meses después, el [[8 de enero de 2016]], fue capturado nuevamente."
+   "a": 47.55,
+   "b": 50.1,
+   "text": "PERO SU LIBERTAD DURÓ SOLO [[SEIS MESES]]..."
+  },
+  {
+   "a": 50.5,
+   "b": 55.0,
+   "text": "EL [[8 DE ENERO DE 2016]] FUE [[CAPTURADO]] NUEVAMENTE"
+  },
+  {
+   "a": 55.7,
+   "b": 58.7,
+   "text": "¿QUÉ OTRA [[HISTORIA REAL]] DEBERÍAMOS CONTAR?",
+   "big": true
   }
  ],
  "walks": [

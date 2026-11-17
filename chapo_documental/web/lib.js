@@ -178,9 +178,9 @@ function walkPose(p, A = 22, extra = {}) {
 function walkSpeed(name, A, period, scale = 1) { const c = CHARS[name]; return 4 * (.49 * c.H * scale) * Math.sin(rad(A)) / period; }
 const IDLE = { lean: 2, head: 0, la: [4, 14], ra: [-3, 14], ll: [2, 4], rl: [-4, 6] };
 // ===== Subtítulos =====
-function drawSubs(ctx, lines, alpha, y0) {
+function drawSubs(ctx, lines, alpha, y0, fs = 62) {
   if (alpha <= 0) return;
-  const fs = 62, lh = 80;
+  const lh = Math.round(fs * 1.29);
   ctx.save(); ctx.globalAlpha = alpha; ctx.font = `800 ${fs}px Inter, "DejaVu Sans", sans-serif`; ctx.textBaseline = 'middle';
   const h = lines.length * lh + 44, wmax = Math.max(...lines.map(l => l.reduce((s, w) => s + ctx.measureText(w.t).width, 0)));
   const bx = (W - wmax) / 2 - 36, bw = wmax + 72, by = y0;
@@ -195,8 +195,8 @@ function drawSubs(ctx, lines, alpha, y0) {
   ctx.restore();
 }
 // separa texto con [[amarillo]] en líneas ajustadas al ancho
-function layoutSub(ctx, text, maxW) {
-  ctx.save(); ctx.font = '800 62px Inter, "DejaVu Sans", sans-serif';
+function layoutSub(ctx, text, maxW, fs = 62) {
+  ctx.save(); ctx.font = `800 ${fs}px Inter, "DejaVu Sans", sans-serif`;
   const toks = []; text.split(/(\[\[.*?\]\])/).forEach(part => { const y = part.startsWith('[['); const s = y ? part.slice(2, -2) : part; s.split(/(\s+)/).forEach(w => { if (w !== '') toks.push({ t: w, y }); }); });
   const lines = [[]]; let cw = 0;
   toks.forEach(w => { const wd = ctx.measureText(w.t).width; if (/^\s+$/.test(w.t)) { if (lines[lines.length - 1].length) { lines[lines.length - 1].push(w); cw += wd; } return; } if (cw + wd > maxW && lines[lines.length - 1].length) { const l = lines[lines.length - 1]; while (l.length && /^\s+$/.test(l[l.length - 1].t)) l.pop(); lines.push([]); cw = 0; } lines[lines.length - 1].push(w); cw += wd; });
