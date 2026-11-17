@@ -312,8 +312,8 @@ def music():
         (23, 27, [33, 45, 52, 61, 64]),      # A7: choque
         (27, 35, [38, 50, 56, 62, 65]),      # Dº: inundación
         (35, 43, [31, 43, 50, 58, 62, 67]),  # Gm: evacuación
-        (43, 48.5, [29, 41, 48, 56, 60]),    # F mayor/menor: hundimiento
-        (48.5, 55, [38, 50, 57, 62, 69]),    # Dm: elegía
+        (43, 49.0, [29, 41, 48, 56, 60]),    # F mayor/menor: hundimiento
+        (49.0, 55, [38, 50, 57, 62, 69]),    # Dm: elegía
         (55, 60, [38, 45, 50, 57, 62, 66]),  # D (apertura esperanzadora, final)
     ]
     for a, b, notes in prog:
@@ -349,8 +349,43 @@ def music():
     rise = 0.0
     out = lowpass(m, 3500) * 0.9 + mel * 0.55 + pulse * 0.6 + bass * 0.55 * sw
     # silencio dramático breve al hundirse (47.8-48.6 baja) y envolvente global
-    glob = smooth_env([(0, 0.0), (1.5, 0.75), (47, 0.95), (48.3, 0.45), (50, 0.7), (58, 0.85), (60, 0.0)])
+    glob = smooth_env([(0, 0.0), (1.5, 0.75), (46.8, 0.95), (48.6, 0.45), (50, 0.7), (58, 0.85), (60, 0.0)])
     return out * glob
+
+
+def riser(t0, t1, gain=1.0):
+    """Subida de tensión: ruido con barrido ascendente + tono que sube."""
+    n = noise()
+    t = tt()
+    e = np.clip((t - t0) / (t1 - t0), 0, 1) ** 2.2
+    e[(t < t0) | (t > t1 + 0.15)] = 0
+    lo = bandpass(n, 300, 1400)
+    hi = highpass(n, 2500)
+    m = np.clip((t - t0) / (t1 - t0), 0, 1)
+    x = lo * (1 - m) + hi * m * 0.6
+    f = 180 + 900 * m ** 2
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.15
+    return (norm(x) * 0.8 + tone) * e * gain
+
+
+def timpani(t0, gain=1.0):
+    buf = np.zeros(N)
+    L = int(1.8 * SR)
+    t = np.arange(L) / SR
+    x = np.sin(2 * np.pi * (46 + 26 * np.exp(-t * 9)) * t) * np.exp(-t * 2.4)
+    x += lowpass(noise(L), 200) * np.exp(-t * 14) * 0.6
+    place_sound(buf, x * gain, t0)
+    return buf
+
+
+def elec_hum(t0, dur=1.1):
+    buf = np.zeros(N)
+    L = int(dur * SR)
+    t = np.arange(L) / SR
+    x = (np.sin(2 * np.pi * 60 * t) + 0.5 * np.sin(2 * np.pi * 120 * t) + 0.3 * np.sin(2 * np.pi * 180 * t))
+    x *= (1 - t / dur) ** 1.5 * (0.6 + 0.4 * np.sign(np.sin(2 * np.pi * 14 * t)))
+    place_sound(buf, x * 0.4, t0)
+    return buf
 
 
 def build():
@@ -372,17 +407,20 @@ def build():
     fx += bubbles(28, 35) * 0.8
     fx += creaks(27, 36, 0.7, 0.25)
     # ESCENA 6: evacuación
-    fx += pulleys(36.6, 41.0) * 0.8 + pulleys(38.2, 42.6) * 0.6
-    fx += splash(41.2) * 0.8 + splash(42.4) * 0.6
+    fx += pulleys(36.4, 40.2) * 0.8 + pulleys(37.8, 41.6) * 0.7
+    fx += splash(40.2) * 0.8 + splash(41.6) * 0.7
     fx += rocket(36.0) * 0.55 + rocket(38.6) * 0.5 + rocket(40.6) * 0.45
     fx += creaks(35, 44, 1.2, 0.4)
     fx += horn(35.6, 2.4, 100) * 0.35
     # ESCENA 7: hundimiento
-    fx += creaks(43, 45.4, 1.6, 0.55)
-    fx += breakup(45.6) * 1.0
-    fx += creaks(47.0, 49.5, 1.6, 0.5)
-    fx += sinking_gurgle(46.0, 51.0) * 0.9
-    fx += splash(46.2, 0.8) + splash(49.0, 1.2)
+    fx += creaks(43, 45.0, 1.6, 0.55)
+    fx += elec_hum(44.3)
+    fx += breakup(45.0) * 1.0
+    fx += creaks(45.9, 48.4, 1.6, 0.5)
+    fx += sinking_gurgle(45.2, 50.5) * 0.9
+    fx += splash(45.4, 0.9) + splash(47.5, 0.9) + splash(48.6, 1.3)
+    fx += timpani(45.0, 0.9) + timpani(22.4, 1.0)
+    fx += riser(13.0, 19.0, 0.35) + riser(19.2, 22.4, 0.7) + riser(36.5, 44.6, 0.55)
     # ESCENA 8: rescate
     fx += oars_and_rescue(51.2, 56.0) * 0.8
     fx += horn(52.2, 3.0, 96) * 0.5

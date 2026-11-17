@@ -2,3 +2,5 @@ build/
 __pycache__/
 build_render.log
 nohup.out
+build_v2/
+build_*.log

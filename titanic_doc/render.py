@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """Renderiza los 1800 fotogramas en paralelo y los codifica con FFmpeg (H.264) por tramos."""
 import os, sys, subprocess, multiprocessing as mp
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build')
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.environ.get('TITANIC_BUILD', 'build'))
 CH = 60  # fotogramas por tramo
 
 
 def work(k):
-    from scenes import render_frame
+    import importlib
+    render_frame = importlib.import_module(os.environ.get('TITANIC_MOD', 'scenes')).render_frame
     f0, f1 = k * CH, min(1800, (k + 1) * CH)
     path = os.path.join(OUT, 'seg_%02d.mp4' % k)
     p = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', '1080x1920', '-r', '30',

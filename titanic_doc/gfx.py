@@ -491,7 +491,7 @@ def lifeboat(canvas, cx, cy, size, ang=0.0, n_people=6, t=0.0, seed=1, lit_alpha
     cols = [(18, 18, 22), (34, 26, 24), (22, 24, 32), (44, 36, 30), (16, 20, 26)]
     for i in range(n_people):
         px = ox - L * 0.38 + (L * 0.76) * (i + 0.5) / max(1, n_people) + rnd.uniform(-2, 2)
-        person(d, px, oy - L * 0.12, L * 0.28 * rnd.uniform(0.9, 1.05), col=rnd.choice(cols), hat=rnd.random() < 0.3)
+        person(d, px, oy - L * 0.12 + L * 0.014 * math.sin(t * 3.1 + i * 1.7), L * 0.28 * rnd.uniform(0.9, 1.05), col=rnd.choice(cols), hat=rnd.random() < 0.3)
     if oars:
         for sgn in (-1, 1):
             a = math.sin(t * 1.4 + sgn) * 0.12
@@ -511,7 +511,7 @@ def iceberg_poly(seed=4):
     return pts
 
 
-def draw_iceberg(canvas, cx, base_y, sc, alpha=1.0, under=True, t=0.0):
+def draw_iceberg(canvas, cx, base_y, sc, alpha=1.0, under=True, t=0.0, dark=None):
     layer = Image.new('RGBA', (int(1100 * sc), int(1500 * sc)), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     ox, oy = layer.width / 2, 400 * sc
@@ -532,6 +532,10 @@ def draw_iceberg(canvas, cx, base_y, sc, alpha=1.0, under=True, t=0.0):
     rl = [(ox + x * sc, oy - y * sc) for x, y in [(-300, 120), (-240, 150), (-190, 210), (-150, 190), (-190, 100), (-260, 70)]]
     d.polygon(rl, fill=(236, 246, 252, 255))
     layer = layer.filter(ImageFilter.GaussianBlur(0.6))
+    if dark is not None:
+        a_ = np.array(layer).astype(np.float32)
+        a_[..., 0] *= dark[0]; a_[..., 1] *= dark[1]; a_[..., 2] *= dark[2]
+        layer = Image.fromarray(np.clip(a_, 0, 255).astype(np.uint8), 'RGBA')
     if alpha < 1:
         layer.putalpha(layer.getchannel('A').point(lambda v: int(v * alpha)))
     _blit(canvas, layer, int(cx - ox), int(base_y - oy))
