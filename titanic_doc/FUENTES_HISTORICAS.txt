@@ -1,0 +1,68 @@
+FUENTES HISTÓRICAS CONSULTADAS — «ASÍ FUE COMO SE HUNDIÓ EL TITANIC»
+=====================================================================
+
+NOTA DE METODOLOGÍA
+Las cuatro fuentes obligatorias (archives.gov, noaa.gov, senate.gov, govinfo.gov) se consultaron
+mediante búsqueda web restringida a esos dominios. El contenedor de producción no permite descargar
+directamente las páginas (la conexión HTTPS saliente fue bloqueada por el proxy), así que los datos
+se verificaron a partir de los resúmenes/extractos que devolvió la búsqueda sobre cada página, no
+leyendo cada documento completo. Quien quiera una verificación documental más profunda puede abrir
+los enlaces de abajo.
+
+FUENTES (URLs devueltas por la búsqueda)
+1. National Archives (EE. UU.) — «They Said It Couldn't Sink», Prologue, primavera 2012
+   https://www.archives.gov/publications/prologue/2012/spring/titanic.html
+2. National Archives — handout «They Said It Couldn't Sink» (PDF)
+   https://www.archives.gov/files/dc-metro/know-your-records/genealogy-fair/2012/handouts/titanic.pdf
+3. National Archives — «The Record», marzo 1998 (botes salvavidas y capacidad)
+   https://www.archives.gov/publications/record/1998/03/titanic.html
+4. NOAA — «R.M.S. Titanic: History and Significance»
+   https://www.noaa.gov/office-of-general-counsel/gc-international-section/rms-titanic-history-and-significance
+5. NOAA — R.M.S. Titanic
+   https://www.noaa.gov/rms-titanic
+6. NOAA — «The Titanic, the Carpathia, and the Ice Patrol» (VOS)
+   https://www.vos.noaa.gov/MWL/aug_06/ice_patrol.shtml
+7. Senado de EE. UU. — «Titanic Disaster Hearings: The Official Transcripts of the 1912 Senate Investigation»
+   https://www.senate.gov/reference/reference_item/titanic.htm
+8. Senado de EE. UU. — Subcommittee on the "Titanic" Disaster
+   https://www.senate.gov/about/powers-procedures/investigations/titanic.htm
+9. GovInfo — «Sinking of the R.M.S. Titanic» (contenido destacado)
+   https://www.govinfo.gov/features/featured-content/sinking-of-titanic
+10. GovInfo — S. Doc. 62-933, Informe de la investigación británica sobre la pérdida del «Titanic»
+   https://www.govinfo.gov/app/details/SERIALSET-06179_00_00-019-0933-0000
+11. GovInfo — Congressional Record 1912 (resolución de agradecimiento al capitán Rostron y al Carpathia)
+   https://www.govinfo.gov/content/pkg/GPO-CRECB-1912-pt7-v48/pdf/GPO-CRECB-1912-pt7-v48-16-1.pdf
+
+HECHOS VERIFICADOS Y USO EN EL VIDEO
+- Salida: el Titanic zarpó de Southampton el 10 de abril de 1912 en su viaje inaugural hacia Nueva York
+  (NOAA, fuentes 4 y 5).
+- Colisión: el iceberg fue avistado a las 11:40 p. m. del 14 de abril; el barco se hundió menos de tres horas
+  después (National Archives, fuente 1). Hundimiento a las 2:20 a. m. del 15 de abril (NOAA, fuente 4).
+- Ubicación: Atlántico Norte, cerca de 41°46' N, 50°14' W (título del informe británico, fuente 10).
+- Avisos de hielo, falta de botes y consecuencias: las audiencias del Senado (82 testigos) trataron las
+  advertencias de hielo ignoradas, el número insuficiente de botes y la velocidad (fuentes 7 y 8).
+  El informe concluyó que había botes insuficientes aunque el barco cumplía la norma británica
+  (Board of Trade). Dio lugar a nuevas normas de botes y chalecos (fuentes 1, 7).
+- Botes: 20 botes, capacidad para aproximadamente la mitad de las ~2.200 personas a bordo
+  (National Archives, «The Record», fuente 3). El video usa «aproximadamente la mitad» y no una cifra exacta.
+- Ruptura: NOAA indica que los supervivientes describen que el barco se partió en dos mientras se hundía
+  y que proa y popa se encuentran separadas casi medio kilómetro en el fondo (fuente 4).
+- Rescate: el RMS Carpathia, capitán Arthur Rostron, empezó a recoger botes a las 4:10 a. m. y terminó
+  hacia las 8:30 a. m. del 15 de abril (fuentes 1, 8).
+
+DIFERENCIAS ENTRE FUENTES (incertidumbre)
+- Personas a bordo: 2.223 (National Archives) / 2.227 (NOAA) / ~2.228 («The Record»). El video dice
+  «más de 2.200».
+- Fallecidos: National Archives cita 1.517. Otras fuentes dan cifras algo distintas. El video dice «más de 1.500».
+- Supervivientes rescatados por el Carpathia: 703 (GovInfo), 705 (NOAA), 706 (National Archives), 710 (otros).
+  El video NO cita una cifra exacta de supervivientes por esta razón.
+- Hora del hundimiento: se usa 2:20 a. m., la hora aceptada comúnmente. En la búsqueda web solo una fuente
+  (NOAA) la mencionó explícitamente; el resto de los extractos solo decían «menos de tres horas después
+  de las 11:40 p. m.», que es coherente con ella.
+
+LICENCIA / CRÉDITOS DE MEDIOS
+- Todas las imágenes son ilustraciones 2D generadas por código (Python + Pillow + numpy). No se usan
+  fotografías, modelos 3D ni imágenes de terceros.
+- El audio (música instrumental y efectos) se sintetiza por código; no hay voces, narración ni letras.
+
+LICENCIAS DE LIBRERÍAS: Pillow (HPND), numpy (BSD), FFmpeg (LGPL/GPL), fuentes Liberation (SIL OFL).
