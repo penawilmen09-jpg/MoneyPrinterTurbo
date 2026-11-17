@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:05,000
+Hace 66 millones de años, los dinosaurios dominaban la Tierra.
+
+2
+00:00:05,000 --> 00:00:10,000
+Enormes criaturas caminaban por bosques y llanuras.
+
+3
+00:00:10,000 --> 00:00:15,000
+Algunos eran gigantescos depredadores, como el Tiranosaurio Rex.
+
+4
+00:00:15,000 --> 00:00:20,000
+Pero algo terrible estaba a punto de suceder.
+
+5
+00:00:20,000 --> 00:00:25,000
+Un enorme asteroide viajaba directamente hacia nuestro planeta.
+
+6
+00:00:25,000 --> 00:00:30,000
+Su impacto ocurrió cerca de la actual península de Yucatán.
+
+7
+00:00:30,000 --> 00:00:35,000
+Una explosión gigantesca sacudió la Tierra.
+
+8
+00:00:35,000 --> 00:00:40,000
+El fuego y los terremotos devastaron enormes regiones.
+
+9
+00:00:40,000 --> 00:00:45,000
+El polvo y los gases bloquearon gran parte de la luz solar.
+
+10
+00:00:45,000 --> 00:00:50,000
+Las temperaturas descendieron y muchas plantas desaparecieron.
+
+11
+00:00:50,000 --> 00:00:55,000
+Los ecosistemas colapsaron y desapareció cerca del 75 % de las especies.
+
+12
+00:00:55,000 --> 00:01:00,000
+Así terminó la era de los dinosaurios no avianos y comenzó una nueva etapa de la vida.
+
