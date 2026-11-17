@@ -1,0 +1,319 @@
+{
+ "engine": "kokoro",
+ "scene_starts": [
+  0.0,
+  10.262721088435374,
+  20.262721088435374,
+  30.262721088435367,
+  40.26269841269841,
+  50.60428571428572
+ ],
+ "scene_ends": [
+  10.262721088435374,
+  20.262721088435374,
+  30.262721088435367,
+  40.26269841269841,
+  50.60428571428572,
+  60.604285714285716
+ ],
+ "total": 60.604285714285716,
+ "clauses": [
+  {
+   "scene": 0,
+   "text": "Hace más de veinte mil años,",
+   "start": 0.55,
+   "end": 2.6189342403628117
+  },
+  {
+   "scene": 0,
+   "text": "enormes glaciares cubrían gran parte del planeta.",
+   "start": 2.8689342403628117,
+   "end": 5.949387755102041
+  },
+  {
+   "scene": 0,
+   "text": "El frío extremo ponía a prueba a cada ser humano.",
+   "start": 6.449387755102041,
+   "end": 9.512721088435374
+  },
+  {
+   "scene": 1,
+   "text": "Para resistir, cazaban mamuts,",
+   "start": 10.812721088435374,
+   "end": 12.838412698412698
+  },
+  {
+   "scene": 1,
+   "text": "y con sus pieles confeccionaban abrigos gruesos.",
+   "start": 13.088412698412698,
+   "end": 16.02374149659864
+  },
+  {
+   "scene": 1,
+   "text": "Los huesos se convertían en herramientas.",
+   "start": 16.473741496598638,
+   "end": 18.983990929705215
+  },
+  {
+   "scene": 2,
+   "text": "El fuego lo cambió todo.",
+   "start": 20.812721088435374,
+   "end": 22.407596371882086
+  },
+  {
+   "scene": 2,
+   "text": "Les daba calor y luz,",
+   "start": 22.857596371882085,
+   "end": 24.450612244897957
+  },
+  {
+   "scene": 2,
+   "text": "alejaba a las fieras,",
+   "start": 24.650612244897957,
+   "end": 26.048934240362808
+  },
+  {
+   "scene": 2,
+   "text": "y permitía cocinar los alimentos.",
+   "start": 26.248934240362807,
+   "end": 28.541768707482987
+  },
+  {
+   "scene": 3,
+   "text": "Cuando llegaban las tormentas,",
+   "start": 30.812721088435367,
+   "end": 32.74072562358276
+  },
+  {
+   "scene": 3,
+   "text": "se refugiaban en cuevas,",
+   "start": 32.99072562358276,
+   "end": 34.586349206349205
+  },
+  {
+   "scene": 3,
+   "text": "o levantaban tiendas con huesos y pieles.",
+   "start": 34.78634920634921,
+   "end": 37.41968253968254
+  },
+  {
+   "scene": 4,
+   "text": "Su mayor fortaleza era la comunidad.",
+   "start": 40.81269841269841,
+   "end": 43.27662131519274
+  },
+  {
+   "scene": 4,
+   "text": "Compartían la comida,",
+   "start": 43.726621315192745,
+   "end": 45.24770975056689
+  },
+  {
+   "scene": 4,
+   "text": "cuidaban a los niños,",
+   "start": 45.447709750566894,
+   "end": 46.89884353741497
+  },
+  {
+   "scene": 4,
+   "text": "y transmitían su sabiduría junto a la hoguera.",
+   "start": 47.09884353741497,
+   "end": 49.85428571428572
+  },
+  {
+   "scene": 5,
+   "text": "Gracias a su ingenio, su unión y su valentía,",
+   "start": 51.15428571428572,
+   "end": 53.9614739229025
+  },
+  {
+   "scene": 5,
+   "text": "la humanidad superó el hielo.",
+   "start": 54.261473922902496,
+   "end": 56.151269841269844
+  },
+  {
+   "scene": 5,
+   "text": "Y así, comenzó nuestra historia.",
+   "start": 56.651269841269844,
+   "end": 58.615147392290254
+  }
+ ],
+ "cues": [
+  [
+   0.55,
+   1.3528991349626271,
+   "Hace más de"
+  ],
+  [
+   1.3928991349626272,
+   2.6189342403628117,
+   "veinte mil años,"
+  ],
+  [
+   2.8689342403628117,
+   4.433337112622827,
+   "enormes glaciares cubrían"
+  ],
+  [
+   4.473337112622827,
+   5.949387755102041,
+   "gran parte del planeta."
+  ],
+  [
+   6.449387755102041,
+   7.877234977324263,
+   "El frío extremo ponía a"
+  ],
+  [
+   7.917234977324263,
+   9.512721088435374,
+   "prueba a cada ser humano."
+  ],
+  [
+   10.812721088435374,
+   11.750641176010635,
+   "Para resistir,"
+  ],
+  [
+   11.790641176010634,
+   12.838412698412698,
+   "cazaban mamuts,"
+  ],
+  [
+   13.088412698412698,
+   14.069396628216504,
+   "y con sus pieles"
+  ],
+  [
+   14.109396628216503,
+   14.962757566794835,
+   "confeccionaban"
+  ],
+  [
+   15.002757566794834,
+   16.02374149659864,
+   "abrigos gruesos."
+  ],
+  [
+   16.473741496598638,
+   17.939891156462586,
+   "Los huesos se convertían"
+  ],
+  [
+   17.979891156462585,
+   18.983990929705215,
+   "en herramientas."
+  ],
+  [
+   20.812721088435374,
+   22.407596371882086,
+   "El fuego lo cambió todo."
+  ],
+  [
+   22.857596371882085,
+   24.450612244897957,
+   "Les daba calor y luz,"
+  ],
+  [
+   24.650612244897957,
+   26.048934240362808,
+   "alejaba a las fieras,"
+  ],
+  [
+   26.248934240362807,
+   27.49865362811791,
+   "y permitía cocinar"
+  ],
+  [
+   27.53865362811791,
+   28.541768707482987,
+   "los alimentos."
+  ],
+  [
+   30.812721088435367,
+   31.769964813511606,
+   "Cuando llegaban"
+  ],
+  [
+   31.809964813511606,
+   32.74072562358276,
+   "las tormentas,"
+  ],
+  [
+   32.99072562358276,
+   34.586349206349205,
+   "se refugiaban en cuevas,"
+  ],
+  [
+   34.78634920634921,
+   36.06301587301588,
+   "o levantaban tiendas"
+  ],
+  [
+   36.10301587301588,
+   37.41968253968254,
+   "con huesos y pieles."
+  ],
+  [
+   40.81269841269841,
+   42.03985876255264,
+   "Su mayor fortaleza"
+  ],
+  [
+   42.07985876255264,
+   43.27662131519274,
+   "era la comunidad."
+  ],
+  [
+   43.726621315192745,
+   45.24770975056689,
+   "Compartían la comida,"
+  ],
+  [
+   45.447709750566894,
+   46.89884353741497,
+   "cuidaban a los niños,"
+  ],
+  [
+   47.09884353741497,
+   48.65087679516252,
+   "y transmitían su sabiduría"
+  ],
+  [
+   48.69087679516252,
+   49.85428571428572,
+   "junto a la hoguera."
+  ],
+  [
+   51.15428571428572,
+   52.45408008658009,
+   "Gracias a su ingenio,"
+  ],
+  [
+   52.49408008658009,
+   53.9614739229025,
+   "su unión y su valentía,"
+  ],
+  [
+   54.261473922902496,
+   55.03138645934565,
+   "la humanidad"
+  ],
+  [
+   55.071386459345646,
+   56.151269841269844,
+   "superó el hielo."
+  ],
+  [
+   56.651269841269844,
+   57.49818228366616,
+   "Y así, comenzó"
+  ],
+  [
+   57.53818228366616,
+   58.615147392290254,
+   "nuestra historia."
+  ]
+ ]
+}

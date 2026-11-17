@@ -1,0 +1,71 @@
+{
+ "mp4_existe": {
+  "ok": true,
+  "info": "28.4 MB"
+ },
+ "video_h264_1080x1920": {
+  "ok": true,
+  "info": "h264 1080x1920 High lvl41 yuv420p"
+ },
+ "android_compat": {
+  "ok": true,
+  "info": "yuv420p, High@4.1, faststart"
+ },
+ "tiene_audio_aac": {
+  "ok": true,
+  "info": "aac 48000Hz 2ch"
+ },
+ "duracion_~60s": {
+  "ok": true,
+  "info": "60.60s"
+ },
+ "fps_constante_30": {
+  "ok": true,
+  "info": "30/1"
+ },
+ "faststart_moov_al_inicio": {
+  "ok": true,
+  "info": ""
+ },
+ "decodifica_sin_errores": {
+  "ok": true,
+  "info": ""
+ },
+ "narracion_presente": {
+  "ok": true,
+  "info": "voz activa 67% del tiempo"
+ },
+ "voz_sobre_musica": {
+  "ok": true,
+  "info": "RMS con voz 0.112 vs fondo 0.017 (16.3 dB)"
+ },
+ "audio_no_clipping": {
+  "ok": true,
+  "info": "pico 0.74 (-2.6 dBFS)"
+ },
+ "srt_una_linea_por_cue": {
+  "ok": true,
+  "info": "35 cues, máx 26 car."
+ },
+ "srt_sin_solapes": {
+  "ok": true,
+  "info": ""
+ },
+ "srt_sin_duplicados": {
+  "ok": true,
+  "info": ""
+ },
+ "srt_sincronizado_con_voz": {
+  "ok": true,
+  "info": "35/35 cues sobre voz; fuera: []"
+ },
+ "inicio_voz_vs_cue_<=0.2s": {
+  "ok": true,
+  "info": "desvío máx 37 ms"
+ },
+ "animacion_con_movimiento": {
+  "ok": true,
+  "info": "dif media por escena (0.5 s): 5.33, 5.32, 7.46, 5.54, 1.80, 6.97"
+ },
+ "_resumen": "APROBADO"
+}
