@@ -1,0 +1,191 @@
+{
+ "duration": 60,
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0,
+   "end": 7
+  },
+  {
+   "id": "s2",
+   "start": 7,
+   "end": 14
+  },
+  {
+   "id": "s3",
+   "start": 14,
+   "end": 22
+  },
+  {
+   "id": "s4",
+   "start": 22,
+   "end": 30
+  },
+  {
+   "id": "s5",
+   "start": 30,
+   "end": 40
+  },
+  {
+   "id": "s6",
+   "start": 40,
+   "end": 48
+  },
+  {
+   "id": "s7",
+   "start": 48,
+   "end": 55
+  },
+  {
+   "id": "s8",
+   "start": 55,
+   "end": 60
+  }
+ ],
+ "subs": [
+  {
+   "a": 0.4,
+   "b": 2.7,
+   "text": "[[11 DE JULIO DE 2015.]]"
+  },
+  {
+   "a": 2.8,
+   "b": 6.9,
+   "text": "Un acontecimiento inesperado estaba a punto de cambiar la historia de una de las prisiones más vigiladas de [[México]]."
+  },
+  {
+   "a": 7.3,
+   "b": 13.8,
+   "text": "[[Joaquín Guzmán Loera]] estaba detenido en el penal de máxima seguridad del [[Altiplano]]."
+  },
+  {
+   "a": 14.4,
+   "b": 21.8,
+   "text": "A las [[20:52]] fue visto por última vez acercándose al área de las [[regaderas]]."
+  },
+  {
+   "a": 22.3,
+   "b": 25.9,
+   "text": "Los custodios descubrieron que había [[desaparecido]]."
+  },
+  {
+   "a": 26.0,
+   "b": 29.8,
+   "text": "Debajo de la ducha encontraron una [[abertura]] que conducía a un [[túnel]]."
+  },
+  {
+   "a": 30.3,
+   "b": 34.6,
+   "text": "El túnel tenía más de [[un kilómetro]] de longitud"
+  },
+  {
+   "a": 34.7,
+   "b": 39.8,
+   "text": "y contaba con [[iluminación]], [[ventilación]] y una [[motocicleta sobre rieles]]."
+  },
+  {
+   "a": 40.3,
+   "b": 44.1,
+   "text": "El túnel terminaba en una [[construcción]] situada fuera del penal."
+  },
+  {
+   "a": 44.2,
+   "b": 47.8,
+   "text": "Por allí consiguió [[escapar]]."
+  },
+  {
+   "a": 48.3,
+   "b": 54.8,
+   "text": "La fuga provocó una [[movilización nacional]] para encontrar al prisionero."
+  },
+  {
+   "a": 55.2,
+   "b": 59.5,
+   "text": "Seis meses después, el [[8 de enero de 2016]], fue capturado nuevamente."
+  }
+ ],
+ "walks": [
+  {
+   "id": "chapo_a",
+   "who": "chapo",
+   "t0": 7.3,
+   "t1": 9.7,
+   "N": 3,
+   "x0": 1060,
+   "x1": 650
+  },
+  {
+   "id": "chapo_b",
+   "who": "chapo",
+   "t0": 11.0,
+   "t1": 13.6,
+   "N": 3,
+   "x0": 650,
+   "x1": 960
+  },
+  {
+   "id": "chapo_c",
+   "who": "chapo",
+   "t0": 15.4,
+   "t1": 20.3,
+   "N": 6,
+   "x0": 520,
+   "x1": 1300
+  },
+  {
+   "id": "g1_a",
+   "who": "g1",
+   "t0": 23.0,
+   "t1": 27.0,
+   "N": 5,
+   "x0": 170,
+   "x1": 1190
+  },
+  {
+   "id": "g2_a",
+   "who": "g2",
+   "t0": 23.9,
+   "t1": 27.7,
+   "N": 5,
+   "x0": 110,
+   "x1": 1020
+  },
+  {
+   "id": "chapo_d",
+   "who": "chapo",
+   "t0": 44.6,
+   "t1": 47.6,
+   "N": 4,
+   "x0": 760,
+   "x1": 1500
+  },
+  {
+   "id": "m1_a",
+   "who": "marine",
+   "t0": 55.2,
+   "t1": 58.4,
+   "N": 4,
+   "x0": 60,
+   "x1": 560
+  },
+  {
+   "id": "m2_a",
+   "who": "marine",
+   "t0": 55.2,
+   "t1": 58.4,
+   "N": 4,
+   "x0": 340,
+   "x1": 840
+  },
+  {
+   "id": "chapoB_a",
+   "who": "chapoB",
+   "t0": 55.2,
+   "t1": 58.4,
+   "N": 4,
+   "x0": 200,
+   "x1": 700
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+DOCUMENTAL ANIMADO 2D — ASÍ FUE COMO EL CHAPO GUZMÁN ESCAPÓ DE PRISIÓN
+FUENTES HISTÓRICAS CONSULTADAS Y HECHOS VERIFICADOS
+=========================================================================
+Fecha de la investigación: 17-nov-2026. Método: búsqueda web de coberturas de prensa que citan los comunicados
+oficiales y declaraciones de funcionarios. LIMITACIÓN HONESTA: en este entorno no fue posible abrir directamente
+las páginas de gob.mx, justice.gov ni el texto completo de BBC/AP; los datos provienen de medios que
+reproducen o resumen esas fuentes (listados abajo). Se recomienda contrastar con el comunicado original de la
+Comisión Nacional de Seguridad (CNS) del 11-12 jul 2015 antes de publicar.
+
+FUENTES CONSULTADAS (medios y documentos accesibles en la búsqueda)
+- PBS Frontline: "Drug Kingpin 'El Chapo' Guzmán Escapes Prison For a Second Time" y
+  "Joaquín 'El Chapo' Guzmán Captured, A Third Time" — https://www.pbs.org/wgbh/frontline/article/
+- Al Jazeera, 13-jul-2015: "Mexican kingpin in brazen escape via elaborate tunnel"
+- AP (vía VOA): "AP: Mexico drug lord escape tunnel is audacious engineering feat" — voanews.com
+- AP/VOA (vía GlobalSecurity.org), 9-ene-2016: "Mexico Sends Escaped Drug Lord 'El Chapo' Back to Prison"
+- Vice News: "In photos: take a tour of the tunnel Chapo Guzmán used to escape in Mexico"
+- El Universal (EN), 15-jul-2015: "El Chapo's escape tunnel was deep, high-tech"
+- La Jornada (12-jul-2015 y 21-sep-2015) y La Patilla (12-jul-2015), que reproducen el comunicado de la CNS
+- Quadratín, Zeta Tijuana (2015 y 2016), Expansión (15-jul-2015), Excélsior (23-oct-2015): detalles del túnel
+- Business Insider (imágenes satelitales de feb-2015 de la construcción de salida)
+- CBS News, ABC News, Fox News (cobertura de la recaptura del 8-ene-2016)
+- Referencia BBC (no recuperada en texto completo): "El Chapo: How Mexico's drug kingpin fell victim to his own
+  legend", 9-ene-2016.
+
+HECHOS VERIFICADOS (usados en el video)
+1. Fecha: 11 de julio de 2015 (sábado). Joaquín Guzmán Loera escapó del penal federal de máxima seguridad del
+   Altiplano (Almoloya de Juárez, Estado de México, cerca de Toluca). Era su segunda fuga (la anterior, 2001).
+   [Al Jazeera, PBS, La Jornada, La Patilla]
+2. Hora: el comunicado de la CNS situó la fuga a las 20:52 h; se le vio por última vez en el área de regaderas
+   de su celda (celda 20, pasillo 2, según la reproducción del comunicado). [La Patilla, La Jornada]
+3. Abertura: en la regadera de la celda había una abertura cuadrada de unos 50 x 50 cm (20 x 20 in) que daba
+   acceso al túnel (declaración del comisionado Monte Alejandro Rubido). [PBS, Vice]
+4. Túnel: aproximadamente 1.5 km de longitud según las autoridades (cifras: ~1,500 m en comunicados y prensa;
+   un investigador federal citado por Vice dio 1,425 m). Altura ~1.7 m, ancho ~0.75–0.80 m. Profundidad: ~10 m en
+   el conducto de acceso; funcionarios mencionaron hasta ~19–20 m en el trayecto. Contaba con iluminación,
+   ventilación (tubería de PVC) y una motocicleta adaptada sobre rieles. [Al Jazeera, PBS, Vice, Quadratín,
+   Excélsior, Expansión, Macau Daily Times/AFP]
+   -> El subtítulo del video dice "más de un kilómetro" para ser compatible con ambas cifras. En la escena 5
+   el túnel está dibujado de forma esquemática (corte lateral, proporciones verticales exageradas).
+5. Salida: el túnel terminaba en un inmueble en obra negra, en la colonia Santa Juanita (también "Santa Juana"),
+   Almoloya de Juárez, al suroeste del penal. Imágenes satelitales de feb-2015 ya mostraban la construcción.
+   [Zeta Tijuana, Excélsior, Business Insider, El Universal]
+6. Respuesta: operativo en la zona y carreteras de estados vecinos y suspensión de operaciones del aeropuerto de
+   Toluca; búsqueda a nivel nacional. [La Jornada, La Patilla]
+7. Recaptura: viernes 8 de enero de 2016 en Los Mochis, Sinaloa, por infantes de Marina (con apoyo de Policía
+   Federal), seis meses después de la fuga; anunciada por el presidente Enrique Peña Nieto; fue devuelto al
+   Altiplano. [AP/VOA, PBS, ABC, CBS, Fox]
+
+DETALLES NO CONFIRMADOS / DISCREPANCIAS (por eso NO se afirman en el video)
+- Longitud exacta del túnel (1,425 m vs ~1,500 m): se usa "más de un kilómetro".
+- Cómo exactamente quedó fuera de cámara en la regadera y cómo se descubrió su ausencia: los relatos difieren;
+  el video sólo muestra que se acerca al área, desaparece de vista y que luego los custodios hallan la abertura.
+- Quién viajó en la motocicleta: las fuentes dicen que fue usada para transportar tierra/herramientas; el
+  video muestra la moto vacía sobre rieles (no se afirma que Guzmán la usara).
+- Detalles del lugar de la recaptura (motel vs casa): la fuente varía; el video muestra una calle en Los Mochis
+  con infantes de Marina custodiando a un detenido, sin precisar el inmueble ni el tiroteo.
+- Vestimenta exacta de Guzmán al escapar y en las escenas de celda: no verificada; la ropa es ilustrativa
+  (uniforme caqui genérico). En la recaptura se le dibuja con camiseta blanca sin mangas, como en las
+  imágenes difundidas.
+- No hay diálogos, personas inventadas ni cifras no documentadas. Los guardias/agentes son figuras genéricas.
+
+NOTAS DE PRODUCCIÓN
+- Las escenas son recreaciones ilustradas 2D (no grabaciones auténticas). Tono periodístico, sin glorificar.
+- El sello "11-JUL-2015 20:52 / REC" de la escena 3 es un elemento diegético de la cámara ilustrada.
+- Todo el audio es sintético: música instrumental + efectos; sin voces, narración ni canciones con letra.
