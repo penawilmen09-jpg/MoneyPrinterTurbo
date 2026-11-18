@@ -1,0 +1,68 @@
+[
+ {
+  "n": 1,
+  "inicio": 0.3,
+  "fin": 4.24,
+  "texto": "Una isla del Caribe. Dos países y dos historias muy diferentes."
+ },
+ {
+  "n": 2,
+  "inicio": 4.49,
+  "fin": 8.45,
+  "texto": "Esta es La Española, compartida por República Dominicana y Haití."
+ },
+ {
+  "n": 3,
+  "inicio": 8.7,
+  "fin": 13.49,
+  "texto": "Al este se encuentra República Dominicana, conocida por sus playas y su turismo."
+ },
+ {
+  "n": 4,
+  "inicio": 14.2,
+  "fin": 18.44,
+  "texto": "Al oeste está Haití, una nación de montañas y una cultura llena de historia."
+ },
+ {
+  "n": 5,
+  "inicio": 21.2,
+  "fin": 26.18,
+  "texto": "Ambos países comparten territorio, pero tienen idiomas y tradiciones diferentes."
+ },
+ {
+  "n": 6,
+  "inicio": 27.8,
+  "fin": 31.18,
+  "texto": "En República Dominicana destacan el merengue y la bachata."
+ },
+ {
+  "n": 7,
+  "inicio": 31.43,
+  "fin": 35.65,
+  "texto": "En Haití destacan sus tambores, carnavales y tradiciones culturales."
+ },
+ {
+  "n": 8,
+  "inicio": 35.9,
+  "fin": 41.89,
+  "texto": "Sus economías también son diferentes. República Dominicana tiene un importante sector turístico."
+ },
+ {
+  "n": 9,
+  "inicio": 42.14,
+  "fin": 45.42,
+  "texto": "Haití enfrenta grandes desafíos económicos y sociales."
+ },
+ {
+  "n": 10,
+  "inicio": 46.5,
+  "fin": 53.15,
+  "texto": "Haití declaró su independencia en 1804. República Dominicana en 1844."
+ },
+ {
+  "n": 11,
+  "inicio": 53.4,
+  "fin": 58.53,
+  "texto": "Dos países, una isla y dos historias. ¿Cuál de estas diferencias te sorprendió más?"
+ }
+]
