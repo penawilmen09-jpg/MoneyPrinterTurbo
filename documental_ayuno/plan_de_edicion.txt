@@ -1,0 +1,45 @@
+PLAN DE EDICIÓN — CapCut (u otro editor gratuito)
+Proyecto: 9:16 · 1080×1920 · 30 fps · 90,0 s · exportar MP4 H.264.
+
+1) ORDEN DE TRABAJO
+ a. Crear proyecto 9:16, 30 fps. Línea de tiempo de 90 s con 11 bloques (marcadores): 0-8, 8-16, 16-24, 24-32, 32-40, 40-48, 48-56, 56-64, 64-72, 72-82, 82-90.
+ b. Generar la narración con una voz masculina de español latino gratuita (narracion_para_capcut.txt). Pegar cada fragmento por escena.
+ c. Medir la duración real de cada escena de voz. SOLO ENTONCES ajustar clips y subtítulos.
+ d. Colocar clips (lista_de_clips_necesarios.txt). Cortes duros o disolvencias de 0,3–0,5 s; movimiento de cámara ya viene en los clips, no añadir zooms falsos.
+ e. Música y sonidos (abajo). f. Subtítulos. g. Revisión y exportación.
+
+2) NARRACIÓN
+ - Una sola voz en todo el video. No mezclar voces.
+ - Arranca ~0,3 s después del inicio de cada escena; deja ~0,5 s de silencio entre escenas.
+ - Si la voz dura más de 8 s en una escena, acelera 5–8 % o reduce una pausa. No cortes texto científico.
+
+3) MÚSICA (libre de derechos)
+ - Fuentes: biblioteca de música gratuita de CapCut (marca "uso comercial"), YouTube Audio Library, Pixabay Music, Free Music Archive. Guarda la licencia.
+ - También hay pistas en resource/songs/ (output000-013.mp3) del proyecto; verifica su origen y licencia antes de publicar.
+ - Estructura: 0-8 s intriga suave y baja; 8-56 s intensidad creciente; 56-82 s pico durante los riesgos (escena 9 la más intensa); 82-90 s resolución emocional y fade-out de 2 s.
+ - Volumen: música a -22/-18 dB bajo la voz (≈ 15–20 % en CapCut); ducking automático en las partes con voz. Verifica con auriculares que la voz se entienda siempre.
+
+4) EFECTOS DE SONIDO (discretos, gratis)
+ Esc 1: whoosh suave al cruzar la piel · Esc 2/4: burbujeo leve · Esc 3/5: pulso grave tipo latido lejano · Esc 6: chispas eléctricas muy bajas · Esc 7: crujido sutil · Esc 8: respiración lenta · Esc 9: latido del corazón (único sonido fuerte) · Esc 11: acorde final. Volumen -25 dB o menos.
+
+5) SUBTÍTULOS
+ - Importar subtitulos.srt (tiempos PROVISIONALES: calculados por proporción de caracteres, no hay audio).
+ - Reajustar cada cue contra la voz real. Máx. 2 líneas, ~32 caracteres por línea.
+ - Estilo: blanco, tamaño grande (~64–72 px en 1080 de ancho), contorno/sombra oscura, posición en la zona inferior segura (entre y≈1450 y y≈1700; evita los ~250 px finales por la interfaz de TikTok/Reels/Shorts).
+ - Resaltar en amarillo (#FFD400) palabras clave: siete días, glucógeno, cetonas, cerebro, proteínas, electrolitos, corazón, peligroso, atención médica.
+ - Texto final 1:27,7–1:30: EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE. (título grande, centrado).
+
+6) COLOR Y LOOK
+ Look uniforme para todos los clips: contraste moderado, viñeta ligera, tonos fríos azul/cian en la fisiología, rojo/ámbar en la sangre; evita saturación fuerte. Añade grano leve para unificar IA y stock.
+
+7) CONTROL DE CALIDAD ANTES DE EXPORTAR
+ [ ] Duración exacta 90,0 s · [ ] 1080×1920 · [ ] 30 fps · [ ] sin fotogramas negros ni huecos
+ [ ] Una sola voz · [ ] voz sincronizada con subtítulos · [ ] música no tapa la voz
+ [ ] Ningún clip repetido · [ ] Licencias guardadas · [ ] Advertencia educativa en la descripción
+ [ ] Ninguna frase presenta el ayuno como reto o recomendación.
+
+8) EXPORTACIÓN
+ MP4, H.264, 1080×1920, 30 fps, 10–16 Mbps, AAC 192 kbps. Nombre: documental_final.mp4. Exporta también la voz sola como narracion_completa.mp3.
+
+9) DESCRIPCIÓN PARA PUBLICAR
+ "Contenido educativo, no recomienda ayunar. Los efectos varían según la persona. Un ayuno prolongado puede ser peligroso y requiere supervisión médica."

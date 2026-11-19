@@ -1,140 +1,118 @@
 1
-00:00:00,200 --> 00:00:02,963
-¿Qué le sucede realmente a tu cuerpo
+00:00:00,200 --> 00:00:04,241
+¿Qué le sucede realmente a tu
+cuerpo cuando pasas siete días
 
 2
-00:00:02,963 --> 00:00:05,332
-cuando pasas siete días sin comer?
+00:00:04,291 --> 00:00:07,650
+sin comer? La respuesta
+cambia según cada persona.
 
 3
-00:00:05,332 --> 00:00:07,700
-La respuesta cambia según cada persona.
+00:00:08,200 --> 00:00:12,105
+Durante las primeras horas,
+tu cuerpo sigue utilizando los
 
 4
-00:00:08,200 --> 00:00:10,847
-Durante las primeras horas, tu cuerpo
+00:00:12,155 --> 00:00:15,650
+nutrientes de tu última
+comida para obtener energía.
 
 5
-00:00:10,847 --> 00:00:13,494
-sigue utilizando los nutrientes de tu
+00:00:16,200 --> 00:00:20,752
+Cuando la glucosa disponible
+baja, el hígado libera la
 
 6
-00:00:13,494 --> 00:00:15,700
-última comida para obtener energía.
-
-7
-00:00:16,200 --> 00:00:19,085
-Cuando la glucosa disponible baja,
-
-8
-00:00:19,085 --> 00:00:22,546
-el hígado libera la glucosa almacenada
-
-9
-00:00:22,546 --> 00:00:23,700
+00:00:20,802 --> 00:00:23,650
+glucosa almacenada
 como glucógeno.
 
+7
+00:00:24,200 --> 00:00:28,072
+Con el paso del tiempo, la
+insulina disminuye y el cuerpo
+
+8
+00:00:28,122 --> 00:00:31,650
+usa más sus reservas de
+grasa para producir energía.
+
+9
+00:00:32,200 --> 00:00:36,155
+El hígado también produce
+cuerpos cetónicos, que pueden
+
 10
-00:00:24,200 --> 00:00:26,825
-Con el paso del tiempo, la insulina
-
-11
-00:00:26,825 --> 00:00:29,450
-disminuye y el cuerpo usa más sus
-
-12
-00:00:29,450 --> 00:00:31,700
-reservas de grasa para producir energía.
-
-13
-00:00:32,200 --> 00:00:35,200
-El hígado también produce cuerpos cetónicos,
-
-14
-00:00:35,200 --> 00:00:38,200
-que pueden convertirse en una fuente
-
-15
-00:00:38,200 --> 00:00:39,700
+00:00:36,205 --> 00:00:39,650
+convertirse en una fuente
 importante de energía.
 
-16
-00:00:40,200 --> 00:00:43,012
-Tras varios días, el cerebro puede
+11
+00:00:40,200 --> 00:00:44,446
+Tras varios días, el cerebro
+puede usar más cetonas, aunque
 
-17
-00:00:43,012 --> 00:00:45,825
-usar más cetonas, aunque todavía necesita
+12
+00:00:44,496 --> 00:00:47,650
+todavía necesita cierta
+cantidad de glucosa.
 
-18
-00:00:45,825 --> 00:00:47,700
-cierta cantidad de glucosa.
+13
+00:00:48,200 --> 00:00:50,507
+Pero el cuerpo no
+usa solo grasa.
 
-19
-00:00:48,200 --> 00:00:51,481
-Pero el cuerpo no usa solo grasa.
-
-20
-00:00:51,481 --> 00:00:53,356
+14
+00:00:50,557 --> 00:00:55,650
 También puede descomponer proteínas,
-
-21
-00:00:53,356 --> 00:00:55,700
 incluida parte del tejido muscular.
 
-22
-00:00:56,200 --> 00:00:59,012
-En un ayuno prolongado pueden aparecer
+15
+00:00:56,200 --> 00:00:59,967
+En un ayuno prolongado pueden
+aparecer debilidad, mareos,
 
-23
-00:00:59,012 --> 00:01:01,825
-debilidad, mareos, presión baja y alteraciones
-
-24
-00:01:01,825 --> 00:01:03,700
+16
+00:01:00,017 --> 00:01:03,650
+presión baja y alteraciones
 del equilibrio de líquidos.
 
-25
-00:01:04,200 --> 00:01:07,662
-Las alteraciones de electrolitos pueden afectar
+17
+00:01:04,200 --> 00:01:08,317
+Las alteraciones de electrolitos
+pueden afectar al corazón y
 
-26
-00:01:07,662 --> 00:01:11,123
-al corazón y causar complicaciones potencialmente
+18
+00:01:08,367 --> 00:01:11,650
+causar complicaciones
+potencialmente peligrosas.
 
-27
-00:01:11,123 --> 00:01:11,700
-peligrosas.
+19
+00:01:12,200 --> 00:01:15,753
+El peso perdido
+no es solo grasa.
 
-28
-00:01:12,200 --> 00:01:16,633
-El peso perdido no es solo grasa.
+20
+00:01:15,803 --> 00:01:21,650
+También puede incluir agua,
+glucógeno y masa muscular.
 
-29
-00:01:16,633 --> 00:01:20,433
-También puede incluir agua, glucógeno y
+21
+00:01:22,200 --> 00:01:24,496
+Tu cuerpo puede adaptarse,
+pero eso no lo hace seguro.
 
-30
-00:01:20,433 --> 00:01:21,700
-masa muscular.
+22
+00:01:24,546 --> 00:01:26,364
+Un ayuno de siete días
+puede ser peligroso:
 
-31
-00:01:22,200 --> 00:01:24,343
-Tu cuerpo puede adaptarse, pero eso
+23
+00:01:26,414 --> 00:01:27,450
+requiere atención médica.
 
-32
-00:01:24,343 --> 00:01:26,843
-no lo hace seguro. Un ayuno de
-
-33
-00:01:26,843 --> 00:01:28,986
-siete días puede ser peligroso: requiere
-
-34
-00:01:28,986 --> 00:01:29,700
-atención médica.
-
-35
-00:01:26,500 --> 00:01:30,000
+24
+00:01:27,700 --> 00:01:30,000
 EL CUERPO HUMANO ES INCREÍBLE,
 PERO NO INVENCIBLE.

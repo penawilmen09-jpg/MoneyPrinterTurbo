@@ -1,0 +1,41 @@
+LISTA DE CLIPS NECESARIOS — 11 escenas, ~90 s
+Estado: NADA generado ni descargado. 0 créditos gastados (saldo Higgsfield: 7).
+
+REGLA: no se simula 3D con zoom sobre fotos. Una escena es "IA real" (clip generado con movimiento propio) o "stock" (video real/animación existente con licencia). Si no hay clip adecuado, se deja la escena en blanco y se avisa; no se rellena con fotos con zoom.
+
+--- COSTO ESTIMADO EN HIGGSFIELD (consultado con estimate_video_cost; no consume créditos) ---
+Todos 9:16, 4 s, 480p, sin audio generado:
+  seedance_2_0_mini ....... 2 créditos/clip  <- opción más barata
+  grok_video_v15_lite ..... 4 créditos/clip
+  minimax_h3_max (5 s) .... 7,5 créditos/clip
+  seedance_2_5_flash ...... 8 créditos/clip
+Con 7 créditos: 3 clips de 4 s con seedance_2_0_mini = 6 créditos (queda 1).
+Limitaciones: 480p (hay que escalar a 1080×1920 en edición, se verá más blando) y 4 s por clip (cada escena dura 8 s: un clip cubre la mitad, el resto con stock). No tengo un precio verificado para 5 s+ ni para otros ajustes; confirmaría antes de generar.
+Opción de arranque: 1 clip de prueba (2 créditos) para validar calidad antes de gastar el resto.
+
+--- PROPUESTA: 3 CLIPS IA (A APROBAR POR TI) ---
+IA-1 · Escena 6 EL CEREBRO (prioridad 1) — cerebro 3D con neuronas, partículas cian (cetonas) y doradas (glucosa) llegando a las células, órbita lenta. Es la escena más difícil de encontrar en stock con ambos tipos de partículas.
+IA-2 · Escena 5 CETONAS (prioridad 2) — hepatocitos emitiendo esferas azul-cian que entran a un vaso sanguíneo. Sirve también como plano de apoyo en la escena 3 (hígado) si se re-edita con otro color.
+IA-3 · Escena 1 APERTURA (prioridad 3) — cámara avanza hacia el abdomen, la piel se vuelve translúcida y aparecen órganos. Es el gancho del primer segundo.
+Alternativas si prefieres otras: escena 9 (corazón + iones) o escena 7 (fibras musculares).
+Prompt de cada una: ver escenas_y_prompts.txt. Añadir siempre: "vertical 9:16, 3D medical animation, cinematic lighting, shallow depth of field, no text, no people's faces, slow camera move".
+
+--- RECURSOS POR ESCENA ---
+Esc  Tipo                 Qué buscar / qué es                                        Duración
+1    IA-3 + stock         Persona frente a mesa vacía (stock Pexels/Pixabay) + IA-3     2-3 s + 4 s
+2    Stock                "stomach digestion 3D animation", "digestive system animation"  8 s
+3    Stock                "liver 3D animation", "hepatocyte glycogen animation"           8 s
+4    Stock                "adipose tissue fat cells animation", "lipolysis animation"     8 s
+5    IA-2 + stock         IA-2 + "blood flow 3D animation" para completar               4 s + 4 s
+6    IA-1 + stock         IA-1 + "neurons brain 3D animation" para completar            4 s + 4 s
+7    Stock                "muscle fibers 3D animation", "myofibril sarcomere animation"   8 s
+8    Stock                Persona cansada (stock) + "blood vessels flow animation"       4 s + 4 s
+9    Stock (o IA)         "beating heart 3D animation", "ECG heart rhythm"               8 s
+10   Stock + gráfico      4 cuerpos/contenedores: se arma en CapCut con formas (sin cifras)  10 s
+11   Stock                Silueta humana con órganos iluminados, "x-ray human body glow"  8 s
+
+Notas:
+- Busca en: Pexels Videos, Pixabay Videos, Wikimedia Commons (animaciones médicas con licencia CC; revisa atribución), Coverr. Yo no verifiqué clips concretos ni enlaces; esta lista son búsquedas, no hallazgos.
+- Cada clip se usa una sola vez. Si un clip de stock es corto, cambia a otro; no lo repitas ni lo ralentices más de 50 %.
+- Revisa la licencia de cada clip (uso comercial y atribución) antes de publicar.
+- Evita clips con cifras o textos que contradigan el guion (p. ej. porcentajes inventados).
