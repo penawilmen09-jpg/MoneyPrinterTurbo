@@ -5,7 +5,7 @@ Video .............. escenas_2d/animacion.html (ilustraciones SVG creadas aquí,
 Render ............. Chromium (Playwright) + FFmpeg. Gratuitos.
 Música ............. musica_original.mp3, sintetizada con numpy (escenas_2d/musica.py). Sin muestras ni obras de terceros.
 Tipografía ......... DejaVu Sans (licencia libre Bitstream Vera/DejaVu), incluida en el sistema; queda dentro de los píxeles del video.
-Voz ................ NO existe. Se agregará en CapCut (voz masculina latina gratuita) con narracion_para_capcut.txt.
+Voz ................ narracion_completa.mp3: Kokoro v1.0 (kokoro-onnx, Apache 2.0), voz masculina en español 'em_alex', ejecutado localmente. Descargado de github.com/thewh1teagle/kokoro-onnx (releases). Script: escenas_2d/narracion_tts.py. Sin costo ni API. Alternativa: voz gratuita de CapCut con narracion_para_capcut.txt.
 
 No se usó: Higgsfield, Seedance, Ofox, APIs de pago, stock de pago, Pexels ni Pixabay (se negó la clave API que requerían), ni imágenes con zoom.
 Nota de entorno: para explorar recursos libres se creó un entorno personal "moneyprinterturbo" con acceso a Pexels, Pixabay y Wikimedia; no se descargó nada. Puedes borrarlo desde la configuración de entornos.

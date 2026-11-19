@@ -1,113 +1,113 @@
 1
-00:00:00,200 --> 00:00:04,241
+00:00:00,338 --> 00:00:03,882
 ¿Qué le sucede realmente a tu
 cuerpo cuando pasas siete días
 
 2
-00:00:04,291 --> 00:00:07,650
+00:00:03,922 --> 00:00:06,869
 sin comer? La respuesta
 cambia según cada persona.
 
 3
-00:00:08,200 --> 00:00:12,105
+00:00:08,338 --> 00:00:11,683
 Durante las primeras horas,
 tu cuerpo sigue utilizando los
 
 4
-00:00:12,155 --> 00:00:15,650
+00:00:11,723 --> 00:00:14,718
 nutrientes de tu última
 comida para obtener energía.
 
 5
-00:00:16,200 --> 00:00:20,752
+00:00:16,342 --> 00:00:19,576
 Cuando la glucosa disponible
 baja, el hígado libera la
 
 6
-00:00:20,802 --> 00:00:23,650
+00:00:19,616 --> 00:00:21,638
 glucosa almacenada
 como glucógeno.
 
 7
-00:00:24,200 --> 00:00:28,072
+00:00:24,338 --> 00:00:27,768
 Con el paso del tiempo, la
 insulina disminuye y el cuerpo
 
 8
-00:00:28,122 --> 00:00:31,650
+00:00:27,808 --> 00:00:30,933
 usa más sus reservas de
 grasa para producir energía.
 
 9
-00:00:32,200 --> 00:00:36,155
+00:00:32,338 --> 00:00:35,447
 El hígado también produce
 cuerpos cetónicos, que pueden
 
 10
-00:00:36,205 --> 00:00:39,650
+00:00:35,487 --> 00:00:38,195
 convertirse en una fuente
 importante de energía.
 
 11
-00:00:40,200 --> 00:00:44,446
+00:00:40,338 --> 00:00:44,012
 Tras varios días, el cerebro
 puede usar más cetonas, aunque
 
 12
-00:00:44,496 --> 00:00:47,650
+00:00:44,052 --> 00:00:46,781
 todavía necesita cierta
 cantidad de glucosa.
 
 13
-00:00:48,200 --> 00:00:50,507
+00:00:48,351 --> 00:00:50,288
 Pero el cuerpo no
 usa solo grasa.
 
 14
-00:00:50,557 --> 00:00:55,650
+00:00:50,328 --> 00:00:54,601
 También puede descomponer proteínas,
 incluida parte del tejido muscular.
 
 15
-00:00:56,200 --> 00:00:59,967
+00:00:56,338 --> 00:00:59,643
 En un ayuno prolongado pueden
 aparecer debilidad, mareos,
 
 16
-00:01:00,017 --> 00:01:03,650
+00:00:59,683 --> 00:01:02,871
 presión baja y alteraciones
 del equilibrio de líquidos.
 
 17
-00:01:04,200 --> 00:01:08,317
+00:01:04,338 --> 00:01:08,047
 Las alteraciones de electrolitos
 pueden afectar al corazón y
 
 18
-00:01:08,367 --> 00:01:11,650
+00:01:08,087 --> 00:01:11,046
 causar complicaciones
 potencialmente peligrosas.
 
 19
-00:01:12,200 --> 00:01:15,753
+00:01:12,337 --> 00:01:14,357
 El peso perdido
 no es solo grasa.
 
 20
-00:01:15,803 --> 00:01:21,650
+00:01:14,397 --> 00:01:17,726
 También puede incluir agua,
 glucógeno y masa muscular.
 
 21
-00:01:22,200 --> 00:01:24,496
+00:01:22,339 --> 00:01:25,597
 Tu cuerpo puede adaptarse,
 pero eso no lo hace seguro.
 
 22
-00:01:24,546 --> 00:01:26,364
+00:01:25,637 --> 00:01:28,224
 Un ayuno de siete días
 puede ser peligroso:
 
 23
-00:01:26,414 --> 00:01:27,450
+00:01:28,264 --> 00:01:29,751
 requiere atención médica.

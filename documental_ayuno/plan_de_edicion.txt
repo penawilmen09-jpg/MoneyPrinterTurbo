@@ -1,9 +1,10 @@
 PLAN DE EDICIÓN — documental 2D "¿Qué le pasa a tu cuerpo cuando dejas de comer durante 7 días?"
 
 ESTADO REAL
- Hecho:  video 2D animado completo, 90,0 s, 1080×1920, 30 fps, H.264, con música original sintetizada.
- Falta:  LA NARRACIÓN (no se generó ninguna voz). El video NO está terminado hasta incorporarla y ajustar los subtítulos al audio real.
- documental_final.mp4 = imagen 2D + música (-26 dB de volumen medio). No lleva voz ni subtítulos quemados.
+ Hecho:  video 2D animado de 90,0 s (1080×1920, 30 fps, H.264) con NARRACIÓN y música original. La narración se generó con Kokoro (modelo abierto, Apache 2.0), voz masculina en español "em_alex", velocidad 0,95, ejecutado localmente: gratis y sin API.
+ Falta:  (1) escuchar el resultado: no pude oír la voz y no verifiqué que el acento sea "latino neutro" ni la pronunciación; (2) subtítulos quemados: el video no los lleva, se agregan en CapCut con subtitulos.srt.
+ narracion_completa.mp3 = solo la voz (90 s). documental_final.mp4 = imagen + voz + música con reducción automática de la música bajo la voz.
+ Si la voz no te convence: reemplázala con una voz de CapCut usando narracion_para_capcut.txt y quita la pista de voz del video (usa narracion_completa.mp3 como referencia de tiempos).
 
 1) AGREGAR LA VOZ EN CAPCUT
  a. Importa documental_final.mp4 (proyecto 9:16, 30 fps).
@@ -15,7 +16,7 @@ ESTADO REAL
 
 2) SUBTÍTULOS
  - Importa subtitulos.srt (Texto > Subtítulos locales). Son 23 bloques, máx. 2 líneas.
- - Los tiempos son PROVISIONALES (repartidos por proporción de caracteres dentro de cada escena). Reajusta cada bloque a la voz real, o usa "Subtítulos automáticos" de CapCut sobre la narración y compara con el SRT para corregir el texto.
+ - Los tiempos ya se calcularon sobre la duración REAL de cada fragmento de voz, pero dentro de cada fragmento se reparten por proporción de caracteres (no hay marcas palabra por palabra). Revisa y reajusta cada bloque a la voz real, o usa "Subtítulos automáticos" de CapCut sobre la narración y compara con el SRT para corregir el texto.
  - Estilo: blanco, ~64–72 px, contorno/sombra oscura, zona inferior segura (y ≈ 1450–1700; el video deja libre esa zona).
  - Resalta en amarillo (#FFD400): siete días, glucógeno, cetonas, cerebro, proteínas, electrolitos, corazón, peligroso, atención médica.
  - El texto final ya está dentro del video (82–90 s): no lo dupliques en los subtítulos.
@@ -45,4 +46,5 @@ ESTADO REAL
  - blackdetect: 0 tramos negros. freezedetect: sin imágenes congeladas ≥1,5 s.
  - volumedetect: media −26,2 dB, pico −10 dB (deja margen para la voz).
  - Revisión visual de fotogramas de las 11 escenas y de las uniones entre segmentos.
- NO verificado: sincronía con la voz (no existe), ni escucha de la música (no hay forma de oírla aquí; revísala tú).
+ - Voz: 11 fragmentos colocados a +0,3 s del inicio de cada escena; todos terminan dentro de su ventana (la escena 11 acaba en 89,7 s). Voz −15 dB RMS; música ≈15 dB por debajo de la voz mientras habla; pico de mezcla −0,8 dBFS.
+ NO verificado: escucha real de voz y música (no hay forma de oírlas aquí), pronunciación, acento y sincronía fina de subtítulos. Revísalo tú.
