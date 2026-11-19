@@ -1,0 +1,36 @@
+Formato 9:16, 1080x1920, 30 fps, H.264. Estilo: documental científico 3D hiperrealista, sin dibujos infantiles ni emojis.
+
+ESCENA 1 [0-8s] INTRODUCCIÓN
+PROMPT: Persona adulta de espaldas frente a una mesa vacía en una cocina tenue; la cámara avanza hacia el abdomen, atraviesa la piel en un corte anatómico translúcido y revela los órganos internos. Render 3D hiperrealista, luz cinematográfica fría, profundidad de campo.
+
+ESCENA 2 [8-16s] LAS PRIMERAS HORAS
+PROMPT: Estómago y intestino delgado en 3D con subsurface scattering; alimento digerido, nutrientes entrando al torrente sanguíneo. Dolly lento, luz cálida ámbar.
+
+ESCENA 3 [16-24s] EL HÍGADO
+PROMPT: La cámara entra en el hígado; gránulos de glucógeno brillantes que se van vaciando y liberan glucosa a los capilares. Macro 3D, bokeh.
+
+ESCENA 4 [24-32s] CAMBIO DE COMBUSTIBLE
+PROMPT: Adipocitos 3D que liberan ácidos grasos hacia un vaso sanguíneo. Cámara lateral en travelling, tonos amarillos y rojos.
+
+ESCENA 5 [32-40s] PRODUCCIÓN DE CETONAS
+PROMPT: Hepatocitos generando esferas luminosas azul-cian (cetonas) que viajan por la sangre. Cámara siguiendo las partículas.
+
+ESCENA 6 [40-48s] EL CEREBRO
+PROMPT: Cerebro 3D con neuronas; partículas cian (cetonas) y doradas (glucosa) llegan a las células. Órbita lenta, glow suave.
+
+ESCENA 7 [48-56s] LOS MÚSCULOS
+PROMPT: Primer plano de fibras musculares con sarcómeros; moléculas de proteína se desprenden y se transforman en energía. Macro, luz lateral.
+
+ESCENA 8 [56-64s] CAMBIOS EN EL ORGANISMO
+PROMPT: Persona sentada, cansada, que se apoya en una pared; transición (match cut) a arterias y venas con flujo sanguíneo lento. Tonos fríos.
+
+ESCENA 9 [64-72s] LOS RIESGOS
+PROMPT: Corazón 3D latiendo, iones (sodio, potasio) como partículas alrededor de las células cardíacas, ritmo irregular sutil. Luz roja dramática.
+
+ESCENA 10 [72-82s] NO TODO ES GRASA
+PROMPT: Cuatro cuerpos o contenedores 3D comparados lado a lado: glucógeno, agua, grasa y músculo, cada uno con color propio, que se reducen en distinta medida (sin cifras).
+
+ESCENA 11 [82-90s] FINAL
+PROMPT: Figura humana completa; la cámara se aleja y los órganos se iluminan en secuencia. Título en pantalla: EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE.
+
+MÚSICA: suspenso científico, intensidad creciente, pico en escena 9, cierre emocional; -18 dB bajo la voz, sin canciones con copyright.
