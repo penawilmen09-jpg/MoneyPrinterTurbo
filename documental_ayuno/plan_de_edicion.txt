@@ -1,45 +1,48 @@
-PLAN DE EDICIÓN — CapCut (u otro editor gratuito)
-Proyecto: 9:16 · 1080×1920 · 30 fps · 90,0 s · exportar MP4 H.264.
+PLAN DE EDICIÓN — documental 2D "¿Qué le pasa a tu cuerpo cuando dejas de comer durante 7 días?"
 
-1) ORDEN DE TRABAJO
- a. Crear proyecto 9:16, 30 fps. Línea de tiempo de 90 s con 11 bloques (marcadores): 0-8, 8-16, 16-24, 24-32, 32-40, 40-48, 48-56, 56-64, 64-72, 72-82, 82-90.
- b. Generar la narración con una voz masculina de español latino gratuita (narracion_para_capcut.txt). Pegar cada fragmento por escena.
- c. Medir la duración real de cada escena de voz. SOLO ENTONCES ajustar clips y subtítulos.
- d. Colocar clips (lista_de_clips_necesarios.txt). Cortes duros o disolvencias de 0,3–0,5 s; movimiento de cámara ya viene en los clips, no añadir zooms falsos.
- e. Música y sonidos (abajo). f. Subtítulos. g. Revisión y exportación.
+ESTADO REAL
+ Hecho:  video 2D animado completo, 90,0 s, 1080×1920, 30 fps, H.264, con música original sintetizada.
+ Falta:  LA NARRACIÓN (no se generó ninguna voz). El video NO está terminado hasta incorporarla y ajustar los subtítulos al audio real.
+ documental_final.mp4 = imagen 2D + música (-26 dB de volumen medio). No lleva voz ni subtítulos quemados.
 
-2) NARRACIÓN
- - Una sola voz en todo el video. No mezclar voces.
- - Arranca ~0,3 s después del inicio de cada escena; deja ~0,5 s de silencio entre escenas.
- - Si la voz dura más de 8 s en una escena, acelera 5–8 % o reduce una pausa. No cortes texto científico.
+1) AGREGAR LA VOZ EN CAPCUT
+ a. Importa documental_final.mp4 (proyecto 9:16, 30 fps).
+ b. Abre narracion_para_capcut.txt. Crea 11 textos, uno por fragmento, y conviértelos con "Texto a voz" usando UNA voz masculina de español latino gratuita (verifica que no tenga el sello premium) o graba tu voz.
+ c. Coloca cada fragmento al inicio de su escena: 0:00, 0:08, 0:16, 0:24, 0:32, 0:40, 0:48, 0:56, 1:04, 1:12 (escena 10 dura 10 s), 1:22. Empieza ~0,3 s después del cambio de escena.
+ d. Si una frase dura más que su escena: velocidad 1.05–1.08×. Si dura mucho menos: déjala; el silencio es válido. No recortes texto científico.
+ e. Música: ya está incluida en el video. Si tapa la voz, baja el audio del clip a ~35–50 % o aplica "reducción de volumen automática (ducking)" en el tramo de voz. Mide con auriculares.
+ Si la voz no cabe y quieres cambiar la duración de las escenas: edita SC[...].d en animacion.html y vuelve a renderizar (comandos abajo).
 
-3) MÚSICA (libre de derechos)
- - Fuentes: biblioteca de música gratuita de CapCut (marca "uso comercial"), YouTube Audio Library, Pixabay Music, Free Music Archive. Guarda la licencia.
- - También hay pistas en resource/songs/ (output000-013.mp3) del proyecto; verifica su origen y licencia antes de publicar.
- - Estructura: 0-8 s intriga suave y baja; 8-56 s intensidad creciente; 56-82 s pico durante los riesgos (escena 9 la más intensa); 82-90 s resolución emocional y fade-out de 2 s.
- - Volumen: música a -22/-18 dB bajo la voz (≈ 15–20 % en CapCut); ducking automático en las partes con voz. Verifica con auriculares que la voz se entienda siempre.
+2) SUBTÍTULOS
+ - Importa subtitulos.srt (Texto > Subtítulos locales). Son 23 bloques, máx. 2 líneas.
+ - Los tiempos son PROVISIONALES (repartidos por proporción de caracteres dentro de cada escena). Reajusta cada bloque a la voz real, o usa "Subtítulos automáticos" de CapCut sobre la narración y compara con el SRT para corregir el texto.
+ - Estilo: blanco, ~64–72 px, contorno/sombra oscura, zona inferior segura (y ≈ 1450–1700; el video deja libre esa zona).
+ - Resalta en amarillo (#FFD400): siete días, glucógeno, cetonas, cerebro, proteínas, electrolitos, corazón, peligroso, atención médica.
+ - El texto final ya está dentro del video (82–90 s): no lo dupliques en los subtítulos.
 
-4) EFECTOS DE SONIDO (discretos, gratis)
- Esc 1: whoosh suave al cruzar la piel · Esc 2/4: burbujeo leve · Esc 3/5: pulso grave tipo latido lejano · Esc 6: chispas eléctricas muy bajas · Esc 7: crujido sutil · Esc 8: respiración lenta · Esc 9: latido del corazón (único sonido fuerte) · Esc 11: acorde final. Volumen -25 dB o menos.
+3) EFECTOS DE SONIDO (opcional)
+ La pista ya trae latido, campanitas y whoosh suaves, todos sintetizados. Si quieres más, usa solo efectos gratuitos de la biblioteca de CapCut, a -25 dB o menos.
 
-5) SUBTÍTULOS
- - Importar subtitulos.srt (tiempos PROVISIONALES: calculados por proporción de caracteres, no hay audio).
- - Reajustar cada cue contra la voz real. Máx. 2 líneas, ~32 caracteres por línea.
- - Estilo: blanco, tamaño grande (~64–72 px en 1080 de ancho), contorno/sombra oscura, posición en la zona inferior segura (entre y≈1450 y y≈1700; evita los ~250 px finales por la interfaz de TikTok/Reels/Shorts).
- - Resaltar en amarillo (#FFD400) palabras clave: siete días, glucógeno, cetonas, cerebro, proteínas, electrolitos, corazón, peligroso, atención médica.
- - Texto final 1:27,7–1:30: EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE. (título grande, centrado).
-
-6) COLOR Y LOOK
- Look uniforme para todos los clips: contraste moderado, viñeta ligera, tonos fríos azul/cian en la fisiología, rojo/ámbar en la sangre; evita saturación fuerte. Añade grano leve para unificar IA y stock.
-
-7) CONTROL DE CALIDAD ANTES DE EXPORTAR
- [ ] Duración exacta 90,0 s · [ ] 1080×1920 · [ ] 30 fps · [ ] sin fotogramas negros ni huecos
- [ ] Una sola voz · [ ] voz sincronizada con subtítulos · [ ] música no tapa la voz
- [ ] Ningún clip repetido · [ ] Licencias guardadas · [ ] Advertencia educativa en la descripción
+4) REVISIÓN ANTES DE PUBLICAR
+ [ ] Una sola voz en las 11 escenas  [ ] Voz entendible sobre la música  [ ] Subtítulos sincronizados con la voz
+ [ ] Duración final 90 s (o la que resulte tras ajustar)  [ ] Descripción con la advertencia educativa
  [ ] Ninguna frase presenta el ayuno como reto o recomendación.
+ Exportar: MP4, H.264, 1080×1920, 30 fps, 10–16 Mbps.
 
-8) EXPORTACIÓN
- MP4, H.264, 1080×1920, 30 fps, 10–16 Mbps, AAC 192 kbps. Nombre: documental_final.mp4. Exporta también la voz sola como narracion_completa.mp3.
+5) DESCRIPCIÓN SUGERIDA
+ "Contenido educativo; no recomienda ayunar. Los efectos varían según la persona y su estado de salud. Un ayuno prolongado puede ser peligroso y requiere atención médica. Ilustraciones 2D originales con fines didácticos."
 
-9) DESCRIPCIÓN PARA PUBLICAR
- "Contenido educativo, no recomienda ayunar. Los efectos varían según la persona. Un ayuno prolongado puede ser peligroso y requiere supervisión médica."
+6) REPRODUCIR / MODIFICAR EL VIDEO (opcional, solo herramientas gratuitas)
+ Requisitos: Node + Playwright con Chromium, FFmpeg, Python con numpy.
+   cd documental_ayuno/escenas_2d
+   node render.js /ruta/seg 4                  # renderiza 2700 fotogramas en 4 procesos (~5 min)
+   python3 musica.py musica.wav               # música original
+   printf "file '/ruta/seg/seg%s.mp4'\n" 0 1 2 3 > lista.txt
+   ffmpeg -f concat -safe 0 -i lista.txt -i musica.wav -c:v copy -c:a aac -b:a 192k -t 90 ../documental_final.mp4
+
+7) VERIFICACIONES HECHAS
+ - ffprobe: h264, 1080×1920, 30 fps, 2700 fotogramas, 90,000 s; audio AAC estéreo 44,1 kHz.
+ - blackdetect: 0 tramos negros. freezedetect: sin imágenes congeladas ≥1,5 s.
+ - volumedetect: media −26,2 dB, pico −10 dB (deja margen para la voz).
+ - Revisión visual de fotogramas de las 11 escenas y de las uniones entre segmentos.
+ NO verificado: sincronía con la voz (no existe), ni escucha de la música (no hay forma de oírla aquí; revísala tú).

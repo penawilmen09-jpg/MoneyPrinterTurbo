@@ -1,0 +1,24 @@
+ESCENAS 2D — animación vectorial original (SVG + JavaScript, sin imágenes de terceros)
+Archivo fuente: escenas_2d/animacion.html (cada fotograma se calcula en función del tiempo: movimiento real, no zoom sobre fotos).
+Todas las ilustraciones (persona, órganos, células, vasos, gráficos) están dibujadas por código en este proyecto. No hay stock, ni descargas, ni IA generativa.
+
+Ventanas de tiempo (segundos) y contenido:
+01  0–8    Introducción: persona frente a una mesa vacía; la cámara avanza al abdomen, la ropa y la piel se vuelven transparentes y aparecen corazón, hígado, estómago e intestino.
+02  8–16   Primeras horas: esófago → estómago (el alimento se disuelve) → intestino → nutrientes entran al torrente sanguíneo.
+03  16–24  Hígado: gránulos de glucógeno que disminuyen y liberan glucosa a la sangre; barra "glucógeno almacenado".
+04  24–32  Cambio de combustible: adipocitos que liberan ácidos grasos hacia la sangre y llegan a una célula que produce energía; barras "insulina ↓" y "uso de grasa ↑".
+05  32–40  Cetonas: el hígado produce cuerpos cetónicos que viajan por la sangre y llegan a células.
+06  40–48  Cerebro: red neuronal activa; llegan cetonas y glucosa (la glucosa sigue siendo necesaria).
+07  48–56  Músculos: fibras con sarcómeros, de las que se desprenden proteínas que se convierten en energía; las fibras se adelgazan ligeramente.
+08  56–64  Organismo: persona cansada y mareada (de perfil) → circulación con presión arterial que baja y pérdida de líquidos.
+09  64–72  Riesgos: corazón latiendo, iones (Na⁺, K⁺, Ca²⁺, Mg²⁺) que se desordenan y electrocardiograma que se vuelve irregular; aviso de peligro.
+10  72–82  No todo es grasa: cuatro vasos (glucógeno, agua, grasa, músculo) que bajan; balanza de peso. Esquemático, sin cifras.
+11  82–90  Final: figura completa que se aleja con órganos iluminados; texto final "EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE."
+
+Rigor: la línea de tiempo superior dice "SIN COMER → MÁS TIEMPO" sin horas ni días exactos (los cambios varían según la persona). Las barras y vasos son ilustrativos, no representan porcentajes reales.
+Límites honestos: es animación 2D vectorial estilizada con look de documental científico. No es 3D, y los dibujos son simples comparados con un estudio profesional. Los órganos son representaciones esquemáticas, no atlas anatómico.
+
+Otros archivos de esta carpeta:
+- render.js ........ renderiza animacion.html → segmentos MP4 (Chromium + FFmpeg).
+- musica.py ........ sintetiza la música original (numpy). Salida: musica_original.mp3 (sin derechos de terceros).
+- musica_original.mp3 ... la pista que ya va mezclada en documental_final.mp4.

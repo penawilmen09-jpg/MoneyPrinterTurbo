@@ -1,0 +1,12 @@
+LISTA DE RECURSOS — documental 2D
+Todo es original o generado por código en este proyecto; no se descargó ningún recurso externo.
+
+Video .............. escenas_2d/animacion.html (ilustraciones SVG creadas aquí, animadas con JavaScript).
+Render ............. Chromium (Playwright) + FFmpeg. Gratuitos.
+Música ............. musica_original.mp3, sintetizada con numpy (escenas_2d/musica.py). Sin muestras ni obras de terceros.
+Tipografía ......... DejaVu Sans (licencia libre Bitstream Vera/DejaVu), incluida en el sistema; queda dentro de los píxeles del video.
+Voz ................ NO existe. Se agregará en CapCut (voz masculina latina gratuita) con narracion_para_capcut.txt.
+
+No se usó: Higgsfield, Seedance, Ofox, APIs de pago, stock de pago, Pexels ni Pixabay (se negó la clave API que requerían), ni imágenes con zoom.
+Nota de entorno: para explorar recursos libres se creó un entorno personal "moneyprinterturbo" con acceso a Pexels, Pixabay y Wikimedia; no se descargó nada. Puedes borrarlo desde la configuración de entornos.
+Contenido científico: guion con afirmaciones generales y prudentes (sin cifras ni plazos exactos); las ilustraciones son esquemáticas.

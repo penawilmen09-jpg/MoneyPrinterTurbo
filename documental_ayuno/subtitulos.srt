@@ -111,8 +111,3 @@ puede ser peligroso:
 23
 00:01:26,414 --> 00:01:27,450
 requiere atención médica.
-
-24
-00:01:27,700 --> 00:01:30,000
-EL CUERPO HUMANO ES INCREÍBLE,
-PERO NO INVENCIBLE.

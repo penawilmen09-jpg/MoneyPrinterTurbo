@@ -1,47 +1,41 @@
-NARRACIÓN PARA CAPCUT — una sola voz masculina, español latino neutro, tono documental sereno y profundo.
-Pega cada fragmento como un clip de texto a voz independiente, con la MISMA voz en todos. Usa una voz gratuita de la biblioteca de CapCut (verifica que sea gratuita antes de usarla; si es premium, no la uses).
-Velocidad sugerida: 0.95–1.0. Cada escena dura 8 s (la 10, 10 s): si un fragmento sobra, acelera un poco, no recortes texto.
+NARRACIÓN PARA CAPCUT — 11 fragmentos, uno por escena
+Voz: UNA sola voz masculina de español latino neutro, tono documental sereno y profundo, la misma en los 11 fragmentos.
+Cómo usarlo: en CapCut, Texto > pega el fragmento > 'Texto a voz' y elige una voz masculina GRATUITA en español latino (confirma en CapCut que no sea premium), o grábala tú. No se generó ningún audio aquí.
+Cada escena dura 8 s (la 10, 10 s). Coloca cada fragmento en su ventana de tiempo; si sobra voz, sube la velocidad 5-8 %, no recortes texto.
 
-=== ESCENA 1 (0s–8s) · INTRODUCCIÓN ===
-[1.1] ¿Qué le sucede realmente a tu cuerpo cuando pasas siete días sin comer?
-[1.2] La respuesta cambia según cada persona.
+[01] 0:00–0:08 · INTRODUCCIÓN
+¿Qué le sucede realmente a tu cuerpo cuando pasas siete días sin comer? La respuesta cambia según cada persona.
 
-=== ESCENA 2 (8s–16s) · LAS PRIMERAS HORAS ===
-[2.1] Durante las primeras horas, tu cuerpo sigue utilizando los nutrientes de tu última comida para obtener energía.
+[02] 0:08–0:16 · LAS PRIMERAS HORAS
+Durante las primeras horas, tu cuerpo sigue utilizando los nutrientes de tu última comida para obtener energía.
 
-=== ESCENA 3 (16s–24s) · EL HÍGADO ===
-[3.1] Cuando la glucosa disponible baja, el hígado libera la glucosa almacenada como glucógeno.
+[03] 0:16–0:24 · EL HÍGADO
+Cuando la glucosa disponible baja, el hígado libera la glucosa almacenada como glucógeno.
 
-=== ESCENA 4 (24s–32s) · CAMBIO DE COMBUSTIBLE ===
-[4.1] Con el paso del tiempo, la insulina disminuye y el cuerpo usa más sus reservas de grasa para producir energía.
+[04] 0:24–0:32 · CAMBIO DE COMBUSTIBLE
+Con el paso del tiempo, la insulina disminuye y el cuerpo usa más sus reservas de grasa para producir energía.
 
-=== ESCENA 5 (32s–40s) · PRODUCCIÓN DE CETONAS ===
-[5.1] El hígado también produce cuerpos cetónicos, que pueden convertirse en una fuente importante de energía.
+[05] 0:32–0:40 · PRODUCCIÓN DE CETONAS
+El hígado también produce cuerpos cetónicos, que pueden convertirse en una fuente importante de energía.
 
-=== ESCENA 6 (40s–48s) · EL CEREBRO ===
-[6.1] Tras varios días, el cerebro puede usar más cetonas, aunque todavía necesita cierta cantidad de glucosa.
+[06] 0:40–0:48 · EL CEREBRO
+Tras varios días, el cerebro puede usar más cetonas, aunque todavía necesita cierta cantidad de glucosa.
 
-=== ESCENA 7 (48s–56s) · LOS MÚSCULOS ===
-[7.1] Pero el cuerpo no usa solo grasa.
-[7.2] También puede descomponer proteínas, incluida parte del tejido muscular.
+[07] 0:48–0:56 · LOS MÚSCULOS
+Pero el cuerpo no usa solo grasa. También puede descomponer proteínas, incluida parte del tejido muscular.
 
-=== ESCENA 8 (56s–64s) · CAMBIOS EN EL ORGANISMO ===
-[8.1] En un ayuno prolongado pueden aparecer debilidad, mareos, presión baja y alteraciones del equilibrio de líquidos.
+[08] 0:56–1:04 · CAMBIOS EN EL ORGANISMO
+En un ayuno prolongado pueden aparecer debilidad, mareos, presión baja y alteraciones del equilibrio de líquidos.
 
-=== ESCENA 9 (64s–72s) · LOS RIESGOS ===
-[9.1] Las alteraciones de electrolitos pueden afectar al corazón y causar complicaciones potencialmente peligrosas.
+[09] 1:04–1:12 · LOS RIESGOS
+Las alteraciones de electrolitos pueden afectar al corazón y causar complicaciones potencialmente peligrosas.
 
-=== ESCENA 10 (72s–82s) · NO TODO ES GRASA ===
-[10.1] El peso perdido no es solo grasa.
-[10.2] También puede incluir agua, glucógeno y masa muscular.
+[10] 1:12–1:22 · NO TODO ES GRASA
+El peso perdido no es solo grasa. También puede incluir agua, glucógeno y masa muscular.
 
-=== ESCENA 11 (82s–90s) · FINAL ===
-[11.1] Tu cuerpo puede adaptarse, pero eso no lo hace seguro.
-[11.2] Un ayuno de siete días puede ser peligroso:
-[11.3] requiere atención médica.
+[11] 1:22–1:30 · FINAL
+Tu cuerpo puede adaptarse, pero eso no lo hace seguro. Un ayuno de siete días puede ser peligroso: requiere atención médica.
 
-=== TEXTO FINAL EN PANTALLA (no se narra) ===
-EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE.
+TEXTO FINAL EN PANTALLA (ya incluido en el video, NO se narra): EL CUERPO HUMANO ES INCREÍBLE, PERO NO INVENCIBLE.
 
-=== ADVERTENCIA PARA DESCRIPCIÓN / CRÉDITOS ===
-Contenido educativo, no recomienda el ayuno de siete días. Los efectos varían según la persona y su estado de salud. Un ayuno prolongado puede ser peligroso: consulta a un profesional de la salud. Imágenes generadas o ilustradas con fines didácticos.
+ADVERTENCIA PARA LA DESCRIPCIÓN: Contenido educativo; no recomienda el ayuno de siete días. Los efectos varían según la persona y su estado de salud. Un ayuno prolongado puede ser peligroso y requiere atención médica. Ilustraciones 2D originales con fines didácticos.
