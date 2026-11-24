@@ -2,8 +2,10 @@
 import math
 
 W, H, FPS = 1080, 1920, 30
-VOICE = "es-MX-JorgeNeural"   # voz masculina, español latino (fija para todos los videos)
-VOICE_RATE = "-3%"
+import json as _json
+from pathlib import Path as _P
+_VP = _json.loads((_P(__file__).resolve().parent.parent / "voice_profile.json").read_text())
+VOICE, VOICE_RATE, VOICE_PITCH = _VP["voice"], _VP["rate"], _VP["pitch"]   # voz oficial única
 
 
 def clamp(x, a=0.0, b=1.0):

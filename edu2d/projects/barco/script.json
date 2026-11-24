@@ -1,0 +1,17 @@
+{
+  "title": "¿Cómo puede flotar un barco gigante?",
+  "slug": "barco_flota",
+  "pack": "ship",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "sources_note": "Principio de Arquímedes: un cuerpo sumergido recibe un empuje vertical igual al peso del fluido que desplaza. Un barco flota cuando desplaza un peso de agua igual al suyo; como su casco encierra mucho aire, su densidad media (masa total / volumen sumergido+aire) es menor que la del agua. Acero ≈ 7,8 g/cm³; agua ≈ 1 g/cm³.",
+  "scenes": [
+    {"scene": "hook", "text": "¿Cómo puede flotar algo que pesa miles de toneladas? Este barco de carga avanza por el océano sin hundirse.", "highlight": ["miles", "toneladas", "flotar"]},
+    {"scene": "problem", "text": "Si lanzas un bloque de hierro al agua, se hunde enseguida. Y el barco también es de hierro y acero. Entonces, ¿por qué no se va al fondo?", "highlight": ["hierro", "hunde", "fondo"]},
+    {"scene": "secret", "text": "El secreto está en su forma. El casco no es macizo: es una enorme estructura hueca, llena de aire. Ese aire ocupa muchísimo espacio, y casi no pesa.", "highlight": ["forma", "hueca", "aire", "espacio"]},
+    {"scene": "science", "text": "Cuando el casco se hunde un poco, aparta el agua a su alrededor. Y según el principio de Arquímedes, el agua empuja hacia arriba con una fuerza igual al peso del agua desplazada.", "highlight": ["Arquímedes", "empuja", "arriba", "peso", "desplazada"]},
+    {"scene": "compare", "text": "El barco se hunde justo hasta desplazar agua con el mismo peso que él. Ahí el empuje y el peso se equilibran. Y como por dentro hay tanto aire, su densidad media es menor que la del agua. Por eso flota.", "highlight": ["equilibran", "densidad", "menor", "flota"]},
+    {"scene": "load", "text": "Si lo cargas más, se hunde un poco más para desplazar más agua. Mientras el casco siga lleno de aire, el gigante se mantiene a flote.", "highlight": ["cargas", "más", "aire", "flote"]},
+    {"scene": "final", "text": "Así que un barco no flota por ser ligero: flota por su forma y por el aire que lleva dentro. ¿Lo sabías? Sígueme para más curiosidades.", "highlight": ["forma", "aire", "Sígueme"]}
+  ]
+}

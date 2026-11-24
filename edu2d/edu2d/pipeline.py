@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from .audio_check import check_audio
-from .core import FPS, H, W, VOICE, VOICE_RATE
+from .core import FPS, H, W, VOICE, VOICE_RATE, VOICE_PITCH
 from .sfx import BANK, SR
 from .subtitles import build_ass
 from .svgkit import frame_svg
@@ -34,9 +34,11 @@ def load_script(path):
 def build_timeline(data, work):
     """Sintetiza cada escena, valida el audio y calcula tiempos reales."""
     voice, rate = data.get("voice", VOICE), data.get("rate", VOICE_RATE)
+    if (voice, rate) != (VOICE, VOICE_RATE):
+        raise ValueError(f"el guion pide {voice}/{rate} pero la voz oficial es {VOICE}/{VOICE_RATE} (voice_profile.json)")
     t, tl = 0.0, []
     for i, sc in enumerate(data["scenes"]):
-        r = synthesize(sc["text"], Path(work) / "tts", voice, rate)
+        r = synthesize(sc["text"], Path(work) / "tts", voice, rate, VOICE_PITCH)
         info = check_audio(r["path"])
         lead = LEAD_FIRST if i == 0 else LEAD
         tail = TAIL_LAST if i == len(data["scenes"]) - 1 else TAIL
@@ -59,23 +61,28 @@ def _decode(path):
 
 
 def build_audio(tl, total, pack, out_wav):
-    buf = np.zeros(int((total + .2) * SR), dtype=np.float32)
+    n_ = int((total + .2) * SR)
+    voice, fxb = np.zeros(n_, dtype=np.float32), np.zeros(n_, dtype=np.float32)
     for s in tl:
         a = _decode(s["audio"])
         o = int((s["start"] + s["lead"]) * SR)
-        buf[o:o + len(a)] += a
+        voice[o:o + len(a)] += a
     for i, s in enumerate(tl):                       # efectos
         if i:
             o = int((s["start"] - .05) * SR)
             w = BANK["whoosh"]()
-            buf[o:o + len(w)] += w
+            fxb[o:o + len(w)] += w
         for name, fn in getattr(pack, "SFX", {}).get(s["scene"], []):
             fx = BANK[name]() * .6
             o = int((s["start"] + fn(s["dur"])) * SR)
-            buf[o:o + len(fx)] += fx[:max(0, len(buf) - o)]
+            fxb[o:o + len(fx)] += fx[:max(0, n_ - o)]
+    vp = np.abs(voice).max()
+    if vp > 0:
+        voice *= .89 / vp          # la VOZ fija el nivel (igual en todos los videos); los SFX van por debajo
+    buf = voice + fxb * .5
     peak = np.abs(buf).max()
-    if peak > .0:
-        buf *= .89 / peak
+    if peak > .98:
+        buf *= .98 / peak
     pcm = (buf * 32767).astype(np.int16)
     with wave.open(str(out_wav), "wb") as f:
         f.setnchannels(1); f.setsampwidth(2); f.setframerate(SR); f.writeframes(pcm.tobytes())

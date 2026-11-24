@@ -57,3 +57,13 @@ def test_scene_renders_and_moves(name):
     a = cairosvg.svg2png(bytestring=frame_svg(SCENES[name](2.0, 8)).encode(), output_width=108)
     b = cairosvg.svg2png(bytestring=frame_svg(SCENES[name](2.4, 8)).encode(), output_width=108)
     assert a != b            # hay animación real entre frames
+
+
+def test_voice_profile_is_locked():
+    import json
+    from edu2d.core import VOICE, VOICE_RATE, VOICE_PITCH
+    prof = json.loads((ROOT / "voice_profile.json").read_text())
+    assert (VOICE, VOICE_RATE, VOICE_PITCH) == ("es-MX-JorgeNeural", "+6%", "+0Hz")
+    for proj in ("palomas", "barco"):
+        d = json.loads((ROOT / f"projects/{proj}/script.json").read_text())
+        assert (d["voice"], d["rate"]) == (prof["voice"], prof["rate"])

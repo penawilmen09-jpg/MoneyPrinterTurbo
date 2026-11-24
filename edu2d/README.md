@@ -13,6 +13,7 @@ python -m edu2d verify output/palomas/palomas_cables.mp4
 python -m edu2d stills projects/palomas/script.json   # contact sheet de escenas, sin red ni audio
 python -m pytest tests
 ```
+La voz oficial vive en `voice_profile.json` (Edge TTS, es-MX-JorgeNeural, +6%, +0Hz) y el pipeline rechaza otra distinta.
 Requiere salida a `speech.platform.bing.com` (Edge TTS). La narración se cachea en `output/<x>/work/tts`.
 
 ## Arquitectura
@@ -22,7 +23,7 @@ Requiere salida a `speech.platform.bing.com` (Edge TTS). La narración se cachea
 | `audio_check.py` | Verifica que el audio exista, decodifique, dure y no sea silencio |
 | `pipeline.py` | Duración de cada escena = duración real de la voz; mezcla audio+SFX; render paralelo de frames → FFmpeg |
 | `subtitles.py` | ASS: palabra activa en menta, claves en amarillo, zona segura (base a ~400 px del borde inferior) |
-| `scenes_<pack>.py` | Escenas `f(t, duración) -> SVG` + SFX. Pack incluido: `pigeon` |
+| `scenes_<pack>.py` | Escenas `f(t, duración) -> SVG` + SFX. Packs incluidos: `pigeon` (video 1), `ship` (video 2) |
 | `art/` | Paloma rigged (parpadeo, cabeceo, alas, expresiones), cables/electricidad, diagramas, tanques |
 | `sfx.py` | Efectos de sonido sintetizados con numpy |
 | `verify.py` | Comprueba MP4: 1080×1920 h264+aac, audio con contenido, sin frames negros/estáticos, subtítulos visibles |

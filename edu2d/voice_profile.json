@@ -1,0 +1,7 @@
+{
+  "provider": "edge-tts",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "pitch": "+0Hz",
+  "note": "Perfil oficial de la voz, usado en el video 1 (palomas). Edge TTS no expone estabilidad/estilo para esta voz; solo voz, rate y pitch. NO cambiar."
+}

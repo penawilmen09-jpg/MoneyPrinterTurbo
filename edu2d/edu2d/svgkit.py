@@ -18,6 +18,10 @@ DEFS = """<defs>
 <radialGradient id="glowR"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset=".3" stop-color="#FF8A5C" stop-opacity=".8"/><stop offset="1" stop-color="#FF2D55" stop-opacity="0"/></radialGradient>
 <radialGradient id="glowC"><stop offset="0" stop-color="#E5FBFF" stop-opacity="1"/><stop offset=".35" stop-color="#4DD8FF" stop-opacity=".6"/><stop offset="1" stop-color="#4DD8FF" stop-opacity="0"/></radialGradient>
 <radialGradient id="sun"><stop offset="0" stop-color="#FFFBE0" stop-opacity="1"/><stop offset=".25" stop-color="#FFE48A" stop-opacity=".9"/><stop offset="1" stop-color="#FFC857" stop-opacity="0"/></radialGradient>
+<linearGradient id="seaDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34AEEB"/><stop offset=".5" stop-color="#1B6FB5"/><stop offset="1" stop-color="#0A3470"/></linearGradient>
+<linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9D1DC"/><stop offset=".5" stop-color="#8C97A8"/><stop offset="1" stop-color="#5D6778"/></linearGradient>
+<linearGradient id="airG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9F9FF"/><stop offset="1" stop-color="#BFE8FA"/></linearGradient>
+<linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8D08A"/><stop offset="1" stop-color="#B8945A"/></linearGradient>
 </defs>"""
 
 

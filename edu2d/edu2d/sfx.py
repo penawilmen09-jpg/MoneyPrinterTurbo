@@ -47,3 +47,30 @@ def whoosh():
 
 
 BANK = dict(pop=pop, click=click, ding=ding, zap=zap, whoosh=whoosh)
+
+
+def splash():
+    rng = np.random.default_rng(3)
+    n = int(.7 * SR); t = np.arange(n) / SR
+    x = rng.standard_normal(n)
+    x = np.convolve(x, np.ones(6) / 6, mode="same")
+    return .6 * x * np.exp(-t / .16) * np.minimum(t / .004, 1)
+
+
+def clank():
+    t = np.arange(int(.6 * SR)) / SR
+    return .5 * (np.sin(2 * np.pi * 310 * t) + .6 * np.sin(2 * np.pi * 523 * t) + .4 * np.sin(2 * np.pi * 811 * t)) * _env(len(t), .001, .14)
+
+
+def horn():
+    t = np.arange(int(1.3 * SR)) / SR
+    x = np.sin(2 * np.pi * 110 * t) + .7 * np.sin(2 * np.pi * 165 * t) + .3 * np.sin(2 * np.pi * 220 * t)
+    return .3 * x * np.minimum(t / .08, 1) * np.minimum((1.3 - t) / .25, 1)
+
+
+def bubble():
+    t = np.arange(int(.12 * SR)) / SR
+    return .35 * np.sin(2 * np.pi * np.cumsum(500 + 3000 * t) / SR) * _env(len(t), .002, .04)
+
+
+BANK.update(splash=splash, clank=clank, horn=horn, bubble=bubble)
