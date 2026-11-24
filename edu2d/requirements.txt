@@ -1,0 +1,4 @@
+edge-tts>=7.0
+cairosvg>=2.7
+numpy
+Pillow

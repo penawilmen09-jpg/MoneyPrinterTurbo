@@ -1,0 +1,82 @@
+{
+  "title": "¿Por qué las palomas no se electrocutan cuando se posan en los cables eléctricos?",
+  "slug": "palomas_cables",
+  "pack": "pigeon",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "sources_note": "Principio físico: la corriente exige una diferencia de potencial entre dos puntos del cuerpo (ley de Ohm, I = V/R). Un ave posada en un solo conductor tiene ambos pies al mismo potencial; además la resistencia del cable es muy inferior a la del cuerpo. El riesgo aparece al tocar dos conductores o un conductor y una estructura a otro potencial (poste/tierra).",
+  "scenes": [
+    {
+      "scene": "hook",
+      "text": "¿Por qué las palomas no se electrocutan cuando se posan en un cable eléctrico?",
+      "highlight": [
+        "electrocutan"
+      ]
+    },
+    {
+      "scene": "voltage",
+      "text": "Esos cables llevan miles de voltios, mortales para una persona. Y la paloma ni se inmuta.",
+      "highlight": [
+        "voltios",
+        "mortales",
+        "ni se inmuta"
+      ]
+    },
+    {
+      "scene": "circuit",
+      "text": "La clave: la corriente solo circula si hay un circuito completo, entre dos puntos con distinto voltaje.",
+      "highlight": [
+        "circuito",
+        "completo",
+        "distinto",
+        "voltaje"
+      ]
+    },
+    {
+      "scene": "waterfall",
+      "text": "Es como el agua: solo fluye si hay diferencia de altura. Con la electricidad, la corriente la empuja la diferencia de voltaje.",
+      "highlight": [
+        "diferencia",
+        "altura",
+        "voltaje"
+      ]
+    },
+    {
+      "scene": "samewire",
+      "text": "En un solo cable, la paloma apoya ambas patas en el mismo tramo. Las dos están al mismo voltaje: la diferencia entre ellas es casi cero.",
+      "highlight": [
+        "mismo",
+        "voltaje",
+        "cero"
+      ]
+    },
+    {
+      "scene": "easypath",
+      "text": "Además, el metal conduce mucho mejor que el cuerpo del ave: casi toda la corriente sigue por el cable, y por la paloma pasa una cantidad minúscula.",
+      "highlight": [
+        "metal",
+        "cable",
+        "minúscula"
+      ]
+    },
+    {
+      "scene": "twowires",
+      "text": "Pero si un ave toca dos cables, o un cable y el poste, hay diferencia de voltaje: la corriente cruza su cuerpo y es peligroso.",
+      "highlight": [
+        "dos",
+        "cables",
+        "peligroso",
+        "diferencia"
+      ]
+    },
+    {
+      "scene": "outro",
+      "text": "Así que la paloma no es inmune: simplemente no cierra el circuito. ¿Lo sabías? Sígueme para más curiosidades.",
+      "highlight": [
+        "inmune",
+        "circuito",
+        "Sígueme"
+      ]
+    }
+  ]
+}
