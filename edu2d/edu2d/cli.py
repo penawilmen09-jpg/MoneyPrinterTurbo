@@ -28,7 +28,11 @@ def cmd_make(a):
     mp4, tl, total = make(a.script, out, a.workers)
     print("Verificando MP4…")
     problems = verify_mp4(mp4, tl)
-    from .verify import check_loudness
+    from .verify import check_loudness, check_gaps
+    worst, lead, long_gaps = check_gaps(tl)
+    print(f"  pausa más larga entre palabras: {worst[0]:.2f} s («{worst[1]}» → «{worst[2]}»); la voz empieza a los {lead:.2f} s")
+    if long_gaps:
+        problems = list(problems) + [f"silencio inesperado de {g[0]:.1f} s entre «{g[1]}» y «{g[2]}»" for g in long_gaps]
     lufs, peak = check_loudness(mp4)
     print(f"  audio final: {lufs} LUFS integrados, pico real {peak} dBFS (sin recortes)")
     if problems:

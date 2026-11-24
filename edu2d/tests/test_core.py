@@ -64,7 +64,7 @@ def test_voice_profile_is_locked():
     from edu2d.core import VOICE, VOICE_RATE, VOICE_PITCH
     prof = json.loads((ROOT / "voice_profile.json").read_text())
     assert (VOICE, VOICE_RATE, VOICE_PITCH) == ("es-MX-JorgeNeural", "+6%", "+0Hz")
-    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas"):
+    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas", "luna"):
         d = json.loads((ROOT / f"projects/{proj}/script.json").read_text())
         assert (d["voice"], d["rate"]) == (prof["voice"], prof["rate"])
 
@@ -94,7 +94,10 @@ def test_mixer_keeps_voice_clear():
     assert worst[1] >= mixer.MIN_MARGIN_DB
     assert np.abs(out).max() <= .93
     # el viento continuo se recorta a una ráfaga corta
-    assert np.abs(bed[int(sr * 4):]).max() < .05
+    _, _, bed2 = mixer.mix(voice, [], [(0, wind, "wind")], None)
+    assert np.abs(bed2[int(sr * 4):]).max() < 1e-6          # el viento no dura toda la escena
+    assert np.abs(bed2).max() <= mixer.LEVEL["wind"] * mixer.VOICE_PEAK + 1e-6
+    assert abs(np.abs(bed[int(sr * 5):]).max() - mixer.LEVEL["music"] * mixer.VOICE_PEAK) < 5e-3   # música ≈ 10 % de la voz
 
 
 def test_mixer_rejects_loud_bed():

@@ -1,0 +1,25 @@
+{
+  "title": "¿Qué pasaría si la Luna desapareciera de repente?",
+  "brand": "Explora Ciencia 360",
+  "slug": "luna_desaparece",
+  "pack": "moon",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "calm",
+  "tail_last": 3.0,
+  "sources_note": "Escenario hipotético. Mareas: la Luna es la principal causa, el Sol también las produce (por eso sin Luna seguirían existiendo, mucho más débiles); sin cifras. Noches: muchas especies usan la luz lunar (orientación, caza, refugio); algunos corales sincronizan el desove con las fases lunares. Eje: la Luna ayuda a estabilizar la oblicuidad de la Tierra; sin ella podría variar mucho más en escalas de millones de años (Laskar et al., 1993; estudios posteriores matizan la amplitud). Efectos inmediatos (noches más oscuras, mareas más débiles) vs. a largo plazo (ecosistemas, clima en millones de años). Sin destrucción instantánea del planeta.",
+  "scenes": [
+    {"scene": "hook", "text": "Imagina que esta noche miras al cielo… y descubres que la Luna ha desaparecido.", "highlight": ["cielo", "Luna", "desaparecido"]},
+    {"scene": "questions", "text": "¿Qué le pasaría a nuestro planeta? ¿Se detendrían las mareas? ¿Cambiaría la vida en la Tierra? La respuesta es más sorprendente de lo que imaginas.", "highlight": ["planeta", "mareas", "vida", "sorprendente"]},
+    {"scene": "vanish", "text": "Vamos a imaginar una situación hipotética: la Luna desaparece de repente. La Tierra no se destruiría de golpe. Los cambios llegarían poco a poco.", "highlight": ["hipotética", "desaparece", "destruiría", "poco"]},
+    {"scene": "tides", "text": "Las mareas las provoca sobre todo la Luna, con su gravedad: tira del agua de los océanos y la hace subir y bajar en las costas.", "highlight": ["mareas", "Luna", "gravedad", "océanos"]},
+    {"scene": "tides2", "text": "Pero el Sol también produce mareas. Por eso no desaparecerían del todo: seguirían existiendo, aunque mucho más débiles.", "highlight": ["Sol", "no", "desaparecerían", "débiles"]},
+    {"scene": "forest", "text": "Las noches serían más oscuras. Muchos animales usan la luz de la Luna para orientarse, cazar o esconderse.", "highlight": ["oscuras", "orientarse", "cazar", "esconderse"]},
+    {"scene": "reef", "text": "En el mar, algunos corales coordinan su reproducción con las fases de la Luna. Sin esa señal, esa sincronía podría verse afectada.", "highlight": ["corales", "reproducción", "fases", "sincronía"]},
+    {"scene": "axis", "text": "Además, la Luna ayuda a estabilizar la inclinación del eje de la Tierra. Sin ella, a lo largo de millones de años, esa inclinación podría variar mucho más, y con ella, las estaciones y el clima.", "highlight": ["estabilizar", "inclinación", "eje", "millones", "variar", "clima"]},
+    {"scene": "timeline", "text": "Al instante, notaríamos noches más oscuras y mareas más débiles. Con el tiempo, cambiarían los ecosistemas. Y en millones de años, el clima podría ser menos estable.", "highlight": ["instante", "tiempo", "ecosistemas", "millones", "estable"]},
+    {"scene": "reveal", "text": "No sería una destrucción instantánea del planeta, pero sí una gran transformación para los océanos, los ecosistemas y el equilibrio a largo plazo.", "highlight": ["instantánea", "transformación", "océanos", "ecosistemas", "equilibrio"]},
+    {"scene": "final", "text": "La Luna parece estar muy lejos… pero su influencia llega hasta nuestros océanos y ayuda a mantener estable nuestro planeta. A veces, lo que parece pequeño en el cielo es mucho más importante de lo que imaginamos.", "highlight": ["influencia", "océanos", "estable", "pequeño", "importante"]}
+  ]
+}

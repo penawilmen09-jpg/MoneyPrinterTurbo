@@ -27,6 +27,8 @@ DEFS = """<defs>
 <linearGradient id="skyHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F5FC9"/><stop offset=".55" stop-color="#5BB0F5"/><stop offset="1" stop-color="#CFEBFF"/></linearGradient>
 <radialGradient id="atmo"><stop offset=".78" stop-color="#5CB8FF" stop-opacity=".55"/><stop offset=".86" stop-color="#5CB8FF" stop-opacity=".2"/><stop offset="1" stop-color="#5CB8FF" stop-opacity="0"/></radialGradient>
 <linearGradient id="space" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F"/><stop offset=".6" stop-color="#0B1030"/><stop offset="1" stop-color="#1A1050"/></linearGradient>
+<linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#03051A"/><stop offset=".55" stop-color="#14224F"/><stop offset="1" stop-color="#34478F"/></linearGradient>
+<radialGradient id="moonGlow"><stop offset=".3" stop-color="#EAF2FF" stop-opacity=".55"/><stop offset=".6" stop-color="#9FC2FF" stop-opacity=".2"/><stop offset="1" stop-color="#9FC2FF" stop-opacity="0"/></radialGradient>
 </defs>"""
 
 

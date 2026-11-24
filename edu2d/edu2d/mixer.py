@@ -11,15 +11,16 @@ import numpy as np
 
 SR = 44100
 VOICE_PEAK = 0.89
-MUSIC_PEAK = 0.045            # ≈ -26 dBFS de pico, muy suave
-DUCK_MUSIC = 0.85             # reducción de la música cuando habla la voz
-DUCK_SFX = 0.90
-AMBIENT = {"rotor", "wind", "rumble", "riser"}
+# Niveles objetivo de cada categoría, como fracción del nivel de la voz (pico a pico, antes del ducking)
+LEVEL = {"music": 0.10,       # música de fondo 8-12 %
+         "ambient": 0.06,     # efectos ambientales 5-8 %
+         "wind": 0.04,        # viento 3-5 %
+         "special": 0.07}     # efectos especiales 5-10 %
+DUCK_MUSIC = 0.95             # reducción de la música cuando habla la voz
+DUCK_SFX = 0.95
+WIND = {"wind", "swell"}
+AMBIENT = {"rotor", "rumble", "riser"}
 AMBIENT_MAX_SEC = 1.8         # sin sonidos constantes: solo ráfagas cortas
-AMBIENT_GAIN = 0.06
-SFX_GAIN = {"pop": .22, "click": .22, "tick": .20, "ding": .20, "clank": .18, "zap": .12, "boom": .09,
-            "crash": .09, "splash": .10, "horn": .08, "whoosh": .30, "bubble": .15}
-DEFAULT_SFX_GAIN = .15
 MIN_MARGIN_DB = 20.0          # el fondo debe quedar ≥ 20 dB por debajo de la voz en cada palabra
 
 
@@ -31,7 +32,7 @@ def speech_activity(voice, sr=SR):
     """Envolvente 0..1 de actividad de voz con anticipo (ducking antes de hablar) y cola de recuperación."""
     k = int(.04 * sr)
     env = np.convolve(np.abs(voice), np.ones(k) / k, mode="same")
-    on = (env > .012).astype(np.float32)
+    on = (env > .006).astype(np.float32)
     lead, tail = int(.12 * sr), int(.30 * sr)
     kern = np.ones(lead + tail, dtype=np.float32)
     wide = (np.convolve(on, kern, mode="full")[tail:tail + len(on)] > 0).astype(np.float32)   # adelanta 'lead'
@@ -46,28 +47,42 @@ def ambient_clip(fx, sr=SR):
     return fx * f
 
 
-def mix(voice, spots, ambients, music_track=None):
+def _norm(fx, frac):
+    pk = np.abs(fx).max()
+    return fx * (frac * VOICE_PEAK / pk) if pk > 0 else fx
+
+
+def word_activity(words, n_, sr=SR, lead=.15, tail=.30):
+    """Actividad de voz según las marcas de palabra (robusta con palabras cortas y débiles)."""
+    a = np.zeros(n_, dtype=np.float32)
+    for w in words:
+        a[max(0, int((w["start"] - lead) * sr)):min(n_, int((w["end"] + tail) * sr))] = 1
+    sm = int(.06 * sr)
+    return np.convolve(a, np.ones(sm) / sm, mode="same")
+
+
+def mix(voice, spots, ambients, music_track=None, words=None):
     """voice: pista de voz ya colocada en el tiempo. spots/ambients: [(muestra_inicio, array, nombre)].
-    Devuelve (mezcla final, fondo ya atenuado)."""
+    Cada efecto se normaliza a su nivel objetivo (LEVEL) respecto a la voz. Devuelve (mezcla, voz, fondo)."""
     n_ = len(voice)
     vp = np.abs(voice).max()
     voice = voice * (VOICE_PEAK / vp) if vp > 0 else voice
     act = speech_activity(voice)
-    bed = np.zeros(n_, dtype=np.float32)
+    if words:
+        act = np.maximum(act, word_activity(words, n_))
     sfx = np.zeros(n_, dtype=np.float32)
     for o, fx, name in spots:
-        g = SFX_GAIN.get(name, DEFAULT_SFX_GAIN)
-        seg = fx[:max(0, n_ - o)]
-        sfx[o:o + len(seg)] += seg * g
+        seg = _norm(fx, LEVEL["special"])[:max(0, n_ - o)]
+        sfx[o:o + len(seg)] += seg
     for o, fx, name in ambients:
         fx = ambient_clip(fx)
-        seg = fx[:max(0, n_ - o)]
-        sfx[o:o + len(seg)] += seg * AMBIENT_GAIN
-    bed += sfx * (1 - DUCK_SFX * act)
+        seg = _norm(fx, LEVEL["wind"] if name in WIND else LEVEL["ambient"])[:max(0, n_ - o)]
+        sfx[o:o + len(seg)] += seg
+    bed = sfx * (1 - DUCK_SFX * act)
     if music_track is not None:
         m = np.pad(music_track[:n_], (0, max(0, n_ - len(music_track))))
-        m = m / (np.abs(m).max() + 1e-9) * MUSIC_PEAK
-        bed += m * (1 - DUCK_MUSIC * act)
+        m = _norm(m, LEVEL["music"])
+        bed = bed + m * (1 - DUCK_MUSIC * act)
     out = voice + bed
     peak = np.abs(out).max()
     if peak > .92:

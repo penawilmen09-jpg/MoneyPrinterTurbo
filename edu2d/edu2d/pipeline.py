@@ -42,8 +42,10 @@ def build_timeline(data, work):
         r = synthesize(sc["text"], Path(work) / "tts", voice, rate, VOICE_PITCH)
         info = check_audio(r["path"])
         lead = LEAD_FIRST if i == 0 else LEAD
-        tail = TAIL_LAST if i == len(data["scenes"]) - 1 else TAIL
-        dur = lead + info["duration"] + tail
+        tail = data.get("tail_last", TAIL_LAST) if i == len(data["scenes"]) - 1 else TAIL
+        # sin silencios sobrantes: la escena acaba poco después de la última palabra (el mp3 trae cola muda)
+        eff = min(info["duration"], (r["words"][-1]["end"] + .30) if r["words"] else info["duration"])
+        dur = lead + eff + tail
         toks = sc["text"].split()
         raw = r["words"]
         if len(toks) == len(raw):          # el servicio omite la puntuación: la recuperamos del guion
@@ -81,8 +83,8 @@ def build_audio(tl, total, pack, out_wav, with_music=False, mood="calm", log=pri
             else:
                 spots.append((o, BANK[name](), name))
     mus = music(total, mood)[:n_] if with_music else None
-    out, v, bed = mixer.mix(voice, spots, ambients, mus)
     words = [w for s in tl for w in s["words"]]
+    out, v, bed = mixer.mix(voice, spots, ambients, mus, words)
     margins = mixer.speech_margins(v, bed, words)
     worst = mixer.check_margins(margins)
     mean = float(np.mean([m for _, m in margins]))

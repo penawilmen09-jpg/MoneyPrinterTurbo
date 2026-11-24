@@ -159,3 +159,32 @@ def riser(dur):
 
 BANK.update(boom=boom, tick=tick, crash=crash)
 BANK_DUR = dict(rotor=rotor, wind=wind, rumble=rumble, riser=riser)
+
+
+def swell(dur):
+    """Oleaje suave (ruido filtrado con vaivén lento); se usa solo en ráfagas cortas."""
+    rng = np.random.default_rng(51)
+    n_ = int(dur * SR); t = np.arange(n_) / SR
+    x = np.convolve(rng.standard_normal(n_), np.ones(60) / 60, mode="same")
+    return x * (.55 + .45 * np.sin(2 * np.pi * .45 * t - 1.2))
+
+
+def vanish():
+    t = np.arange(int(.9 * SR)) / SR
+    f = 1800 * np.exp(-t * 3.2) + 120
+    return .6 * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / .4) * np.minimum(t / .01, 1)
+
+
+def hoot():
+    t = np.arange(int(.9 * SR)) / SR
+    a = np.sin(2 * np.pi * 330 * t) * np.exp(-((t - .15) / .1) ** 2) + np.sin(2 * np.pi * 290 * t) * np.exp(-((t - .5) / .15) ** 2)
+    return .5 * a
+
+
+def shimmer():
+    t = np.arange(int(1.0 * SR)) / SR
+    return .4 * sum(np.sin(2 * np.pi * f * t) for f in (1568, 2093, 2637)) * np.exp(-t / .35) * np.minimum(t / .01, 1) / 3
+
+
+BANK.update(vanish=vanish, hoot=hoot, shimmer=shimmer)
+BANK_DUR.update(swell=swell)

@@ -102,3 +102,12 @@ def check_loudness(mp4, max_true_peak=-0.5):
     if peak > max_true_peak:
         raise AudioError(f"audio con pico {peak} dBFS (> {max_true_peak}): riesgo de recorte")
     return lufs, peak
+
+
+def check_gaps(timeline, max_gap=1.5):
+    """Silencios de narración inesperados: pausas largas entre palabras consecutivas (la cola final es intencional)."""
+    words = [w for s in timeline for w in s["words"]]
+    gaps = [(b["start"] - a["end"], a["text"], b["text"]) for a, b in zip(words, words[1:])]
+    worst = max(gaps, key=lambda g: g[0])
+    lead = words[0]["start"]
+    return worst, lead, [g for g in gaps if g[0] > max_gap]
