@@ -95,7 +95,9 @@ def speech_margins(voice, bed, words, sr=SR):
     """Margen en dB (voz − fondo) en la ventana de cada palabra. Devuelve lista de (palabra, margen)."""
     out = []
     for w in words:
-        a, b = int(w["start"] * sr), max(int(w["end"] * sr), int(w["start"] * sr) + 1)
+        mid = (w["start"] + w["end"]) / 2
+        half = max((w["end"] - w["start"]) / 2, .125)          # ventana mínima de 250 ms: las palabras muy breves ("y", "a") se miden con su entorno inmediato
+        a, b = int(max(mid - half, 0) * sr), int((mid + half) * sr)
         v = np.sqrt(np.mean(voice[a:b] ** 2) + 1e-12)
         f = np.sqrt(np.mean(bed[a:b] ** 2) + 1e-12)
         out.append((w["text"], 20 * np.log10(v / f)))

@@ -1,0 +1,176 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Main,DejaVu Sans,78,&H00FFFFFF,&H00FFFFFF,&H00231B1B,&H80000000,-1,0,0,0,100,100,0,0,1,8,3,2,90,90,400,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.30,0:00:00.54,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}¡La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}a {\c&H00FFFFFF&\fscx100\fscy100}más
+Dialogue: 0,0:00:00.54,0:00:00.85,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡La {\c&H004DE1FF&\fscx114\fscy114}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}a {\c&H00FFFFFF&\fscx100\fscy100}más
+Dialogue: 0,0:00:00.85,0:00:01.22,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx114\fscy114}gira {\c&H00FFFFFF&\fscx100\fscy100}a {\c&H00FFFFFF&\fscx100\fscy100}más
+Dialogue: 0,0:00:01.22,0:00:01.27,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00B3F07C&\fscx114\fscy114}a {\c&H00FFFFFF&\fscx100\fscy100}más
+Dialogue: 0,0:00:01.27,0:00:01.53,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}a {\c&H00B3F07C&\fscx114\fscy114}más
+Dialogue: 0,0:00:01.53,0:00:01.62,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}de {\c&H004DE1FF&\fscx100\fscy100}mil {\c&H004DE1FF&\fscx100\fscy100}seiscientos\N{\c&H00FFFFFF&\fscx100\fscy100}kilómetros
+Dialogue: 0,0:00:01.62,0:00:01.82,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx114\fscy114}mil {\c&H004DE1FF&\fscx100\fscy100}seiscientos\N{\c&H00FFFFFF&\fscx100\fscy100}kilómetros
+Dialogue: 0,0:00:01.82,0:00:02.43,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}mil {\c&H004DE1FF&\fscx114\fscy114}seiscientos\N{\c&H00FFFFFF&\fscx100\fscy100}kilómetros
+Dialogue: 0,0:00:02.43,0:00:03.02,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}mil {\c&H004DE1FF&\fscx100\fscy100}seiscientos\N{\c&H00B3F07C&\fscx114\fscy114}kilómetros
+Dialogue: 0,0:00:03.02,0:00:03.20,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}por {\c&H00FFFFFF&\fscx100\fscy100}hora!
+Dialogue: 0,0:00:03.20,0:00:03.71,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}por {\c&H00B3F07C&\fscx114\fscy114}hora!
+Dialogue: 0,0:00:04.22,0:00:05.14,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Entonces… {\c&H00FFFFFF&\fscx100\fscy100}¿por\N{\c&H00FFFFFF&\fscx100\fscy100}qué {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}salimos
+Dialogue: 0,0:00:05.14,0:00:05.31,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Entonces… {\c&H00B3F07C&\fscx114\fscy114}¿por\N{\c&H00FFFFFF&\fscx100\fscy100}qué {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}salimos
+Dialogue: 0,0:00:05.31,0:00:05.43,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Entonces… {\c&H00FFFFFF&\fscx100\fscy100}¿por\N{\c&H00B3F07C&\fscx114\fscy114}qué {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}salimos
+Dialogue: 0,0:00:05.43,0:00:05.56,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Entonces… {\c&H00FFFFFF&\fscx100\fscy100}¿por\N{\c&H00FFFFFF&\fscx100\fscy100}qué {\c&H00B3F07C&\fscx114\fscy114}no {\c&H00FFFFFF&\fscx100\fscy100}salimos
+Dialogue: 0,0:00:05.56,0:00:06.00,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Entonces… {\c&H00FFFFFF&\fscx100\fscy100}¿por\N{\c&H00FFFFFF&\fscx100\fscy100}qué {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00B3F07C&\fscx114\fscy114}salimos
+Dialogue: 0,0:00:06.00,0:00:06.74,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}volando?
+Dialogue: 0,0:00:07.34,0:00:07.80,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Mientras {\c&H00FFFFFF&\fscx100\fscy100}tú\N{\c&H004DE1FF&\fscx100\fscy100}caminas {\c&H00FFFFFF&\fscx100\fscy100}tranquilo,
+Dialogue: 0,0:00:07.80,0:00:07.90,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Mientras {\c&H00B3F07C&\fscx114\fscy114}tú\N{\c&H004DE1FF&\fscx100\fscy100}caminas {\c&H00FFFFFF&\fscx100\fscy100}tranquilo,
+Dialogue: 0,0:00:07.90,0:00:08.31,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Mientras {\c&H00FFFFFF&\fscx100\fscy100}tú\N{\c&H004DE1FF&\fscx114\fscy114}caminas {\c&H00FFFFFF&\fscx100\fscy100}tranquilo,
+Dialogue: 0,0:00:08.31,0:00:09.05,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Mientras {\c&H00FFFFFF&\fscx100\fscy100}tú\N{\c&H004DE1FF&\fscx100\fscy100}caminas {\c&H00B3F07C&\fscx114\fscy114}tranquilo,
+Dialogue: 0,0:00:09.05,0:00:09.20,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}la {\c&H004DE1FF&\fscx100\fscy100}Tierra {\c&H004DE1FF&\fscx100\fscy100}gira.
+Dialogue: 0,0:00:09.20,0:00:09.52,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx114\fscy114}Tierra {\c&H004DE1FF&\fscx100\fscy100}gira.
+Dialogue: 0,0:00:09.52,0:00:10.15,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx100\fscy100}Tierra {\c&H004DE1FF&\fscx114\fscy114}gira.
+Dialogue: 0,0:00:10.66,0:00:10.98,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Esa {\c&H00FFFFFF&\fscx100\fscy100}cifra\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H00FFFFFF&\fscx100\fscy100}la {\c&H00FFFFFF&\fscx100\fscy100}del
+Dialogue: 0,0:00:10.98,0:00:11.37,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Esa {\c&H00B3F07C&\fscx114\fscy114}cifra\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H00FFFFFF&\fscx100\fscy100}la {\c&H00FFFFFF&\fscx100\fscy100}del
+Dialogue: 0,0:00:11.37,0:00:11.51,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Esa {\c&H00FFFFFF&\fscx100\fscy100}cifra\N{\c&H00B3F07C&\fscx114\fscy114}es {\c&H00FFFFFF&\fscx100\fscy100}la {\c&H00FFFFFF&\fscx100\fscy100}del
+Dialogue: 0,0:00:11.51,0:00:11.58,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Esa {\c&H00FFFFFF&\fscx100\fscy100}cifra\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H00B3F07C&\fscx114\fscy114}la {\c&H00FFFFFF&\fscx100\fscy100}del
+Dialogue: 0,0:00:11.58,0:00:11.73,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Esa {\c&H00FFFFFF&\fscx100\fscy100}cifra\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H00FFFFFF&\fscx100\fscy100}la {\c&H00B3F07C&\fscx114\fscy114}del
+Dialogue: 0,0:00:11.73,0:00:12.32,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}ecuador:
+Dialogue: 0,0:00:12.32,0:00:12.61,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}hacia {\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}polos,
+Dialogue: 0,0:00:12.61,0:00:12.78,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}hacia {\c&H00B3F07C&\fscx114\fscy114}los {\c&H004DE1FF&\fscx100\fscy100}polos,
+Dialogue: 0,0:00:12.78,0:00:13.37,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}hacia {\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx114\fscy114}polos,
+Dialogue: 0,0:00:13.37,0:00:13.53,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}la {\c&H004DE1FF&\fscx100\fscy100}velocidad\N{\c&H004DE1FF&\fscx100\fscy100}disminuye.
+Dialogue: 0,0:00:13.53,0:00:14.07,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx114\fscy114}velocidad\N{\c&H004DE1FF&\fscx100\fscy100}disminuye.
+Dialogue: 0,0:00:14.07,0:00:14.94,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx100\fscy100}velocidad\N{\c&H004DE1FF&\fscx114\fscy114}disminuye.
+Dialogue: 0,0:00:15.54,0:00:15.82,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Todo {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00FFFFFF&\fscx100\fscy100}mueve\N{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con
+Dialogue: 0,0:00:15.82,0:00:15.94,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Todo {\c&H00B3F07C&\fscx114\fscy114}se {\c&H00FFFFFF&\fscx100\fscy100}mueve\N{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con
+Dialogue: 0,0:00:15.94,0:00:16.20,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Todo {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00B3F07C&\fscx114\fscy114}mueve\N{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con
+Dialogue: 0,0:00:16.20,0:00:16.52,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Todo {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00FFFFFF&\fscx100\fscy100}mueve\N{\c&H004DE1FF&\fscx114\fscy114}junto {\c&H00FFFFFF&\fscx100\fscy100}con
+Dialogue: 0,0:00:16.52,0:00:16.66,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Todo {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00FFFFFF&\fscx100\fscy100}mueve\N{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00B3F07C&\fscx114\fscy114}con
+Dialogue: 0,0:00:16.66,0:00:16.77,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}la {\c&H004DE1FF&\fscx100\fscy100}Tierra:
+Dialogue: 0,0:00:16.77,0:00:17.36,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx114\fscy114}Tierra:
+Dialogue: 0,0:00:17.36,0:00:18.17,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}nosotros,
+Dialogue: 0,0:00:18.17,0:00:18.36,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}los {\c&H004DE1FF&\fscx100\fscy100}edificios,
+Dialogue: 0,0:00:18.36,0:00:19.20,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx114\fscy114}edificios,
+Dialogue: 0,0:00:19.20,0:00:19.41,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}los {\c&H004DE1FF&\fscx100\fscy100}océanos {\c&H00FFFFFF&\fscx100\fscy100}y\N{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx100\fscy100}atmósfera.
+Dialogue: 0,0:00:19.41,0:00:19.95,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx114\fscy114}océanos {\c&H00FFFFFF&\fscx100\fscy100}y\N{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx100\fscy100}atmósfera.
+Dialogue: 0,0:00:19.95,0:00:20.02,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}océanos {\c&H00B3F07C&\fscx114\fscy114}y\N{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx100\fscy100}atmósfera.
+Dialogue: 0,0:00:20.02,0:00:20.13,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}océanos {\c&H00FFFFFF&\fscx100\fscy100}y\N{\c&H00B3F07C&\fscx114\fscy114}la {\c&H004DE1FF&\fscx100\fscy100}atmósfera.
+Dialogue: 0,0:00:20.13,0:00:20.99,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}océanos {\c&H00FFFFFF&\fscx100\fscy100}y\N{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H004DE1FF&\fscx114\fscy114}atmósfera.
+Dialogue: 0,0:00:21.51,0:00:21.72,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Por {\c&H004DE1FF&\fscx100\fscy100}inercia,
+Dialogue: 0,0:00:21.72,0:00:22.37,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Por {\c&H004DE1FF&\fscx114\fscy114}inercia,
+Dialogue: 0,0:00:22.37,0:00:23.11,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}conservamos\N{\c&H00FFFFFF&\fscx100\fscy100}ese {\c&H00FFFFFF&\fscx100\fscy100}movimiento.
+Dialogue: 0,0:00:23.11,0:00:23.31,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}conservamos\N{\c&H00B3F07C&\fscx114\fscy114}ese {\c&H00FFFFFF&\fscx100\fscy100}movimiento.
+Dialogue: 0,0:00:23.31,0:00:24.18,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}conservamos\N{\c&H00FFFFFF&\fscx100\fscy100}ese {\c&H00B3F07C&\fscx114\fscy114}movimiento.
+Dialogue: 0,0:00:24.77,0:00:25.01,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Es {\c&H00FFFFFF&\fscx100\fscy100}como\N{\c&H00FFFFFF&\fscx100\fscy100}volar {\c&H00FFFFFF&\fscx100\fscy100}en {\c&H00FFFFFF&\fscx100\fscy100}un
+Dialogue: 0,0:00:25.01,0:00:25.24,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Es {\c&H00B3F07C&\fscx114\fscy114}como\N{\c&H00FFFFFF&\fscx100\fscy100}volar {\c&H00FFFFFF&\fscx100\fscy100}en {\c&H00FFFFFF&\fscx100\fscy100}un
+Dialogue: 0,0:00:25.24,0:00:25.54,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Es {\c&H00FFFFFF&\fscx100\fscy100}como\N{\c&H00B3F07C&\fscx114\fscy114}volar {\c&H00FFFFFF&\fscx100\fscy100}en {\c&H00FFFFFF&\fscx100\fscy100}un
+Dialogue: 0,0:00:25.54,0:00:25.64,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Es {\c&H00FFFFFF&\fscx100\fscy100}como\N{\c&H00FFFFFF&\fscx100\fscy100}volar {\c&H00B3F07C&\fscx114\fscy114}en {\c&H00FFFFFF&\fscx100\fscy100}un
+Dialogue: 0,0:00:25.64,0:00:25.74,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Es {\c&H00FFFFFF&\fscx100\fscy100}como\N{\c&H00FFFFFF&\fscx100\fscy100}volar {\c&H00FFFFFF&\fscx100\fscy100}en {\c&H00B3F07C&\fscx114\fscy114}un
+Dialogue: 0,0:00:25.74,0:00:26.31,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}avión:
+Dialogue: 0,0:00:26.31,0:00:26.51,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}si {\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00FFFFFF&\fscx100\fscy100}vuelo\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H004DE1FF&\fscx100\fscy100}estable,
+Dialogue: 0,0:00:26.51,0:00:26.60,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}si {\c&H00B3F07C&\fscx114\fscy114}el {\c&H00FFFFFF&\fscx100\fscy100}vuelo\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H004DE1FF&\fscx100\fscy100}estable,
+Dialogue: 0,0:00:26.60,0:00:26.86,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}si {\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00B3F07C&\fscx114\fscy114}vuelo\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H004DE1FF&\fscx100\fscy100}estable,
+Dialogue: 0,0:00:26.86,0:00:27.00,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}si {\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00FFFFFF&\fscx100\fscy100}vuelo\N{\c&H00B3F07C&\fscx114\fscy114}es {\c&H004DE1FF&\fscx100\fscy100}estable,
+Dialogue: 0,0:00:27.00,0:00:27.65,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}si {\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00FFFFFF&\fscx100\fscy100}vuelo\N{\c&H00FFFFFF&\fscx100\fscy100}es {\c&H004DE1FF&\fscx114\fscy114}estable,
+Dialogue: 0,0:00:27.65,0:00:27.83,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}no {\c&H00FFFFFF&\fscx100\fscy100}sientes {\c&H00FFFFFF&\fscx100\fscy100}la\N{\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:27.83,0:00:28.27,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00B3F07C&\fscx114\fscy114}sientes {\c&H00FFFFFF&\fscx100\fscy100}la\N{\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:28.27,0:00:28.34,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}sientes {\c&H00B3F07C&\fscx114\fscy114}la\N{\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:28.34,0:00:29.05,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}sientes {\c&H00FFFFFF&\fscx100\fscy100}la\N{\c&H004DE1FF&\fscx114\fscy114}velocidad,
+Dialogue: 0,0:00:29.05,0:00:29.19,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}y {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}vaso {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}agua
+Dialogue: 0,0:00:29.19,0:00:29.33,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00B3F07C&\fscx114\fscy114}un {\c&H00FFFFFF&\fscx100\fscy100}vaso {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}agua
+Dialogue: 0,0:00:29.33,0:00:29.62,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00B3F07C&\fscx114\fscy114}vaso {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}agua
+Dialogue: 0,0:00:29.62,0:00:29.75,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}vaso {\c&H00B3F07C&\fscx114\fscy114}de {\c&H004DE1FF&\fscx100\fscy100}agua
+Dialogue: 0,0:00:29.75,0:00:29.99,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}vaso {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx114\fscy114}agua
+Dialogue: 0,0:00:29.99,0:00:30.19,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}no {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00FFFFFF&\fscx100\fscy100}derrama.
+Dialogue: 0,0:00:30.19,0:00:30.33,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00B3F07C&\fscx114\fscy114}se {\c&H00FFFFFF&\fscx100\fscy100}derrama.
+Dialogue: 0,0:00:30.33,0:00:31.08,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00B3F07C&\fscx114\fscy114}derrama.
+Dialogue: 0,0:00:31.67,0:00:31.89,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}La {\c&H004DE1FF&\fscx100\fscy100}gravedad\N{\c&H00FFFFFF&\fscx100\fscy100}nos {\c&H00FFFFFF&\fscx100\fscy100}mantiene {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:31.89,0:00:32.37,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx114\fscy114}gravedad\N{\c&H00FFFFFF&\fscx100\fscy100}nos {\c&H00FFFFFF&\fscx100\fscy100}mantiene {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:32.37,0:00:32.56,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}gravedad\N{\c&H00B3F07C&\fscx114\fscy114}nos {\c&H00FFFFFF&\fscx100\fscy100}mantiene {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:32.56,0:00:33.01,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}gravedad\N{\c&H00FFFFFF&\fscx100\fscy100}nos {\c&H00B3F07C&\fscx114\fscy114}mantiene {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:33.01,0:00:33.08,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}gravedad\N{\c&H00FFFFFF&\fscx100\fscy100}nos {\c&H00FFFFFF&\fscx100\fscy100}mantiene {\c&H00B3F07C&\fscx114\fscy114}en
+Dialogue: 0,0:00:33.08,0:00:33.16,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}la {\c&H00FFFFFF&\fscx100\fscy100}superficie.
+Dialogue: 0,0:00:33.16,0:00:34.09,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}la {\c&H00B3F07C&\fscx114\fscy114}superficie.
+Dialogue: 0,0:00:34.61,0:00:34.80,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Y {\c&H00FFFFFF&\fscx100\fscy100}sí {\c&H00FFFFFF&\fscx100\fscy100}hay {\c&H00FFFFFF&\fscx100\fscy100}efectos\N{\c&H004DE1FF&\fscx100\fscy100}sutiles:
+Dialogue: 0,0:00:34.80,0:00:35.00,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Y {\c&H00B3F07C&\fscx114\fscy114}sí {\c&H00FFFFFF&\fscx100\fscy100}hay {\c&H00FFFFFF&\fscx100\fscy100}efectos\N{\c&H004DE1FF&\fscx100\fscy100}sutiles:
+Dialogue: 0,0:00:35.00,0:00:35.14,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Y {\c&H00FFFFFF&\fscx100\fscy100}sí {\c&H00B3F07C&\fscx114\fscy114}hay {\c&H00FFFFFF&\fscx100\fscy100}efectos\N{\c&H004DE1FF&\fscx100\fscy100}sutiles:
+Dialogue: 0,0:00:35.14,0:00:35.53,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Y {\c&H00FFFFFF&\fscx100\fscy100}sí {\c&H00FFFFFF&\fscx100\fscy100}hay {\c&H00B3F07C&\fscx114\fscy114}efectos\N{\c&H004DE1FF&\fscx100\fscy100}sutiles:
+Dialogue: 0,0:00:35.53,0:00:36.22,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Y {\c&H00FFFFFF&\fscx100\fscy100}sí {\c&H00FFFFFF&\fscx100\fscy100}hay {\c&H00FFFFFF&\fscx100\fscy100}efectos\N{\c&H004DE1FF&\fscx114\fscy114}sutiles:
+Dialogue: 0,0:00:36.22,0:00:36.72,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}pesamos {\c&H00FFFFFF&\fscx100\fscy100}un\N{\c&H00FFFFFF&\fscx100\fscy100}poquito {\c&H00FFFFFF&\fscx100\fscy100}menos {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:36.72,0:00:36.85,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pesamos {\c&H00B3F07C&\fscx114\fscy114}un\N{\c&H00FFFFFF&\fscx100\fscy100}poquito {\c&H00FFFFFF&\fscx100\fscy100}menos {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:36.85,0:00:37.24,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pesamos {\c&H00FFFFFF&\fscx100\fscy100}un\N{\c&H00B3F07C&\fscx114\fscy114}poquito {\c&H00FFFFFF&\fscx100\fscy100}menos {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:37.24,0:00:37.59,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pesamos {\c&H00FFFFFF&\fscx100\fscy100}un\N{\c&H00FFFFFF&\fscx100\fscy100}poquito {\c&H00B3F07C&\fscx114\fscy114}menos {\c&H00FFFFFF&\fscx100\fscy100}en
+Dialogue: 0,0:00:37.59,0:00:37.67,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pesamos {\c&H00FFFFFF&\fscx100\fscy100}un\N{\c&H00FFFFFF&\fscx100\fscy100}poquito {\c&H00FFFFFF&\fscx100\fscy100}menos {\c&H00B3F07C&\fscx114\fscy114}en
+Dialogue: 0,0:00:37.67,0:00:37.79,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}el {\c&H004DE1FF&\fscx100\fscy100}ecuador,
+Dialogue: 0,0:00:37.79,0:00:38.40,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}el {\c&H004DE1FF&\fscx114\fscy114}ecuador,
+Dialogue: 0,0:00:38.40,0:00:38.51,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}y {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H004DE1FF&\fscx100\fscy100}vientos {\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}las
+Dialogue: 0,0:00:38.51,0:00:38.71,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00B3F07C&\fscx114\fscy114}los\N{\c&H004DE1FF&\fscx100\fscy100}vientos {\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}las
+Dialogue: 0,0:00:38.71,0:00:39.16,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H004DE1FF&\fscx114\fscy114}vientos {\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}las
+Dialogue: 0,0:00:39.16,0:00:39.22,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H004DE1FF&\fscx100\fscy100}vientos {\c&H00B3F07C&\fscx114\fscy114}y {\c&H00FFFFFF&\fscx100\fscy100}las
+Dialogue: 0,0:00:39.22,0:00:39.38,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H004DE1FF&\fscx100\fscy100}vientos {\c&H00FFFFFF&\fscx100\fscy100}y {\c&H00B3F07C&\fscx114\fscy114}las
+Dialogue: 0,0:00:39.38,0:00:39.92,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}corrientes\N{\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00FFFFFF&\fscx100\fscy100}desvían.
+Dialogue: 0,0:00:39.92,0:00:40.02,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}corrientes\N{\c&H00B3F07C&\fscx114\fscy114}se {\c&H00FFFFFF&\fscx100\fscy100}desvían.
+Dialogue: 0,0:00:40.02,0:00:40.83,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}corrientes\N{\c&H00FFFFFF&\fscx100\fscy100}se {\c&H00B3F07C&\fscx114\fscy114}desvían.
+Dialogue: 0,0:00:41.42,0:00:41.65,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Lo {\c&H00FFFFFF&\fscx100\fscy100}que {\c&H00FFFFFF&\fscx100\fscy100}sí\N{\c&H00FFFFFF&\fscx100\fscy100}notamos {\c&H00FFFFFF&\fscx100\fscy100}son
+Dialogue: 0,0:00:41.65,0:00:41.76,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Lo {\c&H00B3F07C&\fscx114\fscy114}que {\c&H00FFFFFF&\fscx100\fscy100}sí\N{\c&H00FFFFFF&\fscx100\fscy100}notamos {\c&H00FFFFFF&\fscx100\fscy100}son
+Dialogue: 0,0:00:41.76,0:00:41.91,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Lo {\c&H00FFFFFF&\fscx100\fscy100}que {\c&H00B3F07C&\fscx114\fscy114}sí\N{\c&H00FFFFFF&\fscx100\fscy100}notamos {\c&H00FFFFFF&\fscx100\fscy100}son
+Dialogue: 0,0:00:41.91,0:00:42.31,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Lo {\c&H00FFFFFF&\fscx100\fscy100}que {\c&H00FFFFFF&\fscx100\fscy100}sí\N{\c&H00B3F07C&\fscx114\fscy114}notamos {\c&H00FFFFFF&\fscx100\fscy100}son
+Dialogue: 0,0:00:42.31,0:00:42.45,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Lo {\c&H00FFFFFF&\fscx100\fscy100}que {\c&H00FFFFFF&\fscx100\fscy100}sí\N{\c&H00FFFFFF&\fscx100\fscy100}notamos {\c&H00B3F07C&\fscx114\fscy114}son
+Dialogue: 0,0:00:42.45,0:00:42.60,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}los {\c&H004DE1FF&\fscx100\fscy100}cambios {\c&H004DE1FF&\fscx100\fscy100}bruscos\N{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:42.60,0:00:42.98,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx114\fscy114}cambios {\c&H004DE1FF&\fscx100\fscy100}bruscos\N{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:42.98,0:00:43.39,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}cambios {\c&H004DE1FF&\fscx114\fscy114}bruscos\N{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:43.39,0:00:43.47,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}cambios {\c&H004DE1FF&\fscx100\fscy100}bruscos\N{\c&H00B3F07C&\fscx114\fscy114}de {\c&H004DE1FF&\fscx100\fscy100}velocidad,
+Dialogue: 0,0:00:43.47,0:00:44.17,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}los {\c&H004DE1FF&\fscx100\fscy100}cambios {\c&H004DE1FF&\fscx100\fscy100}bruscos\N{\c&H00FFFFFF&\fscx100\fscy100}de {\c&H004DE1FF&\fscx114\fscy114}velocidad,
+Dialogue: 0,0:00:44.17,0:00:44.46,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}como {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H004DE1FF&\fscx100\fscy100}frenazo.
+Dialogue: 0,0:00:44.46,0:00:44.62,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}como {\c&H00B3F07C&\fscx114\fscy114}un {\c&H004DE1FF&\fscx100\fscy100}frenazo.
+Dialogue: 0,0:00:44.62,0:00:45.40,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}como {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H004DE1FF&\fscx114\fscy114}frenazo.
+Dialogue: 0,0:00:45.91,0:00:46.15,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00FFFFFF&\fscx100\fscy100}forma
+Dialogue: 0,0:00:46.15,0:00:46.45,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx114\fscy114}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00FFFFFF&\fscx100\fscy100}forma
+Dialogue: 0,0:00:46.45,0:00:46.72,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx114\fscy114}gira {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00FFFFFF&\fscx100\fscy100}forma
+Dialogue: 0,0:00:46.72,0:00:46.84,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00B3F07C&\fscx114\fscy114}de {\c&H00FFFFFF&\fscx100\fscy100}forma
+Dialogue: 0,0:00:46.84,0:00:47.14,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}La {\c&H004DE1FF&\fscx100\fscy100}Tierra\N{\c&H004DE1FF&\fscx100\fscy100}gira {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00B3F07C&\fscx114\fscy114}forma
+Dialogue: 0,0:00:47.14,0:00:47.93,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}constante,
+Dialogue: 0,0:00:47.93,0:00:48.17,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}por {\c&H00FFFFFF&\fscx100\fscy100}eso {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H00FFFFFF&\fscx100\fscy100}sentimos.
+Dialogue: 0,0:00:48.17,0:00:48.39,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}por {\c&H00B3F07C&\fscx114\fscy114}eso {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H00FFFFFF&\fscx100\fscy100}sentimos.
+Dialogue: 0,0:00:48.39,0:00:48.58,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}por {\c&H00FFFFFF&\fscx100\fscy100}eso {\c&H00B3F07C&\fscx114\fscy114}no {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H00FFFFFF&\fscx100\fscy100}sentimos.
+Dialogue: 0,0:00:48.58,0:00:48.72,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}por {\c&H00FFFFFF&\fscx100\fscy100}eso {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00B3F07C&\fscx114\fscy114}los\N{\c&H00FFFFFF&\fscx100\fscy100}sentimos.
+Dialogue: 0,0:00:48.72,0:00:49.63,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}por {\c&H00FFFFFF&\fscx100\fscy100}eso {\c&H00FFFFFF&\fscx100\fscy100}no {\c&H00FFFFFF&\fscx100\fscy100}los\N{\c&H00B3F07C&\fscx114\fscy114}sentimos.
+Dialogue: 0,0:00:50.23,0:00:50.78,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Giramos\N{\c&H00FFFFFF&\fscx100\fscy100}muy {\c&H004DE1FF&\fscx100\fscy100}rápido,
+Dialogue: 0,0:00:50.78,0:00:50.98,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Giramos\N{\c&H00B3F07C&\fscx114\fscy114}muy {\c&H004DE1FF&\fscx100\fscy100}rápido,
+Dialogue: 0,0:00:50.98,0:00:51.63,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Giramos\N{\c&H00FFFFFF&\fscx100\fscy100}muy {\c&H004DE1FF&\fscx114\fscy114}rápido,
+Dialogue: 0,0:00:51.63,0:00:51.88,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}pero {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00FFFFFF&\fscx100\fscy100}forma\N{\c&H004DE1FF&\fscx100\fscy100}constante,
+Dialogue: 0,0:00:51.88,0:00:51.99,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pero {\c&H00B3F07C&\fscx114\fscy114}de {\c&H00FFFFFF&\fscx100\fscy100}forma\N{\c&H004DE1FF&\fscx100\fscy100}constante,
+Dialogue: 0,0:00:51.99,0:00:52.31,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pero {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00B3F07C&\fscx114\fscy114}forma\N{\c&H004DE1FF&\fscx100\fscy100}constante,
+Dialogue: 0,0:00:52.31,0:00:53.13,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}pero {\c&H00FFFFFF&\fscx100\fscy100}de {\c&H00FFFFFF&\fscx100\fscy100}forma\N{\c&H004DE1FF&\fscx114\fscy114}constante,
+Dialogue: 0,0:00:53.13,0:00:53.50,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}junto {\c&H00FFFFFF&\fscx100\fscy100}con\N{\c&H00FFFFFF&\fscx100\fscy100}todo {\c&H00FFFFFF&\fscx100\fscy100}lo {\c&H00FFFFFF&\fscx100\fscy100}que
+Dialogue: 0,0:00:53.50,0:00:53.71,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00B3F07C&\fscx114\fscy114}con\N{\c&H00FFFFFF&\fscx100\fscy100}todo {\c&H00FFFFFF&\fscx100\fscy100}lo {\c&H00FFFFFF&\fscx100\fscy100}que
+Dialogue: 0,0:00:53.71,0:00:54.00,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con\N{\c&H00B3F07C&\fscx114\fscy114}todo {\c&H00FFFFFF&\fscx100\fscy100}lo {\c&H00FFFFFF&\fscx100\fscy100}que
+Dialogue: 0,0:00:54.00,0:00:54.12,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con\N{\c&H00FFFFFF&\fscx100\fscy100}todo {\c&H00B3F07C&\fscx114\fscy114}lo {\c&H00FFFFFF&\fscx100\fscy100}que
+Dialogue: 0,0:00:54.12,0:00:54.22,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}junto {\c&H00FFFFFF&\fscx100\fscy100}con\N{\c&H00FFFFFF&\fscx100\fscy100}todo {\c&H00FFFFFF&\fscx100\fscy100}lo {\c&H00B3F07C&\fscx114\fscy114}que
+Dialogue: 0,0:00:54.22,0:00:54.42,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}nos {\c&H00FFFFFF&\fscx100\fscy100}rodea.
+Dialogue: 0,0:00:54.42,0:00:55.06,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}nos {\c&H00B3F07C&\fscx114\fscy114}rodea.
+Dialogue: 0,0:00:55.66,0:00:55.94,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}Si {\c&H00FFFFFF&\fscx100\fscy100}te {\c&H00FFFFFF&\fscx100\fscy100}gusta\N{\c&H004DE1FF&\fscx100\fscy100}descubrir {\c&H00FFFFFF&\fscx100\fscy100}cómo
+Dialogue: 0,0:00:55.94,0:00:56.05,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Si {\c&H00B3F07C&\fscx114\fscy114}te {\c&H00FFFFFF&\fscx100\fscy100}gusta\N{\c&H004DE1FF&\fscx100\fscy100}descubrir {\c&H00FFFFFF&\fscx100\fscy100}cómo
+Dialogue: 0,0:00:56.05,0:00:56.33,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Si {\c&H00FFFFFF&\fscx100\fscy100}te {\c&H00B3F07C&\fscx114\fscy114}gusta\N{\c&H004DE1FF&\fscx100\fscy100}descubrir {\c&H00FFFFFF&\fscx100\fscy100}cómo
+Dialogue: 0,0:00:56.33,0:00:56.86,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Si {\c&H00FFFFFF&\fscx100\fscy100}te {\c&H00FFFFFF&\fscx100\fscy100}gusta\N{\c&H004DE1FF&\fscx114\fscy114}descubrir {\c&H00FFFFFF&\fscx100\fscy100}cómo
+Dialogue: 0,0:00:56.86,0:00:57.10,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}Si {\c&H00FFFFFF&\fscx100\fscy100}te {\c&H00FFFFFF&\fscx100\fscy100}gusta\N{\c&H004DE1FF&\fscx100\fscy100}descubrir {\c&H00B3F07C&\fscx114\fscy114}cómo
+Dialogue: 0,0:00:57.10,0:00:57.56,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}funciona\N{\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00FFFFFF&\fscx100\fscy100}mundo,
+Dialogue: 0,0:00:57.56,0:00:57.64,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}funciona\N{\c&H00B3F07C&\fscx114\fscy114}el {\c&H00FFFFFF&\fscx100\fscy100}mundo,
+Dialogue: 0,0:00:57.64,0:00:58.21,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}funciona\N{\c&H00FFFFFF&\fscx100\fscy100}el {\c&H00B3F07C&\fscx114\fscy114}mundo,
+Dialogue: 0,0:00:58.21,0:00:58.72,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}síguenos {\c&H00FFFFFF&\fscx100\fscy100}en\N{\c&H004DE1FF&\fscx100\fscy100}Explora {\c&H004DE1FF&\fscx100\fscy100}Ciencia
+Dialogue: 0,0:00:58.72,0:00:58.82,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}síguenos {\c&H00B3F07C&\fscx114\fscy114}en\N{\c&H004DE1FF&\fscx100\fscy100}Explora {\c&H004DE1FF&\fscx100\fscy100}Ciencia
+Dialogue: 0,0:00:58.82,0:00:59.27,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}síguenos {\c&H00FFFFFF&\fscx100\fscy100}en\N{\c&H004DE1FF&\fscx114\fscy114}Explora {\c&H004DE1FF&\fscx100\fscy100}Ciencia
+Dialogue: 0,0:00:59.27,0:00:59.68,Main,,0,0,0,,{\c&H004DE1FF&\fscx100\fscy100}síguenos {\c&H00FFFFFF&\fscx100\fscy100}en\N{\c&H004DE1FF&\fscx100\fscy100}Explora {\c&H004DE1FF&\fscx114\fscy114}Ciencia
+Dialogue: 0,0:00:59.68,0:01:01.05,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}360.
+Dialogue: 0,0:01:01.56,0:01:01.87,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H00B3F07C&\fscx114\fscy114}¡Cada {\c&H00FFFFFF&\fscx100\fscy100}pregunta\N{\c&H00FFFFFF&\fscx100\fscy100}abre {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}nuevo
+Dialogue: 0,0:01:01.87,0:01:02.38,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡Cada {\c&H00B3F07C&\fscx114\fscy114}pregunta\N{\c&H00FFFFFF&\fscx100\fscy100}abre {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}nuevo
+Dialogue: 0,0:01:02.38,0:01:02.59,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡Cada {\c&H00FFFFFF&\fscx100\fscy100}pregunta\N{\c&H00B3F07C&\fscx114\fscy114}abre {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00FFFFFF&\fscx100\fscy100}nuevo
+Dialogue: 0,0:01:02.59,0:01:02.72,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡Cada {\c&H00FFFFFF&\fscx100\fscy100}pregunta\N{\c&H00FFFFFF&\fscx100\fscy100}abre {\c&H00B3F07C&\fscx114\fscy114}un {\c&H00FFFFFF&\fscx100\fscy100}nuevo
+Dialogue: 0,0:01:02.72,0:01:02.96,Main,,0,0,0,,{\c&H00FFFFFF&\fscx100\fscy100}¡Cada {\c&H00FFFFFF&\fscx100\fscy100}pregunta\N{\c&H00FFFFFF&\fscx100\fscy100}abre {\c&H00FFFFFF&\fscx100\fscy100}un {\c&H00B3F07C&\fscx114\fscy114}nuevo
+Dialogue: 0,0:01:02.96,0:01:04.01,Main,,0,0,0,,{\fscx88\fscy88\t(0,110,\fscx100\fscy100)}{\c&H004DE1FF&\fscx114\fscy114}descubrimiento!

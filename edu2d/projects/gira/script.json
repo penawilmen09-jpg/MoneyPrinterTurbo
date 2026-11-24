@@ -1,0 +1,22 @@
+{
+  "title": "¿Por qué no sentimos que la Tierra se mueve?",
+  "brand": "Explora Ciencia 360",
+  "slug": "tierra_no_sentimos",
+  "pack": "motion",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "calm",
+  "tail_last": 3.0,
+  "sources_note": "La Tierra rota de oeste a este; la velocidad de la superficie es v = 1670·cos(latitud) km/h: ≈1670 en el ecuador, ≈1180 a 45°, ≈835 a 60°, ≈0 en los polos. Atmósfera, océanos y objetos comparten esa rotación (inercia; movimiento uniforme no se percibe: relatividad galileana). La gravedad mantiene a los objetos sobre la superficie; la rotación sí tiene efectos sutiles: el peso aparente es ligeramente menor en el ecuador (aceleración centrípeta ≈0,034 m/s² frente a g≈9,8) y el efecto Coriolis desvía vientos y corrientes. Lo que se percibe son las aceleraciones (frenazo, turbulencia), no la velocidad constante.",
+  "scenes": [
+    {"scene": "hook", "text": "¡La Tierra gira a más de mil seiscientos kilómetros por hora! Entonces… ¿por qué no salimos volando?", "highlight": ["Tierra", "mil", "seiscientos", "volando"]},
+    {"scene": "walk", "text": "Mientras tú caminas tranquilo, la Tierra gira. Esa cifra es la del ecuador: hacia los polos, la velocidad disminuye.", "highlight": ["caminas", "gira", "ecuador", "polos", "disminuye"]},
+    {"scene": "together", "text": "Todo se mueve junto con la Tierra: nosotros, los edificios, los océanos y la atmósfera. Por inercia, conservamos ese movimiento.", "highlight": ["junto", "edificios", "océanos", "atmósfera", "inercia"]},
+    {"scene": "plane", "text": "Es como volar en un avión: si el vuelo es estable, no sientes la velocidad, y un vaso de agua no se derrama.", "highlight": ["avión", "estable", "velocidad", "agua"]},
+    {"scene": "gravity", "text": "La gravedad nos mantiene en la superficie. Y sí hay efectos sutiles: pesamos un poquito menos en el ecuador, y los vientos y las corrientes se desvían.", "highlight": ["gravedad", "sutiles", "ecuador", "vientos", "corrientes"]},
+    {"scene": "sudden", "text": "Lo que sí notamos son los cambios bruscos de velocidad, como un frenazo. La Tierra gira de forma constante, por eso no los sentimos.", "highlight": ["cambios", "bruscos", "frenazo", "constante"]},
+    {"scene": "earth", "text": "Giramos muy rápido, pero de forma constante, junto con todo lo que nos rodea.", "highlight": ["rápido", "constante", "junto"]},
+    {"scene": "final", "text": "Si te gusta descubrir cómo funciona el mundo, síguenos en Explora Ciencia 360. ¡Cada pregunta abre un nuevo descubrimiento!", "highlight": ["descubrir", "síguenos", "Explora", "Ciencia", "360", "descubrimiento"]}
+  ]
+}

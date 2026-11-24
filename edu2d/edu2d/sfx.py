@@ -188,3 +188,14 @@ def shimmer():
 
 BANK.update(vanish=vanish, hoot=hoot, shimmer=shimmer)
 BANK_DUR.update(swell=swell)
+
+
+def brake():
+    """Frenazo: ruido que baja de tono (efecto breve)."""
+    rng = np.random.default_rng(61)
+    n_ = int(.7 * SR); t = np.arange(n_) / SR
+    x = np.convolve(rng.standard_normal(n_), np.ones(int(8 + 40 * t[-1]))/ (8 + 40 * t[-1]), mode="same")
+    return x * np.exp(-t / .35) * np.minimum(t / .02, 1)
+
+
+BANK.update(brake=brake)

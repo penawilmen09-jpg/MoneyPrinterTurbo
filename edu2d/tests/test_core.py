@@ -64,7 +64,7 @@ def test_voice_profile_is_locked():
     from edu2d.core import VOICE, VOICE_RATE, VOICE_PITCH
     prof = json.loads((ROOT / "voice_profile.json").read_text())
     assert (VOICE, VOICE_RATE, VOICE_PITCH) == ("es-MX-JorgeNeural", "+6%", "+0Hz")
-    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas", "luna"):
+    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas", "luna", "gira"):
         d = json.loads((ROOT / f"projects/{proj}/script.json").read_text())
         assert (d["voice"], d["rate"]) == (prof["voice"], prof["rate"])
 
