@@ -64,6 +64,13 @@ def test_voice_profile_is_locked():
     from edu2d.core import VOICE, VOICE_RATE, VOICE_PITCH
     prof = json.loads((ROOT / "voice_profile.json").read_text())
     assert (VOICE, VOICE_RATE, VOICE_PITCH) == ("es-MX-JorgeNeural", "+6%", "+0Hz")
-    for proj in ("palomas", "barco"):
+    for proj in ("palomas", "barco", "helicoptero"):
         d = json.loads((ROOT / f"projects/{proj}/script.json").read_text())
         assert (d["voice"], d["rate"]) == (prof["voice"], prof["rate"])
+
+
+def test_rotor_speed_no_aliasing():
+    from edu2d.art.heli import rotor_ang
+    from edu2d.core import FPS
+    step = rotor_ang(1 / FPS) - rotor_ang(0)
+    assert 8 < step < 40, step          # gira visiblemente y sin efecto rueda de carreta (4 aspas = 90°)

@@ -74,3 +74,40 @@ def bubble():
 
 
 BANK.update(splash=splash, clank=clank, horn=horn, bubble=bubble)
+
+
+def rotor(dur, rate=8.5):
+    """Golpeteo grave y continuo de un rotor (estilizado)."""
+    rng = np.random.default_rng(21)
+    n_ = int(dur * SR); out = np.zeros(n_)
+    step = int(SR / rate)
+    for o in range(0, n_ - int(.09 * SR), step):
+        m = int(.09 * SR); t = np.arange(m) / SR
+        thump = np.sin(2 * np.pi * (70 - 200 * t) * t) * np.exp(-t / .03)
+        whoosh = np.convolve(rng.standard_normal(m), np.ones(30) / 30, mode="same") * np.exp(-t / .04) * 2
+        out[o:o + m] += .55 * thump + .25 * whoosh
+    fade = np.minimum(np.arange(n_) / (.25 * SR), 1) * np.minimum((n_ - np.arange(n_)) / (.25 * SR), 1)
+    return out * fade
+
+
+def music(total):
+    """Fondo suave original: acordes en pad + arpegio de campanitas (Am-F-C-G)."""
+    n_ = int((total + .2) * SR); t = np.arange(n_) / SR
+    chords = [(220.0, 261.63, 329.63), (174.61, 220.0, 261.63), (261.63, 329.63, 392.0), (196.0, 246.94, 293.66)]
+    bar = 4.0
+    out = np.zeros(n_)
+    for i in range(int(total // bar) + 2):
+        a, b = int(i * bar * SR), min(int((i + 1) * bar * SR + SR), n_)
+        if a >= n_: break
+        tt = np.arange(b - a) / SR
+        env = np.minimum(tt / 1.2, 1) * np.minimum((bar + 1 - tt) / 1.2, 1)
+        for f in chords[i % 4]:
+            out[a:b] += env * (np.sin(2 * np.pi * f * tt) + .3 * np.sin(2 * np.pi * f * 2 * tt)) * .12
+        for k, f in enumerate(chords[i % 4] * 2):                 # arpegio
+            o = int((i * bar + k * .5) * SR)
+            m = int(.9 * SR)
+            if o + m < n_:
+                tm = np.arange(m) / SR
+                out[o:o + m] += .09 * np.sin(2 * np.pi * f * 2 * tm) * np.exp(-tm / .3) * np.minimum(tm / .005, 1)
+    fade = np.minimum(t / 1.5, 1) * np.minimum((t[-1] - t) / 2.5, 1)
+    return out * fade

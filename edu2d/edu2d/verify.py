@@ -62,3 +62,28 @@ def verify_mp4(mp4, timeline=None, expect=(1080, 1920), log=print):
         if dur < end_words:
             problems.append("el video termina antes que la narración")
     return problems
+
+
+def check_sync(timeline, min_db=-42.0):
+    """Contrasta los tiempos de palabra de los subtítulos con la forma de onda REAL de la voz.
+    Devuelve (fracción de palabras con voz audible en su ventana, desfase medio de inicio de escena en s)."""
+    import subprocess
+    SR = 22050
+    ok, tot, onsets = 0, 0, []
+    for sc in timeline:
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", sc["audio"], "-f", "s16le", "-ac", "1", "-ar", str(SR), "-"],
+                             capture_output=True).stdout
+        a = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+        base = sc["start"] + sc["lead"]
+        for w in sc["words"]:
+            s0, s1 = int((w["start"] - base) * SR), int((w["end"] - base) * SR)
+            seg = a[max(s0, 0):max(s1, s0 + 1)]
+            tot += 1
+            rms = 20 * np.log10(np.sqrt(np.mean(seg ** 2)) + 1e-9) if len(seg) else -99
+            ok += rms > min_db
+        env = np.abs(a)
+        k = int(.01 * SR)
+        smooth_ = np.convolve(env, np.ones(k) / k, mode="same")
+        idx = np.argmax(smooth_ > 0.02)
+        onsets.append(abs(idx / SR - (sc["words"][0]["start"] - base)))
+    return ok / tot, float(np.mean(onsets))

@@ -22,6 +22,9 @@ DEFS = """<defs>
 <linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9D1DC"/><stop offset=".5" stop-color="#8C97A8"/><stop offset="1" stop-color="#5D6778"/></linearGradient>
 <linearGradient id="airG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9F9FF"/><stop offset="1" stop-color="#BFE8FA"/></linearGradient>
 <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8D08A"/><stop offset="1" stop-color="#B8945A"/></linearGradient>
+<linearGradient id="heliRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0604A"/><stop offset="1" stop-color="#C32F22"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D8F2FF"/><stop offset=".6" stop-color="#7EC4F0"/><stop offset="1" stop-color="#4C93CC"/></linearGradient>
+<linearGradient id="skyHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F5FC9"/><stop offset=".55" stop-color="#5BB0F5"/><stop offset="1" stop-color="#CFEBFF"/></linearGradient>
 </defs>"""
 
 

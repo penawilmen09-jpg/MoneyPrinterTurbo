@@ -1,0 +1,20 @@
+{
+  "title": "¿Cómo vuelan los helicópteros si no tienen alas?",
+  "slug": "helicoptero_vuela",
+  "pack": "heli",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "sources_note": "Las aspas del rotor son perfiles aerodinámicos (alas) que giran. Con cierto ángulo de ataque desvían el aire hacia abajo; por la tercera ley de Newton el aire ejerce una fuerza de reacción hacia arriba (sustentación). En suspensión, sustentación = peso. Aumentar el paso colectivo aumenta la sustentación y el helicóptero sube. El paso cíclico inclina el disco del rotor y su fuerza tiene componente horizontal (adelante/atrás/lados). El torque del rotor principal tiende a girar el fuselaje en sentido contrario; el rotor de cola produce un empuje lateral que lo compensa.",
+  "scenes": [
+    {"scene": "hook", "text": "¿Cómo vuelan los helicópteros si no tienen alas?", "highlight": ["vuelan", "alas"]},
+    {"scene": "city", "text": "Sobre la ciudad parece magia, pero es pura física: un helicóptero sí tiene alas.", "highlight": ["física", "sí", "alas"]},
+    {"scene": "rotor", "text": "Sus aspas son alas largas y delgadas que giran. Al girar, el aire fluye sobre ellas, aunque el helicóptero esté quieto.", "highlight": ["aspas", "alas", "giran", "quieto"]},
+    {"scene": "deflect", "text": "Cada aspa está inclinada, así que empuja el aire hacia abajo.", "highlight": ["inclinada", "aire", "abajo"]},
+    {"scene": "lift", "text": "Según la tercera ley de Newton, si el rotor lanza aire hacia abajo, el aire empuja al helicóptero hacia arriba.", "highlight": ["Newton", "abajo", "arriba"]},
+    {"scene": "hover", "text": "Cuando esa fuerza iguala al peso, queda suspendido, sin subir ni bajar. Con más inclinación de las aspas, sube.", "highlight": ["iguala", "peso", "suspendido", "sube"]},
+    {"scene": "tilt", "text": "Para avanzar, retroceder o ir de lado, el piloto inclina el disco del rotor, y el helicóptero sigue esa fuerza.", "highlight": ["inclina", "disco", "rotor"]},
+    {"scene": "tail", "text": "Pero el rotor principal también hace girar el fuselaje al revés. El rotor de cola empuja de lado y lo evita.", "highlight": ["fuselaje", "al revés", "cola", "evita"]},
+    {"scene": "final", "text": "Así vuela un helicóptero: con alas que giran, empujando el aire hacia abajo. ¿Lo sabías? Sígueme para más curiosidades.", "highlight": ["alas", "giran", "aire", "Sígueme"]}
+  ]
+}

@@ -1,0 +1,914 @@
+[
+ {
+  "scene": "hook",
+  "start": 0.0,
+  "dur": 3.864,
+  "audio": "output/helicoptero/work/tts/24170414ff7474f7.mp3",
+  "audio_dur": 3.264,
+  "lead": 0.25,
+  "words": [
+   {
+    "text": "¿Cómo",
+    "start": 0.347166,
+    "end": 0.559416
+   },
+   {
+    "text": "vuelan",
+    "start": 0.5712079999999999,
+    "end": 0.854208
+   },
+   {
+    "text": "los",
+    "start": 0.866041,
+    "end": 1.0075409999999998
+   },
+   {
+    "text": "helicópteros",
+    "start": 1.019333,
+    "end": 1.620749
+   },
+   {
+    "text": "si",
+    "start": 1.632541,
+    "end": 1.738666
+   },
+   {
+    "text": "no",
+    "start": 1.750458,
+    "end": 1.9037490000000001
+   },
+   {
+    "text": "tienen",
+    "start": 1.915583,
+    "end": 2.245791
+   },
+   {
+    "text": "alas?",
+    "start": 2.257541,
+    "end": 2.682082
+   }
+  ],
+  "highlight": [
+   "vuelan",
+   "alas"
+  ],
+  "mean_db": -20.8
+ },
+ {
+  "scene": "city",
+  "start": 3.864,
+  "dur": 6.284,
+  "audio": "output/helicoptero/work/tts/1200f0292f114743.mp3",
+  "audio_dur": 5.784,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Sobre",
+    "start": 4.111166,
+    "end": 4.488541000000001
+   },
+   {
+    "text": "la",
+    "start": 4.500333,
+    "end": 4.582874
+   },
+   {
+    "text": "ciudad",
+    "start": 4.594666,
+    "end": 4.948457
+   },
+   {
+    "text": "parece",
+    "start": 4.960208000000001,
+    "end": 5.2904160000000005
+   },
+   {
+    "text": "magia,",
+    "start": 5.302208,
+    "end": 5.679583
+   },
+   {
+    "text": "pero",
+    "start": 5.974375,
+    "end": 6.174833
+   },
+   {
+    "text": "es",
+    "start": 6.186625,
+    "end": 6.316333
+   },
+   {
+    "text": "pura",
+    "start": 6.328166,
+    "end": 6.563999000000001
+   },
+   {
+    "text": "física:",
+    "start": 6.575791000000001,
+    "end": 7.047499
+   },
+   {
+    "text": "un",
+    "start": 7.330500000000001,
+    "end": 7.448416
+   },
+   {
+    "text": "helicóptero",
+    "start": 7.460208,
+    "end": 8.049833
+   },
+   {
+    "text": "sí",
+    "start": 8.061625,
+    "end": 8.2385
+   },
+   {
+    "text": "tiene",
+    "start": 8.250333,
+    "end": 8.533333
+   },
+   {
+    "text": "alas.",
+    "start": 8.545125,
+    "end": 8.969666
+   }
+  ],
+  "highlight": [
+   "física",
+   "sí",
+   "alas"
+  ],
+  "mean_db": -19.4
+ },
+ {
+  "scene": "rotor",
+  "start": 10.148,
+  "dur": 8.876,
+  "audio": "output/helicoptero/work/tts/c6e50d3eeeb9cc5d.mp3",
+  "audio_dur": 8.376,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Sus",
+    "start": 10.395166,
+    "end": 10.689957
+   },
+   {
+    "text": "aspas",
+    "start": 10.701791,
+    "end": 10.996582
+   },
+   {
+    "text": "son",
+    "start": 11.008375,
+    "end": 11.197041
+   },
+   {
+    "text": "alas",
+    "start": 11.208833,
+    "end": 11.456458
+   },
+   {
+    "text": "largas",
+    "start": 11.468291,
+    "end": 11.857457
+   },
+   {
+    "text": "y",
+    "start": 11.869208,
+    "end": 11.9163739
+   },
+   {
+    "text": "delgadas",
+    "start": 11.928208,
+    "end": 12.423499
+   },
+   {
+    "text": "que",
+    "start": 12.43525,
+    "end": 12.541375
+   },
+   {
+    "text": "giran.",
+    "start": 12.553208,
+    "end": 12.989541000000001
+   },
+   {
+    "text": "Al",
+    "start": 13.800375,
+    "end": 13.989041
+   },
+   {
+    "text": "girar,",
+    "start": 14.000833,
+    "end": 14.342833
+   },
+   {
+    "text": "el",
+    "start": 14.637625,
+    "end": 14.779124999999999
+   },
+   {
+    "text": "aire",
+    "start": 14.790916000000001,
+    "end": 15.038541
+   },
+   {
+    "text": "fluye",
+    "start": 15.050375,
+    "end": 15.368791
+   },
+   {
+    "text": "sobre",
+    "start": 15.380541,
+    "end": 15.698957
+   },
+   {
+    "text": "ellas,",
+    "start": 15.710749999999999,
+    "end": 16.064541
+   },
+   {
+    "text": "aunque",
+    "start": 16.241415999999997,
+    "end": 16.512624
+   },
+   {
+    "text": "el",
+    "start": 16.524416,
+    "end": 16.642332
+   },
+   {
+    "text": "helicóptero",
+    "start": 16.654124999999997,
+    "end": 17.196582999999997
+   },
+   {
+    "text": "esté",
+    "start": 17.208374999999997,
+    "end": 17.432415999999996
+   },
+   {
+    "text": "quieto.",
+    "start": 17.444207999999996,
+    "end": 17.856958
+   }
+  ],
+  "highlight": [
+   "aspas",
+   "alas",
+   "giran",
+   "quieto"
+  ],
+  "mean_db": -19.6
+ },
+ {
+  "scene": "deflect",
+  "start": 19.024,
+  "dur": 4.772,
+  "audio": "output/helicoptero/work/tts/52827fea5abf5b71.mp3",
+  "audio_dur": 4.272,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Cada",
+    "start": 19.271166,
+    "end": 19.554166
+   },
+   {
+    "text": "aspa",
+    "start": 19.566,
+    "end": 19.77825
+   },
+   {
+    "text": "está",
+    "start": 19.790041,
+    "end": 19.978707
+   },
+   {
+    "text": "inclinada,",
+    "start": 19.9905,
+    "end": 20.54475
+   },
+   {
+    "text": "así",
+    "start": 20.804208,
+    "end": 21.087208
+   },
+   {
+    "text": "que",
+    "start": 21.099,
+    "end": 21.205125
+   },
+   {
+    "text": "empuja",
+    "start": 21.216915999999998,
+    "end": 21.617874
+   },
+   {
+    "text": "el",
+    "start": 21.629666,
+    "end": 21.747582
+   },
+   {
+    "text": "aire",
+    "start": 21.759375,
+    "end": 22.006999999999998
+   },
+   {
+    "text": "hacia",
+    "start": 22.018791,
+    "end": 22.231040999999998
+   },
+   {
+    "text": "abajo.",
+    "start": 22.242874999999998,
+    "end": 22.632041
+   }
+  ],
+  "highlight": [
+   "inclinada",
+   "aire",
+   "abajo"
+  ],
+  "mean_db": -19.8
+ },
+ {
+  "scene": "lift",
+  "start": 23.796,
+  "dur": 7.652,
+  "audio": "output/helicoptero/work/tts/9b8c7c556cffb308.mp3",
+  "audio_dur": 7.152,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Según",
+    "start": 24.043166,
+    "end": 24.420540999999997
+   },
+   {
+    "text": "la",
+    "start": 24.432332999999996,
+    "end": 24.514874
+   },
+   {
+    "text": "tercera",
+    "start": 24.526666,
+    "end": 24.951206999999997
+   },
+   {
+    "text": "ley",
+    "start": 24.962999999999997,
+    "end": 25.163458
+   },
+   {
+    "text": "de",
+    "start": 25.17525,
+    "end": 25.257790999999997
+   },
+   {
+    "text": "Newton,",
+    "start": 25.269582999999997,
+    "end": 25.635165999999998
+   },
+   {
+    "text": "si",
+    "start": 25.882790999999997,
+    "end": 26.024290999999998
+   },
+   {
+    "text": "el",
+    "start": 26.036082999999998,
+    "end": 26.130415999999997
+   },
+   {
+    "text": "rotor",
+    "start": 26.142207999999997,
+    "end": 26.484208
+   },
+   {
+    "text": "lanza",
+    "start": 26.496,
+    "end": 26.885165999999998
+   },
+   {
+    "text": "aire",
+    "start": 26.896957999999998,
+    "end": 27.144582999999997
+   },
+   {
+    "text": "hacia",
+    "start": 27.156374999999997,
+    "end": 27.356832999999998
+   },
+   {
+    "text": "abajo,",
+    "start": 27.368624999999998,
+    "end": 27.734208
+   },
+   {
+    "text": "el",
+    "start": 28.005415999999997,
+    "end": 28.182291
+   },
+   {
+    "text": "aire",
+    "start": 28.194125,
+    "end": 28.406374999999997
+   },
+   {
+    "text": "empuja",
+    "start": 28.418166,
+    "end": 28.866290999999997
+   },
+   {
+    "text": "al",
+    "start": 28.878082999999997,
+    "end": 28.972416
+   },
+   {
+    "text": "helicóptero",
+    "start": 28.984208,
+    "end": 29.585623999999996
+   },
+   {
+    "text": "hacia",
+    "start": 29.597416,
+    "end": 29.833249
+   },
+   {
+    "text": "arriba.",
+    "start": 29.845041,
+    "end": 30.269582
+   }
+  ],
+  "highlight": [
+   "Newton",
+   "abajo",
+   "arriba"
+  ],
+  "mean_db": -19.0
+ },
+ {
+  "scene": "hover",
+  "start": 31.448,
+  "dur": 8.684,
+  "audio": "output/helicoptero/work/tts/0b0983a6ed562e8a.mp3",
+  "audio_dur": 8.184,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Cuando",
+    "start": 31.695166,
+    "end": 31.978165999999998
+   },
+   {
+    "text": "esa",
+    "start": 31.99,
+    "end": 32.190458
+   },
+   {
+    "text": "fuerza",
+    "start": 32.20225,
+    "end": 32.532458
+   },
+   {
+    "text": "iguala",
+    "start": 32.544208,
+    "end": 32.862624
+   },
+   {
+    "text": "al",
+    "start": 32.874416,
+    "end": 32.980541
+   },
+   {
+    "text": "peso,",
+    "start": 32.992333,
+    "end": 33.369707999999996
+   },
+   {
+    "text": "queda",
+    "start": 33.629125,
+    "end": 33.853166
+   },
+   {
+    "text": "suspendido,",
+    "start": 33.865,
+    "end": 34.537166
+   },
+   {
+    "text": "sin",
+    "start": 34.772999999999996,
+    "end": 34.961666
+   },
+   {
+    "text": "subir",
+    "start": 34.973458,
+    "end": 35.315458
+   },
+   {
+    "text": "ni",
+    "start": 35.32725,
+    "end": 35.421583
+   },
+   {
+    "text": "bajar.",
+    "start": 35.433375,
+    "end": 35.869707999999996
+   },
+   {
+    "text": "Con",
+    "start": 36.680541,
+    "end": 36.845624
+   },
+   {
+    "text": "más",
+    "start": 36.857416,
+    "end": 37.069666
+   },
+   {
+    "text": "inclinación",
+    "start": 37.0815,
+    "end": 37.671124999999996
+   },
+   {
+    "text": "de",
+    "start": 37.682916,
+    "end": 37.753666
+   },
+   {
+    "text": "las",
+    "start": 37.765458,
+    "end": 37.942333
+   },
+   {
+    "text": "aspas,",
+    "start": 37.954125,
+    "end": 38.3315
+   },
+   {
+    "text": "sube.",
+    "start": 38.567333,
+    "end": 38.968291
+   }
+  ],
+  "highlight": [
+   "iguala",
+   "peso",
+   "suspendido",
+   "sube"
+  ],
+  "mean_db": -19.9
+ },
+ {
+  "scene": "tilt",
+  "start": 40.132,
+  "dur": 7.916,
+  "audio": "output/helicoptero/work/tts/a926596ce290d870.mp3",
+  "audio_dur": 7.416,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Para",
+    "start": 40.379166,
+    "end": 40.591415999999995
+   },
+   {
+    "text": "avanzar,",
+    "start": 40.603207999999995,
+    "end": 41.063123999999995
+   },
+   {
+    "text": "retroceder",
+    "start": 41.310790999999995,
+    "end": 41.912206999999995
+   },
+   {
+    "text": "o",
+    "start": 41.924,
+    "end": 42.018333
+   },
+   {
+    "text": "ir",
+    "start": 42.030125,
+    "end": 42.206999999999994
+   },
+   {
+    "text": "de",
+    "start": 42.218790999999996,
+    "end": 42.313123999999995
+   },
+   {
+    "text": "lado,",
+    "start": 42.324915999999995,
+    "end": 42.643331999999994
+   },
+   {
+    "text": "el",
+    "start": 42.890958,
+    "end": 43.04424899999999
+   },
+   {
+    "text": "piloto",
+    "start": 43.05604099999999,
+    "end": 43.409831999999994
+   },
+   {
+    "text": "inclina",
+    "start": 43.421625,
+    "end": 43.822582999999995
+   },
+   {
+    "text": "el",
+    "start": 43.834374999999994,
+    "end": 43.91691599999999
+   },
+   {
+    "text": "disco",
+    "start": 43.92870799999999,
+    "end": 44.247124
+   },
+   {
+    "text": "del",
+    "start": 44.258874999999996,
+    "end": 44.400375
+   },
+   {
+    "text": "rotor,",
+    "start": 44.412208,
+    "end": 44.765998999999994
+   },
+   {
+    "text": "y",
+    "start": 45.049,
+    "end": 45.119749999999996
+   },
+   {
+    "text": "el",
+    "start": 45.131541,
+    "end": 45.237666
+   },
+   {
+    "text": "helicóptero",
+    "start": 45.249458,
+    "end": 45.839082999999995
+   },
+   {
+    "text": "sigue",
+    "start": 45.850874999999995,
+    "end": 46.181082999999994
+   },
+   {
+    "text": "esa",
+    "start": 46.192833,
+    "end": 46.405083
+   },
+   {
+    "text": "fuerza.",
+    "start": 46.41691599999999,
+    "end": 46.87683199999999
+   }
+  ],
+  "highlight": [
+   "inclina",
+   "disco",
+   "rotor"
+  ],
+  "mean_db": -19.3
+ },
+ {
+  "scene": "tail",
+  "start": 48.048,
+  "dur": 7.748,
+  "audio": "output/helicoptero/work/tts/7e6d2fbbe2681269.mp3",
+  "audio_dur": 7.248,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Pero",
+    "start": 48.295166,
+    "end": 48.483832
+   },
+   {
+    "text": "el",
+    "start": 48.495625,
+    "end": 48.566375
+   },
+   {
+    "text": "rotor",
+    "start": 48.578208000000004,
+    "end": 48.884791
+   },
+   {
+    "text": "principal",
+    "start": 48.896583,
+    "end": 49.415458
+   },
+   {
+    "text": "también",
+    "start": 49.42725,
+    "end": 49.792833
+   },
+   {
+    "text": "hace",
+    "start": 49.804583,
+    "end": 49.993249
+   },
+   {
+    "text": "girar",
+    "start": 50.005083,
+    "end": 50.347083
+   },
+   {
+    "text": "el",
+    "start": 50.358833,
+    "end": 50.441374
+   },
+   {
+    "text": "fuselaje",
+    "start": 50.453208000000004,
+    "end": 50.983874
+   },
+   {
+    "text": "al",
+    "start": 50.995625,
+    "end": 51.066375
+   },
+   {
+    "text": "revés.",
+    "start": 51.078208000000004,
+    "end": 51.549916
+   },
+   {
+    "text": "El",
+    "start": 52.372541,
+    "end": 52.549416
+   },
+   {
+    "text": "rotor",
+    "start": 52.561208,
+    "end": 52.867791000000004
+   },
+   {
+    "text": "de",
+    "start": 52.879583000000004,
+    "end": 52.973916
+   },
+   {
+    "text": "cola",
+    "start": 52.98575,
+    "end": 53.233375
+   },
+   {
+    "text": "empuja",
+    "start": 53.245166,
+    "end": 53.634332
+   },
+   {
+    "text": "de",
+    "start": 53.646125,
+    "end": 53.764041
+   },
+   {
+    "text": "lado",
+    "start": 53.775833,
+    "end": 54.047041
+   },
+   {
+    "text": "y",
+    "start": 54.058833,
+    "end": 54.1059989
+   },
+   {
+    "text": "lo",
+    "start": 54.117791000000004,
+    "end": 54.200332
+   },
+   {
+    "text": "evita.",
+    "start": 54.212166,
+    "end": 54.613124
+   }
+  ],
+  "highlight": [
+   "fuselaje",
+   "al revés",
+   "cola",
+   "evita"
+  ],
+  "mean_db": -20.0
+ },
+ {
+  "scene": "final",
+  "start": 55.796,
+  "dur": 10.858,
+  "audio": "output/helicoptero/work/tts/54aa36fa3b05b85b.mp3",
+  "audio_dur": 9.408,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Así",
+    "start": 56.043166,
+    "end": 56.337956999999996
+   },
+   {
+    "text": "vuela",
+    "start": 56.349790999999996,
+    "end": 56.609207
+   },
+   {
+    "text": "un",
+    "start": 56.620999999999995,
+    "end": 56.750707999999996
+   },
+   {
+    "text": "helicóptero:",
+    "start": 56.762499999999996,
+    "end": 57.387499999999996
+   },
+   {
+    "text": "con",
+    "start": 57.611582999999996,
+    "end": 57.788458
+   },
+   {
+    "text": "alas",
+    "start": 57.80025,
+    "end": 58.036083
+   },
+   {
+    "text": "que",
+    "start": 58.047875,
+    "end": 58.153999999999996
+   },
+   {
+    "text": "giran,",
+    "start": 58.165791,
+    "end": 58.566748999999994
+   },
+   {
+    "text": "empujando",
+    "start": 58.838,
+    "end": 59.345082999999995
+   },
+   {
+    "text": "el",
+    "start": 59.356832999999995,
+    "end": 59.451166
+   },
+   {
+    "text": "aire",
+    "start": 59.463,
+    "end": 59.710625
+   },
+   {
+    "text": "hacia",
+    "start": 59.722415999999996,
+    "end": 59.934666
+   },
+   {
+    "text": "abajo.",
+    "start": 59.946458,
+    "end": 60.335623999999996
+   },
+   {
+    "text": "¿Lo",
+    "start": 61.146457999999996,
+    "end": 61.264374
+   },
+   {
+    "text": "sabías?",
+    "start": 61.276208,
+    "end": 61.912999
+   },
+   {
+    "text": "Sígueme",
+    "start": 62.738458,
+    "end": 63.198373999999994
+   },
+   {
+    "text": "para",
+    "start": 63.210166,
+    "end": 63.410624
+   },
+   {
+    "text": "más",
+    "start": 63.422416,
+    "end": 63.658249
+   },
+   {
+    "text": "curiosidades.",
+    "start": 63.670041,
+    "end": 64.53087400000001
+   }
+  ],
+  "highlight": [
+   "alas",
+   "giran",
+   "aire",
+   "Sígueme"
+  ],
+  "mean_db": -20.6
+ }
+]
