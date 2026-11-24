@@ -11,6 +11,7 @@ import numpy as np
 
 from .audio_check import check_audio
 from .core import FPS, H, W, VOICE, VOICE_RATE, VOICE_PITCH
+from . import mixer
 from .sfx import BANK, BANK_DUR, SR, music
 from .subtitles import build_ass
 from .svgkit import frame_svg
@@ -60,40 +61,36 @@ def _decode(path):
     return np.frombuffer(r.stdout, dtype=np.int16).astype(np.float32) / 32768
 
 
-def build_audio(tl, total, pack, out_wav, with_music=False, mood="calm"):
+def build_audio(tl, total, pack, out_wav, with_music=False, mood="calm", log=print):
+    """Mezcla bajo la REGLA OFICIAL (mixer.py): voz al frente, música muy suave, efectos mínimos, ducking."""
     n_ = int((total + .2) * SR)
-    voice, fxb = np.zeros(n_, dtype=np.float32), np.zeros(n_, dtype=np.float32)
+    voice = np.zeros(n_, dtype=np.float32)
     for s in tl:
         a = _decode(s["audio"])
         o = int((s["start"] + s["lead"]) * SR)
         voice[o:o + len(a)] += a
-    for i, s in enumerate(tl):                       # efectos
+    spots, ambients = [], []
+    for i, s in enumerate(tl):
         if i:
-            o = int((s["start"] - .05) * SR)
-            w = BANK["whoosh"]()
-            fxb[o:o + len(w)] += w
+            spots.append((int((s["start"] - .05) * SR), BANK["whoosh"](), "whoosh"))
         for item in getattr(pack, "SFX", {}).get(s["scene"], []):
             name, fn = item[0], item[1]
-            fx = (BANK_DUR[name](item[2](s["dur"])) * item[3] if name in BANK_DUR else BANK[name]() * .6)
             o = int((s["start"] + fn(s["dur"])) * SR)
-            fxb[o:o + len(fx)] += fx[:max(0, n_ - o)]
-    vp = np.abs(voice).max()
-    if vp > 0:
-        voice *= .89 / vp          # la VOZ fija el nivel (igual en todos los videos); los SFX van por debajo
-    buf = voice + fxb * .5
-    if with_music:                                   # fondo suave con ducking bajo la voz
-        m = music(total, mood)[:n_]
-        m = np.pad(m, (0, n_ - len(m)))
-        env = np.convolve(np.abs(voice), np.ones(int(.25 * SR)) / int(.25 * SR), mode="same")
-        duck = 1 - .55 * np.clip(env / .12, 0, 1)
-        buf = buf + m / (np.abs(m).max() + 1e-9) * .16 * duck
-    peak = np.abs(buf).max()
-    if peak > .98:
-        buf *= .98 / peak
-    pcm = (buf * 32767).astype(np.int16)
+            if name in BANK_DUR:
+                ambients.append((o, BANK_DUR[name](item[2](s["dur"])), name))
+            else:
+                spots.append((o, BANK[name](), name))
+    mus = music(total, mood)[:n_] if with_music else None
+    out, v, bed = mixer.mix(voice, spots, ambients, mus)
+    words = [w for s in tl for w in s["words"]]
+    margins = mixer.speech_margins(v, bed, words)
+    worst = mixer.check_margins(margins)
+    mean = float(np.mean([m for _, m in margins]))
+    log(f"   mezcla: fondo ≥ {worst[1]:.1f} dB bajo la voz en TODAS las palabras (peor: «{worst[0]}»; media {mean:.1f} dB); pico {np.abs(out).max():.2f}")
+    pcm = (out * 32767).astype(np.int16)
     with wave.open(str(out_wav), "wb") as f:
         f.setnchannels(1); f.setsampwidth(2); f.setframerate(SR); f.writeframes(pcm.tobytes())
-    return len(buf) / SR
+    return len(out) / SR
 
 
 # ---------------------------------------------------------------- frames
@@ -164,7 +161,7 @@ def make(script_path, out_dir, workers=None, log=print):
     log(f"   duración total: {total:.2f}s")
     log("2/4 Mezcla de audio…")
     wav = out_dir / "work" / "audio.wav"
-    build_audio(tl, total, pack, wav, data.get("music", False), data.get("music_mood", "calm"))
+    build_audio(tl, total, pack, wav, data.get("music", False), data.get("music_mood", "calm"), log)
     check_audio(wav)
     log("3/4 Subtítulos…")
     words = [w for s in tl for w in s["words"]]

@@ -87,3 +87,18 @@ def check_sync(timeline, min_db=-42.0):
         idx = np.argmax(smooth_ > 0.02)
         onsets.append(abs(idx / SR - (sc["words"][0]["start"] - base)))
     return ok / tot, float(np.mean(onsets))
+
+
+def check_loudness(mp4, max_true_peak=-0.5):
+    """Revisión del audio completo del MP4: sonoridad integrada, pico real y ausencia de recortes."""
+    import re, subprocess
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(mp4), "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    I = re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)
+    P = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)
+    if not I or not P:
+        raise AudioError("no se pudo medir la sonoridad del MP4")
+    lufs, peak = float(I[-1]), float(P[-1])
+    if peak > max_true_peak:
+        raise AudioError(f"audio con pico {peak} dBFS (> {max_true_peak}): riesgo de recorte")
+    return lufs, peak

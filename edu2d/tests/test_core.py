@@ -74,3 +74,31 @@ def test_rotor_speed_no_aliasing():
     from edu2d.core import FPS
     step = rotor_ang(1 / FPS) - rotor_ang(0)
     assert 8 < step < 40, step          # gira visiblemente y sin efecto rueda de carreta (4 aspas = 90°)
+
+
+def test_mixer_keeps_voice_clear():
+    import numpy as np
+    from edu2d import mixer
+    sr = mixer.SR
+    n_ = sr * 6
+    rng = np.random.default_rng(1)
+    voice = np.zeros(n_, np.float32)
+    t = np.arange(sr * 2) / sr
+    voice[sr:sr * 3] = (np.sin(2 * np.pi * 180 * t) * (1 + np.sin(2 * np.pi * 4 * t)) * .3).astype(np.float32)
+    boom = (rng.standard_normal(sr) * 1.0).astype(np.float32)             # efecto fuerte justo bajo la voz
+    wind = rng.standard_normal(sr * 6).astype(np.float32)
+    music = np.sin(2 * np.pi * 220 * np.arange(n_) / sr).astype(np.float32)
+    out, v, bed = mixer.mix(voice, [(int(sr * 1.5), boom, "boom"), (int(sr * 2.2), boom, "pop")], [(0, wind, "wind")], music)
+    words = [{"text": "palabra", "start": 1.0, "end": 3.0}]
+    worst = mixer.check_margins(mixer.speech_margins(v, bed, words))
+    assert worst[1] >= mixer.MIN_MARGIN_DB
+    assert np.abs(out).max() <= .93
+    # el viento continuo se recorta a una ráfaga corta
+    assert np.abs(bed[int(sr * 4):]).max() < .05
+
+
+def test_mixer_rejects_loud_bed():
+    import numpy as np, pytest
+    from edu2d import mixer
+    with pytest.raises(mixer.MixError):
+        mixer.check_margins([("hola", 12.0)])

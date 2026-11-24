@@ -34,3 +34,10 @@ Requiere salida a `speech.platform.bing.com` (Edge TTS). La narración se cachea
   El `planner` solo puede ordenar escenas ya existentes. Siguiente paso: escenas genéricas parametrizables.
 - La investigación factual automática depende de un LLM; no se ha probado aquí.
 - La sincronía de subtítulos usa los tiempos por palabra de Edge TTS (no se contrastó con un reconocedor de voz).
+
+## Regla oficial de mezcla de audio (`edu2d/mixer.py`)
+La narración manda. La aplica el generador para todos los videos, sin tocar las escenas:
+- Voz a nivel fijo; música muy suave (pico ≈ -26 dBFS) con ducking del 85 % cuando habla el narrador.
+- Efectos puntuales a bajo nivel y con ducking del 90 %; viento/rotor/rumor limitados a ráfagas de ≤ 1,8 s y muy bajos (sin sonido constante).
+- Control automático: en CADA palabra el fondo debe quedar ≥ 20 dB por debajo de la voz; si no, la exportación se rechaza.
+- Revisión final del MP4: sonoridad integrada, pico real (sin recortes) y decodificación completa.

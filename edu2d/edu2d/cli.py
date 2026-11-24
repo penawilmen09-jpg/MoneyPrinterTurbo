@@ -28,6 +28,9 @@ def cmd_make(a):
     mp4, tl, total = make(a.script, out, a.workers)
     print("Verificando MP4…")
     problems = verify_mp4(mp4, tl)
+    from .verify import check_loudness
+    lufs, peak = check_loudness(mp4)
+    print(f"  audio final: {lufs} LUFS integrados, pico real {peak} dBFS (sin recortes)")
     if problems:
         print("PROBLEMAS:"); [print(" -", x) for x in problems]; return 2
     print(f"OK -> {mp4}")
