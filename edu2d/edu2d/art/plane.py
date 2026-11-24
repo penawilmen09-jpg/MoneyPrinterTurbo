@@ -7,9 +7,11 @@ from ..core import n
 def airliner(t, bob=True, engine_glow=True):
     """Vista lateral, mira a la derecha, origen = centro del fuselaje (longitud ≈ 560)."""
     out = ""
-    # estabilizador y deriva
-    out += ('<polygon points="-210,-24 -300,-130 -262,-130 -150,-24" fill="#1F7AE0" stroke="#10305F" stroke-width="3"/>'
-            '<polygon points="-250,10 -330,40 -290,48 -190,20" fill="#CFD8E6" stroke="#5B6578" stroke-width="3"/>')
+    # cola: estabilizador horizontal (detrás), deriva vertical grande y cono de cola
+    out += ('<polygon points="-232,-4 -186,-4 -292,40 -352,40" fill="#CFD8E6" stroke="#5B6578" stroke-width="3"/>'
+            '<polygon points="-196,-40 -292,-176 -338,-176 -322,-22" fill="#1F7AE0" stroke="#10305F" stroke-width="4"/>'
+            '<polygon points="-262,-126 -296,-174 -331,-174 -318,-132" fill="#FFD43B" opacity=".95"/>'
+            '<circle cx="-300" cy="-150" r="9" fill="#fff" opacity=".9"/>')
     # ala (en perspectiva) y motor
     out += ('<polygon points="-20,20 50,20 -105,112 -170,112" fill="#E9EEF6" stroke="#5B6578" stroke-width="4"/>'
             '<polygon points="-170,112 -105,112 -112,124 -182,124" fill="#B8C2D4" stroke="#5B6578" stroke-width="3"/>')
@@ -17,10 +19,11 @@ def airliner(t, bob=True, engine_glow=True):
             '<path d="M-84,106 L22,106 Q36,106 36,124 Q36,142 22,142 L-84,142 Q-96,142 -96,124 Q-96,106 -84,106 Z" fill="#F5F7FB" stroke="#5B6578" stroke-width="4"/>'
             '<ellipse cx="34" cy="124" rx="7" ry="17" fill="#1B2438"/>'
             f'<ellipse cx="-92" cy="124" rx="6" ry="14" fill="#7C8AA6"/>')
-    # fuselaje
-    out += ('<path d="M-280,-30 Q-290,0 -260,32 L180,36 Q268,30 288,-4 Q268,-40 180,-44 L-250,-44 Q-278,-44 -280,-30 Z" fill="#fff" stroke="#5B6578" stroke-width="4"/>'
-            '<path d="M-262,22 L270,18 L262,4 L-270,8 Z" fill="#1F7AE0" opacity=".95"/>'
-            '<path d="M196,-38 Q250,-36 272,-6 L212,-6 Z" fill="#2B3A55" stroke="#5B6578" stroke-width="2"/>')
+    # fuselaje con cono de cola ascendente
+    out += ('<path d="M-346,-26 Q-352,-12 -330,-2 L-210,36 L180,38 Q268,30 288,-4 Q268,-40 180,-46 L-200,-46 Q-330,-44 -346,-26 Z" fill="#fff" stroke="#5B6578" stroke-width="4"/>'
+            '<path d="M-330,-8 L-230,24 L268,18 L262,4 L-230,10 Z" fill="#1F7AE0" opacity=".95"/>'
+            '<rect x="-352" y="-24" width="14" height="10" rx="4" fill="#9AA6BA" stroke="#5B6578" stroke-width="2"/>'
+            '<path d="M196,-40 Q250,-38 272,-6 L212,-6 Z" fill="#2B3A55" stroke="#5B6578" stroke-width="2"/>')
     for i in range(18):
         out += f'<rect x="{-220 + i*17}" y="-22" width="8" height="11" rx="3" fill="#2B3A55"/>'
     out += '<ellipse cx="-90" cy="-4" rx="2" ry="2" fill="#fff"/>'
