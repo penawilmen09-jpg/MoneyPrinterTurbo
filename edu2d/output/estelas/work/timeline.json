@@ -1,0 +1,878 @@
+[
+ {
+  "scene": "hook",
+  "start": 0.0,
+  "dur": 4.032,
+  "audio": "output/estelas/work/tts/7ca77aa90f7cc02c.mp3",
+  "audio_dur": 3.432,
+  "lead": 0.25,
+  "words": [
+   {
+    "text": "¿Por",
+    "start": 0.347166,
+    "end": 0.512249
+   },
+   {
+    "text": "qué",
+    "start": 0.524041,
+    "end": 0.630166
+   },
+   {
+    "text": "los",
+    "start": 0.642,
+    "end": 0.795291
+   },
+   {
+    "text": "aviones",
+    "start": 0.807083,
+    "end": 1.184458
+   },
+   {
+    "text": "dejan",
+    "start": 1.196208,
+    "end": 1.502791
+   },
+   {
+    "text": "líneas",
+    "start": 1.514625,
+    "end": 1.868416
+   },
+   {
+    "text": "blancas",
+    "start": 1.880208,
+    "end": 2.269374
+   },
+   {
+    "text": "en",
+    "start": 2.281125,
+    "end": 2.363666
+   },
+   {
+    "text": "el",
+    "start": 2.375458,
+    "end": 2.469791
+   },
+   {
+    "text": "cielo?",
+    "start": 2.481583,
+    "end": 2.8589580000000003
+   }
+  ],
+  "highlight": [
+   "aviones",
+   "líneas",
+   "blancas"
+  ],
+  "mean_db": -20.7
+ },
+ {
+  "scene": "cruise",
+  "start": 4.032,
+  "dur": 7.268,
+  "audio": "output/estelas/work/tts/a6f091c5db905bc7.mp3",
+  "audio_dur": 6.768,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "A",
+    "start": 4.279166,
+    "end": 4.397082
+   },
+   {
+    "text": "unos",
+    "start": 4.408875,
+    "end": 4.6918750000000005
+   },
+   {
+    "text": "diez",
+    "start": 4.703708000000001,
+    "end": 4.904166
+   },
+   {
+    "text": "mil",
+    "start": 4.915958000000001,
+    "end": 5.081041000000001
+   },
+   {
+    "text": "metros",
+    "start": 5.092833000000001,
+    "end": 5.4230410000000004
+   },
+   {
+    "text": "de",
+    "start": 5.434833,
+    "end": 5.493791000000001
+   },
+   {
+    "text": "altura,",
+    "start": 5.505583000000001,
+    "end": 5.882958
+   },
+   {
+    "text": "un",
+    "start": 6.213125,
+    "end": 6.3074580000000005
+   },
+   {
+    "text": "avión",
+    "start": 6.31925,
+    "end": 6.590458
+   },
+   {
+    "text": "comercial",
+    "start": 6.602291000000001,
+    "end": 7.085791
+   },
+   {
+    "text": "cruza",
+    "start": 7.097583,
+    "end": 7.404166
+   },
+   {
+    "text": "el",
+    "start": 7.415958,
+    "end": 7.498499000000001
+   },
+   {
+    "text": "cielo",
+    "start": 7.5102910000000005,
+    "end": 7.852291000000001
+   },
+   {
+    "text": "y",
+    "start": 7.864083000000001,
+    "end": 7.9230410000000004
+   },
+   {
+    "text": "deja",
+    "start": 7.934833,
+    "end": 8.229624
+   },
+   {
+    "text": "tras",
+    "start": 8.241416,
+    "end": 8.477249
+   },
+   {
+    "text": "de",
+    "start": 8.489083,
+    "end": 8.583416000000001
+   },
+   {
+    "text": "sí",
+    "start": 8.595208000000001,
+    "end": 8.772083
+   },
+   {
+    "text": "una",
+    "start": 8.783875,
+    "end": 8.972541
+   },
+   {
+    "text": "larga",
+    "start": 8.984375,
+    "end": 9.314583
+   },
+   {
+    "text": "línea",
+    "start": 9.326333,
+    "end": 9.656540999999999
+   },
+   {
+    "text": "blanca.",
+    "start": 9.668333,
+    "end": 10.128249
+   }
+  ],
+  "highlight": [
+   "diez",
+   "mil",
+   "metros",
+   "línea",
+   "blanca"
+  ],
+  "mean_db": -19.2
+ },
+ {
+  "scene": "engine",
+  "start": 11.3,
+  "dur": 7.412,
+  "audio": "output/estelas/work/tts/2979f475b39f0419.mp3",
+  "audio_dur": 6.912,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Sus",
+    "start": 11.547166,
+    "end": 11.830166
+   },
+   {
+    "text": "motores",
+    "start": 11.842,
+    "end": 12.242958000000002
+   },
+   {
+    "text": "queman",
+    "start": 12.254708,
+    "end": 12.525916
+   },
+   {
+    "text": "combustible",
+    "start": 12.53775,
+    "end": 13.139166000000001
+   },
+   {
+    "text": "y",
+    "start": 13.150958000000001,
+    "end": 13.280666000000002
+   },
+   {
+    "text": "expulsan",
+    "start": 13.292458000000002,
+    "end": 13.823124000000002
+   },
+   {
+    "text": "gases",
+    "start": 13.834916000000002,
+    "end": 14.200499
+   },
+   {
+    "text": "muy",
+    "start": 14.212250000000001,
+    "end": 14.412708
+   },
+   {
+    "text": "calientes.",
+    "start": 14.424541000000001,
+    "end": 15.096707
+   },
+   {
+    "text": "Entre",
+    "start": 15.907541,
+    "end": 16.296706999999998
+   },
+   {
+    "text": "ellos",
+    "start": 16.3085,
+    "end": 16.5915
+   },
+   {
+    "text": "hay",
+    "start": 16.603291,
+    "end": 16.732999
+   },
+   {
+    "text": "vapor",
+    "start": 16.744791,
+    "end": 17.074999
+   },
+   {
+    "text": "de",
+    "start": 17.086790999999998,
+    "end": 17.192915999999997
+   },
+   {
+    "text": "agua.",
+    "start": 17.204708,
+    "end": 17.534916
+   }
+  ],
+  "highlight": [
+   "motores",
+   "calientes",
+   "vapor",
+   "agua"
+  ],
+  "mean_db": -20.5
+ },
+ {
+  "scene": "cold",
+  "start": 18.712,
+  "dur": 6.044,
+  "audio": "output/estelas/work/tts/11fee46adbec8fba.mp3",
+  "audio_dur": 5.544,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Pero",
+    "start": 18.959166,
+    "end": 19.159623999999997
+   },
+   {
+    "text": "allá",
+    "start": 19.171415999999997,
+    "end": 19.395456999999997
+   },
+   {
+    "text": "arriba",
+    "start": 19.407290999999997,
+    "end": 19.749291
+   },
+   {
+    "text": "el",
+    "start": 19.761041,
+    "end": 19.867165999999997
+   },
+   {
+    "text": "aire",
+    "start": 19.878999999999998,
+    "end": 20.150208
+   },
+   {
+    "text": "es",
+    "start": 20.162,
+    "end": 20.291708
+   },
+   {
+    "text": "extremadamente",
+    "start": 20.3035,
+    "end": 21.105375
+   },
+   {
+    "text": "frío:",
+    "start": 21.117207999999998,
+    "end": 21.459207999999997
+   },
+   {
+    "text": "ronda",
+    "start": 21.742207999999998,
+    "end": 22.001624
+   },
+   {
+    "text": "los",
+    "start": 22.013416,
+    "end": 22.143124
+   },
+   {
+    "text": "cincuenta",
+    "start": 22.154916,
+    "end": 22.579456999999998
+   },
+   {
+    "text": "grados",
+    "start": 22.59125,
+    "end": 22.968625
+   },
+   {
+    "text": "bajo",
+    "start": 22.980415999999998,
+    "end": 23.192666
+   },
+   {
+    "text": "cero.",
+    "start": 23.204458,
+    "end": 23.581832999999996
+   }
+  ],
+  "highlight": [
+   "frío",
+   "cincuenta",
+   "bajo",
+   "cero"
+  ],
+  "mean_db": -19.5
+ },
+ {
+  "scene": "condense",
+  "start": 24.756,
+  "dur": 8.228,
+  "audio": "output/estelas/work/tts/37f4f1a77e75e251.mp3",
+  "audio_dur": 7.728,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Al",
+    "start": 25.003166,
+    "end": 25.168249
+   },
+   {
+    "text": "mezclarse,",
+    "start": 25.180041,
+    "end": 25.746081999999998
+   },
+   {
+    "text": "el",
+    "start": 26.040916,
+    "end": 26.194207
+   },
+   {
+    "text": "vapor",
+    "start": 26.206,
+    "end": 26.500791
+   },
+   {
+    "text": "se",
+    "start": 26.512583,
+    "end": 26.606916
+   },
+   {
+    "text": "enfría",
+    "start": 26.61875,
+    "end": 26.925333
+   },
+   {
+    "text": "de",
+    "start": 26.937124999999998,
+    "end": 27.019665999999997
+   },
+   {
+    "text": "golpe,",
+    "start": 27.031458,
+    "end": 27.420624
+   },
+   {
+    "text": "se",
+    "start": 27.680041,
+    "end": 27.809749
+   },
+   {
+    "text": "condensa",
+    "start": 27.821582999999997,
+    "end": 28.281498999999997
+   },
+   {
+    "text": "en",
+    "start": 28.29325,
+    "end": 28.363999999999997
+   },
+   {
+    "text": "diminutas",
+    "start": 28.375791,
+    "end": 28.918249
+   },
+   {
+    "text": "gotas,",
+    "start": 28.930041,
+    "end": 29.342791
+   },
+   {
+    "text": "y",
+    "start": 29.590415999999998,
+    "end": 29.696540999999996
+   },
+   {
+    "text": "estas",
+    "start": 29.708374999999997,
+    "end": 30.003166
+   },
+   {
+    "text": "se",
+    "start": 30.014958,
+    "end": 30.109291
+   },
+   {
+    "text": "congelan",
+    "start": 30.121083,
+    "end": 30.604582999999998
+   },
+   {
+    "text": "en",
+    "start": 30.616374999999998,
+    "end": 30.722499999999997
+   },
+   {
+    "text": "cristales",
+    "start": 30.734291,
+    "end": 31.312123999999997
+   },
+   {
+    "text": "de",
+    "start": 31.323915999999997,
+    "end": 31.406457
+   },
+   {
+    "text": "hielo.",
+    "start": 31.41825,
+    "end": 31.807416
+   }
+  ],
+  "highlight": [
+   "vapor",
+   "condensa",
+   "gotas",
+   "congelan",
+   "cristales",
+   "hielo"
+  ],
+  "mean_db": -18.6
+ },
+ {
+  "scene": "line",
+  "start": 32.984,
+  "dur": 8.06,
+  "audio": "output/estelas/work/tts/7da3c749cbf7eceb.mp3",
+  "audio_dur": 7.56,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Millones",
+    "start": 33.231166,
+    "end": 33.667499
+   },
+   {
+    "text": "de",
+    "start": 33.679291,
+    "end": 33.761832
+   },
+   {
+    "text": "cristales",
+    "start": 33.773625,
+    "end": 34.268916
+   },
+   {
+    "text": "juntos",
+    "start": 34.280708,
+    "end": 34.646291
+   },
+   {
+    "text": "forman",
+    "start": 34.658041,
+    "end": 35.023624
+   },
+   {
+    "text": "la",
+    "start": 35.035416,
+    "end": 35.117957
+   },
+   {
+    "text": "línea",
+    "start": 35.12975,
+    "end": 35.436333
+   },
+   {
+    "text": "blanca",
+    "start": 35.448166,
+    "end": 35.825541
+   },
+   {
+    "text": "que",
+    "start": 35.837291,
+    "end": 35.966999
+   },
+   {
+    "text": "vemos",
+    "start": 35.978791,
+    "end": 36.308999
+   },
+   {
+    "text": "desde",
+    "start": 36.320791,
+    "end": 36.556624
+   },
+   {
+    "text": "el",
+    "start": 36.568416,
+    "end": 36.639166
+   },
+   {
+    "text": "suelo.",
+    "start": 36.651,
+    "end": 37.040166
+   },
+   {
+    "text": "No",
+    "start": 37.851,
+    "end": 38.075041
+   },
+   {
+    "text": "es",
+    "start": 38.086833,
+    "end": 38.228333
+   },
+   {
+    "text": "humo:",
+    "start": 38.240125,
+    "end": 38.523125
+   },
+   {
+    "text": "es",
+    "start": 38.782583,
+    "end": 38.947666
+   },
+   {
+    "text": "una",
+    "start": 38.959458,
+    "end": 39.124541
+   },
+   {
+    "text": "nube",
+    "start": 39.136375,
+    "end": 39.395791
+   },
+   {
+    "text": "de",
+    "start": 39.407583,
+    "end": 39.501916
+   },
+   {
+    "text": "hielo.",
+    "start": 39.513708,
+    "end": 39.879291
+   }
+  ],
+  "highlight": [
+   "cristales",
+   "línea",
+   "humo",
+   "hielo"
+  ],
+  "mean_db": -19.3
+ },
+ {
+  "scene": "compare",
+  "start": 41.044000000000004,
+  "dur": 10.028,
+  "audio": "output/estelas/work/tts/eb08a8047c303d63.mp3",
+  "audio_dur": 9.528,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Si",
+    "start": 41.291166000000004,
+    "end": 41.562374000000005
+   },
+   {
+    "text": "el",
+    "start": 41.574208000000006,
+    "end": 41.715708
+   },
+   {
+    "text": "aire",
+    "start": 41.7275,
+    "end": 41.986916
+   },
+   {
+    "text": "es",
+    "start": 41.998708,
+    "end": 42.104833
+   },
+   {
+    "text": "seco,",
+    "start": 42.116625000000006,
+    "end": 42.446833000000005
+   },
+   {
+    "text": "los",
+    "start": 42.753416,
+    "end": 42.883124
+   },
+   {
+    "text": "cristales",
+    "start": 42.894958,
+    "end": 43.402041000000004
+   },
+   {
+    "text": "se",
+    "start": 43.413791,
+    "end": 43.508124
+   },
+   {
+    "text": "evaporan",
+    "start": 43.519958,
+    "end": 44.003458
+   },
+   {
+    "text": "y",
+    "start": 44.015208,
+    "end": 44.074166000000005
+   },
+   {
+    "text": "la",
+    "start": 44.086000000000006,
+    "end": 44.192125000000004
+   },
+   {
+    "text": "estela",
+    "start": 44.203916,
+    "end": 44.569499
+   },
+   {
+    "text": "desaparece",
+    "start": 44.581250000000004,
+    "end": 45.229833000000006
+   },
+   {
+    "text": "rápido.",
+    "start": 45.241625000000006,
+    "end": 45.748708
+   },
+   {
+    "text": "Si",
+    "start": 46.559583,
+    "end": 46.818999000000005
+   },
+   {
+    "text": "es",
+    "start": 46.830791000000005,
+    "end": 46.984082
+   },
+   {
+    "text": "muy",
+    "start": 46.995875000000005,
+    "end": 47.208125
+   },
+   {
+    "text": "húmedo,",
+    "start": 47.219958000000005,
+    "end": 47.597333
+   },
+   {
+    "text": "persiste",
+    "start": 47.844958000000005,
+    "end": 48.36383300000001
+   },
+   {
+    "text": "y",
+    "start": 48.375583,
+    "end": 48.434541
+   },
+   {
+    "text": "se",
+    "start": 48.446375,
+    "end": 48.576083000000004
+   },
+   {
+    "text": "extiende",
+    "start": 48.587875000000004,
+    "end": 49.059583
+   },
+   {
+    "text": "durante",
+    "start": 49.071375,
+    "end": 49.448750000000004
+   },
+   {
+    "text": "horas.",
+    "start": 49.4605,
+    "end": 49.908625
+   }
+  ],
+  "highlight": [
+   "seco",
+   "desaparece",
+   "húmedo",
+   "persiste",
+   "extiende"
+  ],
+  "mean_db": -19.3
+ },
+ {
+  "scene": "final",
+  "start": 51.072,
+  "dur": 10.81,
+  "audio": "output/estelas/work/tts/2383d4408b29b8de.mp3",
+  "audio_dur": 9.36,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "¡Lo",
+    "start": 51.319166,
+    "end": 51.484249
+   },
+   {
+    "text": "que",
+    "start": 51.496041,
+    "end": 51.602166000000004
+   },
+   {
+    "text": "parece",
+    "start": 51.614000000000004,
+    "end": 51.991375
+   },
+   {
+    "text": "humo",
+    "start": 52.003125000000004,
+    "end": 52.274333
+   },
+   {
+    "text": "es,",
+    "start": 52.286166,
+    "end": 52.498416
+   },
+   {
+    "text": "en",
+    "start": 52.639916,
+    "end": 52.769624
+   },
+   {
+    "text": "realidad,",
+    "start": 52.781416,
+    "end": 53.229541000000005
+   },
+   {
+    "text": "una",
+    "start": 53.512583,
+    "end": 53.642291
+   },
+   {
+    "text": "nube",
+    "start": 53.654083,
+    "end": 53.901708
+   },
+   {
+    "text": "artificial",
+    "start": 53.9135,
+    "end": 54.455958
+   },
+   {
+    "text": "de",
+    "start": 54.46775,
+    "end": 54.550291
+   },
+   {
+    "text": "cristales",
+    "start": 54.562083,
+    "end": 55.104541000000005
+   },
+   {
+    "text": "de",
+    "start": 55.116333000000004,
+    "end": 55.187083
+   },
+   {
+    "text": "hielo!",
+    "start": 55.198875,
+    "end": 55.564458
+   },
+   {
+    "text": "¿Lo",
+    "start": 56.375291000000004,
+    "end": 56.493207000000005
+   },
+   {
+    "text": "sabías?",
+    "start": 56.505,
+    "end": 57.141791000000005
+   },
+   {
+    "text": "Sígueme",
+    "start": 57.967291,
+    "end": 58.427207
+   },
+   {
+    "text": "para",
+    "start": 58.439,
+    "end": 58.639458
+   },
+   {
+    "text": "más",
+    "start": 58.65125,
+    "end": 58.887083000000004
+   },
+   {
+    "text": "curiosidades.",
+    "start": 58.898875000000004,
+    "end": 59.759708
+   }
+  ],
+  "highlight": [
+   "humo",
+   "nube",
+   "artificial",
+   "cristales",
+   "hielo",
+   "Sígueme"
+  ],
+  "mean_db": -20.4
+ }
+]

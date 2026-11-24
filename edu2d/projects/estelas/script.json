@@ -1,0 +1,20 @@
+{
+  "title": "¿Por qué los aviones dejan líneas blancas en el cielo?",
+  "slug": "estelas_aviones",
+  "pack": "contrail",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "calm",
+  "sources_note": "Estelas de condensación (contrails): el vapor de agua de los gases de escape (y el aire húmedo que se mezcla con ellos) se enfría en el aire muy frío de crucero (~-50 °C a ~10 km), se satura, condensa en gotitas diminutas que se congelan en cristales de hielo. Persistencia: si el aire ambiente es seco (no sobresaturado respecto al hielo) los cristales se sublimen en segundos; si es húmedo (sobresaturado en hielo) los cristales persisten y crecen, pudiendo extenderse y formar cirros. No es humo.",
+  "scenes": [
+    {"scene": "hook", "text": "¿Por qué los aviones dejan líneas blancas en el cielo?", "highlight": ["aviones", "líneas", "blancas"]},
+    {"scene": "cruise", "text": "A unos diez mil metros de altura, un avión comercial cruza el cielo y deja tras de sí una larga línea blanca.", "highlight": ["diez", "mil", "metros", "línea", "blanca"]},
+    {"scene": "engine", "text": "Sus motores queman combustible y expulsan gases muy calientes. Entre ellos hay vapor de agua.", "highlight": ["motores", "calientes", "vapor", "agua"]},
+    {"scene": "cold", "text": "Pero allá arriba el aire es extremadamente frío: ronda los cincuenta grados bajo cero.", "highlight": ["frío", "cincuenta", "bajo", "cero"]},
+    {"scene": "condense", "text": "Al mezclarse, el vapor se enfría de golpe, se condensa en diminutas gotas, y estas se congelan en cristales de hielo.", "highlight": ["vapor", "condensa", "gotas", "congelan", "cristales", "hielo"]},
+    {"scene": "line", "text": "Millones de cristales juntos forman la línea blanca que vemos desde el suelo. No es humo: es una nube de hielo.", "highlight": ["cristales", "línea", "humo", "hielo"]},
+    {"scene": "compare", "text": "Si el aire es seco, los cristales se evaporan y la estela desaparece rápido. Si es muy húmedo, persiste y se extiende durante horas.", "highlight": ["seco", "desaparece", "húmedo", "persiste", "extiende"]},
+    {"scene": "final", "text": "¡Lo que parece humo es, en realidad, una nube artificial de cristales de hielo! ¿Lo sabías? Sígueme para más curiosidades.", "highlight": ["humo", "nube", "artificial", "cristales", "hielo", "Sígueme"]}
+  ]
+}
