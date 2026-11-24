@@ -47,10 +47,11 @@ def build_ass(words, keywords, path, w=1080, h=1920, margin_v=400, size=78):
             "[Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n")
     ev = []
     chunks = chunk_words(words)
+    prev_end = 0.0
     for ci, ch in enumerate(chunks):
         c_end = ch[-1]["end"] + 0.25
         if ci + 1 < len(chunks):
-            c_end = min(c_end, chunks[ci + 1][0]["start"])
+            c_end = min(c_end, max(chunks[ci + 1][0]["start"] - 0.05, ch[-1]["end"]))
         # salto de línea al medio si el chunk es largo
         total = sum(len(x["text"]) for x in ch)
         brk, acc = None, 0
@@ -61,7 +62,7 @@ def build_ass(words, keywords, path, w=1080, h=1920, margin_v=400, size=78):
                 if abs(acc - total / 2) < best:
                     best, brk = abs(acc - total / 2), i
         for wi, cur in enumerate(ch):
-            start = cur["start"] if wi else max(cur["start"] - 0.05, 0)
+            start = cur["start"] if wi else max(cur["start"] - 0.05, 0, prev_end)   # sin solapar con el bloque anterior
             end = ch[wi + 1]["start"] if wi + 1 < len(ch) else c_end
             parts = []
             for j, x in enumerate(ch):
@@ -75,6 +76,7 @@ def build_ass(words, keywords, path, w=1080, h=1920, margin_v=400, size=78):
                 sep = "\\N" if brk == j and j else (" " if j else "")
                 parts.append(sep + tag + x["text"])
             pop = "{\\fscx88\\fscy88\\t(0,110,\\fscx100\\fscy100)}" if wi == 0 else ""
+            prev_end = end if wi == len(ch) - 1 else prev_end
             ev.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Main,,0,0,0,,{pop}{''.join(parts)}")
     with open(path, "w", encoding="utf-8") as f:
         f.write(head + "\n".join(ev) + "\n")

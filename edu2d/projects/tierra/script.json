@@ -1,0 +1,103 @@
+{
+  "title": "¿Qué pasaría si la Tierra dejara de girar durante 5 segundos?",
+  "slug": "tierra_pausa",
+  "pack": "earth",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "dark",
+  "sources_note": "Experimento mental: parada instantánea de la rotación (físicamente imposible: haría falta disipar ~2,6e29 J). Velocidad superficial v = 1670·cos(latitud) km/h (≈1670 en el ecuador, ≈1450 a 30°, ≈835 a 60°, ≈0 en los polos). Por inercia (1.ª ley de Newton) lo no sujeto al suelo, la atmósfera y los océanos conservarían inicialmente su velocidad hacia el este respecto a la superficie detenida. Las magnitudes son cotas iniciales, no una predicción exacta: el rozamiento las reduciría y el resultado real dependería de muchos factores.",
+  "scenes": [
+    {
+      "scene": "hook",
+      "text": "¿Qué pasaría si la Tierra dejara de girar durante cinco segundos?",
+      "highlight": [
+        "Tierra",
+        "girar",
+        "cinco",
+        "segundos"
+      ]
+    },
+    {
+      "scene": "experiment",
+      "text": "Es un experimento imaginario: de pronto, el planeta se detiene en seco. En la realidad es imposible.",
+      "highlight": [
+        "imaginario",
+        "detiene",
+        "imposible"
+      ]
+    },
+    {
+      "scene": "speed",
+      "text": "Hoy la Tierra gira de oeste a este. En el ecuador, su superficie viaja a unos mil seiscientos setenta kilómetros por hora; hacia los polos, mucho menos.",
+      "highlight": [
+        "ecuador",
+        "mil",
+        "seiscientos",
+        "setenta",
+        "polos",
+        "lento"
+      ]
+    },
+    {
+      "scene": "stop",
+      "text": "Al detenerse, el suelo y los edificios se paran. Pero lo que no está sujeto conserva su velocidad. Es la inercia.",
+      "highlight": [
+        "suelo",
+        "paran",
+        "sujeto",
+        "inercia"
+      ]
+    },
+    {
+      "scene": "inertia",
+      "text": "Autos, objetos y personas saldrían despedidos hacia el este, porque el suelo se detuvo y ellos siguieron moviéndose.",
+      "highlight": [
+        "despedidos",
+        "este",
+        "detuvo",
+        "moviéndose"
+      ]
+    },
+    {
+      "scene": "wind",
+      "text": "La atmósfera también seguiría moviéndose: vientos violentísimos, más rápidos que cualquier huracán, barrerían la superficie.",
+      "highlight": [
+        "atmósfera",
+        "vientos",
+        "violentísimos",
+        "huracán"
+      ]
+    },
+    {
+      "scene": "ocean",
+      "text": "Y los océanos, por inercia, avanzarían hacia el este, formando olas gigantescas que golpearían las costas.",
+      "highlight": [
+        "océanos",
+        "inercia",
+        "olas",
+        "gigantescas"
+      ]
+    },
+    {
+      "scene": "five",
+      "text": "Pasados cinco segundos, la rotación se reanudaría de golpe: otro cambio brusco y destructivo.",
+      "highlight": [
+        "cinco",
+        "reanudaría",
+        "brusco",
+        "destructivo"
+      ]
+    },
+    {
+      "scene": "final",
+      "text": "Por suerte, nuestro planeta no tiene un botón de pausa. ¿Lo sabías? Sígueme para más curiosidades.",
+      "highlight": [
+        "suerte",
+        "botón",
+        "pausa",
+        "Sígueme"
+      ]
+    }
+  ]
+}

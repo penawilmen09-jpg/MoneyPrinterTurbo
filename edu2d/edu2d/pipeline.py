@@ -11,7 +11,7 @@ import numpy as np
 
 from .audio_check import check_audio
 from .core import FPS, H, W, VOICE, VOICE_RATE, VOICE_PITCH
-from .sfx import BANK, SR, music, rotor
+from .sfx import BANK, BANK_DUR, SR, music
 from .subtitles import build_ass
 from .svgkit import frame_svg
 from .tts import synthesize
@@ -60,7 +60,7 @@ def _decode(path):
     return np.frombuffer(r.stdout, dtype=np.int16).astype(np.float32) / 32768
 
 
-def build_audio(tl, total, pack, out_wav, with_music=False):
+def build_audio(tl, total, pack, out_wav, with_music=False, mood="calm"):
     n_ = int((total + .2) * SR)
     voice, fxb = np.zeros(n_, dtype=np.float32), np.zeros(n_, dtype=np.float32)
     for s in tl:
@@ -74,7 +74,7 @@ def build_audio(tl, total, pack, out_wav, with_music=False):
             fxb[o:o + len(w)] += w
         for item in getattr(pack, "SFX", {}).get(s["scene"], []):
             name, fn = item[0], item[1]
-            fx = (rotor(item[2](s["dur"])) * item[3] if name == "rotor" else BANK[name]() * .6)
+            fx = (BANK_DUR[name](item[2](s["dur"])) * item[3] if name in BANK_DUR else BANK[name]() * .6)
             o = int((s["start"] + fn(s["dur"])) * SR)
             fxb[o:o + len(fx)] += fx[:max(0, n_ - o)]
     vp = np.abs(voice).max()
@@ -82,7 +82,7 @@ def build_audio(tl, total, pack, out_wav, with_music=False):
         voice *= .89 / vp          # la VOZ fija el nivel (igual en todos los videos); los SFX van por debajo
     buf = voice + fxb * .5
     if with_music:                                   # fondo suave con ducking bajo la voz
-        m = music(total)[:n_]
+        m = music(total, mood)[:n_]
         m = np.pad(m, (0, n_ - len(m)))
         env = np.convolve(np.abs(voice), np.ones(int(.25 * SR)) / int(.25 * SR), mode="same")
         duck = 1 - .55 * np.clip(env / .12, 0, 1)
@@ -164,7 +164,7 @@ def make(script_path, out_dir, workers=None, log=print):
     log(f"   duración total: {total:.2f}s")
     log("2/4 Mezcla de audio…")
     wav = out_dir / "work" / "audio.wav"
-    build_audio(tl, total, pack, wav, data.get("music", False))
+    build_audio(tl, total, pack, wav, data.get("music", False), data.get("music_mood", "calm"))
     check_audio(wav)
     log("3/4 Subtítulos…")
     words = [w for s in tl for w in s["words"]]

@@ -90,10 +90,12 @@ def rotor(dur, rate=8.5):
     return out * fade
 
 
-def music(total):
+def music(total, mood="calm"):
     """Fondo suave original: acordes en pad + arpegio de campanitas (Am-F-C-G)."""
     n_ = int((total + .2) * SR); t = np.arange(n_) / SR
     chords = [(220.0, 261.63, 329.63), (174.61, 220.0, 261.63), (261.63, 329.63, 392.0), (196.0, 246.94, 293.66)]
+    if mood == "dark":                       # Am - Dm - F - E: más tenso
+        chords = [(110.0, 220.0, 261.63), (146.83, 220.0, 293.66), (174.61, 261.63, 349.23), (164.81, 246.94, 329.63)]
     bar = 4.0
     out = np.zeros(n_)
     for i in range(int(total // bar) + 2):
@@ -111,3 +113,49 @@ def music(total):
                 out[o:o + m] += .09 * np.sin(2 * np.pi * f * 2 * tm) * np.exp(-tm / .3) * np.minimum(tm / .005, 1)
     fade = np.minimum(t / 1.5, 1) * np.minimum((t[-1] - t) / 2.5, 1)
     return out * fade
+
+
+def boom():
+    rng = np.random.default_rng(31)
+    n_ = int(1.4 * SR); t = np.arange(n_) / SR
+    x = np.sin(2 * np.pi * (55 - 25 * t) * t) * np.exp(-t / .5) + .5 * np.convolve(rng.standard_normal(n_), np.ones(40) / 40, mode="same") * np.exp(-t / .25)
+    return .8 * x * np.minimum(t / .003, 1)
+
+
+def tick():
+    t = np.arange(int(.1 * SR)) / SR
+    return .5 * np.sin(2 * np.pi * 1000 * t) * _env(len(t), .001, .025)
+
+
+def crash():
+    rng = np.random.default_rng(37)
+    n_ = int(1.6 * SR); t = np.arange(n_) / SR
+    x = np.convolve(rng.standard_normal(n_), np.ones(14) / 14, mode="same")
+    return .7 * x * np.minimum(t / .25, 1) * np.exp(-t / .7)
+
+
+def wind(dur):
+    rng = np.random.default_rng(41)
+    n_ = int(dur * SR); t = np.arange(n_) / SR
+    x = rng.standard_normal(n_)
+    lp = np.convolve(x, np.ones(25) / 25, mode="same")
+    mod = .6 + .4 * np.sin(2 * np.pi * .7 * t) * np.sin(2 * np.pi * 1.9 * t + 1)
+    fade = np.minimum(t / .5, 1) * np.minimum((dur - t) / .5, 1)
+    return lp * mod * fade * 1.4
+
+
+def rumble(dur):
+    rng = np.random.default_rng(43)
+    n_ = int(dur * SR); t = np.arange(n_) / SR
+    x = np.convolve(rng.standard_normal(n_), np.ones(150) / 150, mode="same") * 5
+    return x * np.minimum(t / .4, 1) * np.minimum((dur - t) / .6, 1)
+
+
+def riser(dur):
+    n_ = int(dur * SR); t = np.arange(n_) / SR
+    f = 200 + 1400 * (t / dur) ** 2
+    return .35 * np.sin(2 * np.pi * np.cumsum(f) / SR) * (t / dur) ** 1.5
+
+
+BANK.update(boom=boom, tick=tick, crash=crash)
+BANK_DUR = dict(rotor=rotor, wind=wind, rumble=rumble, riser=riser)

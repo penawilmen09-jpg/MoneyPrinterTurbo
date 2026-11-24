@@ -1,0 +1,931 @@
+[
+ {
+  "scene": "hook",
+  "start": 0.0,
+  "dur": 4.776,
+  "audio": "output/tierra/work/tts/5eaf0363b1e39fc1.mp3",
+  "audio_dur": 4.176,
+  "lead": 0.25,
+  "words": [
+   {
+    "text": "¿Qué",
+    "start": 0.347166,
+    "end": 0.453291
+   },
+   {
+    "text": "pasaría",
+    "start": 0.465083,
+    "end": 0.889624
+   },
+   {
+    "text": "si",
+    "start": 0.901416,
+    "end": 1.042916
+   },
+   {
+    "text": "la",
+    "start": 1.054708,
+    "end": 1.160833
+   },
+   {
+    "text": "Tierra",
+    "start": 1.172625,
+    "end": 1.432041
+   },
+   {
+    "text": "dejara",
+    "start": 1.443875,
+    "end": 1.797666
+   },
+   {
+    "text": "de",
+    "start": 1.809416,
+    "end": 1.915541
+   },
+   {
+    "text": "girar",
+    "start": 1.927375,
+    "end": 2.269375
+   },
+   {
+    "text": "durante",
+    "start": 2.281125,
+    "end": 2.646708
+   },
+   {
+    "text": "cinco",
+    "start": 2.6585,
+    "end": 2.976916
+   },
+   {
+    "text": "segundos?",
+    "start": 2.988666,
+    "end": 3.613666
+   }
+  ],
+  "highlight": [
+   "Tierra",
+   "girar",
+   "cinco",
+   "segundos"
+  ],
+  "mean_db": -20.8
+ },
+ {
+  "scene": "experiment",
+  "start": 4.776,
+  "dur": 8.012,
+  "audio": "output/tierra/work/tts/79843470cdc6851e.mp3",
+  "audio_dur": 7.512,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Es",
+    "start": 5.023166,
+    "end": 5.200041000000001
+   },
+   {
+    "text": "un",
+    "start": 5.211833,
+    "end": 5.306166
+   },
+   {
+    "text": "experimento",
+    "start": 5.3180000000000005,
+    "end": 5.931208
+   },
+   {
+    "text": "imaginario:",
+    "start": 5.943,
+    "end": 6.568
+   },
+   {
+    "text": "de",
+    "start": 6.827416,
+    "end": 6.921749
+   },
+   {
+    "text": "pronto,",
+    "start": 6.933541,
+    "end": 7.358082
+   },
+   {
+    "text": "el",
+    "start": 7.605708,
+    "end": 7.758999
+   },
+   {
+    "text": "planeta",
+    "start": 7.770791,
+    "end": 8.207124
+   },
+   {
+    "text": "se",
+    "start": 8.218916,
+    "end": 8.360416
+   },
+   {
+    "text": "detiene",
+    "start": 8.372208,
+    "end": 8.761374
+   },
+   {
+    "text": "en",
+    "start": 8.773166,
+    "end": 8.879291
+   },
+   {
+    "text": "seco.",
+    "start": 8.891083,
+    "end": 9.280249
+   },
+   {
+    "text": "En",
+    "start": 10.091083,
+    "end": 10.279749
+   },
+   {
+    "text": "la",
+    "start": 10.291583000000001,
+    "end": 10.385916
+   },
+   {
+    "text": "realidad",
+    "start": 10.397708,
+    "end": 10.857624
+   },
+   {
+    "text": "es",
+    "start": 10.869416,
+    "end": 10.999124
+   },
+   {
+    "text": "imposible.",
+    "start": 11.010916,
+    "end": 11.624124
+   }
+  ],
+  "highlight": [
+   "imaginario",
+   "detiene",
+   "imposible"
+  ],
+  "mean_db": -19.5
+ },
+ {
+  "scene": "speed",
+  "start": 12.788,
+  "dur": 10.892,
+  "audio": "output/tierra/work/tts/c65b4620e582541c.mp3",
+  "audio_dur": 10.392,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Hoy",
+    "start": 13.035166,
+    "end": 13.212041000000001
+   },
+   {
+    "text": "la",
+    "start": 13.223833,
+    "end": 13.329958000000001
+   },
+   {
+    "text": "Tierra",
+    "start": 13.341791,
+    "end": 13.648374
+   },
+   {
+    "text": "gira",
+    "start": 13.660166,
+    "end": 13.954957
+   },
+   {
+    "text": "de",
+    "start": 13.966791,
+    "end": 14.084707
+   },
+   {
+    "text": "oeste",
+    "start": 14.0965,
+    "end": 14.473875000000001
+   },
+   {
+    "text": "a",
+    "start": 14.485625,
+    "end": 14.579958000000001
+   },
+   {
+    "text": "este.",
+    "start": 14.591791,
+    "end": 14.933791000000001
+   },
+   {
+    "text": "En",
+    "start": 15.744583,
+    "end": 15.909666
+   },
+   {
+    "text": "el",
+    "start": 15.9215,
+    "end": 16.027625
+   },
+   {
+    "text": "ecuador,",
+    "start": 16.039416,
+    "end": 16.463957
+   },
+   {
+    "text": "su",
+    "start": 16.746958,
+    "end": 16.864874
+   },
+   {
+    "text": "superficie",
+    "start": 16.876666,
+    "end": 17.454499
+   },
+   {
+    "text": "viaja",
+    "start": 17.466291,
+    "end": 17.820082
+   },
+   {
+    "text": "a",
+    "start": 17.831875,
+    "end": 17.902625
+   },
+   {
+    "text": "unos",
+    "start": 17.914416,
+    "end": 18.232832
+   },
+   {
+    "text": "mil",
+    "start": 18.244583,
+    "end": 18.409665999999998
+   },
+   {
+    "text": "seiscientos",
+    "start": 18.421499999999998,
+    "end": 18.975749999999998
+   },
+   {
+    "text": "setenta",
+    "start": 18.987541,
+    "end": 19.400291
+   },
+   {
+    "text": "kilómetros",
+    "start": 19.412041,
+    "end": 20.013457
+   },
+   {
+    "text": "por",
+    "start": 20.02525,
+    "end": 20.190333
+   },
+   {
+    "text": "hora;",
+    "start": 20.202166,
+    "end": 20.414416
+   },
+   {
+    "text": "hacia",
+    "start": 20.626666,
+    "end": 20.897873999999998
+   },
+   {
+    "text": "los",
+    "start": 20.909708,
+    "end": 21.086582999999997
+   },
+   {
+    "text": "polos,",
+    "start": 21.098374999999997,
+    "end": 21.499333
+   },
+   {
+    "text": "mucho",
+    "start": 21.735166,
+    "end": 22.018166
+   },
+   {
+    "text": "menos.",
+    "start": 22.03,
+    "end": 22.5135
+   }
+  ],
+  "highlight": [
+   "ecuador",
+   "mil",
+   "seiscientos",
+   "setenta",
+   "polos",
+   "lento"
+  ],
+  "mean_db": -19.9
+ },
+ {
+  "scene": "stop",
+  "start": 23.68,
+  "dur": 9.212,
+  "audio": "output/tierra/work/tts/60713b19a76a4caf.mp3",
+  "audio_dur": 8.712,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Al",
+    "start": 23.927166,
+    "end": 24.104041
+   },
+   {
+    "text": "detenerse,",
+    "start": 24.115833,
+    "end": 24.681873999999997
+   },
+   {
+    "text": "el",
+    "start": 24.976708,
+    "end": 25.129998999999998
+   },
+   {
+    "text": "suelo",
+    "start": 25.141790999999998,
+    "end": 25.448373999999998
+   },
+   {
+    "text": "y",
+    "start": 25.460207999999998,
+    "end": 25.507373899999997
+   },
+   {
+    "text": "los",
+    "start": 25.519166,
+    "end": 25.684248999999998
+   },
+   {
+    "text": "edificios",
+    "start": 25.696040999999997,
+    "end": 26.203124
+   },
+   {
+    "text": "se",
+    "start": 26.214916,
+    "end": 26.321040999999997
+   },
+   {
+    "text": "paran.",
+    "start": 26.332832999999997,
+    "end": 26.721998999999997
+   },
+   {
+    "text": "Pero",
+    "start": 27.532832999999997,
+    "end": 27.721498999999998
+   },
+   {
+    "text": "lo",
+    "start": 27.733290999999998,
+    "end": 27.839416
+   },
+   {
+    "text": "que",
+    "start": 27.851208,
+    "end": 27.957333
+   },
+   {
+    "text": "no",
+    "start": 27.969165999999998,
+    "end": 28.098874
+   },
+   {
+    "text": "está",
+    "start": 28.110666,
+    "end": 28.311124
+   },
+   {
+    "text": "sujeto",
+    "start": 28.322916,
+    "end": 28.735666
+   },
+   {
+    "text": "conserva",
+    "start": 28.747457999999998,
+    "end": 29.230957999999998
+   },
+   {
+    "text": "su",
+    "start": 29.242749999999997,
+    "end": 29.372457999999998
+   },
+   {
+    "text": "velocidad.",
+    "start": 29.384249999999998,
+    "end": 30.021040999999997
+   },
+   {
+    "text": "Es",
+    "start": 30.834708,
+    "end": 31.058749
+   },
+   {
+    "text": "la",
+    "start": 31.070583,
+    "end": 31.164915999999998
+   },
+   {
+    "text": "inercia.",
+    "start": 31.176707999999998,
+    "end": 31.719165999999998
+   }
+  ],
+  "highlight": [
+   "suelo",
+   "paran",
+   "sujeto",
+   "inercia"
+  ],
+  "mean_db": -20.0
+ },
+ {
+  "scene": "inertia",
+  "start": 32.891999999999996,
+  "dur": 7.82,
+  "audio": "output/tierra/work/tts/f3025a7f4fed9411.mp3",
+  "audio_dur": 7.32,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Autos,",
+    "start": 33.139165999999996,
+    "end": 33.599081999999996
+   },
+   {
+    "text": "objetos",
+    "start": 33.83491599999999,
+    "end": 34.30662399999999
+   },
+   {
+    "text": "y",
+    "start": 34.31841599999999,
+    "end": 34.365581899999995
+   },
+   {
+    "text": "personas",
+    "start": 34.377374999999994,
+    "end": 34.84908299999999
+   },
+   {
+    "text": "saldrían",
+    "start": 34.86087499999999,
+    "end": 35.297208
+   },
+   {
+    "text": "despedidos",
+    "start": 35.309,
+    "end": 35.886832999999996
+   },
+   {
+    "text": "hacia",
+    "start": 35.898582999999995,
+    "end": 36.09904099999999
+   },
+   {
+    "text": "el",
+    "start": 36.11087499999999,
+    "end": 36.20520799999999
+   },
+   {
+    "text": "este,",
+    "start": 36.21699999999999,
+    "end": 36.523582999999995
+   },
+   {
+    "text": "porque",
+    "start": 36.794833,
+    "end": 37.05424899999999
+   },
+   {
+    "text": "el",
+    "start": 37.06604099999999,
+    "end": 37.160374
+   },
+   {
+    "text": "suelo",
+    "start": 37.17220799999999,
+    "end": 37.44341599999999
+   },
+   {
+    "text": "se",
+    "start": 37.45520799999999,
+    "end": 37.57312399999999
+   },
+   {
+    "text": "detuvo",
+    "start": 37.58491599999999,
+    "end": 38.033041
+   },
+   {
+    "text": "y",
+    "start": 38.044833,
+    "end": 38.19812399999999
+   },
+   {
+    "text": "ellos",
+    "start": 38.20991599999999,
+    "end": 38.44574899999999
+   },
+   {
+    "text": "siguieron",
+    "start": 38.45758299999999,
+    "end": 38.882124
+   },
+   {
+    "text": "moviéndose.",
+    "start": 38.893874999999994,
+    "end": 39.542457999999996
+   }
+  ],
+  "highlight": [
+   "despedidos",
+   "este",
+   "detuvo",
+   "moviéndose"
+  ],
+  "mean_db": -19.9
+ },
+ {
+  "scene": "wind",
+  "start": 40.711999999999996,
+  "dur": 8.42,
+  "audio": "output/tierra/work/tts/7d6d82de25c126de.mp3",
+  "audio_dur": 7.92,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "La",
+    "start": 40.959165999999996,
+    "end": 41.11245699999999
+   },
+   {
+    "text": "atmósfera",
+    "start": 41.124249999999996,
+    "end": 41.643125
+   },
+   {
+    "text": "también",
+    "start": 41.65491599999999,
+    "end": 42.032290999999994
+   },
+   {
+    "text": "seguiría",
+    "start": 42.04408299999999,
+    "end": 42.480416
+   },
+   {
+    "text": "moviéndose:",
+    "start": 42.492208,
+    "end": 43.070040999999996
+   },
+   {
+    "text": "vientos",
+    "start": 43.353041,
+    "end": 43.718624
+   },
+   {
+    "text": "violentísimos,",
+    "start": 43.730416,
+    "end": 44.508706999999994
+   },
+   {
+    "text": "más",
+    "start": 44.756333,
+    "end": 44.992166
+   },
+   {
+    "text": "rápidos",
+    "start": 45.004,
+    "end": 45.41674999999999
+   },
+   {
+    "text": "que",
+    "start": 45.42849999999999,
+    "end": 45.53462499999999
+   },
+   {
+    "text": "cualquier",
+    "start": 45.546415999999994,
+    "end": 45.935582
+   },
+   {
+    "text": "huracán,",
+    "start": 45.947374999999994,
+    "end": 46.37191599999999
+   },
+   {
+    "text": "barrerían",
+    "start": 46.67849999999999,
+    "end": 47.16199999999999
+   },
+   {
+    "text": "la",
+    "start": 47.173790999999994,
+    "end": 47.244541
+   },
+   {
+    "text": "superficie.",
+    "start": 47.25633299999999,
+    "end": 47.952082999999995
+   }
+  ],
+  "highlight": [
+   "atmósfera",
+   "vientos",
+   "violentísimos",
+   "huracán"
+  ],
+  "mean_db": -19.9
+ },
+ {
+  "scene": "ocean",
+  "start": 49.132,
+  "dur": 7.796,
+  "audio": "output/tierra/work/tts/6bef617855b31334.mp3",
+  "audio_dur": 7.296,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Y",
+    "start": 49.379166,
+    "end": 49.497082
+   },
+   {
+    "text": "los",
+    "start": 49.508874999999996,
+    "end": 49.697540999999994
+   },
+   {
+    "text": "océanos,",
+    "start": 49.709374999999994,
+    "end": 50.251833
+   },
+   {
+    "text": "por",
+    "start": 50.452290999999995,
+    "end": 50.605582
+   },
+   {
+    "text": "inercia,",
+    "start": 50.617374999999996,
+    "end": 51.077290999999995
+   },
+   {
+    "text": "avanzarían",
+    "start": 51.336707999999994,
+    "end": 51.973499
+   },
+   {
+    "text": "hacia",
+    "start": 51.985291,
+    "end": 52.197540999999994
+   },
+   {
+    "text": "el",
+    "start": 52.209374999999994,
+    "end": 52.30370799999999
+   },
+   {
+    "text": "este,",
+    "start": 52.31549999999999,
+    "end": 52.586707999999994
+   },
+   {
+    "text": "formando",
+    "start": 52.846166,
+    "end": 53.317873999999996
+   },
+   {
+    "text": "olas",
+    "start": 53.329625,
+    "end": 53.589040999999995
+   },
+   {
+    "text": "gigantescas",
+    "start": 53.600874999999995,
+    "end": 54.332
+   },
+   {
+    "text": "que",
+    "start": 54.343790999999996,
+    "end": 54.449915999999995
+   },
+   {
+    "text": "golpearían",
+    "start": 54.461707999999994,
+    "end": 55.03954099999999
+   },
+   {
+    "text": "las",
+    "start": 55.05133299999999,
+    "end": 55.19283299999999
+   },
+   {
+    "text": "costas.",
+    "start": 55.204625,
+    "end": 55.747082999999996
+   }
+  ],
+  "highlight": [
+   "océanos",
+   "inercia",
+   "olas",
+   "gigantescas"
+  ],
+  "mean_db": -19.3
+ },
+ {
+  "scene": "five",
+  "start": 56.928,
+  "dur": 6.692,
+  "audio": "output/tierra/work/tts/6f6774cbba491752.mp3",
+  "audio_dur": 6.192,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Pasados",
+    "start": 57.175166,
+    "end": 57.611498999999995
+   },
+   {
+    "text": "cinco",
+    "start": 57.623290999999995,
+    "end": 57.882706999999996
+   },
+   {
+    "text": "segundos,",
+    "start": 57.894499999999994,
+    "end": 58.436958
+   },
+   {
+    "text": "la",
+    "start": 58.684582999999996,
+    "end": 58.790707999999995
+   },
+   {
+    "text": "rotación",
+    "start": 58.802541,
+    "end": 59.286041
+   },
+   {
+    "text": "se",
+    "start": 59.297791,
+    "end": 59.415707
+   },
+   {
+    "text": "reanudaría",
+    "start": 59.427541,
+    "end": 59.993581999999996
+   },
+   {
+    "text": "de",
+    "start": 60.005374999999994,
+    "end": 60.099708
+   },
+   {
+    "text": "golpe:",
+    "start": 60.1115,
+    "end": 60.512457999999995
+   },
+   {
+    "text": "otro",
+    "start": 60.771874999999994,
+    "end": 60.995915999999994
+   },
+   {
+    "text": "cambio",
+    "start": 61.007707999999994,
+    "end": 61.32612399999999
+   },
+   {
+    "text": "brusco",
+    "start": 61.33791599999999,
+    "end": 61.703498999999994
+   },
+   {
+    "text": "y",
+    "start": 61.71525,
+    "end": 61.75062499999999
+   },
+   {
+    "text": "destructivo.",
+    "start": 61.762415999999995,
+    "end": 62.446374
+   }
+  ],
+  "highlight": [
+   "cinco",
+   "reanudaría",
+   "brusco",
+   "destructivo"
+  ],
+  "mean_db": -19.8
+ },
+ {
+  "scene": "final",
+  "start": 63.62,
+  "dur": 9.610000000000001,
+  "audio": "output/tierra/work/tts/2fec09dc37a9b709.mp3",
+  "audio_dur": 8.16,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Por",
+    "start": 63.867166,
+    "end": 64.032249
+   },
+   {
+    "text": "suerte,",
+    "start": 64.04404099999999,
+    "end": 64.42141600000001
+   },
+   {
+    "text": "nuestro",
+    "start": 64.71620800000001,
+    "end": 65.010999
+   },
+   {
+    "text": "planeta",
+    "start": 65.022833,
+    "end": 65.43558300000001
+   },
+   {
+    "text": "no",
+    "start": 65.44737500000001,
+    "end": 65.62425
+   },
+   {
+    "text": "tiene",
+    "start": 65.636041,
+    "end": 65.89545700000001
+   },
+   {
+    "text": "un",
+    "start": 65.90725,
+    "end": 66.025166
+   },
+   {
+    "text": "botón",
+    "start": 66.037,
+    "end": 66.367208
+   },
+   {
+    "text": "de",
+    "start": 66.378958,
+    "end": 66.461499
+   },
+   {
+    "text": "pausa.",
+    "start": 66.473291,
+    "end": 66.92141600000001
+   },
+   {
+    "text": "¿Lo",
+    "start": 67.73225000000001,
+    "end": 67.850166
+   },
+   {
+    "text": "sabías?",
+    "start": 67.86200000000001,
+    "end": 68.498791
+   },
+   {
+    "text": "Sígueme",
+    "start": 69.32425,
+    "end": 69.784166
+   },
+   {
+    "text": "para",
+    "start": 69.795958,
+    "end": 69.99641600000001
+   },
+   {
+    "text": "más",
+    "start": 70.008208,
+    "end": 70.24404100000001
+   },
+   {
+    "text": "curiosidades.",
+    "start": 70.25583300000001,
+    "end": 71.11666600000001
+   }
+  ],
+  "highlight": [
+   "suerte",
+   "botón",
+   "pausa",
+   "Sígueme"
+  ],
+  "mean_db": -20.6
+ }
+]
