@@ -37,6 +37,9 @@ DEFS = """<defs>
 <radialGradient id="nebT"><stop offset="0" stop-color="#14B8A6" stop-opacity=".28"/><stop offset="1" stop-color="#14B8A6" stop-opacity="0"/></radialGradient>
 <linearGradient id="suit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D3E6"/></linearGradient>
 <linearGradient id="visor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset=".5" stop-color="#1E2A5E"/><stop offset="1" stop-color="#0B1030"/></linearGradient>
+<radialGradient id="plasma"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".22" stop-color="#FFE28A" stop-opacity=".85"/><stop offset=".5" stop-color="#FF8A3D" stop-opacity=".5"/><stop offset=".8" stop-color="#E0392B" stop-opacity=".18"/><stop offset="1" stop-color="#E0392B" stop-opacity="0"/></radialGradient>
+<linearGradient id="avcoat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B4A36"/><stop offset="1" stop-color="#3A2A22"/></linearGradient>
+<linearGradient id="atmoLimb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD8FF" stop-opacity=".0"/><stop offset=".25" stop-color="#5CB8FF" stop-opacity=".55"/><stop offset="1" stop-color="#0B3A78" stop-opacity=".95"/></linearGradient>
 </defs>"""
 
 

@@ -1,0 +1,21 @@
+{
+  "title": "¿Por qué las naves espaciales no se queman al regresar a la Tierra?",
+  "brand": "Explora Ciencia 360",
+  "slug": "reentrada_no_queman",
+  "pack": "reentry",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "dark",
+  "tail_last": 1.8,
+  "sources_note": "Ejemplo real: cápsula Orion de la NASA; en el regreso de la Luna reentra a ~40 000 km/h (referencia de esa nave, no una velocidad universal) y su escudo térmico usa Avcoat, un material ablativo. El calentamiento de reentrada se debe sobre todo a la compresión del gas tras la onda de choque delante del vehículo (capa de choque), no a una combustión ni solo a la fricción. La ablación consume la capa exterior y se lleva energía térmica. No todas las naves usan escudos ablativos (existen otros sistemas de protección térmica). Las cápsulas frenan con la resistencia atmosférica y luego despliegan paracaídas: aterrizan o amerizan según la misión. Los cohetes sueltan etapas durante el lanzamiento; algunos propulsores regresan y aterrizan con motores, lo que no es una reentrada de cápsula. Sin cifras de temperatura ni representación de astronautas expuestos al plasma.",
+  "scenes": [
+    {"scene": "hook", "text": "¡Esta nave, Orion, regresa a unos cuarenta mil kilómetros por hora! ¡Y a su alrededor hay temperaturas capaces de destruir muchos materiales! Entonces… ¿por qué no se quema?", "highlight": ["Orion", "cuarenta", "mil", "temperaturas", "quema"]},
+    {"scene": "heat", "text": "El secreto está delante de la nave. A velocidad hipersónica, el aire se comprime violentamente y se calienta. No es solo roce, y tampoco una combustión.", "highlight": ["delante", "hipersónica", "comprime", "calienta", "combustión"]},
+    {"scene": "shield", "text": "Por eso las cápsulas llevan un escudo térmico: protege la estructura y evita que el calor llegue al interior.", "highlight": ["escudo", "térmico", "protege", "interior"]},
+    {"scene": "ablation", "text": "Orion usa Avcoat, un material ablativo: su capa exterior se consume de forma controlada y se lleva el calor. No todas las naves usan ablación; hay otros sistemas. ¡El escudo se sacrifica para proteger a los astronautas!", "highlight": ["Avcoat", "ablativo", "consume", "calor", "otros", "sacrifica", "proteger"]},
+    {"scene": "landing", "text": "Tras frenar en la atmósfera, la cápsula despliega sus paracaídas y desciende hasta aterrizar o amerizar, según la misión.", "highlight": ["frenar", "paracaídas", "aterrizar", "amerizar"]},
+    {"scene": "rockets", "text": "Ojo: los cohetes sueltan etapas al despegar, y algunos propulsores regresan y aterrizan, pero no hacen una reentrada como la cápsula.", "highlight": ["etapas", "propulsores", "aterrizan", "reentrada", "cápsula"]},
+    {"scene": "close", "text": "Así que no es magia: es ingeniería y física. Síguenos en Explora Ciencia 360 para descubrir más.", "highlight": ["magia", "ingeniería", "física", "Explora", "Ciencia", "360"]}
+  ]
+}

@@ -1,0 +1,964 @@
+[
+ {
+  "scene": "hook",
+  "start": 0.0,
+  "dur": 12.267957,
+  "audio": "output/reentrada/work/tts/ae9ba0bd206aeb59.mp3",
+  "audio_dur": 12.192,
+  "lead": 0.25,
+  "words": [
+   {
+    "text": "¡Esta",
+    "start": 0.347166,
+    "end": 0.630166
+   },
+   {
+    "text": "nave,",
+    "start": 0.642,
+    "end": 0.9604159999999999
+   },
+   {
+    "text": "Orion,",
+    "start": 1.196208,
+    "end": 1.5735830000000002
+   },
+   {
+    "text": "regresa",
+    "start": 1.833,
+    "end": 2.292916
+   },
+   {
+    "text": "a",
+    "start": 2.304708,
+    "end": 2.375458
+   },
+   {
+    "text": "unos",
+    "start": 2.38725,
+    "end": 2.658458
+   },
+   {
+    "text": "cuarenta",
+    "start": 2.670291,
+    "end": 3.0240820000000004
+   },
+   {
+    "text": "mil",
+    "start": 3.035833,
+    "end": 3.2362909999999996
+   },
+   {
+    "text": "kilómetros",
+    "start": 3.248125,
+    "end": 3.849541
+   },
+   {
+    "text": "por",
+    "start": 3.861333,
+    "end": 4.026416
+   },
+   {
+    "text": "hora!",
+    "start": 4.038208,
+    "end": 4.297624
+   },
+   {
+    "text": "¡Y",
+    "start": 5.1085,
+    "end": 5.2617910000000006
+   },
+   {
+    "text": "a",
+    "start": 5.273583,
+    "end": 5.332541
+   },
+   {
+    "text": "su",
+    "start": 5.344333,
+    "end": 5.462249
+   },
+   {
+    "text": "alrededor",
+    "start": 5.474041,
+    "end": 5.945748999999999
+   },
+   {
+    "text": "hay",
+    "start": 5.957541,
+    "end": 6.051874
+   },
+   {
+    "text": "temperaturas",
+    "start": 6.063666,
+    "end": 6.724041
+   },
+   {
+    "text": "capaces",
+    "start": 6.735833,
+    "end": 7.207541000000001
+   },
+   {
+    "text": "de",
+    "start": 7.219333,
+    "end": 7.290083
+   },
+   {
+    "text": "destruir",
+    "start": 7.301875,
+    "end": 7.785375
+   },
+   {
+    "text": "muchos",
+    "start": 7.797166,
+    "end": 8.198124
+   },
+   {
+    "text": "materiales!",
+    "start": 8.209916,
+    "end": 8.941041
+   },
+   {
+    "text": "Entonces…",
+    "start": 9.754708,
+    "end": 10.415083000000001
+   },
+   {
+    "text": "¿por",
+    "start": 10.639166,
+    "end": 10.792456999999999
+   },
+   {
+    "text": "qué",
+    "start": 10.80425,
+    "end": 10.922165999999999
+   },
+   {
+    "text": "no",
+    "start": 10.933958,
+    "end": 11.063666000000001
+   },
+   {
+    "text": "se",
+    "start": 11.075458,
+    "end": 11.216958
+   },
+   {
+    "text": "quema?",
+    "start": 11.228791,
+    "end": 11.617956999999999
+   }
+  ],
+  "highlight": [
+   "Orion",
+   "cuarenta",
+   "mil",
+   "temperaturas",
+   "quema"
+  ],
+  "mean_db": -19.9
+ },
+ {
+  "scene": "heat",
+  "start": 12.267957,
+  "dur": 11.130207,
+  "audio": "output/reentrada/work/tts/3c22e24119464a71.mp3",
+  "audio_dur": 11.16,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "El",
+    "start": 12.515122999999999,
+    "end": 12.691998
+   },
+   {
+    "text": "secreto",
+    "start": 12.70379,
+    "end": 13.116539999999999
+   },
+   {
+    "text": "está",
+    "start": 13.128331999999999,
+    "end": 13.32879
+   },
+   {
+    "text": "delante",
+    "start": 13.340582,
+    "end": 13.753331999999999
+   },
+   {
+    "text": "de",
+    "start": 13.765122999999999,
+    "end": 13.883039
+   },
+   {
+    "text": "la",
+    "start": 13.894832,
+    "end": 13.977373
+   },
+   {
+    "text": "nave.",
+    "start": 13.989165,
+    "end": 14.331165
+   },
+   {
+    "text": "A",
+    "start": 15.141998,
+    "end": 15.259914
+   },
+   {
+    "text": "velocidad",
+    "start": 15.271748,
+    "end": 15.778830999999998
+   },
+   {
+    "text": "hipersónica,",
+    "start": 15.790581999999999,
+    "end": 16.474539999999998
+   },
+   {
+    "text": "el",
+    "start": 16.722206999999997,
+    "end": 16.910872999999995
+   },
+   {
+    "text": "aire",
+    "start": 16.922665,
+    "end": 17.146706
+   },
+   {
+    "text": "se",
+    "start": 17.15854,
+    "end": 17.288247999999996
+   },
+   {
+    "text": "comprime",
+    "start": 17.300039999999996,
+    "end": 17.736372999999997
+   },
+   {
+    "text": "violentamente",
+    "start": 17.748164999999997,
+    "end": 18.502872999999997
+   },
+   {
+    "text": "y",
+    "start": 18.514664999999997,
+    "end": 18.573622999999998
+   },
+   {
+    "text": "se",
+    "start": 18.585414999999998,
+    "end": 18.726914999999998
+   },
+   {
+    "text": "calienta.",
+    "start": 18.738706999999998,
+    "end": 19.281164999999998
+   },
+   {
+    "text": "No",
+    "start": 20.094831999999997,
+    "end": 20.330664999999996
+   },
+   {
+    "text": "es",
+    "start": 20.342498,
+    "end": 20.448622999999998
+   },
+   {
+    "text": "solo",
+    "start": 20.460414999999998,
+    "end": 20.684455999999997
+   },
+   {
+    "text": "roce,",
+    "start": 20.696247999999997,
+    "end": 21.050038999999998
+   },
+   {
+    "text": "y",
+    "start": 21.309457,
+    "end": 21.391998
+   },
+   {
+    "text": "tampoco",
+    "start": 21.403789999999997,
+    "end": 21.863705999999997
+   },
+   {
+    "text": "una",
+    "start": 21.875498,
+    "end": 22.099539
+   },
+   {
+    "text": "combustión.",
+    "start": 22.111372999999997,
+    "end": 22.748163999999996
+   }
+  ],
+  "highlight": [
+   "delante",
+   "hipersónica",
+   "comprime",
+   "calienta",
+   "combustión"
+  ],
+  "mean_db": -19.6
+ },
+ {
+  "scene": "shield",
+  "start": 23.398164,
+  "dur": 6.5221659999999995,
+  "audio": "output/reentrada/work/tts/aeefc12b0c56efe5.mp3",
+  "audio_dur": 6.552,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Por",
+    "start": 23.64533,
+    "end": 23.798621
+   },
+   {
+    "text": "eso",
+    "start": 23.810414,
+    "end": 23.99908
+   },
+   {
+    "text": "las",
+    "start": 24.010914,
+    "end": 24.152414
+   },
+   {
+    "text": "cápsulas",
+    "start": 24.164205,
+    "end": 24.671288
+   },
+   {
+    "text": "llevan",
+    "start": 24.68308,
+    "end": 24.954288
+   },
+   {
+    "text": "un",
+    "start": 24.966079999999998,
+    "end": 25.060413
+   },
+   {
+    "text": "escudo",
+    "start": 25.072205,
+    "end": 25.425996
+   },
+   {
+    "text": "térmico:",
+    "start": 25.437789,
+    "end": 25.921289
+   },
+   {
+    "text": "protege",
+    "start": 26.180705,
+    "end": 26.605246
+   },
+   {
+    "text": "la",
+    "start": 26.617039,
+    "end": 26.687789
+   },
+   {
+    "text": "estructura",
+    "start": 26.69958,
+    "end": 27.25383
+   },
+   {
+    "text": "y",
+    "start": 27.265622,
+    "end": 27.39533
+   },
+   {
+    "text": "evita",
+    "start": 27.407122,
+    "end": 27.725538
+   },
+   {
+    "text": "que",
+    "start": 27.73733,
+    "end": 27.87883
+   },
+   {
+    "text": "el",
+    "start": 27.890622,
+    "end": 27.996747
+   },
+   {
+    "text": "calor",
+    "start": 28.008539,
+    "end": 28.326954999999998
+   },
+   {
+    "text": "llegue",
+    "start": 28.338746999999998,
+    "end": 28.609955
+   },
+   {
+    "text": "al",
+    "start": 28.621747,
+    "end": 28.704288
+   },
+   {
+    "text": "interior.",
+    "start": 28.716079999999998,
+    "end": 29.27033
+   }
+  ],
+  "highlight": [
+   "escudo",
+   "térmico",
+   "protege",
+   "interior"
+  ],
+  "mean_db": -19.1
+ },
+ {
+  "scene": "ablation",
+  "start": 29.92033,
+  "dur": 14.561791,
+  "audio": "output/reentrada/work/tts/50d43f6e57f1b8ad.mp3",
+  "audio_dur": 14.592,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Orion",
+    "start": 30.167496,
+    "end": 30.509496
+   },
+   {
+    "text": "usa",
+    "start": 30.521288,
+    "end": 30.709954
+   },
+   {
+    "text": "Avcoat,",
+    "start": 30.721746,
+    "end": 31.134496
+   },
+   {
+    "text": "un",
+    "start": 31.405704999999998,
+    "end": 31.476454999999998
+   },
+   {
+    "text": "material",
+    "start": 31.488245999999997,
+    "end": 31.948162
+   },
+   {
+    "text": "ablativo:",
+    "start": 31.959954999999997,
+    "end": 32.467037999999995
+   },
+   {
+    "text": "su",
+    "start": 32.726455,
+    "end": 32.867955
+   },
+   {
+    "text": "capa",
+    "start": 32.879746,
+    "end": 33.115579
+   },
+   {
+    "text": "exterior",
+    "start": 33.127413,
+    "end": 33.587329
+   },
+   {
+    "text": "se",
+    "start": 33.599121,
+    "end": 33.717037
+   },
+   {
+    "text": "consume",
+    "start": 33.728829999999995,
+    "end": 34.153371
+   },
+   {
+    "text": "de",
+    "start": 34.165121,
+    "end": 34.259454
+   },
+   {
+    "text": "forma",
+    "start": 34.271288,
+    "end": 34.577870999999995
+   },
+   {
+    "text": "controlada",
+    "start": 34.589662999999994,
+    "end": 35.226454
+   },
+   {
+    "text": "y",
+    "start": 35.238246,
+    "end": 35.308996
+   },
+   {
+    "text": "se",
+    "start": 35.320788,
+    "end": 35.462288
+   },
+   {
+    "text": "lleva",
+    "start": 35.474121,
+    "end": 35.745329
+   },
+   {
+    "text": "el",
+    "start": 35.757121,
+    "end": 35.827871
+   },
+   {
+    "text": "calor.",
+    "start": 35.839662999999994,
+    "end": 36.275996
+   },
+   {
+    "text": "No",
+    "start": 37.08683,
+    "end": 37.287288
+   },
+   {
+    "text": "todas",
+    "start": 37.299121,
+    "end": 37.629329
+   },
+   {
+    "text": "las",
+    "start": 37.641079999999995,
+    "end": 37.794371
+   },
+   {
+    "text": "naves",
+    "start": 37.806163,
+    "end": 38.112746
+   },
+   {
+    "text": "usan",
+    "start": 38.12458,
+    "end": 38.383995999999996
+   },
+   {
+    "text": "ablación;",
+    "start": 38.395787999999996,
+    "end": 38.867495999999996
+   },
+   {
+    "text": "hay",
+    "start": 39.079746,
+    "end": 39.221246
+   },
+   {
+    "text": "otros",
+    "start": 39.23308,
+    "end": 39.468913
+   },
+   {
+    "text": "sistemas.",
+    "start": 39.480705,
+    "end": 40.117495999999996
+   },
+   {
+    "text": "¡El",
+    "start": 40.931163,
+    "end": 41.096246
+   },
+   {
+    "text": "escudo",
+    "start": 41.10808,
+    "end": 41.426496
+   },
+   {
+    "text": "se",
+    "start": 41.438246,
+    "end": 41.544371
+   },
+   {
+    "text": "sacrifica",
+    "start": 41.556163,
+    "end": 42.110413
+   },
+   {
+    "text": "para",
+    "start": 42.122205,
+    "end": 42.334455
+   },
+   {
+    "text": "proteger",
+    "start": 42.346287999999994,
+    "end": 42.794413
+   },
+   {
+    "text": "a",
+    "start": 42.806163,
+    "end": 42.841538
+   },
+   {
+    "text": "los",
+    "start": 42.85333,
+    "end": 43.030205
+   },
+   {
+    "text": "astronautas!",
+    "start": 43.042038,
+    "end": 43.832120999999994
+   }
+  ],
+  "highlight": [
+   "Avcoat",
+   "ablativo",
+   "consume",
+   "calor",
+   "otros",
+   "sacrifica",
+   "proteger"
+  ],
+  "mean_db": -20.4
+ },
+ {
+  "scene": "landing",
+  "start": 44.482121,
+  "dur": 7.371249,
+  "audio": "output/reentrada/work/tts/2f4f4494424efb56.mp3",
+  "audio_dur": 7.392,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Tras",
+    "start": 44.729287,
+    "end": 44.96512
+   },
+   {
+    "text": "frenar",
+    "start": 44.976912,
+    "end": 45.330703
+   },
+   {
+    "text": "en",
+    "start": 45.342496,
+    "end": 45.425036999999996
+   },
+   {
+    "text": "la",
+    "start": 45.436828999999996,
+    "end": 45.495787
+   },
+   {
+    "text": "atmósfera,",
+    "start": 45.507579,
+    "end": 46.050036999999996
+   },
+   {
+    "text": "la",
+    "start": 46.368454,
+    "end": 46.462787
+   },
+   {
+    "text": "cápsula",
+    "start": 46.474579,
+    "end": 46.875537
+   },
+   {
+    "text": "despliega",
+    "start": 46.887329,
+    "end": 47.359037
+   },
+   {
+    "text": "sus",
+    "start": 47.370787,
+    "end": 47.571245
+   },
+   {
+    "text": "paracaídas",
+    "start": 47.583079,
+    "end": 48.267036999999995
+   },
+   {
+    "text": "y",
+    "start": 48.278828999999995,
+    "end": 48.337787
+   },
+   {
+    "text": "desciende",
+    "start": 48.349579,
+    "end": 48.809495
+   },
+   {
+    "text": "hasta",
+    "start": 48.821287,
+    "end": 48.998162
+   },
+   {
+    "text": "aterrizar",
+    "start": 49.009954,
+    "end": 49.528828999999995
+   },
+   {
+    "text": "o",
+    "start": 49.540620999999994,
+    "end": 49.599579
+   },
+   {
+    "text": "amerizar,",
+    "start": 49.611371,
+    "end": 50.059495999999996
+   },
+   {
+    "text": "según",
+    "start": 50.295328999999995,
+    "end": 50.625537
+   },
+   {
+    "text": "la",
+    "start": 50.637329,
+    "end": 50.71987
+   },
+   {
+    "text": "misión.",
+    "start": 50.731662,
+    "end": 51.20337
+   }
+  ],
+  "highlight": [
+   "frenar",
+   "paracaídas",
+   "aterrizar",
+   "amerizar"
+  ],
+  "mean_db": -20.4
+ },
+ {
+  "scene": "rockets",
+  "start": 51.85337,
+  "dur": 8.420749999999998,
+  "audio": "output/reentrada/work/tts/70a6a047e73a3487.mp3",
+  "audio_dur": 8.448,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Ojo:",
+    "start": 52.100536,
+    "end": 52.442536
+   },
+   {
+    "text": "los",
+    "start": 52.760911,
+    "end": 52.890618999999994
+   },
+   {
+    "text": "cohetes",
+    "start": 52.902410999999994,
+    "end": 53.256201999999995
+   },
+   {
+    "text": "sueltan",
+    "start": 53.267995,
+    "end": 53.609995
+   },
+   {
+    "text": "etapas",
+    "start": 53.621786,
+    "end": 54.034535999999996
+   },
+   {
+    "text": "al",
+    "start": 54.046285999999995,
+    "end": 54.140618999999994
+   },
+   {
+    "text": "despegar,",
+    "start": 54.152410999999994,
+    "end": 54.600536
+   },
+   {
+    "text": "y",
+    "start": 54.883578,
+    "end": 54.942536
+   },
+   {
+    "text": "algunos",
+    "start": 54.954328,
+    "end": 55.343494
+   },
+   {
+    "text": "propulsores",
+    "start": 55.355245,
+    "end": 55.980245
+   },
+   {
+    "text": "regresan",
+    "start": 55.992036,
+    "end": 56.428368999999996
+   },
+   {
+    "text": "y",
+    "start": 56.440160999999996,
+    "end": 56.510911
+   },
+   {
+    "text": "aterrizan,",
+    "start": 56.522703,
+    "end": 57.112328
+   },
+   {
+    "text": "pero",
+    "start": 57.39537,
+    "end": 57.584036
+   },
+   {
+    "text": "no",
+    "start": 57.595828,
+    "end": 57.772703
+   },
+   {
+    "text": "hacen",
+    "start": 57.784495,
+    "end": 58.03212
+   },
+   {
+    "text": "una",
+    "start": 58.043952999999995,
+    "end": 58.220828
+   },
+   {
+    "text": "reentrada",
+    "start": 58.23262,
+    "end": 58.739703
+   },
+   {
+    "text": "como",
+    "start": 58.751495,
+    "end": 58.975536
+   },
+   {
+    "text": "la",
+    "start": 58.987328,
+    "end": 59.093453
+   },
+   {
+    "text": "cápsula.",
+    "start": 59.105245,
+    "end": 59.62412
+   }
+  ],
+  "highlight": [
+   "etapas",
+   "propulsores",
+   "aterrizan",
+   "reentrada",
+   "cápsula"
+  ],
+  "mean_db": -19.4
+ },
+ {
+  "scene": "close",
+  "start": 60.274119999999996,
+  "dur": 9.549541000000001,
+  "audio": "output/reentrada/work/tts/213655e833478bb2.mp3",
+  "audio_dur": 8.112,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Así",
+    "start": 60.521285999999996,
+    "end": 60.82786899999999
+   },
+   {
+    "text": "que",
+    "start": 60.83970299999999,
+    "end": 60.94582799999999
+   },
+   {
+    "text": "no",
+    "start": 60.95761999999999,
+    "end": 61.122702999999994
+   },
+   {
+    "text": "es",
+    "start": 61.134494999999994,
+    "end": 61.264202999999995
+   },
+   {
+    "text": "magia:",
+    "start": 61.275994999999995,
+    "end": 61.653369999999995
+   },
+   {
+    "text": "es",
+    "start": 61.912786,
+    "end": 62.07786899999999
+   },
+   {
+    "text": "ingeniería",
+    "start": 62.08970299999999,
+    "end": 62.71470299999999
+   },
+   {
+    "text": "y",
+    "start": 62.72649499999999,
+    "end": 62.785453
+   },
+   {
+    "text": "física.",
+    "start": 62.797245,
+    "end": 63.31612
+   },
+   {
+    "text": "Síguenos",
+    "start": 64.126953,
+    "end": 64.669411
+   },
+   {
+    "text": "en",
+    "start": 64.681203,
+    "end": 64.763744
+   },
+   {
+    "text": "Explora",
+    "start": 64.775536,
+    "end": 65.188286
+   },
+   {
+    "text": "Ciencia",
+    "start": 65.200078,
+    "end": 65.60103600000001
+   },
+   {
+    "text": "360",
+    "start": 65.612786,
+    "end": 66.10807181428572
+   },
+   {
+    "text": "para",
+    "start": 66.10807181428572,
+    "end": 66.7684529
+   },
+   {
+    "text": "descubrir",
+    "start": 66.78024500000001,
+    "end": 67.322703
+   },
+   {
+    "text": "más.",
+    "start": 67.334495,
+    "end": 67.723661
+   }
+  ],
+  "highlight": [
+   "magia",
+   "ingeniería",
+   "física",
+   "Explora",
+   "Ciencia",
+   "360"
+  ],
+  "mean_db": -19.9
+ }
+]
