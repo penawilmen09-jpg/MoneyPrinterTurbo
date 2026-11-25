@@ -64,7 +64,7 @@ def test_voice_profile_is_locked():
     from edu2d.core import VOICE, VOICE_RATE, VOICE_PITCH
     prof = json.loads((ROOT / "voice_profile.json").read_text())
     assert (VOICE, VOICE_RATE, VOICE_PITCH) == ("es-MX-JorgeNeural", "+6%", "+0Hz")
-    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas", "luna", "gira"):
+    for proj in ("palomas", "barco", "helicoptero", "tierra", "estelas", "luna", "gira", "agujero"):
         d = json.loads((ROOT / f"projects/{proj}/script.json").read_text())
         assert (d["voice"], d["rate"]) == (prof["voice"], prof["rate"])
 
@@ -105,3 +105,12 @@ def test_mixer_rejects_loud_bed():
     from edu2d import mixer
     with pytest.raises(mixer.MixError):
         mixer.check_margins([("hola", 12.0)])
+
+
+def test_align_words_keeps_script_text():
+    from edu2d.pipeline import align_words
+    edge = [{"text": "Te", "start": 0, "end": .2}, {"text": "atreverías", "start": .2, "end": .8}, {"text": "negro", "start": .8, "end": 1.1},
+            {"text": "Explora", "start": 1.2, "end": 1.6}, {"text": "360 para", "start": 1.6, "end": 2.4}]
+    out = align_words("¿Te atreverías negro? Explora 360 para", edge)
+    assert [w["text"] for w in out] == ["¿Te", "atreverías", "negro?", "Explora", "360", "para"]
+    assert all(a["end"] <= b["start"] + 1e-6 for a, b in zip(out, out[1:]))

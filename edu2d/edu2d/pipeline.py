@@ -32,6 +32,49 @@ def load_script(path):
     return data
 
 
+def _nz(w):
+    import re, unicodedata
+    w = unicodedata.normalize("NFD", w.lower())
+    return re.sub(r"[^a-z0-9]", "", "".join(c for c in w if unicodedata.category(c) != "Mn"))
+
+
+def align_words(text, edge_words):
+    """Devuelve las palabras del GUION (con su puntuación y ortografía) con los tiempos de Edge TTS.
+    Robusto cuando el servicio une o divide palabras (cifras, siglas): alineación por texto normalizado."""
+    import difflib
+    toks = text.split()
+    if len(toks) == len(edge_words):
+        return [{**w, "text": tk} for w, tk in zip(edge_words, toks)]
+    pseudo = []                                          # divide marcas que contienen varias palabras
+    for w in edge_words:
+        parts = w["text"].split() or [w["text"]]
+        tot = sum(len(p) for p in parts) or 1
+        cur = w["start"]
+        for p in parts:
+            dur = (w["end"] - w["start"]) * len(p) / tot
+            pseudo.append({"text": p, "start": cur, "end": cur + dur}); cur += dur
+    a, b = [_nz(t) for t in toks], [_nz(w["text"]) for w in pseudo]
+    out = [None] * len(toks)
+    for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
+        for k in range(blk.size):
+            out[blk.a + k] = pseudo[blk.b + k]
+    # tokens sin pareja (p. ej. "360" leído como palabras): se reparten en el hueco entre vecinos
+    i = 0
+    while i < len(out):
+        if out[i] is None:
+            j = i
+            while j < len(out) and out[j] is None:
+                j += 1
+            t0 = out[i - 1]["end"] if i > 0 else pseudo[0]["start"]
+            t1 = out[j]["start"] if j < len(out) else pseudo[-1]["end"]
+            for k in range(i, j):
+                out[k] = {"start": t0 + (t1 - t0) * (k - i) / (j - i), "end": t0 + (t1 - t0) * (k - i + 1) / (j - i)}
+            i = j
+        else:
+            i += 1
+    return [{"text": tk, "start": o["start"], "end": o["end"]} for tk, o in zip(toks, out)]
+
+
 def build_timeline(data, work):
     """Sintetiza cada escena, valida el audio y calcula tiempos reales."""
     voice, rate = data.get("voice", VOICE), data.get("rate", VOICE_RATE)
@@ -46,10 +89,7 @@ def build_timeline(data, work):
         # sin silencios sobrantes: la escena acaba poco después de la última palabra (el mp3 trae cola muda)
         eff = min(info["duration"], (r["words"][-1]["end"] + .30) if r["words"] else info["duration"])
         dur = lead + eff + tail
-        toks = sc["text"].split()
-        raw = r["words"]
-        if len(toks) == len(raw):          # el servicio omite la puntuación: la recuperamos del guion
-            raw = [{**w, "text": tk} for w, tk in zip(raw, toks)]
+        raw = align_words(sc["text"], r["words"])
         words = [{**w, "start": w["start"] + t + lead, "end": w["end"] + t + lead} for w in raw]
         tl.append(dict(scene=sc["scene"], start=t, dur=dur, audio=r["path"], audio_dur=info["duration"],
                        lead=lead, words=words, highlight=sc.get("highlight", []), mean_db=info["mean_db"]))

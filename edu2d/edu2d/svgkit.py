@@ -29,6 +29,14 @@ DEFS = """<defs>
 <linearGradient id="space" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F"/><stop offset=".6" stop-color="#0B1030"/><stop offset="1" stop-color="#1A1050"/></linearGradient>
 <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#03051A"/><stop offset=".55" stop-color="#14224F"/><stop offset="1" stop-color="#34478F"/></linearGradient>
 <radialGradient id="moonGlow"><stop offset=".3" stop-color="#EAF2FF" stop-opacity=".55"/><stop offset=".6" stop-color="#9FC2FF" stop-opacity=".2"/><stop offset="1" stop-color="#9FC2FF" stop-opacity="0"/></radialGradient>
+<radialGradient id="bhGlow"><stop offset=".25" stop-color="#FFB45C" stop-opacity=".55"/><stop offset=".55" stop-color="#C2410C" stop-opacity=".22"/><stop offset="1" stop-color="#7C2D12" stop-opacity="0"/></radialGradient>
+<linearGradient id="diskG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#FFB347"/><stop offset=".75" stop-color="#D9531E"/><stop offset="1" stop-color="#7A1F0A"/></linearGradient>
+<linearGradient id="diskH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".4" stop-color="#FFD27A"/><stop offset="1" stop-color="#E8641E"/></linearGradient>
+<radialGradient id="nebP"><stop offset="0" stop-color="#7C3AED" stop-opacity=".45"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebB"><stop offset="0" stop-color="#2563EB" stop-opacity=".4"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebT"><stop offset="0" stop-color="#14B8A6" stop-opacity=".28"/><stop offset="1" stop-color="#14B8A6" stop-opacity="0"/></radialGradient>
+<linearGradient id="suit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D3E6"/></linearGradient>
+<linearGradient id="visor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset=".5" stop-color="#1E2A5E"/><stop offset="1" stop-color="#0B1030"/></linearGradient>
 </defs>"""
 
 

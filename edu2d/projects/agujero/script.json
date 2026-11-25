@@ -1,0 +1,20 @@
+{
+  "title": "¿Qué pasaría si cayeras dentro de un agujero negro?",
+  "brand": "Explora Ciencia 360",
+  "slug": "agujero_negro",
+  "pack": "blackhole",
+  "voice": "es-MX-JorgeNeural",
+  "rate": "+6%",
+  "music": true,
+  "music_mood": "suspense",
+  "tail_last": 4.5,
+  "sources_note": "Experimento mental. Fuerzas de marea (espaguetificación): la gravedad cae con la distancia, así que tira más de los pies (más cerca) que de la cabeza y estira el cuerpo; en agujeros negros de masa estelar ocurre antes de llegar al horizonte, y en los supermasivos después de cruzarlo. Horizonte de sucesos: frontera más allá de la cual ni la luz puede escapar. Dilatación gravitacional del tiempo: un observador lejano ve al astronauta aproximarse al horizonte cada vez más lento (y enrojecido) sin llegar a verlo cruzar. Representación didáctica, sin cifras.",
+  "scenes": [
+    {"scene": "hook", "text": "¡Estás cayendo hacia un agujero negro! Y hay algo aterrador que podría ocurrirle a tu cuerpo... ¡te convertirías en un espagueti humano!", "highlight": ["cayendo", "agujero", "negro", "aterrador", "espagueti", "humano"]},
+    {"scene": "pull", "text": "Cuanto más te acercas, más intensa se vuelve la gravedad. Ni siquiera la luz puede escapar una vez que cruza su frontera.", "highlight": ["gravedad", "intensa", "luz", "escapar", "frontera"]},
+    {"scene": "horizon", "text": "Existe una frontera llamada horizonte de sucesos. Si la cruzas, ya no hay vuelta atrás. Ninguna nave podría rescatarte.", "highlight": ["frontera", "horizonte", "sucesos", "vuelta", "atrás", "rescatarte"]},
+    {"scene": "stretch", "text": "La gravedad tiraría mucho más fuerte de tus pies que de tu cabeza. Tu cuerpo comenzaría a estirarse cada vez más. Los científicos llaman a este fenómeno espaguetificación.", "highlight": ["pies", "cabeza", "estirarse", "espaguetificación"]},
+    {"scene": "outside", "text": "Y lo más increíble es que, desde fuera, alguien podría verte acercándote cada vez más lentamente al horizonte de sucesos. El universo es mucho más extraño de lo que imaginamos.", "highlight": ["increíble", "lentamente", "horizonte", "sucesos", "extraño"]},
+    {"scene": "close", "text": "¿Te atreverías a acercarte a un agujero negro? Síguenos en Explora Ciencia 360 para descubrir más misterios del universo.", "highlight": ["atreverías", "agujero", "negro", "Explora", "Ciencia", "360", "misterios"]}
+  ]
+}

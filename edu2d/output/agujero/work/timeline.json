@@ -1,0 +1,813 @@
+[
+ {
+  "scene": "hook",
+  "start": 0.0,
+  "dur": 8.506165999999999,
+  "audio": "output/agujero/work/tts/378c602265b9409f.mp3",
+  "audio_dur": 8.424,
+  "lead": 0.25,
+  "words": [
+   {
+    "text": "¡Estás",
+    "start": 0.347166,
+    "end": 0.700957
+   },
+   {
+    "text": "cayendo",
+    "start": 0.71275,
+    "end": 1.1019160000000001
+   },
+   {
+    "text": "hacia",
+    "start": 1.113666,
+    "end": 1.314124
+   },
+   {
+    "text": "un",
+    "start": 1.325958,
+    "end": 1.455666
+   },
+   {
+    "text": "agujero",
+    "start": 1.467458,
+    "end": 1.8684159999999999
+   },
+   {
+    "text": "negro!",
+    "start": 1.880208,
+    "end": 2.269374
+   },
+   {
+    "text": "Y",
+    "start": 3.080208,
+    "end": 3.245291
+   },
+   {
+    "text": "hay",
+    "start": 3.257083,
+    "end": 3.410374
+   },
+   {
+    "text": "algo",
+    "start": 3.422166,
+    "end": 3.610832
+   },
+   {
+    "text": "aterrador",
+    "start": 3.622625,
+    "end": 4.094333000000001
+   },
+   {
+    "text": "que",
+    "start": 4.1061250000000005,
+    "end": 4.224041
+   },
+   {
+    "text": "podría",
+    "start": 4.2358329999999995,
+    "end": 4.542416
+   },
+   {
+    "text": "ocurrirle",
+    "start": 4.55425,
+    "end": 5.025957999999999
+   },
+   {
+    "text": "a",
+    "start": 5.03775,
+    "end": 5.073125
+   },
+   {
+    "text": "tu",
+    "start": 5.084916,
+    "end": 5.191040999999999
+   },
+   {
+    "text": "cuerpo...",
+    "start": 5.202833,
+    "end": 5.603791
+   },
+   {
+    "text": "¡te",
+    "start": 5.851416,
+    "end": 5.945749
+   },
+   {
+    "text": "convertirías",
+    "start": 5.957541,
+    "end": 6.676874
+   },
+   {
+    "text": "en",
+    "start": 6.688666,
+    "end": 6.806582
+   },
+   {
+    "text": "un",
+    "start": 6.818416,
+    "end": 6.924541
+   },
+   {
+    "text": "espagueti",
+    "start": 6.936333,
+    "end": 7.443416
+   },
+   {
+    "text": "humano!",
+    "start": 7.455208,
+    "end": 7.856166
+   }
+  ],
+  "highlight": [
+   "cayendo",
+   "agujero",
+   "negro",
+   "aterrador",
+   "espagueti",
+   "humano"
+  ],
+  "mean_db": -19.6
+ },
+ {
+  "scene": "pull",
+  "start": 8.506165999999999,
+  "dur": 8.075958,
+  "audio": "output/agujero/work/tts/c84bc5502477b296.mp3",
+  "audio_dur": 8.112,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Cuanto",
+    "start": 8.753331999999999,
+    "end": 9.048122999999999
+   },
+   {
+    "text": "más",
+    "start": 9.059956999999999,
+    "end": 9.272207
+   },
+   {
+    "text": "te",
+    "start": 9.283999,
+    "end": 9.354748999999998
+   },
+   {
+    "text": "acercas,",
+    "start": 9.366541,
+    "end": 9.897207
+   },
+   {
+    "text": "más",
+    "start": 10.144832,
+    "end": 10.357081999999998
+   },
+   {
+    "text": "intensa",
+    "start": 10.368915999999999,
+    "end": 10.852416
+   },
+   {
+    "text": "se",
+    "start": 10.864165999999999,
+    "end": 11.005666
+   },
+   {
+    "text": "vuelve",
+    "start": 11.017498999999999,
+    "end": 11.288706999999999
+   },
+   {
+    "text": "la",
+    "start": 11.300498999999999,
+    "end": 11.394832
+   },
+   {
+    "text": "gravedad.",
+    "start": 11.406623999999999,
+    "end": 11.984456999999999
+   },
+   {
+    "text": "Ni",
+    "start": 12.795332,
+    "end": 12.960415
+   },
+   {
+    "text": "siquiera",
+    "start": 12.972207,
+    "end": 13.396747999999999
+   },
+   {
+    "text": "la",
+    "start": 13.408540999999998,
+    "end": 13.502873999999998
+   },
+   {
+    "text": "luz",
+    "start": 13.514666,
+    "end": 13.762291
+   },
+   {
+    "text": "puede",
+    "start": 13.774081999999998,
+    "end": 13.986331999999999
+   },
+   {
+    "text": "escapar",
+    "start": 13.998166,
+    "end": 14.399123999999999
+   },
+   {
+    "text": "una",
+    "start": 14.410873999999998,
+    "end": 14.552373999999999
+   },
+   {
+    "text": "vez",
+    "start": 14.564165999999998,
+    "end": 14.776416
+   },
+   {
+    "text": "que",
+    "start": 14.788248999999999,
+    "end": 14.917957
+   },
+   {
+    "text": "cruza",
+    "start": 14.929749,
+    "end": 15.248164999999998
+   },
+   {
+    "text": "su",
+    "start": 15.259956999999998,
+    "end": 15.401456999999999
+   },
+   {
+    "text": "frontera.",
+    "start": 15.413248999999999,
+    "end": 15.932123999999998
+   }
+  ],
+  "highlight": [
+   "gravedad",
+   "intensa",
+   "luz",
+   "escapar",
+   "frontera"
+  ],
+  "mean_db": -20.2
+ },
+ {
+  "scene": "horizon",
+  "start": 16.582124,
+  "dur": 9.349541,
+  "audio": "output/agujero/work/tts/f439c6ae0965b161.mp3",
+  "audio_dur": 9.384,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Existe",
+    "start": 16.82929,
+    "end": 17.31279
+   },
+   {
+    "text": "una",
+    "start": 17.324582,
+    "end": 17.513247999999997
+   },
+   {
+    "text": "frontera",
+    "start": 17.525039999999997,
+    "end": 17.961373
+   },
+   {
+    "text": "llamada",
+    "start": 17.973164999999998,
+    "end": 18.35054
+   },
+   {
+    "text": "horizonte",
+    "start": 18.362332,
+    "end": 18.822248
+   },
+   {
+    "text": "de",
+    "start": 18.833999,
+    "end": 18.928331999999997
+   },
+   {
+    "text": "sucesos.",
+    "start": 18.940123999999997,
+    "end": 19.600499
+   },
+   {
+    "text": "Si",
+    "start": 20.411374,
+    "end": 20.647206999999998
+   },
+   {
+    "text": "la",
+    "start": 20.658998999999998,
+    "end": 20.765124
+   },
+   {
+    "text": "cruzas,",
+    "start": 20.776915,
+    "end": 21.248623
+   },
+   {
+    "text": "ya",
+    "start": 21.472707,
+    "end": 21.625998
+   },
+   {
+    "text": "no",
+    "start": 21.63779,
+    "end": 21.755706
+   },
+   {
+    "text": "hay",
+    "start": 21.767499,
+    "end": 21.873624
+   },
+   {
+    "text": "vuelta",
+    "start": 21.885415,
+    "end": 22.180206
+   },
+   {
+    "text": "atrás.",
+    "start": 22.19204,
+    "end": 22.663748
+   },
+   {
+    "text": "Ninguna",
+    "start": 23.477415,
+    "end": 23.890165
+   },
+   {
+    "text": "nave",
+    "start": 23.901915,
+    "end": 24.184915
+   },
+   {
+    "text": "podría",
+    "start": 24.196748999999997,
+    "end": 24.574123999999998
+   },
+   {
+    "text": "rescatarte.",
+    "start": 24.585915,
+    "end": 25.281664999999997
+   }
+  ],
+  "highlight": [
+   "frontera",
+   "horizonte",
+   "sucesos",
+   "vuelta",
+   "atrás",
+   "rescatarte"
+  ],
+  "mean_db": -20.5
+ },
+ {
+  "scene": "stretch",
+  "start": 25.931665000000002,
+  "dur": 11.342458,
+  "audio": "output/agujero/work/tts/8510fb25f6f67b45.mp3",
+  "audio_dur": 11.376,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "La",
+    "start": 26.178831000000002,
+    "end": 26.332122000000002
+   },
+   {
+    "text": "gravedad",
+    "start": 26.343915000000003,
+    "end": 26.815623000000002
+   },
+   {
+    "text": "tiraría",
+    "start": 26.827415000000002,
+    "end": 27.251956
+   },
+   {
+    "text": "mucho",
+    "start": 27.263748,
+    "end": 27.570331
+   },
+   {
+    "text": "más",
+    "start": 27.582123000000003,
+    "end": 27.770789
+   },
+   {
+    "text": "fuerte",
+    "start": 27.782623,
+    "end": 28.112831
+   },
+   {
+    "text": "de",
+    "start": 28.124581,
+    "end": 28.230706
+   },
+   {
+    "text": "tus",
+    "start": 28.242498,
+    "end": 28.431164000000003
+   },
+   {
+    "text": "pies",
+    "start": 28.442998000000003,
+    "end": 28.690623000000002
+   },
+   {
+    "text": "que",
+    "start": 28.702415000000002,
+    "end": 28.796748
+   },
+   {
+    "text": "de",
+    "start": 28.80854,
+    "end": 28.914665
+   },
+   {
+    "text": "tu",
+    "start": 28.926456,
+    "end": 29.032581
+   },
+   {
+    "text": "cabeza.",
+    "start": 29.044415,
+    "end": 29.516123
+   },
+   {
+    "text": "Tu",
+    "start": 30.326956000000003,
+    "end": 30.444872
+   },
+   {
+    "text": "cuerpo",
+    "start": 30.456665,
+    "end": 30.751456
+   },
+   {
+    "text": "comenzaría",
+    "start": 30.763248,
+    "end": 31.341081000000003
+   },
+   {
+    "text": "a",
+    "start": 31.352873000000002,
+    "end": 31.388248
+   },
+   {
+    "text": "estirarse",
+    "start": 31.400081,
+    "end": 31.930747
+   },
+   {
+    "text": "cada",
+    "start": 31.942498,
+    "end": 32.190123
+   },
+   {
+    "text": "vez",
+    "start": 32.201956,
+    "end": 32.425997
+   },
+   {
+    "text": "más.",
+    "start": 32.43779,
+    "end": 32.815165
+   },
+   {
+    "text": "Los",
+    "start": 33.628831,
+    "end": 33.782122
+   },
+   {
+    "text": "científicos",
+    "start": 33.793915,
+    "end": 34.45429
+   },
+   {
+    "text": "llaman",
+    "start": 34.466081,
+    "end": 34.796289
+   },
+   {
+    "text": "a",
+    "start": 34.808081,
+    "end": 34.902414
+   },
+   {
+    "text": "este",
+    "start": 34.914206,
+    "end": 35.150039
+   },
+   {
+    "text": "fenómeno",
+    "start": 35.161873,
+    "end": 35.586414
+   },
+   {
+    "text": "espaguetificación.",
+    "start": 35.598165,
+    "end": 36.624123000000004
+   }
+  ],
+  "highlight": [
+   "pies",
+   "cabeza",
+   "estirarse",
+   "espaguetificación"
+  ],
+  "mean_db": -20.1
+ },
+ {
+  "scene": "outside",
+  "start": 37.274123,
+  "dur": 11.366041000000001,
+  "audio": "output/agujero/work/tts/af34825e586028ff.mp3",
+  "audio_dur": 11.4,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "Y",
+    "start": 37.521289,
+    "end": 37.639205000000004
+   },
+   {
+    "text": "lo",
+    "start": 37.650998,
+    "end": 37.757123
+   },
+   {
+    "text": "más",
+    "start": 37.768914,
+    "end": 37.992955
+   },
+   {
+    "text": "increíble",
+    "start": 38.004789,
+    "end": 38.547247
+   },
+   {
+    "text": "es",
+    "start": 38.559039,
+    "end": 38.71233
+   },
+   {
+    "text": "que,",
+    "start": 38.724123,
+    "end": 38.912789000000004
+   },
+   {
+    "text": "desde",
+    "start": 39.148664000000004,
+    "end": 39.384497
+   },
+   {
+    "text": "fuera,",
+    "start": 39.396289,
+    "end": 39.702872
+   },
+   {
+    "text": "alguien",
+    "start": 39.997706,
+    "end": 40.327914
+   },
+   {
+    "text": "podría",
+    "start": 40.339706,
+    "end": 40.669914
+   },
+   {
+    "text": "verte",
+    "start": 40.681664000000005,
+    "end": 40.952872
+   },
+   {
+    "text": "acercándote",
+    "start": 40.964706,
+    "end": 41.636872000000004
+   },
+   {
+    "text": "cada",
+    "start": 41.648664000000004,
+    "end": 41.884497
+   },
+   {
+    "text": "vez",
+    "start": 41.896289,
+    "end": 42.12033
+   },
+   {
+    "text": "más",
+    "start": 42.132123,
+    "end": 42.356164
+   },
+   {
+    "text": "lentamente",
+    "start": 42.367998,
+    "end": 42.910456
+   },
+   {
+    "text": "al",
+    "start": 42.922248,
+    "end": 43.004789
+   },
+   {
+    "text": "horizonte",
+    "start": 43.016581,
+    "end": 43.476497
+   },
+   {
+    "text": "de",
+    "start": 43.488289,
+    "end": 43.582622
+   },
+   {
+    "text": "sucesos.",
+    "start": 43.594414,
+    "end": 44.254789
+   },
+   {
+    "text": "El",
+    "start": 45.065623,
+    "end": 45.230706000000005
+   },
+   {
+    "text": "universo",
+    "start": 45.242539,
+    "end": 45.726039
+   },
+   {
+    "text": "es",
+    "start": 45.737789,
+    "end": 45.879289
+   },
+   {
+    "text": "mucho",
+    "start": 45.891123,
+    "end": 46.162331
+   },
+   {
+    "text": "más",
+    "start": 46.174123,
+    "end": 46.386373
+   },
+   {
+    "text": "extraño",
+    "start": 46.398164,
+    "end": 46.881664
+   },
+   {
+    "text": "de",
+    "start": 46.893456,
+    "end": 46.987789
+   },
+   {
+    "text": "lo",
+    "start": 46.999581,
+    "end": 47.093914000000005
+   },
+   {
+    "text": "que",
+    "start": 47.105748,
+    "end": 47.200081000000004
+   },
+   {
+    "text": "imaginamos.",
+    "start": 47.211873000000004,
+    "end": 47.990164
+   }
+  ],
+  "highlight": [
+   "increíble",
+   "lentamente",
+   "horizonte",
+   "sucesos",
+   "extraño"
+  ],
+  "mean_db": -19.8
+ },
+ {
+  "scene": "close",
+  "start": 48.640164000000006,
+  "dur": 12.886333,
+  "audio": "output/agujero/work/tts/c19634bee7e4b2c4.mp3",
+  "audio_dur": 8.76,
+  "lead": 0.15,
+  "words": [
+   {
+    "text": "¿Te",
+    "start": 48.887330000000006,
+    "end": 48.981663000000005
+   },
+   {
+    "text": "atreverías",
+    "start": 48.993455000000004,
+    "end": 49.606663000000005
+   },
+   {
+    "text": "a",
+    "start": 49.618455000000004,
+    "end": 49.66562090000001
+   },
+   {
+    "text": "acercarte",
+    "start": 49.677414000000006,
+    "end": 50.219872
+   },
+   {
+    "text": "a",
+    "start": 50.231664,
+    "end": 50.267039000000004
+   },
+   {
+    "text": "un",
+    "start": 50.278830000000006,
+    "end": 50.42033000000001
+   },
+   {
+    "text": "agujero",
+    "start": 50.43216400000001,
+    "end": 50.844914
+   },
+   {
+    "text": "negro?",
+    "start": 50.856664,
+    "end": 51.245830000000005
+   },
+   {
+    "text": "Síguenos",
+    "start": 52.056664000000005,
+    "end": 52.610914
+   },
+   {
+    "text": "en",
+    "start": 52.622705,
+    "end": 52.705246
+   },
+   {
+    "text": "Explora",
+    "start": 52.71703900000001,
+    "end": 53.129789
+   },
+   {
+    "text": "Ciencia",
+    "start": 53.141580000000005,
+    "end": 53.55433000000001
+   },
+   {
+    "text": "360",
+    "start": 53.56612200000001,
+    "end": 54.05633614285715
+   },
+   {
+    "text": "para",
+    "start": 54.05633614285715,
+    "end": 54.709955
+   },
+   {
+    "text": "descubrir",
+    "start": 54.721747,
+    "end": 55.264205000000004
+   },
+   {
+    "text": "más",
+    "start": 55.275997000000004,
+    "end": 55.523622
+   },
+   {
+    "text": "misterios",
+    "start": 55.535455000000006,
+    "end": 56.042538
+   },
+   {
+    "text": "del",
+    "start": 56.05433000000001,
+    "end": 56.17224600000001
+   },
+   {
+    "text": "universo.",
+    "start": 56.184039000000006,
+    "end": 56.726497
+   }
+  ],
+  "highlight": [
+   "atreverías",
+   "agujero",
+   "negro",
+   "Explora",
+   "Ciencia",
+   "360",
+   "misterios"
+  ],
+  "mean_db": -20.0
+ }
+]

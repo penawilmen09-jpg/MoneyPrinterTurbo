@@ -23,7 +23,7 @@ Requiere salida a `speech.platform.bing.com` (Edge TTS). La narración se cachea
 | `audio_check.py` | Verifica que el audio exista, decodifique, dure y no sea silencio |
 | `pipeline.py` | Duración de cada escena = duración real de la voz; mezcla audio+SFX; render paralelo de frames → FFmpeg |
 | `subtitles.py` | ASS: palabra activa en menta, claves en amarillo, zona segura (base a ~400 px del borde inferior) |
-| `scenes_<pack>.py` | Escenas `f(t, duración) -> SVG` + SFX. Packs incluidos: `pigeon` (video 1), `ship` (video 2), `heli` (video 3), `earth` (video 4: Tierra 3D simulada con numpy), `contrail` (video 5), `moon` (video 6, Explora Ciencia 360), `motion` (video 7) |
+| `scenes_<pack>.py` | Escenas `f(t, duración) -> SVG` + SFX. Packs incluidos: `pigeon` (video 1), `ship` (video 2), `heli` (video 3), `earth` (video 4: Tierra 3D simulada con numpy), `contrail` (video 5), `moon` (video 6, Explora Ciencia 360), `motion` (video 7), `blackhole` (video 8: lente gravitacional, música de suspenso) |
 | `art/` | Paloma rigged (parpadeo, cabeceo, alas, expresiones), cables/electricidad, diagramas, tanques |
 | `sfx.py` | Efectos de sonido sintetizados con numpy |
 | `verify.py` | Comprueba MP4: 1080×1920 h264+aac, audio con contenido, sin frames negros/estáticos, subtítulos visibles |

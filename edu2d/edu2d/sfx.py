@@ -91,6 +91,8 @@ def rotor(dur, rate=8.5):
 
 
 def music(total, mood="calm"):
+    if mood == "suspense":
+        return _suspense(total)
     """Fondo suave original: acordes en pad + arpegio de campanitas (Am-F-C-G)."""
     n_ = int((total + .2) * SR); t = np.arange(n_) / SR
     chords = [(220.0, 261.63, 329.63), (174.61, 220.0, 261.63), (261.63, 329.63, 392.0), (196.0, 246.94, 293.66)]
@@ -199,3 +201,25 @@ def brake():
 
 
 BANK.update(brake=brake)
+
+
+def _suspense(total):
+    """Música de suspenso que aumenta: drone grave, acorde menor que se hincha y latidos cada vez más rápidos."""
+    n_ = int((total + .2) * SR); t = np.arange(n_) / SR
+    ramp = .35 + .65 * (t / t[-1])
+    drone = (np.sin(2 * np.pi * 55 * t) + .6 * np.sin(2 * np.pi * 82.41 * t) + .5 * np.sin(2 * np.pi * 55.9 * t)) * .5
+    swell = sum(np.sin(2 * np.pi * f * t + i) for i, f in enumerate((110.0, 130.81, 164.81, 220.0))) * .12 * (.5 + .5 * np.sin(2 * np.pi * t / 9.0 - 1.2)) * ramp
+    out = drone * ramp + swell
+    glide = np.sin(2 * np.pi * np.cumsum(300 + 900 * (t / t[-1]) ** 2) / SR) * .05 * (t / t[-1]) ** 2
+    out = out + glide
+    tt, iv = 0.6, 1.15
+    while tt < total:                                   # latidos que se aceleran
+        for off, amp in ((0, 1.0), (.22, .55)):
+            o = int((tt + off) * SR); m = int(.25 * SR)
+            if o + m < n_:
+                k = np.arange(m) / SR
+                out[o:o + m] += amp * np.sin(2 * np.pi * (70 - 80 * k) * k) * np.exp(-k / .07) * (.5 + .8 * (tt / total))
+        iv = max(.5, iv - .018)
+        tt += iv
+    fade = np.minimum(t / 1.2, 1) * np.minimum((t[-1] - t) / 2.5, 1)
+    return out * fade
