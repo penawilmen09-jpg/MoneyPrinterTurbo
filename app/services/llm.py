@@ -70,6 +70,81 @@ Generate a script for a video, depending on the subject of the video.
 8. respond in the same language as the video subject.
 """.strip()
 
+# An opt-in script style for explainer and documentary channels. The default
+# prompt above asks only for "a script"; it says nothing about how a viewer
+# decides, in the first seconds, whether to keep watching, and nothing about
+# not stating a hypothesis as settled fact. Selected with
+# ``script_style = "documentary"`` so the default is unchanged for everyone
+# who has not asked for it.
+DOCUMENTARY_SCRIPT_SYSTEM_PROMPT = """
+# Role: Documentary Narration Writer
+
+## Goals:
+Write the spoken narration for a short animated documentary, in the specified
+number of paragraphs.
+
+## Structure:
+1. Open with a hook that lands inside the first three seconds: a concrete,
+   surprising, verifiable statement about the subject. Not a greeting, not a
+   summary of what the video will cover, not a question about the viewer.
+2. Turn the hook into the question the video answers.
+3. Explain the answer step by step, each step resting on the one before it.
+4. Describe the mechanism concretely enough that a visual can show it: the
+   objects involved, their scale, what happens to them and in what order.
+5. Land one surprising, specific fact that a viewer could check.
+6. Close the explanation in one sentence.
+7. End with one short invitation to follow the channel.
+
+## Constrains:
+1. return the raw narration only: no markdown, no title, no headings, no
+   stage directions, no speaker labels, no scene numbers.
+2. do not reference this prompt, the script, the paragraph count or the video
+   itself.
+3. no introductions and no filler. never "welcome", "in this video",
+   "today we will", "let us dive in", "stay tuned", "as you know".
+4. every statement must be factually correct and currently accepted. state a
+   hypothesis, a model or a disputed result as exactly that; never present it
+   as established. invent no numbers, no dates, no names and no studies. if a
+   figure is approximate, say so.
+5. write for the ear: short declarative sentences, one idea each. no nested
+   clauses, no parentheses, no abbreviations, no symbols, no numerals the
+   narrator would have to interpret. write numbers and units as words.
+6. vary sentence length so the narration has rhythm, and end sentences where
+   a narrator would naturally breathe.
+7. respond in the same language as the video subject.
+""".strip()
+
+
+_SCRIPT_STYLE_PROMPTS = {
+    "documentary": DOCUMENTARY_SCRIPT_SYSTEM_PROMPT,
+}
+
+
+def get_script_style_prompt(app_config=None) -> str:
+    """
+    Return the configured script style's system prompt, or "" for the default.
+
+    ``script_style`` names one of `_SCRIPT_STYLE_PROMPTS`. An unknown name
+    falls back to the default prompt rather than failing a generation, and is
+    logged so a typo is visible.
+    """
+    source = app_config if app_config is not None else config.app
+    try:
+        style = str(source.get("script_style", "") or "").strip().lower()
+    except AttributeError:
+        return ""
+    if not style or style == "default":
+        return ""
+    prompt = _SCRIPT_STYLE_PROMPTS.get(style)
+    if prompt is None:
+        logger.warning(
+            f"unknown script_style: {style}; using the default script prompt. "
+            f"available: {', '.join(sorted(_SCRIPT_STYLE_PROMPTS))}"
+        )
+        return ""
+    return prompt
+
+
 # Claude Code CLI 默认使用编码 agent 的系统提示词，其中大量约束与文案写作
 # 无关，会让脚本和关键词生成偏离要求，因此调用时整体替换掉。
 CLAUDE_CODE_SYSTEM_PROMPT = (
@@ -905,7 +980,13 @@ def build_script_prompt(
 
     # 将“脚本生成规则”和“运行时上下文”分开拼接。这样高级用户即使覆盖默认
     # system prompt，也不会漏掉视频主题、语言、段落数这些每次生成都必须带上的参数。
-    prompt = custom_system_prompt or DEFAULT_SCRIPT_SYSTEM_PROMPT
+    # An explicit custom prompt always wins over a configured style, which in
+    # turn wins over the default.
+    prompt = (
+        custom_system_prompt
+        or get_script_style_prompt()
+        or DEFAULT_SCRIPT_SYSTEM_PROMPT
+    )
     prompt += f"""
 
 # Initialization:
@@ -1053,14 +1134,40 @@ def _extract_embedded_json(text: str, opening: str):
     raise ValueError("response contains no complete JSON value")
 
 
-def generate_terms(
+# A documentary scene is described, not keyword-searched. Stock-footage search
+# terms are 1-3 words because a stock library indexes them that way; an image
+# generator given "Mars dust" has to invent the setting, the composition and
+# the graphics, which is how a video ends up with scenes that do not match
+# what the narrator is saying. These bounds keep a described scene long enough
+# to be specific and short enough for an image model's prompt budget.
+MIN_VISUAL_SCENE_WORDS = 15
+MAX_VISUAL_SCENE_WORDS = 60
+
+
+def build_terms_prompt(
     video_subject: str,
     video_script: str,
     amount: int = 5,
     match_script_order: bool = False,
-    app_config=None,
-) -> List[str]:
-    video_script = utils.remove_pause_tags(video_script or "").strip()
+    visual_scenes: bool = False,
+) -> str:
+    """
+    Build the prompt that asks for one visual per stretch of narration.
+
+    Two modes:
+
+    * stock search terms (the default): 1-3 word queries for a stock library.
+    * described scenes (``visual_scenes``): a full 2D-illustration brief per
+      scene, for the image-generating material sources. These are the prompts
+      an image model receives, so they carry the setting, the composition, the
+      explanatory graphics and the framing, instead of leaving all of it to
+      the model to guess.
+
+    Kept separate from `generate_terms` so the prompt contract can be tested
+    without calling a provider.
+    """
+    if visual_scenes:
+        return _build_visual_scene_prompt(video_subject, video_script, amount)
     if match_script_order:
         goal = (
             f"Generate {amount} chronological stock-video search terms that follow "
@@ -1115,8 +1222,102 @@ def generate_terms(
 
 Please note that you must use English for generating video search terms; Chinese is not accepted.
 """.strip()
+    return prompt
 
-    logger.info(f"subject: {video_subject}, match_script_order: {match_script_order}")
+
+def _build_visual_scene_prompt(
+    video_subject: str, video_script: str, amount: int
+) -> str:
+    """
+    The scene-brief prompt for image-generating material sources.
+
+    Each rule here answers a specific failure in finished videos: scenes that
+    illustrate nothing the narrator said, empty backgrounds, repeated
+    compositions, flat drawings with nothing to look at, text filling the
+    frame, and -- for science content -- visuals that contradict the facts.
+    """
+    return f"""
+# Role: Documentary Scene Designer
+
+## Goals:
+Design {amount} consecutive scenes for an animated 2D documentary, one scene
+per stretch of the narration, in the order the narration covers them.
+
+## Constrains:
+1. return a json-array of {amount} strings and nothing else. no commentary,
+   no numbering, no markdown, do not return the script.
+2. each string is one scene described in {MIN_VISUAL_SCENE_WORDS}-{MAX_VISUAL_SCENE_WORDS} words of English, and must name:
+   the subject and what it is doing, the setting around it, the composition,
+   the lighting, and the explanatory graphics in frame.
+3. scene N must illustrate the Nth part of the narration. a viewer who mutes
+   the video must still follow the explanation from the scenes alone.
+4. describe a complete illustrated environment. never an empty background,
+   never a floating object on a plain colour.
+5. where the narration explains a mechanism, a process, a comparison or a
+   measurement, design the scene as a labelled diagram, a cutaway, a
+   cross-section, a scale comparison or a before/after - not a literal
+   picture of the words.
+6. every scene must differ from the one before it in subject, in scale and in
+   composition. do not describe the same shot twice, and do not simply push
+   in on the previous scene.
+7. style: professional 2D editorial illustration, flat vector shapes with
+   soft gradient shading, layered foreground, midground and background so
+   the scene has depth.
+8. framing: vertical 9:16, the subject placed in the upper two thirds,
+   because the lower part of the frame carries the subtitles.
+9. no lettering, captions, numerals or labels rendered as text in the image.
+   diagram callouts must be described as arrows, leader lines, outlines,
+   highlights or colour coding.
+10. the scene must be consistent with the facts in the narration. never
+    describe something the narration does not support, and never contradict
+    established science.
+
+## Output Example:
+["wide vertical view of a dust-filled ochre sky over a cratered plain, low sun
+behind suspended particles, layered dunes receding into haze, foreground rocks
+in silhouette, flat vector shading", "cross-section diagram of a single
+spherical dust grain in the upper frame, concentric layers colour-coded, thin
+leader lines fanning out to the grain's edge, deep indigo background with a
+soft radial glow"]
+
+## Context:
+### Video Subject
+{video_subject}
+
+### Video Script
+{video_script}
+
+Describe the scenes in English. Return only the json-array.
+""".strip()
+
+
+def generate_terms(
+    video_subject: str,
+    video_script: str,
+    amount: int = 5,
+    match_script_order: bool = False,
+    app_config=None,
+    visual_scenes: bool = False,
+) -> List[str]:
+    """
+    Produce one visual brief per scene, in narration order.
+
+    ``visual_scenes`` switches from stock-library search terms to described
+    2D documentary scenes; see `build_terms_prompt`.
+    """
+    video_script = utils.remove_pause_tags(video_script or "").strip()
+    prompt = build_terms_prompt(
+        video_subject=video_subject,
+        video_script=video_script,
+        amount=amount,
+        match_script_order=match_script_order,
+        visual_scenes=visual_scenes,
+    )
+
+    logger.info(
+        f"subject: {video_subject}, match_script_order: {match_script_order}, "
+        f"visual_scenes: {visual_scenes}"
+    )
 
     search_terms = []
     response = ""

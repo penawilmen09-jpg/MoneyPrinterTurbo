@@ -15,8 +15,12 @@ from app.models.schema import ImageMotion, MaterialInfo, TaskVideoRequest, Video
 from app.services import material, task, video
 
 
-def test_old_requests_keep_zoom_and_invalid_motion_is_rejected():
-    assert TaskVideoRequest(video_subject="old task").image_motion == ImageMotion.zoom
+def test_requests_default_to_cinematic_and_invalid_motion_is_rejected():
+    # The default changed from a single repeated centre zoom to the per-scene
+    # camera moves: one zoom on every image is what made output read as a
+    # slideshow. Both older values stay selectable.
+    assert TaskVideoRequest(video_subject="new task").image_motion == ImageMotion.cinematic
+    assert TaskVideoRequest(video_subject="zoomed", image_motion="zoom").image_motion == ImageMotion.zoom
     assert TaskVideoRequest(video_subject="still", image_motion="static").image_motion == ImageMotion.static
     with pytest.raises(ValidationError, match="image_motion"):
         TaskVideoRequest(video_subject="bad", image_motion="unknown")
@@ -33,7 +37,12 @@ def test_api_motion_reaches_task_queue_and_rejects_invalid_input():
         patch.object(controller.sm.state, "update_task"),
     ):
         client = TestClient(asgi.app)
-        for value, expected in ((None, "zoom"), ("static", "static"), ("zoom", "zoom")):
+        for value, expected in (
+            (None, "cinematic"),
+            ("static", "static"),
+            ("zoom", "zoom"),
+            ("cinematic", "cinematic"),
+        ):
             payload = {"video_subject": "test", "subtitle_enabled": False}
             if value is not None:
                 payload["image_motion"] = value
@@ -49,13 +58,13 @@ def test_api_motion_reaches_task_queue_and_rejects_invalid_input():
 def test_cli_motion_uses_saved_value_but_explicit_argument_wins():
     args = ["--video-subject", "test"]
     with patch.dict(config.ui, {}, clear=True):
-        assert cli.build_video_params(cli.parse_args(args)).image_motion == ImageMotion.zoom
+        assert cli.build_video_params(cli.parse_args(args)).image_motion == ImageMotion.cinematic
     with patch.dict(config.ui, {"image_motion": "static"}, clear=True):
         assert cli.build_video_params(cli.parse_args(args)).image_motion == ImageMotion.static
         explicit = cli.build_video_params(cli.parse_args(args + ["--image-motion", "zoom"]))
         assert explicit.image_motion == ImageMotion.zoom
     with patch.dict(config.ui, {"image_motion": "bad"}, clear=True):
-        assert cli.build_video_params(cli.parse_args(args)).image_motion == ImageMotion.zoom
+        assert cli.build_video_params(cli.parse_args(args)).image_motion == ImageMotion.cinematic
     with pytest.raises(SystemExit):
         cli.parse_args(args + ["--image-motion", "bad"])
 
@@ -103,25 +112,32 @@ def _white_width(frame):
     return int(x.max() - x.min() + 1)
 
 
-def test_native_static_pixels_zoom_default_and_output_identity(tmp_path):
+def test_native_static_pixels_cinematic_default_and_output_identity(tmp_path):
     source = tmp_path / "scene.png"
     image = Image.new("RGB", (256, 256), (220, 0, 0))
     ImageDraw.Draw(image).rectangle((80, 80, 175, 175), fill="white")
     image.save(source)
     default = video.render_image_zoom_video(str(source), 3)
-    zoom_bytes = Path(default).read_bytes()
     still = video.render_image_zoom_video(str(source), 3, image_motion="static")
-    assert still != default
-    assert Path(default).read_bytes() == zoom_bytes
+    zoomed = video.render_image_zoom_video(str(source), 3, image_motion="zoom")
+    # Each mode owns its cached file, so switching modes cannot serve another
+    # mode's pixels.
+    assert len({default, still, zoomed}) == 3
+    # The default is the cinematic camera for this scene position.
+    assert video.render_image_zoom_video(str(source), 3, image_motion="cinematic") == default
     with VideoFileClip(still, audio=False) as clip:
         first, last = clip.get_frame(0), clip.get_frame(2.5)
         assert clip.size == [256, 256]
         assert clip.duration == pytest.approx(3, abs=0.04)
         assert abs(_white_width(first) - _white_width(last)) <= 1
         assert np.abs(first.astype(float) - last).mean() < 1
-    with VideoFileClip(default, audio=False) as clip:
+    # The legacy zoom still grows the frame; it was not changed.
+    with VideoFileClip(zoomed, audio=False) as clip:
         assert _white_width(clip.get_frame(2.5)) > _white_width(clip.get_frame(0)) + 4
-    assert video.render_image_zoom_video(str(source), 3, image_motion="zoom") == default
+    # The cinematic default moves, whichever direction its move runs in.
+    with VideoFileClip(default, audio=False) as clip:
+        first, last = clip.get_frame(0), clip.get_frame(2.5)
+        assert np.abs(first.astype(float) - last).mean() > 1
 
 
 def test_static_image_preserves_alpha_composition(tmp_path):
@@ -134,7 +150,7 @@ def test_static_image_preserves_alpha_composition(tmp_path):
         assert max(pixel[1:]) < 5
 
 
-@pytest.mark.parametrize("motion", ["static", "zoom"])
+@pytest.mark.parametrize("motion", ["static", "zoom", "cinematic"])
 def test_failed_motion_render_keeps_previous_output_and_removes_partial_file(tmp_path, motion):
     source = tmp_path / "scene.png"
     Image.new("RGB", (64, 64), "red").save(source)

@@ -384,6 +384,14 @@ def generate_script(task_id, params):
     return video_script
 
 
+# Sources that generate the picture instead of searching a library. Their
+# "search term" is the image prompt, so they are given a described scene
+# rather than a 1-3 word query; see llm.build_terms_prompt.
+_IMAGE_GENERATING_VIDEO_SOURCES = frozenset({
+    "openai_image", "codex_image", "useapi_image",
+})
+
+
 def generate_terms(task_id, params, video_script):
     logger.info("\n\n## generating video terms")
     video_terms = params.video_terms
@@ -391,11 +399,21 @@ def generate_terms(task_id, params, video_script):
         # 开启素材按文案顺序匹配后，关键词本身也必须按脚本叙事顺序生成；
         # 否则后续即使顺序下载和顺序拼接，也只能复用一组全局主题词，
         # 无法改善“后面内容的画面提前出现”的问题。
+        describe_scenes = (
+            str(getattr(params, "video_source", "") or "")
+            in _IMAGE_GENERATING_VIDEO_SOURCES
+        )
+        if describe_scenes:
+            logger.info(
+                f"video source {params.video_source} generates its own images; "
+                "planning described documentary scenes instead of search terms"
+            )
         video_terms = llm.generate_terms(
             video_subject=params.video_subject,
             video_script=utils.remove_pause_tags(video_script),
             amount=8 if params.match_materials_to_script else 5,
             match_script_order=params.match_materials_to_script,
+            visual_scenes=describe_scenes,
         )
     else:
         if isinstance(video_terms, str):

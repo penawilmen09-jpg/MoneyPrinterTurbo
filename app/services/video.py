@@ -42,8 +42,9 @@ from app.models.schema import (
     VideoParams,
     VideoTransitionMode,
 )
+from app.services import audio_master
 from app.services import bgm as bgm_service
-from app.services.utils import subtitle_shaping, video_effects
+from app.services.utils import camera_motion, subtitle_shaping, video_effects
 from app.utils import file_security, logging_utils, utils
 from app.utils.subtitle_reader import moviepy_subtitles
 
@@ -128,6 +129,11 @@ _BT709_VIDEO_FILTER = (
     "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709:range=tv"
 )
 _BT709_FFMPEG_PARAMS = ["-vf", _BT709_VIDEO_FILTER]
+
+# Where the "safe" subtitle preset puts the bottom of the caption block,
+# as a fraction of the frame height. The short-form platforms overlay
+# their own UI across roughly the bottom fifth of a 9:16 video.
+_SUBTITLE_SAFE_BASELINE = 0.78
 
 
 def _get_subtitle_spring_scale(time_seconds: float, duration_seconds: float) -> float:
@@ -624,12 +630,196 @@ def _run_concat_with_heartbeat(command: list[str], output_file: str):
         stop_event.set()
 
 
+# Cross-dissolve between scenes. A hard cut on every scene change is the
+# other half of why the output reads as a slideshow: documentaries dissolve.
+_DEFAULT_CROSSFADE_SECONDS = 0.5
+# A dissolve has to be short enough to leave most of a scene on screen alone.
+_MAX_CROSSFADE_SECONDS = 1.5
+# FFmpeg's xfade transitions this project allows. Cross-dissolve is the
+# documentary default; the soft wipes are there for users who configure them.
+_SUPPORTED_CROSSFADE_TRANSITIONS = (
+    "fade", "fadeblack", "fadewhite", "dissolve",
+    "smoothleft", "smoothright", "smoothup", "smoothdown",
+    "circleopen", "circleclose", "radial", "wipeleft", "wiperight",
+)
+
+
+def get_crossfade_seconds() -> float:
+    """
+    How long each scene change dissolves for. 0 restores hard cuts.
+
+    Configured with ``video_crossfade_seconds``.
+    """
+    try:
+        value = float(config.app.get("video_crossfade_seconds", _DEFAULT_CROSSFADE_SECONDS))
+    except (TypeError, ValueError):
+        return _DEFAULT_CROSSFADE_SECONDS
+    if not math.isfinite(value) or value <= 0:
+        return 0.0
+    return min(_MAX_CROSSFADE_SECONDS, value)
+
+
+def get_crossfade_transitions() -> list[str]:
+    """
+    The transitions to cycle through at scene changes.
+
+    Defaults to cross-dissolve alone, which is what a documentary cut uses;
+    ``video_crossfade_transitions`` takes a comma-separated list to rotate
+    through instead. Unsupported names are dropped rather than passed to
+    FFmpeg, where they would fail the whole concat.
+    """
+    configured = str(config.app.get("video_crossfade_transitions", "") or "").strip()
+    if not configured:
+        return ["fade"]
+    names = []
+    for raw_name in configured.split(","):
+        name = raw_name.strip().lower()
+        if not name:
+            continue
+        if name not in _SUPPORTED_CROSSFADE_TRANSITIONS:
+            logger.warning(f"unsupported crossfade transition ignored: {name}")
+            continue
+        names.append(name)
+    return names or ["fade"]
+
+
+def probe_clip_duration(clip_file: str) -> float:
+    """Read one clip's duration, or 0.0 when ffprobe cannot report it."""
+    ffmpeg_binary = utils.get_ffmpeg_binary()
+    ffprobe_binary = os.path.join(
+        os.path.dirname(ffmpeg_binary),
+        "ffprobe" + (".exe" if ffmpeg_binary.lower().endswith(".exe") else ""),
+    )
+    if not os.path.exists(ffprobe_binary):
+        ffprobe_binary = "ffprobe"
+    try:
+        completed = subprocess.run(
+            [
+                ffprobe_binary, "-v", "error",
+                "-show_entries", "format=duration",
+                "-of", "default=nokey=1:noprint_wrappers=1",
+                clip_file,
+            ],
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+        duration = float((completed.stdout or "").strip())
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return 0.0
+    return duration if math.isfinite(duration) and duration > 0 else 0.0
+
+
+def build_crossfade_filter(
+    durations: List[float], crossfade_duration: float, transitions: List[str]
+) -> tuple[str, str, float]:
+    """
+    Build the ``xfade`` chain that dissolves a list of clips into each other.
+
+    Returns the filter_complex string, the label carrying the result, and the
+    total duration of that result.
+
+    Each dissolve overlaps two clips, so the chain is shorter than the sum of
+    its parts by ``crossfade_duration`` per junction. The offset of each
+    dissolve is where the chain built so far should start blending, which is
+    its own length minus the dissolve.
+    """
+    if len(durations) < 2:
+        raise ValueError("a crossfade needs at least two clips")
+    if crossfade_duration <= 0:
+        raise ValueError("crossfade duration must be positive")
+    # A dissolve longer than a clip would consume the whole scene.
+    if min(durations) <= crossfade_duration:
+        raise ValueError(
+            f"shortest clip ({min(durations):.2f}s) is not longer than the "
+            f"{crossfade_duration:.2f}s crossfade"
+        )
+
+    # Normalize the timebase and pixel format of every input: xfade refuses
+    # inputs that disagree, and clips can come from different encoders.
+    parts = [
+        f"[{index}:v]settb=AVTB,fps={fps},format=yuv420p[c{index}]"
+        for index in range(len(durations))
+    ]
+
+    chain_label = "c0"
+    chain_duration = durations[0]
+    for index in range(1, len(durations)):
+        offset = chain_duration - crossfade_duration
+        transition = transitions[(index - 1) % len(transitions)]
+        output_label = f"x{index}"
+        parts.append(
+            f"[{chain_label}][c{index}]xfade=transition={transition}"
+            f":duration={crossfade_duration:.3f}:offset={offset:.3f}"
+            f"[{output_label}]"
+        )
+        chain_label = output_label
+        chain_duration = chain_duration + durations[index] - crossfade_duration
+
+    # Finish in the same colour space as the plain concat path, so switching
+    # between the two cannot shift the colour of a finished video.
+    parts.append(f"[{chain_label}]{_BT709_VIDEO_FILTER}[vout]")
+    return ";".join(parts), "[vout]", chain_duration
+
+
+def _concat_with_crossfade(
+    clip_files: List[str],
+    staged_output: str,
+    codec: str,
+    threads: int,
+    crossfade_duration: float,
+    max_duration: float | None,
+) -> None:
+    """
+    Concatenate clips with a dissolve at every scene change.
+
+    Raises on any problem so the caller can fall back to the plain concat
+    demuxer, which is the behaviour this project shipped before.
+    """
+    durations = [probe_clip_duration(clip_file) for clip_file in clip_files]
+    if any(duration <= 0 for duration in durations):
+        raise RuntimeError("could not read every clip's duration for the crossfade")
+
+    filter_complex, output_label, total_duration = build_crossfade_filter(
+        durations, crossfade_duration, get_crossfade_transitions()
+    )
+    if max_duration is not None and max_duration > 0 and total_duration < max_duration:
+        # Dissolving overlaps clips, so the result is shorter than the sum of
+        # the parts. If that leaves the narration uncovered, hard cuts are the
+        # better trade: a silent tail is worse than a missing dissolve.
+        raise RuntimeError(
+            f"crossfaded timeline ({total_duration:.2f}s) would not cover the "
+            f"narration ({max_duration:.2f}s)"
+        )
+
+    command = [utils.get_ffmpeg_binary(), "-nostdin", "-y"]
+    for clip_file in clip_files:
+        command.extend(["-i", clip_file])
+    command.extend([
+        "-filter_complex", filter_complex,
+        "-map", output_label,
+        "-c:v", codec,
+        "-threads", str(threads or 2),
+        "-pix_fmt", "yuv420p",
+    ])
+    if max_duration is not None and max_duration > 0:
+        command.extend(["-t", f"{max_duration:.3f}"])
+    command.append(staged_output)
+
+    result = _run_concat_with_heartbeat(command, staged_output)
+    if result.returncode != 0:
+        error_message = (result.stderr or result.stdout or "").strip()
+        raise RuntimeError(error_message or "ffmpeg crossfade concat failed")
+
+
 def concat_video_clips_with_ffmpeg(
     clip_files: List[str],
     output_file: str,
     threads: int,
     output_dir: str,
     max_duration: float | None = None,
+    crossfade_duration: float | None = None,
 ):
     # Separate renders may share a directory. Each FFmpeg process must keep its
     # own manifest until all codec attempts finish, without overwriting or
@@ -677,7 +867,35 @@ def concat_video_clips_with_ffmpeg(
         command.append(staged_output)
         return command
 
+    effective_crossfade = (
+        get_crossfade_seconds() if crossfade_duration is None else crossfade_duration
+    )
+
     def run_concat(codec: str):
+        # Dissolve between scenes when it is configured and the clips allow
+        # it. Everything about the crossfade is recoverable: on any failure
+        # the plain concat demuxer below produces the same video with hard
+        # cuts, which is what this project did before.
+        if effective_crossfade > 0 and len(clip_files) >= 2:
+            try:
+                _concat_with_crossfade(
+                    clip_files=clip_files,
+                    staged_output=staged_output,
+                    codec=codec,
+                    threads=threads,
+                    crossfade_duration=effective_crossfade,
+                    max_duration=max_duration,
+                )
+                logger.info(
+                    f"concatenated with {len(clip_files) - 1} "
+                    f"{effective_crossfade:.2f}s dissolves"
+                )
+                return codec
+            except Exception as exc:
+                logger.warning(
+                    f"crossfade concat unavailable, using hard cuts: {exc}"
+                )
+
         command = build_command(codec)
         # 使用 ffmpeg 只做一次串联与编码，避免 MoviePy 逐段合并时反复重编码，
         # 从而降低画质劣化与颜色偏移风险。阻塞等待期间由心跳日志体现任务仍在运行。
@@ -1011,6 +1229,22 @@ def combine_videos(
         f"required video duration: {required_video_duration:.2f} seconds "
         f"(audio duration + {_VIDEO_DURATION_SAFETY_MARGIN:.2f}s safety margin)"
     )
+    # Every dissolve overlaps two scenes, so the concatenated timeline is
+    # shorter than the clips that feed it. Build that time back now, or the
+    # crossfade would have to be dropped to keep the narration covered.
+    crossfade_seconds = get_crossfade_seconds()
+    if crossfade_seconds > 0 and max_clip_duration > 0:
+        expected_clips = max(
+            1, math.ceil(required_video_duration / float(max_clip_duration))
+        )
+        crossfade_budget = (expected_clips - 1) * crossfade_seconds
+        if crossfade_budget > 0:
+            required_video_duration += crossfade_budget
+            logger.info(
+                f"building {crossfade_budget:.2f}s of extra footage for "
+                f"{expected_clips - 1} dissolves of {crossfade_seconds:.2f}s "
+                f"(target {required_video_duration:.2f}s)"
+            )
 
     # 兼容 API 直接调用时未传转场模式的情况，避免后续访问 .value 时崩溃。
     transition_value = getattr(video_transition_mode, "value", video_transition_mode)
@@ -1632,6 +1866,77 @@ def subtitle_font_supports_text(font_path: str, text: str) -> bool:
     return _subtitle_font_supports_sample(font_path, sample)
 
 
+def _master_soundtrack_for_render(
+    *,
+    narration_path: str,
+    music_path: str,
+    timeline_duration: float,
+    params: VideoParams,
+    output_dir: str,
+) -> tuple[str, bool]:
+    """
+    Render the loudness-managed soundtrack for the final video.
+
+    Returns ``(mastered_path, music_mixed)``. An empty path means mastering
+    is disabled or FFmpeg could not produce a soundtrack at all, and tells
+    `generate_video` to fall back to the original MoviePy mix, so a mastering
+    failure degrades the audio instead of failing the render.
+
+    When music was requested but could not be mixed, the narration alone is
+    still mastered and ``music_mixed`` is False: a quiet, unmanaged mix is a
+    worse outcome than a video without its music bed.
+    """
+    if not audio_master.is_enabled():
+        logger.info("audio mastering is disabled; using the direct mix")
+        return "", True
+
+    def master(music: str) -> str:
+        descriptor, mastered_path = tempfile.mkstemp(
+            prefix=".mastered-audio-", suffix=".wav", dir=output_dir or "."
+        )
+        os.close(descriptor)
+        try:
+            report = audio_master.master_soundtrack(
+                narration_path,
+                mastered_path,
+                music_file=music,
+                timeline_duration=timeline_duration,
+                narration_gain_db=audio_master.volume_multiplier_to_db(
+                    params.voice_volume
+                ),
+                music_gain_db=audio_master.music_multiplier_to_db(params.bgm_volume),
+            )
+        except Exception:
+            delete_files(mastered_path)
+            raise
+        logger.success(f"soundtrack mastered: {report.describe()}")
+        return mastered_path
+
+    try:
+        return master(music_path), True
+    except Exception:
+        logger.exception(
+            "audio mastering failed "
+            f"(music: {'yes' if music_path else 'no'})"
+        )
+
+    if not music_path:
+        return "", True
+
+    # The music is the likeliest cause: an unreadable or zero-length track
+    # fails the mix but says nothing about the narration.
+    try:
+        mastered_path = master("")
+    except Exception:
+        logger.exception("audio mastering failed again; falling back to the direct mix")
+        return "", False
+    logger.warning(
+        "background music could not be mastered into the soundtrack; "
+        "shipping the mastered narration without it"
+    )
+    return mastered_path, False
+
+
 def generate_video(
     video_path: str,
     audio_path: str,
@@ -1870,7 +2175,15 @@ def generate_video(
         if anim_type in ("pop_spring", "spring", "pop"):
             _clip = _apply_subtitle_spring_animation(_clip, duration)
 
-        if params.subtitle_position == "bottom":
+        if params.subtitle_position == "safe":
+            # TikTok, Reels and Shorts all paint their caption, username and
+            # action rail over the bottom of a 9:16 frame. Sitting the
+            # subtitle block's baseline at 78% of the height keeps it above
+            # that band while staying low enough not to cover the scene.
+            _clip = _clip.with_position(
+                ("center", max(0.0, video_height * _SUBTITLE_SAFE_BASELINE - _clip.h))
+            )
+        elif params.subtitle_position == "bottom":
             _clip = _clip.with_position(("center", video_height * 0.95 - _clip.h))
         elif params.subtitle_position == "top":
             _clip = _clip.with_position(("center", video_height * 0.05))
@@ -1899,11 +2212,7 @@ def generate_video(
         source_video_clip = clip_stack.enter_context(
             _open_video_clip_quietly(video_path)
         )
-        voice_source_clip = clip_stack.enter_context(AudioFileClip(audio_path))
         video_clip = source_video_clip
-        audio_clip = voice_source_clip.with_effects(
-            [afx.MultiplyVolume(1.0 if params.voice_volume is None else params.voice_volume)]
-        )
 
         def make_textclip(text):
             return subtitle_shaping.text_clip(
@@ -1964,27 +2273,51 @@ def generate_video(
                 )
             )
         bgm_mix_succeeded = True
-        if bgm_file:
-            try:
-                bgm_effects = [afx.MultiplyVolume(params.bgm_volume)]
-                # 服务内解析的随机/自定义音乐可能比成片短，需要循环铺满；任务层
-                # 通过 override 传入的文件表示提供商已经完成时长适配。这里依据
-                # 文件来源决定是否循环，避免今后每增加一个提供商都修改名称白名单。
-                if bgm_file_override is None:
-                    bgm_effects.append(afx.AudioLoop(duration=video_clip.duration))
-                # Fade the complete playback timeline, not each source loop.
-                bgm_effects.append(afx.AudioFadeOut(3))
-                bgm_source_clip = clip_stack.enter_context(AudioFileClip(bgm_file))
-                bgm_clip = bgm_source_clip.with_effects(bgm_effects)
-                audio_clip = CompositeAudioClip([audio_clip, bgm_clip])
-            except Exception:
-                bgm_mix_succeeded = False
-                # 记录完整堆栈和稳定上下文，便于区分文件解码、MoviePy 特效和
-                # CompositeAudioClip 失败；文件内容与 API Key 不会进入日志。
-                logger.exception(
-                    f"failed to mix background music: type={params.bgm_type}, "
-                    f"file={bgm_file}"
-                )
+        # The mastered soundtrack is one file that already carries the
+        # levelled narration and the ducked music, so it replaces both the
+        # volume multipliers and CompositeAudioClip when it is available.
+        mastered_audio_path, music_mixed = _master_soundtrack_for_render(
+            narration_path=audio_path,
+            music_path=bgm_file,
+            timeline_duration=float(video_clip.duration or 0.0),
+            params=params,
+            output_dir=output_dir,
+        )
+        if mastered_audio_path:
+            bgm_mix_succeeded = music_mixed
+            clip_stack.callback(delete_files, mastered_audio_path)
+            audio_clip = clip_stack.enter_context(AudioFileClip(mastered_audio_path))
+        else:
+            # Fallback: this project's original direct mix. It is unmanaged,
+            # but it keeps a render alive when FFmpeg cannot master the
+            # soundtrack, and it decides bgm_mix_succeeded on its own terms.
+            voice_source_clip = clip_stack.enter_context(AudioFileClip(audio_path))
+            audio_clip = voice_source_clip.with_effects(
+                [afx.MultiplyVolume(
+                    1.0 if params.voice_volume is None else params.voice_volume
+                )]
+            )
+            if bgm_file:
+                try:
+                    bgm_effects = [afx.MultiplyVolume(params.bgm_volume)]
+                    # 服务内解析的随机/自定义音乐可能比成片短，需要循环铺满；任务层
+                    # 通过 override 传入的文件表示提供商已经完成时长适配。这里依据
+                    # 文件来源决定是否循环，避免今后每增加一个提供商都修改名称白名单。
+                    if bgm_file_override is None:
+                        bgm_effects.append(afx.AudioLoop(duration=video_clip.duration))
+                    # Fade the complete playback timeline, not each source loop.
+                    bgm_effects.append(afx.AudioFadeOut(3))
+                    bgm_source_clip = clip_stack.enter_context(AudioFileClip(bgm_file))
+                    bgm_clip = bgm_source_clip.with_effects(bgm_effects)
+                    audio_clip = CompositeAudioClip([audio_clip, bgm_clip])
+                except Exception:
+                    bgm_mix_succeeded = False
+                    # 记录完整堆栈和稳定上下文，便于区分文件解码、MoviePy 特效和
+                    # CompositeAudioClip 失败；文件内容与 API Key 不会进入日志。
+                    logger.exception(
+                        f"failed to mix background music: type={params.bgm_type}, "
+                        f"file={bgm_file}"
+                    )
 
         final_video_clip = video_clip.with_audio(audio_clip)
         clip_stack.callback(final_video_clip.close)
@@ -2060,27 +2393,107 @@ def _smooth_zoom_clip(clip, zoom_amount: float):
     return zoomed.with_position("center")
 
 
+def _camera_move_clip(clip, move: camera_motion.CameraMove):
+    """
+    Render a planned camera move over a still image.
+
+    Built the same way as `_smooth_zoom_clip`: one affine transform per frame
+    at a fixed output size, so a slow move stays smooth instead of stepping a
+    pixel at a time. Unlike that function the transform also travels across
+    the image and is eased, and the crop window is held inside the image at
+    every scale, so a pan never exposes an edge.
+    """
+    base = Image.fromarray(np.asarray(clip.get_frame(0)).astype("uint8"))
+    width, height = base.size
+    duration = clip.duration or 1.0
+    mask_base = None
+    if clip.mask is not None:
+        mask_frame = np.asarray(clip.mask.get_frame(0)) * 255
+        mask_base = Image.fromarray(mask_frame.clip(0, 255).astype("uint8"))
+
+    def warp(image, t, resample):
+        progress = min(max(t, 0.0), duration) / duration
+        return image.transform(
+            (width, height),
+            Image.AFFINE,
+            camera_motion.affine_coefficients(move, progress, width, height),
+            resample=resample,
+        )
+
+    moved = VideoClip(
+        lambda t: np.asarray(warp(base, t, Image.BICUBIC)), duration=clip.duration
+    )
+    if mask_base is not None:
+        mask = VideoClip(
+            lambda t: np.asarray(warp(mask_base, t, Image.BILINEAR)) / 255.0,
+            is_mask=True,
+            duration=clip.duration,
+        )
+        moved = moved.with_mask(mask)
+    return moved.with_position("center")
+
+
+def get_camera_motion_intensity() -> float:
+    """
+    How much of each camera move's designed travel to use.
+
+    1.0 is the designed amount. Lower it for a calmer video without losing
+    the variety between scenes; 0 renders the moves as near-static holds.
+    """
+    try:
+        value = float(config.app.get("camera_motion_intensity", 1.0))
+    except (TypeError, ValueError):
+        return 1.0
+    if not math.isfinite(value):
+        return 1.0
+    return max(0.0, min(2.0, value))
+
+
 def render_image_zoom_video(
-    image_path: str, clip_duration: int = 5, image_motion: ImageMotion = ImageMotion.zoom
+    image_path: str,
+    clip_duration: int = 5,
+    image_motion: ImageMotion = ImageMotion.cinematic,
+    scene_index: int = 0,
 ) -> str:
     """
-    将单张图片渲染为静止或缓慢放大的 mp4 片段，返回输出文件路径。
+    将单张图片渲染为 mp4 片段，返回输出文件路径。
 
     local 素材预处理和 OpenAI 兼容文生图素材共用这段"图片 → 片段"渲染
-    逻辑：默认保留每秒约 3% 的动态放大，静止模式只固定播放时长。
-    此设置与片段转场独立。渲染异常由调用方按各自素材源的失败约定处理。
+    逻辑。三种模式：``cinematic`` 按场景序号选择不同的运镜（推、拉、横移、
+    俯仰、揭示），``zoom`` 保留历史的每秒约 3% 居中放大，``static`` 只固定
+    播放时长。此设置与片段转场独立。渲染异常由调用方按各自素材源的失败
+    约定处理。
+
+    Args:
+        scene_index: this image's position in the video. Only ``cinematic``
+            reads it, to give consecutive scenes different camera moves.
     """
     motion = ImageMotion(image_motion)
     clip, _ = _open_image_clip_with_fallback(image_path)
     clip = clip.with_duration(clip_duration).with_position("center")
     temp_path = ""
+    camera_move = None
     try:
-        # 放大模式以亚像素精度逐帧放大，静止模式保留原始构图及透明背景处理。
-        image_clip = (
-            _smooth_zoom_clip(clip, clip_duration * 0.03)
-            if motion == ImageMotion.zoom
-            else clip
-        )
+        if motion == ImageMotion.cinematic:
+            # The seed is the image itself, so the same image always gets the
+            # same move (renders stay reproducible and cacheable) while two
+            # different videos do not open on the same move.
+            camera_move = camera_motion.plan_move(
+                scene_index,
+                seed=os.path.basename(image_path),
+                intensity=get_camera_motion_intensity(),
+            )
+            logger.info(
+                f"scene {scene_index + 1}: "
+                f"{camera_motion.describe_move(camera_move, float(clip_duration))}"
+            )
+            image_clip = _camera_move_clip(clip, camera_move)
+        elif motion == ImageMotion.zoom:
+            # 放大模式以亚像素精度逐帧放大。
+            image_clip = _smooth_zoom_clip(clip, clip_duration * 0.03)
+        else:
+            # 静止模式保留原始构图及透明背景处理。
+            image_clip = clip
 
         # Optionally, create a composite video clip containing the zoomed clip.
         # This is useful if you want to add other elements to the video.
@@ -2097,7 +2510,14 @@ def render_image_zoom_video(
                 source_digest.update(clip.mask.get_frame(0).tobytes())
             source_identity = source_digest.hexdigest()
             duration_identity = hashlib.sha256(str(clip_duration).encode()).hexdigest()[:16]
-            motion_tag = _ZOOM_CACHE_TAG if motion == ImageMotion.zoom else ""
+            if motion == ImageMotion.zoom:
+                motion_tag = _ZOOM_CACHE_TAG
+            elif camera_move is not None:
+                # Two scenes can reuse one image with different moves, so the
+                # move is part of the cached clip's identity.
+                motion_tag = f"-{camera_move.name}"
+            else:
+                motion_tag = ""
             video_file = os.path.join(
                 os.path.dirname(image_path),
                 f"{source_identity}.{motion.value}{motion_tag}-{duration_identity}.mp4",
@@ -2123,7 +2543,9 @@ def render_image_zoom_video(
 
 
 def preprocess_video(
-    materials: List[MaterialInfo], clip_duration=4, image_motion: ImageMotion = ImageMotion.zoom
+    materials: List[MaterialInfo],
+    clip_duration=4,
+    image_motion: ImageMotion = ImageMotion.cinematic,
 ):
     # WebUI 在某些二次生成场景下可能传入空素材列表，这里直接返回空结果，避免抛出 NoneType 异常。
     if not materials:
@@ -2133,7 +2555,7 @@ def preprocess_video(
     valid_materials = []
     local_videos_dir = utils.storage_dir("local_videos", create=True)
 
-    for material in materials:
+    for scene_index, material in enumerate(materials):
         if not material.url:
             continue
 
@@ -2194,7 +2616,10 @@ def preprocess_video(
                 # 用于导出的图片片段。
                 close_clip(clip)
                 video_file = render_image_zoom_video(
-                    material_source_path, clip_duration, image_motion=image_motion
+                    material_source_path,
+                    clip_duration,
+                    image_motion=image_motion,
+                    scene_index=scene_index,
                 )
                 material.url = video_file
                 logger.success(f"image processed: {video_file}")

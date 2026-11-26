@@ -1989,16 +1989,26 @@ def generate_images_useapi(
 
 
 def _render_openai_image_video(
-    image_path: str, clip_duration: int, image_motion: ImageMotion = ImageMotion.zoom
+    image_path: str,
+    clip_duration: int,
+    image_motion: ImageMotion = ImageMotion.cinematic,
+    scene_index: int = 0,
 ) -> str:
     """
     把生成的图片渲染成 mp4 片段，复用 local 素材的"图片 → 动态片段"管线。
 
     渲染失败返回空字符串，由调用方停止后续付费请求。
+
+    Args:
+        scene_index: this image's position in the video, so ``cinematic``
+            motion gives consecutive scenes different camera moves.
     """
     try:
         return video.render_image_zoom_video(
-            image_path, clip_duration, image_motion=image_motion
+            image_path,
+            clip_duration,
+            image_motion=image_motion,
+            scene_index=scene_index,
         )
     except Exception as e:
         logger.error(
@@ -2016,7 +2026,7 @@ def _download_videos_openai_image_on_demand(
     audio_duration: float,
     max_clip_duration: int,
     material_directory: str,
-    image_motion: ImageMotion = ImageMotion.zoom,
+    image_motion: ImageMotion = ImageMotion.cinematic,
     image_generator: Callable[..., List[MaterialInfo]] | None = None,
     provider: str = "openai_image",
     codex_image_context=None,
@@ -2083,7 +2093,12 @@ def _download_videos_openai_image_on_demand(
             raise
         for item in items:
             video_file = _render_openai_image_video(
-                item.url, max_clip_duration, image_motion=image_motion
+                item.url,
+                max_clip_duration,
+                image_motion=image_motion,
+                # Each generated image is one more scene in the finished
+                # video, so the counter advances across search terms.
+                scene_index=len(video_paths),
             )
             if not video_file:
                 _persist_material_sources(task_id, material_sources)
@@ -2470,7 +2485,7 @@ def download_videos(
     clip_speed: float = 1.0,
     match_script_order: bool = False,
     progress_callback: Callable[[float], None] | None = None,
-    image_motion: ImageMotion = ImageMotion.zoom,
+    image_motion: ImageMotion = ImageMotion.cinematic,
     jalapeno_video_endpoint: volcengine_seedance.SeedanceEndpoint | None = None,
     codex_image_context=None,
 ) -> List[str]:

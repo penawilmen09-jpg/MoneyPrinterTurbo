@@ -228,8 +228,10 @@ def _video_fit_mode(value: str) -> str:
 
 def _image_motion(value: str) -> str:
     normalized = value.strip().lower()
-    if normalized not in {"static", "zoom"}:
-        raise argparse.ArgumentTypeError("image-motion must be one of: static, zoom")
+    if normalized not in {"static", "zoom", "cinematic"}:
+        raise argparse.ArgumentTypeError(
+            "image-motion must be one of: static, zoom, cinematic"
+        )
     return normalized
 
 
@@ -474,9 +476,13 @@ Batch manifests:
     video_group.add_argument(
         "--image-motion",
         type=_image_motion,
-        choices=["static", "zoom"],
+        choices=["cinematic", "zoom", "static"],
         default=None,
-        help="motion for local or AI-generated images (default: zoom)",
+        help=(
+            "motion for local or AI-generated images: cinematic varies the "
+            "camera move per scene, zoom is the legacy centred zoom "
+            "(default: cinematic)"
+        ),
     )
     video_group.add_argument(
         "--video-transition-mode",

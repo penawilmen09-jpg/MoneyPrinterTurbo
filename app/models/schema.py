@@ -56,6 +56,10 @@ class VideoFitMode(str, Enum):
 class ImageMotion(str, Enum):
     static = "static"
     zoom = "zoom"
+    # A varied camera move per scene (push, pull, pan, tilt, reveal) with
+    # ease-in-out, instead of the same centred zoom on every image. See
+    # app/services/utils/camera_motion.py.
+    cinematic = "cinematic"
 
 
 SubtitleDisplayMode = Literal["sentence", "word_by_word"]
@@ -113,7 +117,9 @@ class VideoParams(BaseModel):
     video_terms: Optional[str | List[str]] = None  # Keywords used to generate the video
     video_aspect: Optional[VideoAspect] = VideoAspect.portrait
     video_fit_mode: VideoFitMode = VideoFitMode.cover
-    image_motion: ImageMotion = ImageMotion.zoom
+    # Cinematic by default: a single repeated zoom is what makes a video
+    # read as a slideshow. 'zoom' and 'static' remain available.
+    image_motion: ImageMotion = ImageMotion.cinematic
     video_concat_mode: Optional[VideoConcatMode] = VideoConcatMode.random
     video_transition_mode: Optional[VideoTransitionMode] = None
     video_clip_duration: int = Field(default=5, ge=1)

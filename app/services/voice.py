@@ -1,5 +1,6 @@
 import asyncio
 import base64
+import binascii
 import io
 import inspect
 import itertools
@@ -82,6 +83,9 @@ GEMINI_TTS_VOICES = (
 )
 _MINIMAX_TTS_MAX_AUDIO_HEX_CHARS = 100 * 1024 * 1024
 _ELEVENLABS_TTS_MAX_AUDIO_BYTES = 50 * 1024 * 1024
+# The /with-timestamps response is JSON carrying base64 audio plus the
+# character alignment, so it needs headroom over the raw audio cap.
+_ELEVENLABS_TTS_MAX_TIMESTAMPED_BYTES = 80 * 1024 * 1024
 _ELEVENLABS_TTS_MAX_ERROR_BYTES = 4096
 VOXCPM_DEFAULT_BASE_URL = "https://api.modelbest.cn/v1"
 VOXCPM_DEFAULT_VOICE = "default"
@@ -2530,6 +2534,182 @@ def minimax_tts(text: str, voice_id: str, voice_rate: float, voice_file: str, vo
     return None
 
 
+# Narration defaults for ElevenLabs. They are tuned for a documentary read:
+# stability high enough that the delivery does not wander between sentences,
+# similarity high so the chosen voice keeps its identity, and style at 0
+# because style exaggeration is what introduces the rushed, uneven pacing and
+# swallowed syllables that make narration hard to follow.
+_ELEVENLABS_VOICE_SETTING_DEFAULTS = {
+    "stability": 0.5,
+    "similarity_boost": 0.85,
+    "style": 0.0,
+    "use_speaker_boost": True,
+}
+
+# Valid ranges per the ElevenLabs voice-settings API. A value outside the
+# range is rejected by the provider, so it is clamped here instead of
+# spending a paid request on a 422.
+_ELEVENLABS_VOICE_SETTING_RANGES = {
+    "stability": (0.0, 1.0),
+    "similarity_boost": (0.0, 1.0),
+    "style": (0.0, 1.0),
+}
+
+# mp3_44100_128 is available on every plan. Higher bitrates cost no extra
+# credits (ElevenLabs bills per character) but need a paid tier, so the
+# default stays universally available and the format is configurable.
+_ELEVENLABS_DEFAULT_OUTPUT_FORMAT = "mp3_44100_128"
+_ELEVENLABS_SUPPORTED_OUTPUT_FORMATS = frozenset({
+    "mp3_22050_32", "mp3_44100_32", "mp3_44100_64", "mp3_44100_96",
+    "mp3_44100_128", "mp3_44100_192",
+    "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100",
+})
+
+
+def get_elevenlabs_voice_settings() -> dict:
+    """
+    Build the ``voice_settings`` payload from config, falling back to the
+    narration defaults.
+
+    The settings used to be hard-coded, which meant the delivery could not be
+    tuned without editing this file, and a change here silently altered every
+    existing voice. Reading them from ``[elevenlabs]`` keeps the official
+    voice fixed while letting the read be adjusted.
+    """
+    settings = dict(_ELEVENLABS_VOICE_SETTING_DEFAULTS)
+    for key, (minimum, maximum) in _ELEVENLABS_VOICE_SETTING_RANGES.items():
+        if key not in config.elevenlabs:
+            continue
+        raw_value = config.elevenlabs.get(key)
+        try:
+            value = float(raw_value)
+        except (TypeError, ValueError):
+            logger.warning(f"ignoring invalid elevenlabs.{key}: {raw_value!r}")
+            continue
+        if not math.isfinite(value):
+            logger.warning(f"ignoring non-finite elevenlabs.{key}: {raw_value!r}")
+            continue
+        clamped = max(minimum, min(maximum, value))
+        if clamped != value:
+            logger.warning(
+                f"elevenlabs.{key}={value} is outside {minimum}-{maximum}, "
+                f"using {clamped}"
+            )
+        settings[key] = clamped
+
+    if "use_speaker_boost" in config.elevenlabs:
+        raw_boost = config.elevenlabs.get("use_speaker_boost")
+        if isinstance(raw_boost, str):
+            settings["use_speaker_boost"] = raw_boost.strip().lower() not in {
+                "false", "0", "no", "off",
+            }
+        else:
+            settings["use_speaker_boost"] = bool(raw_boost)
+    return settings
+
+
+def get_elevenlabs_output_format() -> str:
+    """Read the configured audio format, rejecting values the API does not accept."""
+    configured = str(
+        config.elevenlabs.get("output_format", "") or ""
+    ).strip() or _ELEVENLABS_DEFAULT_OUTPUT_FORMAT
+    if configured not in _ELEVENLABS_SUPPORTED_OUTPUT_FORMATS:
+        logger.warning(
+            f"unsupported elevenlabs.output_format: {configured}, "
+            f"using {_ELEVENLABS_DEFAULT_OUTPUT_FORMAT}"
+        )
+        return _ELEVENLABS_DEFAULT_OUTPUT_FORMAT
+    return configured
+
+
+def elevenlabs_timestamps_enabled() -> bool:
+    """
+    Whether to request character-level timestamps along with the audio.
+
+    ``/with-timestamps`` returns the same audio for the same credits as the
+    plain endpoint, plus the alignment. Without it the project has to guess
+    subtitle timings from character counts, which is what makes captions
+    drift ahead of or behind the narration. On by default; set
+    ``elevenlabs.use_timestamps = false`` to use the plain endpoint.
+    """
+    value = config.elevenlabs.get("use_timestamps", True)
+    if isinstance(value, str):
+        return value.strip().lower() not in {"false", "0", "no", "off"}
+    return bool(value)
+
+
+def words_from_elevenlabs_alignment(alignment: dict) -> list[tuple[str, float, float]]:
+    """
+    Convert ElevenLabs' character alignment into whitespace-delimited words
+    with real start and end times in seconds.
+
+    The API reports one start/end pair per character of the submitted text.
+    Grouping them on whitespace yields exactly the word boundaries the
+    subtitle aggregation already expects from Edge TTS, so captions get the
+    same accuracy for either provider.
+
+    Punctuation stays attached to its word: the subtitle matcher compares
+    text with punctuation stripped from both sides, and keeping it means the
+    concatenated words still reproduce the submitted script.
+    """
+    characters = alignment.get("characters") or []
+    starts = alignment.get("character_start_times_seconds") or []
+    ends = alignment.get("character_end_times_seconds") or []
+    if not characters or len(characters) != len(starts) or len(starts) != len(ends):
+        return []
+
+    words: list[tuple[str, float, float]] = []
+    current_text = ""
+    current_start = 0.0
+    current_end = 0.0
+    for character, start, end in zip(characters, starts, ends):
+        try:
+            start_seconds = float(start)
+            end_seconds = float(end)
+        except (TypeError, ValueError):
+            return []
+        if not (math.isfinite(start_seconds) and math.isfinite(end_seconds)):
+            return []
+        if str(character).isspace():
+            if current_text:
+                words.append((current_text, current_start, current_end))
+                current_text = ""
+            continue
+        if not current_text:
+            current_start = start_seconds
+        current_text += str(character)
+        current_end = max(end_seconds, current_start)
+    if current_text:
+        words.append((current_text, current_start, current_end))
+    return words
+
+
+def populate_submaker_with_elevenlabs_alignment(
+    sub_maker: SubMaker, alignment: dict
+) -> bool:
+    """
+    Fill the project's legacy ``subs``/``offset`` structure with ElevenLabs'
+    measured word boundaries.
+
+    Returns True when real timings were written. False means the caller
+    should fall back to the character-count estimate, which is what the
+    project did for every provider without word timings.
+    """
+    words = words_from_elevenlabs_alignment(alignment)
+    if not words:
+        return False
+
+    sub_maker = ensure_legacy_submaker_fields(sub_maker)
+    sub_maker.subs = []
+    sub_maker.offset = []
+    for text, start_seconds, end_seconds in words:
+        start_100ns = max(0, int(start_seconds * 10000000))
+        end_100ns = max(start_100ns + 1, int(end_seconds * 10000000))
+        sub_maker.subs.append(text)
+        sub_maker.offset.append((start_100ns, end_100ns))
+    return bool(sub_maker.subs)
+
+
 def elevenlabs_tts(
     text: str,
     voice_id: str,
@@ -2551,7 +2731,16 @@ def elevenlabs_tts(
     if not model_id:
         model_id = config.elevenlabs.get("model_id", "eleven_multilingual_v2")
 
-    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+    output_format = get_elevenlabs_output_format()
+    # /with-timestamps returns the audio AND the character alignment for the
+    # same credits, so subtitles can be timed from measured speech instead of
+    # estimated from character counts.
+    use_timestamps = elevenlabs_timestamps_enabled()
+    endpoint_suffix = "/with-timestamps" if use_timestamps else ""
+    url = (
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+        f"{endpoint_suffix}?output_format={output_format}"
+    )
     headers = {
         "xi-api-key": api_key,
         "Content-Type": "application/json",
@@ -2559,12 +2748,7 @@ def elevenlabs_tts(
     payload = {
         "text": text,
         "model_id": model_id,
-        "voice_settings": {
-            "stability": 0.5,
-            "similarity_boost": 0.75,
-            "style": 0.0,
-            "use_speaker_boost": True,
-        },
+        "voice_settings": get_elevenlabs_voice_settings(),
     }
 
     # The live v2 endpoint rejects speeds outside 0.7–1.2; v3 supports
@@ -2597,7 +2781,12 @@ def elevenlabs_tts(
         response = None
         temp_path = None
         try:
-            logger.info(f"start elevenlabs tts, voice_id: {voice_id}, try: {i + 1}")
+            logger.info(
+                f"start elevenlabs tts, voice_id: {voice_id}, "
+                f"model: {model_id}, format: {output_format}, "
+                f"timestamps: {use_timestamps}, "
+                f"settings: {payload['voice_settings']}, try: {i + 1}"
+            )
             ensure_file_path_exists(voice_file)
 
             response = trace_http_call(
@@ -2651,16 +2840,54 @@ def elevenlabs_tts(
                 suffix=os.path.splitext(voice_file)[1] or ".mp3",
                 dir=os.path.dirname(os.path.abspath(voice_file)),
             )
-            audio_bytes = 0
-            with os.fdopen(descriptor, "wb") as output:
-                for chunk in response.iter_content(chunk_size=64 * 1024):
+            alignment = {}
+            if use_timestamps:
+                # The timestamped endpoint answers with one JSON document
+                # holding base64 audio and the alignment, so it is read whole
+                # and then decoded to the same temp file the streaming path
+                # writes.
+                payload_bytes = bytearray()
+                for chunk in response.iter_content(chunk_size=256 * 1024):
                     if not chunk:
                         continue
-                    audio_bytes += len(chunk)
-                    if audio_bytes > _ELEVENLABS_TTS_MAX_AUDIO_BYTES:
-                        logger.error("ElevenLabs TTS audio exceeds the 50 MB limit")
+                    payload_bytes.extend(chunk)
+                    if len(payload_bytes) > _ELEVENLABS_TTS_MAX_TIMESTAMPED_BYTES:
+                        logger.error(
+                            "ElevenLabs TTS timestamped response exceeds the 80 MB limit"
+                        )
                         return None
-                    output.write(chunk)
+                try:
+                    document = json.loads(bytes(payload_bytes))
+                    encoded_audio = document["audio_base64"]
+                    decoded_audio = base64.b64decode(encoded_audio, validate=True)
+                except (ValueError, KeyError, TypeError, binascii.Error) as exc:
+                    # The request already succeeded and may have been charged,
+                    # so a malformed body is reported rather than retried.
+                    logger.error(
+                        "ElevenLabs TTS returned a timestamped response that "
+                        f"could not be decoded: {type(exc).__name__}"
+                    )
+                    return None
+                if len(decoded_audio) > _ELEVENLABS_TTS_MAX_AUDIO_BYTES:
+                    logger.error("ElevenLabs TTS audio exceeds the 50 MB limit")
+                    return None
+                audio_bytes = len(decoded_audio)
+                with os.fdopen(descriptor, "wb") as output:
+                    output.write(decoded_audio)
+                raw_alignment = document.get("alignment")
+                if isinstance(raw_alignment, dict):
+                    alignment = raw_alignment
+            else:
+                audio_bytes = 0
+                with os.fdopen(descriptor, "wb") as output:
+                    for chunk in response.iter_content(chunk_size=64 * 1024):
+                        if not chunk:
+                            continue
+                        audio_bytes += len(chunk)
+                        if audio_bytes > _ELEVENLABS_TTS_MAX_AUDIO_BYTES:
+                            logger.error("ElevenLabs TTS audio exceeds the 50 MB limit")
+                            return None
+                        output.write(chunk)
             if audio_bytes == 0:
                 logger.error("ElevenLabs TTS returned no audio data")
                 return None
@@ -2680,6 +2907,19 @@ def elevenlabs_tts(
 
             sub_maker = ensure_legacy_submaker_fields(SubMaker())
             logger.success(f"elevenlabs tts succeeded: {voice_file}")
+            if alignment and populate_submaker_with_elevenlabs_alignment(
+                sub_maker, alignment
+            ):
+                logger.info(
+                    "elevenlabs returned measured word boundaries for "
+                    f"{len(sub_maker.subs)} words; subtitles will use them"
+                )
+                return sub_maker
+            if use_timestamps:
+                logger.warning(
+                    "elevenlabs returned no usable alignment; subtitle timings "
+                    "fall back to the character-count estimate"
+                )
             return populate_legacy_submaker_with_full_text(
                 sub_maker=sub_maker,
                 text=text,

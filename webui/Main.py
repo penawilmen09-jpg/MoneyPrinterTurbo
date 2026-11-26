@@ -1590,7 +1590,8 @@ def _apply_restored_params(params):
         params.get("video_fit_mode") or VideoFitMode.cover.value,
     )
     _set_stable_widget_value(
-        "image_motion_select", params.get("image_motion") or ImageMotion.zoom.value
+        "image_motion_select",
+        params.get("image_motion") or ImageMotion.cinematic.value,
     )
     _set_stable_widget_value(
         "video_clip_duration_select", params.get("video_clip_duration", 3)
@@ -6304,15 +6305,17 @@ def _render_video_settings(panel, params):
                 "local", "openai_image", "codex_image", "useapi_image"
             }:
                 image_motion_labels = {
-                    ImageMotion.static.value: tr("Static Image"),
+                    ImageMotion.cinematic.value: tr("Cinematic Camera"),
                     ImageMotion.zoom.value: tr("Slow Zoom"),
+                    ImageMotion.static.value: tr("Static Image"),
                 }
                 params.image_motion = ImageMotion(
                     stable_selectbox(
                         tr("Image Motion"),
                         options=list(image_motion_labels),
                         default_value=_saved_ui_choice(
-                            "image_motion", list(image_motion_labels), ImageMotion.zoom.value,
+                            "image_motion", list(image_motion_labels),
+                            ImageMotion.cinematic.value,
                             # 生成任务持锁时，切换语言或素材来源会重建控件；
                             # 此时必须恢复尚未落盘的最新选择，不能写回旧配置值。
                             section=config.snapshot_config_with_pending(config.ui),
@@ -8859,6 +8862,7 @@ def _render_subtitle_settings(panel, params):
             _set_runtime_config("ui", "font_name", params.font_name)
 
             subtitle_positions = [
+                (tr("Safe Area"), "safe"),
                 (tr("Top"), "top"),
                 (tr("Center"), "center"),
                 (tr("Bottom"), "bottom"),

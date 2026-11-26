@@ -616,6 +616,7 @@ def save_config():
         config_to_save["siliconflow"] = dict(siliconflow)
         config_to_save["minimax_tts"] = dict(minimax_tts)
         config_to_save["elevenlabs"] = dict(elevenlabs)
+        config_to_save["audio_master"] = dict(audio_master)
         config_to_save["chatterbox"] = dict(chatterbox)
         config_to_save["kokoro"] = dict(kokoro)
         config_to_save["fish_audio"] = dict(fish_audio)
@@ -676,6 +677,9 @@ azure = _SynchronizedConfig(_cfg.get("azure", {}))
 siliconflow = _SynchronizedConfig(_cfg.get("siliconflow", {}))
 minimax_tts = _SynchronizedConfig(_cfg.get("minimax_tts", {}))
 elevenlabs = _SynchronizedConfig(_cfg.get("elevenlabs", {}))
+# 最终声轨的响度/动态处理参数。缺省值在 app/services/audio_master.py 中定义，
+# 这里只暴露用户覆盖项，便于在不改代码的情况下调整交付响度和闪避深度。
+audio_master = _SynchronizedConfig(_cfg.get("audio_master", {}))
 chatterbox = _SynchronizedConfig(_cfg.get("chatterbox", {}))
 kokoro = _SynchronizedConfig(_cfg.get("kokoro", {}))
 fish_audio = _SynchronizedConfig(_cfg.get("fish_audio", {}))

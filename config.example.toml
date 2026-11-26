@@ -24,6 +24,27 @@ listen_port = 8080
 log_requests = false
 
 [app]
+# Scene changes cross-dissolve instead of hard-cutting. 0 restores hard cuts.
+# Keep it below the shortest clip; the renderer falls back to hard cuts
+# whenever a dissolve would not fit or would leave the narration uncovered.
+video_crossfade_seconds = 0.5
+# Transitions to rotate through at scene changes, comma separated. Empty means
+# cross-dissolve only, which is what a documentary cut uses. Supported:
+# fade, dissolve, fadeblack, fadewhite, smoothleft, smoothright, smoothup,
+# smoothdown, circleopen, circleclose, radial, wipeleft, wiperight.
+video_crossfade_transitions = ""
+# Script style for LLM-written narration. Empty or "default" keeps the
+# original prompt. "documentary" writes for retention and accuracy: a hook
+# inside the first three seconds, then the question, a step-by-step
+# explanation, a surprising verifiable fact, a one-line conclusion and a
+# follow invitation; it also forbids filler openings, invented figures and
+# presenting a hypothesis as settled fact. A custom system prompt entered in
+# the WebUI always wins over this setting.
+script_style = ""
+# How much of each camera move's designed travel to use when image_motion is
+# "cinematic". 1.0 is the designed amount, lower is calmer, 0 is near-static.
+camera_motion_intensity = 1.0
+
 # OpenAI - Codex: existing device-code provider; upgrades preserve this connection.
 # Uses ChatGPT subscription limits; no API key. Credentials live in storage/auth.
 openai_codex_model_name = ""
@@ -820,12 +841,64 @@ pitch = 0
 api_key = ""
 # Available models include eleven_multilingual_v2, eleven_flash_v2_5, and eleven_v3.
 model_id = "eleven_multilingual_v2"
+# Narration read. stability keeps the delivery consistent between sentences,
+# similarity_boost keeps the chosen voice's identity, and style above 0
+# exaggerates delivery, which is what introduces rushed pacing and swallowed
+# syllables. Leave style at 0 for documentary narration.
+stability = 0.5
+similarity_boost = 0.85
+style = 0.0
+use_speaker_boost = true
+# Audio format. mp3_44100_128 works on every plan; mp3_44100_192 costs no
+# extra credits (billing is per character) but needs a paid tier.
+output_format = "mp3_44100_128"
+# Request the character-level alignment along with the audio. Same credits as
+# the plain endpoint, and it lets subtitles be timed from measured speech
+# instead of estimated from character counts. Set to false to use the plain
+# endpoint.
+use_timestamps = true
 # Video-to-Music uses a separate model family while sharing the same API key.
 # music_base_url only configures the Video-to-Music endpoint, so it can point at
 # a proxy or a self-hosted gateway while the voice API keeps the default host.
 music_base_url = "https://api.elevenlabs.io"
 music_model_id = "music_v2"
 music_timeout = 600
+
+[audio_master]
+# Loudness management for the finished soundtrack. Leave this section out to
+# use the defaults in app/services/audio_master.py, which deliver about
+# -16 LUFS integrated with -1 dBTP of headroom: loud enough for a phone
+# speaker and inside what TikTok, Reels and Shorts normalize to.
+# Set enabled = false to restore the older direct mix (no normalization,
+# no ducking, no peak ceiling).
+enabled = true
+# Delivery targets for the mixed soundtrack.
+target_lufs = -16.0
+target_true_peak_dbtp = -1.0
+# Where the narration sits before the music is summed in.
+narration_target_lufs = -16.0
+# The music bed's own loudness before ducking. 14 LU under the narration is
+# audible as a bed but cannot mask consonants. Lower it for an even quieter bed.
+music_bed_lufs = -30.0
+# Sidechain ducking: how far the music drops while the narrator speaks.
+# Higher duck_ratio ducks deeper; the defaults measure 13-15 dB of ducking.
+duck_ratio = 6.0
+duck_threshold = 0.03
+duck_attack_ms = 15.0
+duck_release_ms = 350.0
+# Narration tone shaping. presence_gain_db lifts the consonant band that
+# small speakers reproduce, which is what makes narration intelligible on a phone.
+highpass_hz = 80.0
+presence_hz = 3000.0
+presence_gain_db = 2.5
+deesser_intensity = 0.3
+# Narration dynamics. A shallow ratio evens out sentence-to-sentence level
+# without the pumping that makes a voice sound processed.
+compressor_threshold_db = -20.0
+compressor_ratio = 2.5
+# Music envelope across the whole timeline.
+music_fade_in_seconds = 1.5
+music_fade_out_seconds = 3.0
 
 [chatterbox]
 # OpenAI-compatible Chatterbox TTS server. The defaults target
