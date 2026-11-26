@@ -819,7 +819,11 @@ pitch = 0
 # Favorite voices in the ElevenLabs voice library are shown in the WebUI.
 api_key = ""
 # Available models include eleven_multilingual_v2, eleven_flash_v2_5, and eleven_v3.
+# eleven_multilingual_v2 supports Spanish and 28 other languages.
 model_id = "eleven_multilingual_v2"
+# Default narration voice. Shown in the WebUI even if it is not marked as a
+# favorite in the ElevenLabs account tied to api_key/ELEVENLABS_API_KEY.
+voice_id = "851ejYcv2BoNPjrkw93G"
 # Video-to-Music uses a separate model family while sharing the same API key.
 # music_base_url only configures the Video-to-Music endpoint, so it can point at
 # a proxy or a self-hosted gateway while the voice API keeps the default host.

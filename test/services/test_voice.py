@@ -1916,6 +1916,19 @@ class TestElevenLabsVoice(unittest.TestCase):
         result = vs.get_elevenlabs_voices("fake-key")
         self.assertEqual(result, [])
 
+    @patch("app.services.voice.config")
+    def test_get_elevenlabs_default_voice_id_falls_back_to_builtin_default(self, mock_config):
+        mock_config.elevenlabs.get.return_value = None
+        self.assertEqual(
+            vs.get_elevenlabs_default_voice_id(), vs.ELEVENLABS_DEFAULT_VOICE_ID
+        )
+        self.assertEqual(vs.ELEVENLABS_DEFAULT_VOICE_ID, "851ejYcv2BoNPjrkw93G")
+
+    @patch("app.services.voice.config")
+    def test_get_elevenlabs_default_voice_id_uses_configured_value(self, mock_config):
+        mock_config.elevenlabs.get.return_value = "  custom-voice-id  "
+        self.assertEqual(vs.get_elevenlabs_default_voice_id(), "custom-voice-id")
+
     @patch("app.services.voice._validate_remote_tts_audio", new=lambda _path: None)
     @patch("app.services.voice.requests.post")
     @patch("app.services.voice.AudioFileClip")

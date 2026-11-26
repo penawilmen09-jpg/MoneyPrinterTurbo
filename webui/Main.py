@@ -8241,6 +8241,18 @@ def _render_audio_settings(panel, params):
                         saved_elevenlabs_api_key
                     )
                 filtered_voices = st.session_state[cache_key]
+
+                # 配置的默认音色可能尚未被收藏，因此不会出现在上面的收藏目录里。
+                # 这里单独兜底加入，确保它开箱即可选中，不依赖账号里的收藏状态。
+                default_elevenlabs_voice_id = voice.get_elevenlabs_default_voice_id()
+                if default_elevenlabs_voice_id and not any(
+                    v.split(":", 2)[1] == default_elevenlabs_voice_id
+                    for v in filtered_voices
+                    if v.count(":") >= 1
+                ):
+                    filtered_voices = [
+                        f"elevenlabs:{default_elevenlabs_voice_id}:Default Voice"
+                    ] + list(filtered_voices)
             elif selected_tts_server == "chatterbox":
                 # 自托管 Chatterbox 服务的预置音色（来自 [chatterbox] voices 配置）
                 _sync_chatterbox_config_from_session_state()
@@ -8340,11 +8352,15 @@ def _render_audio_settings(panel, params):
                     key=f"speech_synthesis_select_{selected_tts_server}",
                     format_func=lambda value: friendly_names.get(
                         value,
-                        str(value).removeprefix("minimax:"),
+                        str(value)
+                        .removeprefix("minimax:")
+                        .removeprefix("elevenlabs:"),
                     ),
-                    # MiniMax 支持用户直接输入列表外的克隆或生成音色 ID；其它
+                    # MiniMax 和 ElevenLabs 支持用户直接输入列表外的音色 ID
+                    # （克隆/生成音色，或尚未收藏的 ElevenLabs 音色）；其它
                     # Provider 维持原选择器行为，不扩大本次修改的影响范围。
-                    accept_new_options=selected_tts_server == "minimax-tts",
+                    accept_new_options=selected_tts_server
+                    in ("minimax-tts", "elevenlabs"),
                 )
 
                 if selected_tts_server == "minimax-tts":
@@ -8356,6 +8372,19 @@ def _render_audio_settings(panel, params):
                             "minimax_tts",
                             "voice_id",
                             voice_name.split(":", 1)[1],
+                        )
+
+                if selected_tts_server == "elevenlabs":
+                    custom_voice_id = str(voice_name or "").strip()
+                    if custom_voice_id and not voice.is_elevenlabs_voice(custom_voice_id):
+                        voice_name = f"elevenlabs:{custom_voice_id}"
+                    if voice.is_elevenlabs_voice(voice_name):
+                        # 持久化为默认音色，这样下次启动（没有 session_state
+                        # 里的自定义选项时）仍能在收藏列表之外恢复这个音色。
+                        _set_runtime_config(
+                            "elevenlabs",
+                            "voice_id",
+                            voice_name.split(":", 2)[1],
                         )
 
                 params.voice_name = voice_name

@@ -83,6 +83,7 @@ GEMINI_TTS_VOICES = (
 _MINIMAX_TTS_MAX_AUDIO_HEX_CHARS = 100 * 1024 * 1024
 _ELEVENLABS_TTS_MAX_AUDIO_BYTES = 50 * 1024 * 1024
 _ELEVENLABS_TTS_MAX_ERROR_BYTES = 4096
+ELEVENLABS_DEFAULT_VOICE_ID = "851ejYcv2BoNPjrkw93G"
 VOXCPM_DEFAULT_BASE_URL = "https://api.modelbest.cn/v1"
 VOXCPM_DEFAULT_VOICE = "default"
 VOXCPM_REFERENCE_AUDIO_MAX_UPLOAD_BYTES = 20 * 1024 * 1024
@@ -485,6 +486,20 @@ def get_elevenlabs_api_key() -> str:
     """
     configured_key = str(config.elevenlabs.get("api_key", "") or "").strip()
     return configured_key or os.getenv("ELEVENLABS_API_KEY", "").strip()
+
+
+def get_elevenlabs_default_voice_id() -> str:
+    """
+    返回 ElevenLabs 默认音色 ID。
+
+    这个 ID 不依赖用户 ElevenLabs 账号里的收藏列表：即使该音色尚未被收藏
+    （因此不会出现在 ``get_elevenlabs_voices`` 返回的目录中），WebUI 也需要
+    把它作为开箱可用的默认选项展示出来。配置文件可以覆盖这个默认值。
+    """
+    return str(
+        config.elevenlabs.get("voice_id", ELEVENLABS_DEFAULT_VOICE_ID)
+        or ELEVENLABS_DEFAULT_VOICE_ID
+    ).strip()
 
 
 def is_chatterbox_voice(voice_name: str) -> bool:
@@ -2589,9 +2604,15 @@ def elevenlabs_tts(
     if speed != 1.0:
         payload["voice_settings"]["speed"] = speed
 
-    # Errors where retrying will never help (auth/access/validation failures).
-    _NON_RETRYABLE_CODES = {401, 403, 422}
-    _NON_RETRYABLE_STATUSES = {"voice_disabled", "voice_access_denied", "unauthorized", "invalid_voice_settings"}
+    # Errors where retrying will never help (auth/access/validation/credit failures).
+    _NON_RETRYABLE_CODES = {401, 402, 403, 422}
+    _NON_RETRYABLE_STATUSES = {
+        "voice_disabled",
+        "voice_access_denied",
+        "unauthorized",
+        "invalid_voice_settings",
+        "quota_exceeded",
+    }
 
     for i in range(3):
         response = None
@@ -2632,12 +2653,18 @@ def elevenlabs_tts(
                 error_text = error_bytes.decode("utf-8", errors="replace")[:200]
 
                 if response.status_code in _NON_RETRYABLE_CODES or error_status in _NON_RETRYABLE_STATUSES:
+                    if error_status == "invalid_voice_settings":
+                        hint = f"Check the selected model and speech speed: {error_text}"
+                    elif error_status == "quota_exceeded" or response.status_code == 402:
+                        hint = "Check your ElevenLabs account balance/subscription credits."
+                    elif response.status_code == 401 or error_status == "unauthorized":
+                        hint = "Check the configured ElevenLabs API key (ELEVENLABS_API_KEY)."
+                    else:
+                        hint = "Please select a different ElevenLabs voice."
                     logger.error(
                         f"ElevenLabs TTS failed (non-retryable) — voice_id: {voice_id}, "
                         f"status: {response.status_code}, error: {error_status or error_text}. "
-                        + (f"Check the selected model and speech speed: {error_text}"
-                           if error_status == "invalid_voice_settings"
-                           else "Please select a different ElevenLabs voice.")
+                        + hint
                     )
                     return None
 

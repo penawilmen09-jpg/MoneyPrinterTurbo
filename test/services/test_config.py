@@ -91,6 +91,7 @@ class TestConfigPersistence:
         assert example_config["elevenlabs"] == {
             "api_key": "",
             "model_id": "eleven_multilingual_v2",
+            "voice_id": "851ejYcv2BoNPjrkw93G",
             "music_base_url": "https://api.elevenlabs.io",
             "music_model_id": "music_v2",
             "music_timeout": 600,
