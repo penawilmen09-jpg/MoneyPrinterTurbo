@@ -160,3 +160,85 @@ def test_probe_reports_zero_for_a_file_that_is_not_a_video(tmp_path):
     broken = tmp_path / "broken.mp4"
     broken.write_bytes(b"not a video")
     assert video.probe_clip_duration(str(broken)) == 0.0
+
+
+def test_extra_footage_is_built_to_pay_for_the_dissolves(monkeypatch, tmp_path):
+    """
+    Every dissolve overlaps two scenes, so the concatenated timeline is
+    shorter than the clips that feed it. combine_videos has to build that
+    time back, or the dissolve would always have to be dropped to keep the
+    narration covered.
+    """
+    from unittest.mock import patch
+
+    class _FakeAudioClip:
+        duration = 20.0
+
+        def close(self):
+            pass
+
+    targets = []
+
+    with (
+        monkeypatch.context() as m,
+        patch.object(video, "AudioFileClip", return_value=_FakeAudioClip()),
+        patch.object(video, "_open_video_clip_quietly",
+                     side_effect=RuntimeError("no footage in this test")),
+        patch.object(video, "concat_video_clips_with_ffmpeg"),
+        patch.object(video, "delete_files"),
+        patch.object(video.logger, "info", lambda message: targets.append(str(message))),
+    ):
+        m.setitem(config.app, "video_crossfade_seconds", 0.5)
+        try:
+            video.combine_videos(
+                combined_video_path=str(tmp_path / "combined.mp4"),
+                video_paths=["a.mp4"],
+                audio_file="audio.mp3",
+                max_clip_duration=5,
+            )
+        except RuntimeError:
+            # No readable footage: the duration planning has already run.
+            pass
+
+    budget_lines = [line for line in targets if "extra footage" in line]
+    assert budget_lines, f"no dissolve budget was planned: {targets}"
+    # 20s of narration at 5s a clip is 5 clips, so 4 dissolves of 0.5s cost
+    # 2.0s, on top of the 20s narration and its 0.1s safety margin.
+    assert "2.00s of extra footage" in budget_lines[0]
+    assert "4 dissolves" in budget_lines[0]
+    assert "target 22.10s" in budget_lines[0]
+
+
+def test_no_extra_footage_is_built_when_dissolves_are_off(monkeypatch, tmp_path):
+    from unittest.mock import patch
+
+    class _FakeAudioClip:
+        duration = 20.0
+
+        def close(self):
+            pass
+
+    targets = []
+
+    with (
+        monkeypatch.context() as m,
+        patch.object(video, "AudioFileClip", return_value=_FakeAudioClip()),
+        patch.object(video, "_open_video_clip_quietly",
+                     side_effect=RuntimeError("no footage in this test")),
+        patch.object(video, "concat_video_clips_with_ffmpeg"),
+        patch.object(video, "delete_files"),
+        patch.object(video.logger, "info", lambda message: targets.append(str(message))),
+    ):
+        m.setitem(config.app, "video_crossfade_seconds", 0)
+        try:
+            video.combine_videos(
+                combined_video_path=str(tmp_path / "combined.mp4"),
+                video_paths=["a.mp4"],
+                audio_file="audio.mp3",
+                max_clip_duration=5,
+            )
+        except RuntimeError:
+            pass
+
+    assert not [line for line in targets if "extra footage" in line]
+    assert any("required video duration: 20.10" in line for line in targets)

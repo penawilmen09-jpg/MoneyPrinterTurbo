@@ -2861,13 +2861,19 @@ def elevenlabs_tts(
                     encoded_audio = document["audio_base64"]
                     decoded_audio = base64.b64decode(encoded_audio, validate=True)
                 except (ValueError, KeyError, TypeError, binascii.Error) as exc:
-                    # The request already succeeded and may have been charged,
-                    # so a malformed body is reported rather than retried.
-                    logger.error(
-                        "ElevenLabs TTS returned a timestamped response that "
-                        f"could not be decoded: {type(exc).__name__}"
+                    # A 200 that is not the timestamped document still carries
+                    # audio the request was charged for: an API or gateway that
+                    # ignores the /with-timestamps suffix answers with the
+                    # plain endpoint's raw stream. Keep the audio and lose only
+                    # the alignment; the audio validation below rejects a body
+                    # that is not speech either way.
+                    logger.warning(
+                        "ElevenLabs TTS response is not the timestamped "
+                        f"document ({type(exc).__name__}); using it as raw "
+                        "audio and estimating subtitle timings"
                     )
-                    return None
+                    document = {}
+                    decoded_audio = bytes(payload_bytes)
                 if len(decoded_audio) > _ELEVENLABS_TTS_MAX_AUDIO_BYTES:
                     logger.error("ElevenLabs TTS audio exceeds the 50 MB limit")
                     return None

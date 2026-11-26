@@ -451,7 +451,13 @@ class TestVideoService(unittest.TestCase):
         self.assertFalse(result)
         writer.assert_called_once()
         composite_audio.assert_not_called()
-        log_exception.assert_called_once()
+        # The mastering stage logs its own failures before handing back to
+        # this path, so assert the BGM failure is reported rather than that
+        # it is the only thing reported.
+        self.assertIn(
+            "failed to mix background music: type=sonilo, file=broken.m4a",
+            [str(call.args[0]) for call in log_exception.call_args_list],
+        )
         self.assertEqual(source_video.close_calls, 1)
         self.assertEqual(voice_source.close_calls, 1)
         self.assertEqual(final_video.close_calls, 1)
@@ -1165,6 +1171,9 @@ class TestVideoService(unittest.TestCase):
                 ),
                 patch.object(vd, "concat_video_clips_with_ffmpeg"),
                 patch.object(vd, "delete_files"),
+                # These assertions count the exact source slices the narration
+                # needs. Dissolves add more, which the crossfade tests cover.
+                patch.dict(vd.config.app, {"video_crossfade_seconds": 0}),
             ):
                 vd.combine_videos(
                     combined_video_path=combined_video_path,
@@ -1627,6 +1636,10 @@ class TestVideoService(unittest.TestCase):
         fractions = []
         with tempfile.TemporaryDirectory() as temp_dir:
             with (
+                # This test is about progress reporting against the narration.
+                # Dissolves add footage to pay for the overlap, which belongs
+                # to the crossfade tests, so hold them off here.
+                patch.dict(vd.config.app, {"video_crossfade_seconds": 0}),
                 patch.object(vd, "AudioFileClip", return_value=_FakeAudioClip()),
                 patch.object(
                     vd,

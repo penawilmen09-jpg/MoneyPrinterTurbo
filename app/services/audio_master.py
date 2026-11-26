@@ -364,9 +364,17 @@ def _gain_to_reach(
     return clamped
 
 
+# ``alimiter`` works on sample peaks, but the ceiling that matters is the
+# true peak: the waveform between two samples can rise above both of them, and
+# every platform re-encodes what it is given. Aiming the limiter this far
+# below the true-peak target absorbs that difference, which measured 0.1 dB on
+# the demo soundtrack and can reach a few tenths on denser material.
+_TRUE_PEAK_HEADROOM_DB = 0.3
+
+
 def _true_peak_to_limit(target_true_peak_dbtp: float) -> float:
-    """Convert a dBTP ceiling into the linear ``alimiter`` limit."""
-    ceiling = min(-0.1, float(target_true_peak_dbtp))
+    """Convert a dBTP ceiling into the linear ``alimiter`` sample-peak limit."""
+    ceiling = min(-0.1, float(target_true_peak_dbtp) - _TRUE_PEAK_HEADROOM_DB)
     return 10.0 ** (ceiling / 20.0)
 
 

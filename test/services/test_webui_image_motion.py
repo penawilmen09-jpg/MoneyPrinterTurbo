@@ -33,8 +33,8 @@ def test_motion_widget_persists_and_restores_old_and_new_tasks(tmp_path):
         assert not app.exception
         widget = _select(app, "image_motion_select")
         assert widget.label == "图片动态效果"
-        assert widget.value == "zoom"
-        assert widget.options == ["静止", "缓慢放大"]
+        assert widget.value == "cinematic"
+        assert widget.options == ["电影级镜头运动", "缓慢放大", "静止"]
         widget.select("static").run()
         assert not app.exception
         assert config.ui["image_motion"] == "static"
@@ -47,10 +47,10 @@ def test_motion_widget_persists_and_restores_old_and_new_tasks(tmp_path):
         assert not app.exception
         assert _select(app, "image_motion_select").value == "static"
 
-        # 模拟任务恢复：新增字段必须恢复，旧任务缺失字段必须回到原来的放大效果。
+        # 模拟任务恢复：新增字段必须恢复，旧任务缺失字段回到当前默认效果。
         params = VideoParams(video_subject="restore", video_source="local", image_motion="static").model_dump(mode="json")
-        for expected in ("static", "zoom"):
-            if expected == "zoom":
+        for expected in ("static", "cinematic"):
+            if expected == "cinematic":
                 params.pop("image_motion")
             app.session_state["task_restore_payload"] = {"params": params, "task_id": "motion-test"}
             app.run()
@@ -94,7 +94,7 @@ def test_motion_selection_survives_rebuild_while_generation_holds_config(tmp_pat
             _select(app, "image_motion_select").select("static").run()
             assert not app.exception
             assert _select(app, "image_motion_select").value == "static"
-            assert config.ui["image_motion"] == "zoom"
+            assert config.ui["image_motion"] == "cinematic"
             assert config.snapshot_config_with_pending(config.ui)["image_motion"] == "static"
             if rebuild == "language":
                 _select(app, "top_language_code_selector").select("en").run()
