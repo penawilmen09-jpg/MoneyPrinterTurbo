@@ -37,6 +37,10 @@ class FakeVideoClip:
 def combine(tmp_path, monkeypatch):
     """Return the source ranges encoded as clips, and the ranges the join plays."""
     monkeypatch.setitem(video.config.app, "video_clip_concurrency", 1)
+    # These tests assert the exact source slices the narration needs, in
+    # order. Dissolves overlap scenes, so the renderer builds extra footage to
+    # pay for them; that budget is covered in test_crossfade_concat.py.
+    monkeypatch.setitem(video.config.app, "video_crossfade_seconds", 0)
 
     def run(sources, audio_duration, mode=VideoConcatMode.sequential, **options):
         encoded = {}

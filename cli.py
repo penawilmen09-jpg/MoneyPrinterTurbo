@@ -193,6 +193,9 @@ _TRANSITION_MODE_VALUES = {
 # 「WebUI 能保存、CLI 却拒绝」的落差。取值需与 app/services/video.py 的
 # 渲染分支及 webui/Main.py 的下拉框保持一致。
 _SUBTITLE_POSITION_VALUES = (
+    # Keeps captions above the caption, username and action rail that
+    # TikTok, Reels and Shorts paint over the bottom of a 9:16 frame.
+    "safe",
     "top",
     "center",
     "bottom",

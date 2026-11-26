@@ -258,3 +258,47 @@ def test_report_serializes_for_task_logs():
     assert "LUFS" in report.describe()
     assert not audio_master.LoudnessReport(-120.0, -120.0, 0.0, 10.0).is_measurable
     assert not audio_master.LoudnessReport(-16.0, -1.0, 7.0, 0.05).is_measurable
+
+
+def test_a_zero_volume_control_stays_a_mute(tmp_path):
+    """
+    The volume controls express 0 as "off". Mastering measures and levels the
+    narration, so without an explicit mute a muted video would come back with
+    the narration raised to the delivery target.
+    """
+    narration = tmp_path / "speech.wav"
+    _tone(narration, 300, 5, -26)
+    output = tmp_path / "muted.wav"
+
+    report = audio_master.master_soundtrack(
+        str(narration), str(output), mute_narration=True
+    )
+
+    assert report.integrated_lufs < -60
+
+
+def test_a_muted_narration_leaves_the_music_at_the_bed_level(tmp_path):
+    narration = tmp_path / "speech.wav"
+    _tone(narration, 2500, 6, -20)
+    music = tmp_path / "music.wav"
+    _tone(music, 200, 6, -20)
+
+    muted = tmp_path / "muted.wav"
+    muted_report = audio_master.master_soundtrack(
+        str(narration), str(muted), music_file=str(music),
+        timeline_duration=6.0, mute_narration=True,
+    )
+    audible = tmp_path / "audible.wav"
+    audible_report = audio_master.master_soundtrack(
+        str(narration), str(audible), music_file=str(music), timeline_duration=6.0,
+    )
+
+    # The bed must not be pushed up to the delivery target to make up for the
+    # missing narration.
+    assert audible_report.integrated_lufs == pytest.approx(-16.0, abs=1.0)
+    assert muted_report.integrated_lufs < -24
+    # The narration's own band is gone from the muted mix but present in the
+    # one that was not muted.
+    muted_voice = _band_rms_db(muted, 2500, 1.6, 1.0)
+    audible_voice = _band_rms_db(audible, 2500, 1.6, 1.0)
+    assert audible_voice - muted_voice > 20

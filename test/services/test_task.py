@@ -863,6 +863,9 @@ class TestTaskService(unittest.TestCase):
             video_script="先城市，再地铁",
             amount=8,
             match_script_order=True,
+            # A stock library is searched, not an image generator prompted,
+            # so this source keeps the 1-3 word search terms.
+            visual_scenes=False,
         )
 
     def test_start_stops_before_materials_when_term_provider_fails(self):

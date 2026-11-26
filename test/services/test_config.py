@@ -91,6 +91,17 @@ class TestConfigPersistence:
         assert example_config["elevenlabs"] == {
             "api_key": "",
             "model_id": "eleven_multilingual_v2",
+            # The narration read. Hard-coded values could not be tuned without
+            # editing voice.py, and editing them there changed every voice.
+            "stability": 0.5,
+            "similarity_boost": 0.85,
+            "style": 0.0,
+            "use_speaker_boost": True,
+            "output_format": "mp3_44100_128",
+            # Costs the same credits as the plain endpoint and returns the
+            # character alignment, so subtitles can be timed from measured
+            # speech instead of estimated from character counts.
+            "use_timestamps": True,
             "music_base_url": "https://api.elevenlabs.io",
             "music_model_id": "music_v2",
             "music_timeout": 600,

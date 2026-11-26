@@ -494,6 +494,7 @@ def master_soundtrack(
     timeline_duration: float = 0.0,
     narration_gain_db: float = 0.0,
     music_gain_db: float = 0.0,
+    mute_narration: bool = False,
     settings: MasteringSettings | None = None,
 ) -> LoudnessReport:
     """
@@ -512,6 +513,9 @@ def master_soundtrack(
             on top of the measured level rather than as the level itself, so
             a user preference can no longer leave the mix 8 LU quiet.
         music_gain_db: the user's music-volume control, same idea.
+        mute_narration: silence the narration completely. A zero volume
+            control means "off", not "level it to the target", and a muted
+            narration must not drive the ducking sidechain either.
         settings: mastering values; read from config when omitted.
 
     Raises:
@@ -552,12 +556,19 @@ def master_soundtrack(
         total_narration_gain = _clamp_gain(
             narration_level_gain + float(narration_gain_db or 0.0)
         )
-        logger.info(
-            f"narration shaped to {shaped_report.describe()}; applying "
-            f"{total_narration_gain:+.2f} dB "
-            f"(level {narration_level_gain:+.2f} dB, "
-            f"user trim {float(narration_gain_db or 0.0):+.2f} dB)"
+        # "volume=0" is a true mute; no dB value is silence.
+        narration_volume = (
+            "volume=0" if mute_narration else f"volume={total_narration_gain:.3f}dB"
         )
+        if mute_narration:
+            logger.info("narration is muted; only the music bed is mastered")
+        else:
+            logger.info(
+                f"narration shaped to {shaped_report.describe()}; applying "
+                f"{total_narration_gain:+.2f} dB "
+                f"(level {narration_level_gain:+.2f} dB, "
+                f"user trim {float(narration_gain_db or 0.0):+.2f} dB)"
+            )
 
         limit = _true_peak_to_limit(settings.target_true_peak_dbtp)
         mixed_file = os.path.join(work_dir, "mastered-mix.wav")
@@ -566,7 +577,7 @@ def master_soundtrack(
             # Narration only: level it, hold the peak ceiling, done.
             _render(
                 [["-i", shaped_file]],
-                f"[0:a]volume={total_narration_gain:.3f}dB,"
+                f"[0:a]{narration_volume},"
                 f"alimiter=limit={limit:.6f}:attack=5:release=50:level=disabled"
                 f"[out]",
                 "[out]",
@@ -575,7 +586,7 @@ def master_soundtrack(
             )
             shipped_file, report = _verify_and_correct(
                 mixed_file, settings, work_dir, label="narration-only soundtrack"
-            )
+            ) if not mute_narration else (mixed_file, measure_loudness(mixed_file))
             os.replace(shipped_file, output_file)
             return report
 
@@ -615,7 +626,7 @@ def master_soundtrack(
             # long as the video, whichever track is longer.
             f"[0:a]aformat=sample_rates={settings.sample_rate}"
             f":channel_layouts=stereo,"
-            f"volume={total_narration_gain:.3f}dB,"
+            f"{narration_volume},"
             f"apad=whole_dur={duration:.3f},atrim=0:{duration:.3f},"
             f"asetpts=N/SR/TB,asplit=2[voice][sidechain];"
             f"[1:a]aformat=sample_rates={settings.sample_rate}"
@@ -639,8 +650,15 @@ def master_soundtrack(
             mixed_file,
             settings,
         )
-        shipped_file, report = _verify_and_correct(
-            mixed_file, settings, work_dir, label="ducked soundtrack"
+        # With the narration muted the mix is only the music bed, which is
+        # meant to sit well below the delivery target; correcting it upwards
+        # would turn a muted video into a loud music video.
+        shipped_file, report = (
+            (mixed_file, measure_loudness(mixed_file))
+            if mute_narration
+            else _verify_and_correct(
+                mixed_file, settings, work_dir, label="ducked soundtrack"
+            )
         )
         os.replace(shipped_file, output_file)
         return report

@@ -1905,6 +1905,11 @@ def _master_soundtrack_for_render(
                     params.voice_volume
                 ),
                 music_gain_db=audio_master.music_multiplier_to_db(params.bgm_volume),
+                # A zero or negative voice volume means "off". It must stay a
+                # mute, not become "level this to the delivery target".
+                mute_narration=(
+                    params.voice_volume is not None and params.voice_volume <= 0
+                ),
             )
         except Exception:
             delete_files(mastered_path)

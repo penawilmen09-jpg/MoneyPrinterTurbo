@@ -38,8 +38,18 @@ def test_selected_rate_reaches_real_elevenlabs_http_transport(tmp_path, model, r
     real_post = requests.post
 
     def loopback_post(url, **kwargs):
-        assert url == "https://api.elevenlabs.io/v1/text-to-speech/fixture"
-        return real_post(f"http://127.0.0.1:{server.server_port}/v1/text-to-speech/fixture", **kwargs)
+        # The narration path asks for the timestamped endpoint, which returns
+        # the same audio for the same credits plus the character alignment.
+        # This fixture answers with a plain audio body, which the client must
+        # still accept.
+        prefix = "https://api.elevenlabs.io/v1/text-to-speech/fixture"
+        assert url.startswith(prefix), url
+        suffix = url[len(prefix):]
+        assert suffix in ("", "/with-timestamps?output_format=mp3_44100_128"), suffix
+        return real_post(
+            f"http://127.0.0.1:{server.server_port}/v1/text-to-speech/fixture",
+            **kwargs,
+        )
 
     try:
         with patch.dict(config.elevenlabs, {"api_key": "fixture-key", "model_id": model}), patch.object(task.utils, "task_dir", return_value=str(tmp_path)), patch.object(voice.requests, "post", side_effect=loopback_post):
