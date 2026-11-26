@@ -98,6 +98,16 @@ class TestConfigPersistence:
         }
         assert example_config["whisper"]["device"] == "cpu"
 
+    def test_example_config_defaults_new_projects_to_elevenlabs_voice(self):
+        """Explora Ciencia 360 要求新项目默认使用 ElevenLabs 的指定音色。
+
+        [ui] 里的这两个键是 WebUI/CLI 在没有显式传入音色时实际读取的持久化
+        默认值（参见 cli.py 的 ``_resolve_voice_name``），不是仅供参考的注释。
+        """
+        ui_config = self._load_example_config()["ui"]
+        assert ui_config["tts_server"] == "elevenlabs"
+        assert ui_config["voice_name"] == "elevenlabs:851ejYcv2BoNPjrkw93G:Default Voice"
+
     def test_example_config_covers_llm_provider_registry(self):
         """Registry 中可配置的 Provider 字段必须能在示例文件中被发现。"""
         app_config = self._load_example_config()["app"]

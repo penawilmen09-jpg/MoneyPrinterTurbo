@@ -36,6 +36,25 @@ class TestCli(unittest.TestCase):
 
         self.assertEqual(params.voice_name, "zh-CN-XiaoxiaoNeural-Female")
 
+    def test_new_project_with_documented_defaults_uses_elevenlabs_voice(self):
+        """config.example.toml 把 ElevenLabs 指定音色设为新项目默认值；一个
+        刚从示例复制出来的 [ui] 配置，不显式传 --voice-name 时必须自动沿用它。
+        """
+        with patch.dict(
+            app_config.ui,
+            {
+                "tts_server": "elevenlabs",
+                "voice_name": "elevenlabs:851ejYcv2BoNPjrkw93G:Default Voice",
+            },
+            clear=True,
+        ):
+            args = cli.parse_args(["--video-subject", "测试主题"])
+            params = cli.build_video_params(args)
+
+        self.assertEqual(
+            params.voice_name, "elevenlabs:851ejYcv2BoNPjrkw93G:Default Voice"
+        )
+
     def test_video_fit_mode_defaults_to_cover_and_accepts_contain(self):
         default_params = cli.build_video_params(
             cli.parse_args(["--video-subject", "test"])

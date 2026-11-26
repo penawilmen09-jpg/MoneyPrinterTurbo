@@ -897,6 +897,13 @@ hide_log = false
 # 视频生成完成后是否自动打开任务目录；关闭后仍可在任务管理中手动打开。
 open_task_folder_on_completion = true
 
+# Default narration provider/voice for new projects (Explora Ciencia 360).
+# To go back to the built-in Edge TTS default, set tts_server back to
+# "azure-tts-v1" and clear voice_name; existing saved tasks are unaffected
+# either way, and the WebUI/CLI can still switch or override this per run.
+tts_server = "elevenlabs"
+voice_name = "elevenlabs:851ejYcv2BoNPjrkw93G:Default Voice"
+
 # The WebUI writes the remaining preferences automatically. Uncomment values
 # below only when you want to define initial defaults manually.
 # language = "zh"
