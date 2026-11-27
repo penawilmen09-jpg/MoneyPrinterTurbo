@@ -24,6 +24,12 @@ PEOPLE = {
     "dev_m":      dict(skin=(170, 120, 92), hair=(24, 20, 20), hairstyle="short", glasses=True, top=(90, 160, 140), top2=None, pants=(60, 62, 76), shoes=(40, 40, 50), sleeve="short", beard=0, build=1.0, hr=1.0),
     "eng_m":      dict(skin=(226, 176, 142), hair=(60, 44, 34), hairstyle="hardhat", hat=(250, 250, 250), glasses=False, top=(255, 130, 40), top2=(60, 70, 90), pants=(60, 66, 84), shoes=(70, 56, 40), sleeve="long", beard=0, build=1.05, hr=1.0, vest=True),
     "eng_f":      dict(skin=(200, 150, 120), hair=(30, 24, 22), hairstyle="hardhat", hat=(250, 210, 60), glasses=False, top=(255, 130, 40), top2=(240, 240, 244), pants=(60, 66, 84), shoes=(70, 56, 40), sleeve="long", beard=0, build=.92, hr=.98, vest=True),
+    "bezos_fin":  dict(skin=(232, 188, 154), hair=(70, 50, 38), hairstyle="receding", glasses=False, top=(46, 52, 86), top2=(244, 244, 248), pants=(46, 52, 86), shoes=(30, 26, 26), sleeve="long", beard=0, build=1.1, hr=1.04, suit=True, smile_bias=.35),
+    "bezos_young": dict(skin=(232, 188, 154), hair=(70, 50, 38), hairstyle="receding", glasses=False, top=(96, 146, 204), top2=None, pants=(176, 150, 112), shoes=(96, 70, 50), sleeve="short", beard=0, build=1.1, hr=1.04, smile_bias=.35),
+    "bezos_adult": dict(skin=(228, 182, 148), hair=(120, 96, 80), hairstyle="bald", glasses=False, top=(40, 70, 120), top2=None, pants=(176, 150, 112), shoes=(70, 56, 46), sleeve="long", beard=0, build=1.16, hr=1.05, smile_bias=.3),
+    "cust_f":     dict(skin=(238, 196, 164), hair=(96, 52, 36), hairstyle="long", glasses=False, top=(236, 120, 150), top2=None, pants=(60, 80, 130), shoes=(240, 240, 240), sleeve="short", beard=0, build=.92, hr=.98),
+    "cust_m":     dict(skin=(196, 146, 112), hair=(28, 24, 24), hairstyle="short", glasses=False, top=(90, 90, 110), top2=None, pants=(60, 66, 90), shoes=(220, 220, 224), sleeve="long", beard=0, build=1.04, hr=1.0),
+    "driver":     dict(skin=(214, 164, 130), hair=(40, 30, 26), hairstyle="cap", hat=(70, 52, 40), glasses=False, top=(110, 80, 56), top2=None, pants=(86, 68, 52), shoes=(40, 34, 30), sleeve="short", beard=0, build=1.08, hr=1.0),
     "tech_w":     dict(skin=(214, 164, 130), hair=(40, 30, 26), hairstyle="hardhat", hat=(240, 240, 240), glasses=False, top=(235, 235, 240), top2=(60, 70, 90), pants=(60, 66, 84), shoes=(60, 50, 40), sleeve="long", beard=0, build=1.0, hr=1.0, vest=True),
 }
 
@@ -72,6 +78,8 @@ def draw_head(d, spec, cx, cy, pose, ss, R=80):
     turn = pose["turn"]; skin = spec["skin"]; hr = spec["hr"]; R = R * hr
     hair = spec["hair"]; style = spec["hairstyle"]
     # pelo trasero
+    if style == "long":
+        poly(d, smooth([(cx - R * 1.12, cy - R * .5), (cx - R * 1.22, cy + R * .7), (cx - R * 1.1, cy + R * 1.5), (cx - R * .2, cy + R * 1.4), (cx, cy + R * .2)], 6), hair, ss)
     if style in ("shaggy",):
         poly(d, [(cx - R * 1.05, cy - R * .2), (cx - R * 1.1, cy + R * .6), (cx - R * .5, cy + R * .55), (cx, cy - R * .6)], hair, ss)
     if style == "bun":
@@ -103,6 +111,18 @@ def draw_head(d, spec, cx, cy, pose, ss, R=80):
         poly(d, smooth([(cx - R * 1.1, cy + R * .3), (cx - R * 1.08, cy - R * .5), (cx - R * .5, cy - R * 1.12), (cx + R * .4, cy - R * 1.16), (cx + R * 1.0, cy - R * .62), (cx + R * 1.02, cy - R * .2), (cx + R * .62, cy - R * .5), (cx + R * .3, cy - R * .26), (cx - R * .15, cy - R * .5), (cx - R * .5, cy - R * .1), (cx - R * .8, cy + R * .3)], 8), hair, ss)
     elif style == "bun":
         poly(d, smooth([(cx - R * 1.05, cy + R * .1), (cx - R * 1.02, cy - R * .6), (cx - R * .4, cy - R * 1.08), (cx + R * .5, cy - R * 1.04), (cx + R * .98, cy - R * .5), (cx + R * .5, cy - R * .7), (cx - R * .2, cy - R * .55), (cx - R * .55, cy - R * .1)], 8), hair, ss)
+    elif style == "long":
+        poly(d, smooth([(cx - R * 1.06, cy + R * .1), (cx - R * 1.02, cy - R * .6), (cx - R * .4, cy - R * 1.1), (cx + R * .5, cy - R * 1.05), (cx + R * 1.0, cy - R * .5), (cx + R * .62, cy - R * .62), (cx - R * .1, cy - R * .46), (cx - R * .6, cy)], 8), hair, ss)
+    elif style == "receding":
+        poly(d, smooth([(cx - R * 1.05, cy + R * .2), (cx - R * 1.02, cy - R * .55), (cx - R * .6, cy - R * 1.02), (cx + R * .02, cy - R * 1.06), (cx + R * .2, cy - R * .92), (cx - R * .12, cy - R * .78), (cx - R * .45, cy - R * .4), (cx - R * .66, cy + R * .05)], 8), hair, ss)
+    elif style == "bald":
+        poly(d, smooth([(cx - R * 1.04, cy + R * .12), (cx - R * 1.01, cy - R * .42), (cx - R * .82, cy - R * .62), (cx - R * .66, cy - R * .2), (cx - R * .7, cy + R * .06)], 6), hair, ss)
+        ell(d, cx - R * .1, cy - R * .86, R * .42, R * .13, shade(skin, 1.08), ss)
+    elif style == "cap":
+        hc = spec["hat"]
+        poly(d, smooth([(cx - R * 1.08, cy - R * .35), (cx - R * 1.04, cy - R * .9), (cx - R * .4, cy - R * 1.3), (cx + R * .4, cy - R * 1.3), (cx + R * 1.0, cy - R * .9), (cx + R * 1.08, cy - R * .4)], 8), hc, ss)
+        poly(d, [(cx + R * .5, cy - R * .5), (cx + R * 1.5, cy - R * .42), (cx + R * 1.5, cy - R * .32), (cx + R * .4, cy - R * .36)], shade(hc, .8), ss)
+        poly(d, smooth([(cx - R * 1.04, cy + R * .1), (cx - R * 1.0, cy - R * .4), (cx - R * .7, cy - R * .4), (cx - R * .6, cy)], 5), hair, ss)
     elif style == "hardhat":
         poly(d, smooth([(cx - R * 1.04, cy + R * .1), (cx - R * 1.0, cy - R * .5), (cx - R * .4, cy - R * .8), (cx + R * .3, cy - R * .8), (cx + R * .9, cy - R * .5), (cx + R * .5, cy - R * .5), (cx - R * .3, cy - R * .4), (cx - R * .55, cy - R * .1)], 8), hair, ss)
         hc = spec["hat"]
@@ -144,7 +164,7 @@ def draw_head(d, spec, cx, cy, pose, ss, R=80):
         ell(d, nx, ey + R * .36, R * .12, R * .09, nose, ss)
     # boca
     mx = cx + lerp(R * .52, 0, turn); my = cy + R * .52
-    mw = R * .26; sm = pose["smile"]; op_m = pose["mouth"]
+    mw = R * .26; sm = pose["smile"] + spec.get("smile_bias", 0); op_m = pose["mouth"]
     left = (mx - mw, my - sm * R * .05); right = (mx + mw, my - sm * R * .09)
     ctrl = (mx, my + R * .06 + sm * R * .10)
     top = [(left[0] + (right[0] - left[0]) * t, (1 - t) ** 2 * left[1] + 2 * t * (1 - t) * (my - R * .01) + t * t * right[1]) for t in np.linspace(0, 1, 12)]
