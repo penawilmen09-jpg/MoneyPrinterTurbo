@@ -22,7 +22,7 @@ def build_cues(T):
         elif kind == "iris":
             add(a - 0.25, "whoosh", 0.26)
         elif kind == "glitch":
-            add(a - 0.25, "static", 0.30)
+            add(a - 0.25, "static", 0.17)
 
     # ---- S1 gancho
     h = T.start("h1")
@@ -75,7 +75,7 @@ def build_cues(T):
     a, b = sc["s7"]
     for i, t0 in enumerate((0.2, 0.9, 1.2, 1.5)):
         add(a + t0, "click", 0.14)
-    add(b - 1.5, "riser", 0.20)
+    add(T.start("d5") - 2.05, "riser", 0.20)
     # ---- S8 la noche y el descubrimiento
     a, b = sc["s8"]
     ta = W("d5", "revis") - 0.1
@@ -83,7 +83,7 @@ def build_cues(T):
     tc = W("d5", "utiliz") - 0.1
     tm = W("d5", "quedarse")
     for i in range(4):
-        add(a + 0.2 + i * 0.5, "tick", 0.11)
+        add(a + 0.2 + i * 0.5, "tick", 0.07)
     add(ta, "rewind", 0.38)
     add(tb + 0.15, "beep", 0.26)
     add(tb + (tc - tb) * 0.4 + 0.1, "pop", 0.30)

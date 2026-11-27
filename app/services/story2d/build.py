@@ -303,7 +303,6 @@ def render_video(T, cues, out_video, workers=4, frames=None, workdir=None):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="storage/story2d/cajero_robo_imposible.mp4")
-    ap.add_argument("--rate", default="+12%")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--work", default=None)
     ap.add_argument("--audio-only", action="store_true")
@@ -313,12 +312,11 @@ def main(argv=None):
 
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    work = Path(a.work) if a.work else out.parent / "work"
+    work = (Path(a.work) if a.work else out.parent / "work").resolve()
     work.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
-    proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
-    print("1/5 narración (edge-tts)…")
-    narr = narration.synth_beats(S.BEATS, S.VOICE, a.rate, work / "tts", proxy=proxy)
+    print("1/5 narración (ElevenLabs)…")
+    narr = narration.synth_beats(S.BEATS, work / "tts_eleven")
     T = Timeline(narr)
     print(f"    duración total: {T.total:.1f}s")
     for sid, (s, e) in T.scene_times.items():

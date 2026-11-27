@@ -23,3 +23,16 @@ def test_voice_priority_keeps_bus_under_voice():
     out = audio.voice_priority(bus, voice, 8.0)
     ratio = audio.rms(voice) / audio.rms(out.mean(axis=1)[sr // 4:])
     assert ratio > 10 ** (6 / 20)
+
+
+def test_elevenlabs_is_the_only_voice(monkeypatch):
+    import pytest
+
+    from app.services.story2d import elevenlabs_tts as el
+
+    assert el.VOICE_ID == "851ejYcv2BoNPjrkw93G"
+    monkeypatch.delenv("ELEVENLABS_API_KEY", raising=False)
+    with pytest.raises(el.MissingApiKey):
+        el.api_key()
+    with pytest.raises(el.ElevenLabsError):
+        el.synthesize("hola", __import__("pathlib").Path("/tmp/x.mp3"), voice_id="otra")

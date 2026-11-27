@@ -5,7 +5,7 @@ escenas se sincronizan con el momento real en que se pronuncia cada beat.
 """
 
 TITLE = "El cajero que descubrió un robo imposible"
-VOICE = "es-MX-JorgeNeural"
+# La voz (ElevenLabs, ID fijo) vive en elevenlabs_tts.VOICE_ID.
 
 # (id, texto, pausa_después_en_segundos)
 BEATS = [
