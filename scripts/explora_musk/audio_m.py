@@ -179,15 +179,19 @@ def rumble(dur, lo=40, hi=400):
     return x
 
 
+HOOK_SFX = True
+
+
 def sfx():
     s = np.zeros((N, 2))
     for i, tb in enumerate(BOUNDS):
         place(s, whoosh(.9, up=(i % 2 == 0)), tb - .6, .5)
         place(s, hit(1.4, 44 + 3 * i), tb - .25, .26)
-    # 1 gancho: golpe grave, autos, monedas
-    place(s, hit(1.8, 50), 0.0, .7)
-    for tt in (1.2, 3.4): place(s, whoosh(1.2, True, 150, 1800), tt, .25)
-    for k in range(18): place(s, bell(midi([84, 88, 91, 96][k % 4]), .5), 3.3 + k * .17, .10, pan=rng.uniform(-.8, .8))
+    if HOOK_SFX:
+        # 1 gancho: golpe grave, autos, monedas
+        place(s, hit(1.8, 50), 0.0, .7)
+        for tt in (1.2, 3.4): place(s, whoosh(1.2, True, 150, 1800), tt, .25)
+        for k in range(18): place(s, bell(midi([84, 88, 91, 96][k % 4]), .5), 3.3 + k * .17, .10, pan=rng.uniform(-.8, .8))
     # 2 comienzos: mapa, teclado, pitidos, monedas
     o = 7.4
     place(s, hit(1.0, 70), o + 1.8, .4); place(s, bell(midi(84), 1.2), o + 1.8, .25)

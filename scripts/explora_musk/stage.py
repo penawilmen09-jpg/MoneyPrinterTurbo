@@ -90,8 +90,24 @@ def paste_np(base, im, x, y, alpha=1.0):
     base[y0:y1, x0:x1] = base[y0:y1, x0:x1] * (1 - al) + sub[..., :3] * al
 
 
+CLOCK = [0.0]   # reloj global (lo fija el compositor) para animación "idle" de personajes
+
+
+def _idle(name, pose):
+    """Microanimación continua: respiración, balanceo de cabeza, cejas, mirada y parpadeo automático."""
+    from people import POSE0
+    c = CLOCK[0]; h = (sum(map(ord, name)) % 7) * .7
+    p = dict(POSE0); p.update(pose)
+    p["lean"] += .8 * math.sin(c * 1.1 + h); p["head"] += .9 * math.sin(c * .8 + h * 1.3); p["bob"] += 1.2 * math.sin(c * 1.7 + h)
+    p["brow"] += .10 * math.sin(c * .6 + h); p["lookx"] += .35 * math.sin(c * .7 + h); p["smile"] += .06 * math.sin(c * .9 + h)
+    p["sf"] += 1.4 * math.sin(c * 1.3 + h); p["sb"] += 1.2 * math.sin(c * 1.2 + h + 1)
+    if p["eyes"] >= .999: p["eyes"] = blink(c, 3.0 + h * .15, h)
+    return p
+
+
 def place_person(base, name, pose, wx, wy, cam, k=1.0, flip=False, depth=1.0, alpha=1.0):
     """Dibuja un personaje con la cadera en (wx,wy) del mundo."""
+    pose = _idle(name, pose)
     sx, sy = cam.p(wx, wy, depth)
     kk = k * cam.z ** depth
     im = draw_person(name, pose, k=kk, flip=flip, ss=(2 if kk < 1.3 else 1.35))
@@ -128,3 +144,13 @@ def dust(f, t, seed=1, n=40, tint=(255, 230, 190), alpha=.55, rise=-12):
         x = (x0 + math.sin(t * .5 + i) * 20 * z) % W; y = (y0 + t * rise * z) % H
         r = 1.5 + 2.5 * z * rng.rand()
         f.L.ellipse([x - r, y - r, x + r, y + r], fill=sc(tint, alpha * (.4 + .6 * z) * (.6 + .4 * math.sin(t * 2 + i))))
+
+
+def clouds(f, t, seed=1, n=6, y0=180, y1=620, col=(255, 190, 180), alpha=.16, speed=14):
+    """Nubes a la deriva (animación de fondo)."""
+    rng = np.random.RandomState(seed)
+    for i in range(n):
+        x = ((rng.rand() * (W + 500) + t * speed * (.6 + rng.rand())) % (W + 500)) - 250
+        y = rng.uniform(y0, y1); s_ = rng.uniform(.8, 1.5)
+        for dx, dy, r in ((-60, 8, 50), (0, -14, 66), (70, 6, 54), (16, 14, 56)):
+            f.L.ellipse([x + dx * s_ - r * s_, y + dy * s_ - r * .5 * s_, x + dx * s_ + r * s_, y + dy * s_ + r * .5 * s_], fill=sc(col, alpha))

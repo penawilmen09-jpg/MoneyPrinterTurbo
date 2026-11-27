@@ -108,6 +108,7 @@ def scene(t):
     for i in range(4):
         a = .2 + i * .09
         f.L.polygon([(300, 900), (1300, 700 + i * 120), (1300, 760 + i * 120)], fill=sc((255, 210, 140), .06))
+    clouds(f, t, seed=3, n=5, y0=120, y1=520, col=(255, 180, 170), alpha=.14)
     dust(f, t, seed=13, n=40, tint=(255, 230, 180), alpha=.45)
     return f.finish()
 

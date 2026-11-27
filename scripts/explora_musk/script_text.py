@@ -18,3 +18,11 @@ def tts_text():
         for a, b in TTS_SUBS.items(): t = t.replace(a, b)
         out.append(t)
     return "\n\n".join(out)
+
+# ---- v2: nuevo gancho (texto EXACTO del usuario; sin punto final)
+HOOK = "Imagina tener tanto dinero que podrías gastar un millón de dólares todos los días durante más de 2.000 años... y todavía no habrías gastado toda tu fortuna. Esta es la historia del hombre más rico del mundo"
+HOOK_TTS_SUBS = {"2.000": "dos mil"}   # sólo ayuda de pronunciación; en pantalla se muestra "2.000"
+def hook_tts():
+    t = HOOK
+    for a, b in HOOK_TTS_SUBS.items(): t = t.replace(a, b)
+    return t

@@ -77,6 +77,7 @@ def scene(t):
     # luz cálida a contraluz
     for i in range(6):
         f.L.polygon([(1000, 1180), (-200, 700 + i * 110), (-200, 760 + i * 110)], fill=sc((255, 200, 130), .05))
+    clouds(f, t, seed=5, n=5, y0=200, y1=700, col=(255, 190, 170), alpha=.15)
     dust(f, t, seed=14, n=36, tint=(255, 220, 170), alpha=.5)
     # transición a la marca
     ba = ease(prog(t, 5.8, 6.8))
