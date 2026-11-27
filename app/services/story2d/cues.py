@@ -123,3 +123,25 @@ def build_cues(T):
     add(tz0 + 1.9, "boom", 0.40)
     add(T.total - 2.0, "tada", 0.32)
     return c
+
+
+def build_cues_documental(T):
+    """Mezcla documental: pocos efectos, discretos y solo donde aportan.
+
+    Cada elemento es (tiempo, efecto, dB_bajo_la_voz, pan). Se evitan transiciones,
+    clics, pops, ticks, monedas sueltas y cualquier sonido decorativo.
+    """
+    W = T.word
+    sc = T.scene_times
+    c = []
+    # 1) la caja registradora (el dinero que desaparece de las cajas)
+    c.append((W("h3", "cajas") + 0.05, "cash", 18, 0.0))
+    # 2) el fraude se descubre: golpe sutil en «quedarse con el dinero»
+    c.append((W("d5", "quedarse") - 0.1, "stamp", 18, 0.0))
+    # 3) la suma revela la pérdida enorme
+    c.append((W("c1", "enorme") + 0.35, "reveal", 14, 0.0))
+    # 4) controles nuevos: candado suave
+    c.append((W("c2", "seguridad") + 0.45, "lock", 17, 0.0))
+    # 5) revelación final: la moneda es una montaña (breve y grave)
+    c.append((sc["s12"][0] + (W("c3", "sino") - sc["s12"][0]) + 1.2, "boom", 18, 0.0))
+    return c
