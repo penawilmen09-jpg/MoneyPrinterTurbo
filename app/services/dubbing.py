@@ -304,7 +304,7 @@ def mux(video: str, background: str, dub: str, out_mp4: str, srt: str | None, bu
         # music dips ~4-6 dB under speech, then returns smoothly (no abrupt cuts)
         "[bg][d1]sidechaincompress=threshold=0.03:ratio=2.5:attack=40:release=600:makeup=1[duck];"
         "[d2]pan=stereo|c0=c0|c1=c0[dubs];"
-        "[duck][dubs]amix=inputs=2:normalize=0:duration=longest,alimiter=limit=0.95[aout]"
+        "[duck][dubs]amix=inputs=2:normalize=0:duration=longest,loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.95[aout]"
     )
     cmd = ["ffmpeg", "-y", "-v", "error", "-i", video, "-i", background, "-i", dub, "-filter_complex"]
     if burn and srt:
