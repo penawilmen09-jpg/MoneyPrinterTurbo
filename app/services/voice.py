@@ -475,6 +475,49 @@ def is_elevenlabs_voice(voice_name: str) -> bool:
     return (voice_name or "").startswith("elevenlabs:")
 
 
+# Preset ElevenLabs voices offered as "Voz 1" / "Voz 2" in the WebUI. Voice IDs
+# are public identifiers, not credentials; the API key is still read only from
+# config / the ELEVENLABS_API_KEY environment variable. Both can be overridden
+# with [elevenlabs] voice_1_id / voice_2_id.
+ELEVENLABS_DEFAULT_VOICE_1_ID = "851ejYcv2BoNPjrkw93G"
+ELEVENLABS_DEFAULT_VOICE_2_ID = "dlGxemPxFMTY7iXagmOj"
+
+
+def get_elevenlabs_preset_voices() -> list[str]:
+    """Return the "Voz 1" and "Voz 2" presets as ``elevenlabs:<id>:<label>``."""
+    presets = []
+    for index, default_id in enumerate(
+        (ELEVENLABS_DEFAULT_VOICE_1_ID, ELEVENLABS_DEFAULT_VOICE_2_ID), start=1
+    ):
+        voice_id = str(
+            config.elevenlabs.get(f"voice_{index}_id", "") or default_id
+        ).strip()
+        if voice_id and ":" not in voice_id:
+            presets.append(f"elevenlabs:{voice_id}:Voz {index}")
+    return presets
+
+
+def merge_elevenlabs_preset_voices(catalog: list[str]) -> list[str]:
+    """Put the presets first; drop catalog entries that repeat a preset id."""
+    presets = get_elevenlabs_preset_voices()
+    preset_ids = {p.split(":", 2)[1] for p in presets}
+    rest = [
+        v for v in catalog
+        if not (is_elevenlabs_voice(v) and v.split(":", 2)[1] in preset_ids)
+    ]
+    return presets + rest
+
+
+def normalize_elevenlabs_voice_name(voice_name: str) -> str:
+    """Map a saved voice that has a preset id (any old label) to the preset."""
+    if is_elevenlabs_voice(voice_name):
+        parts = voice_name.split(":", 2)
+        for preset in get_elevenlabs_preset_voices():
+            if preset.split(":", 2)[1] == parts[1]:
+                return preset
+    return voice_name
+
+
 def get_elevenlabs_api_key() -> str:
     """
     读取 ElevenLabs TTS 使用的 API Key。

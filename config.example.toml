@@ -820,6 +820,10 @@ pitch = 0
 api_key = ""
 # Available models include eleven_multilingual_v2, eleven_flash_v2_5, and eleven_v3.
 model_id = "eleven_multilingual_v2"
+# Preset voices shown first in the WebUI as "Voz 1" and "Voz 2". The last
+# selection is remembered in [ui] voice_name.
+voice_1_id = "851ejYcv2BoNPjrkw93G"
+voice_2_id = "dlGxemPxFMTY7iXagmOj"
 # Video-to-Music uses a separate model family while sharing the same API key.
 # music_base_url only configures the Video-to-Music endpoint, so it can point at
 # a proxy or a self-hosted gateway while the voice API keeps the default host.

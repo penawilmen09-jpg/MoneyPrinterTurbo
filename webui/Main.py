@@ -8240,7 +8240,14 @@ def _render_audio_settings(panel, params):
                     st.session_state[cache_key] = voice.get_elevenlabs_voices(
                         saved_elevenlabs_api_key
                     )
-                filtered_voices = st.session_state[cache_key]
+                # "Voz 1" / "Voz 2" presets always lead the list; the user's
+                # last choice is restored from ui.voice_name below.
+                filtered_voices = voice.merge_elevenlabs_preset_voices(
+                    st.session_state[cache_key]
+                )
+                saved_voice_name = voice.normalize_elevenlabs_voice_name(
+                    saved_voice_name
+                )
             elif selected_tts_server == "chatterbox":
                 # 自托管 Chatterbox 服务的预置音色（来自 [chatterbox] voices 配置）
                 _sync_chatterbox_config_from_session_state()
