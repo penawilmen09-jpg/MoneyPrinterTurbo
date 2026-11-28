@@ -9687,6 +9687,19 @@ def _render_application():
     if restore_applied or restore_succeeded:
         st.success(tr("Task Configuration Loaded"))
 
+    app_mode = st.radio(
+        "Modo",
+        ["Clásico (MoneyPrinterTurbo)", "ANIMATED STORYTELLING"],
+        horizontal=True,
+        key="app_mode",
+        label_visibility="collapsed",
+    )
+    if app_mode == "ANIMATED STORYTELLING":
+        from webui.storytelling_mode import render_storytelling_mode
+
+        render_storytelling_mode()
+        return
+
     with st.container(key="main_settings_grid"):
         panel = st.columns(4)
     left_panel = panel[0]
