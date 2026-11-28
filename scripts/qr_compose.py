@@ -111,7 +111,7 @@ if __name__ == "__main__":
     srt_to_ass(srt, ass)
     fc = (
         "[1:a]volume=1.4,asplit=2[vo][sc];"
-        "[2:a]volume=0.55[m0];"
+        "[2:a]volume=0.12[m0];"
         "[m0][sc]sidechaincompress=threshold=0.015:ratio=10:attack=15:release=500[md];"
         "[vo][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a];"
         f"[0:v]subtitles={ass}:fontsdir=/usr/share/fonts/opentype/inter[v]"
