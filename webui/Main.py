@@ -9687,6 +9687,19 @@ def _render_application():
     if restore_applied or restore_succeeded:
         st.success(tr("Task Configuration Loaded"))
 
+    if st.radio(
+        "Modo",
+        ["Clásico", "MIXED EXPLAINER"],
+        horizontal=True,
+        key="app_mode",
+        label_visibility="collapsed",
+    ) == "MIXED EXPLAINER":
+        # Nuevo modo: el flujo clásico queda intacto debajo de la selección.
+        from webui import explainer_mode
+
+        explainer_mode.render()
+        return
+
     with st.container(key="main_settings_grid"):
         panel = st.columns(4)
     left_panel = panel[0]

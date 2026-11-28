@@ -933,3 +933,12 @@ open_task_folder_on_completion = true
 # subtitle_background_enabled = false
 # subtitle_background_color = "#000000"
 # rounded_subtitle_background = false
+
+# =============================================================================
+# MIXED EXPLAINER (Explora Ciencia 360) / modo MIXED EXPLAINER
+# =============================================================================
+# The mode reuses [elevenlabs] api_key / model_id above. Narrator voice defaults
+# to ElevenLabs voice 851ejYcv2BoNPjrkw93G; if ElevenLabs fails the task stops with
+# a clear error and the voice is never switched automatically. Music and sound
+# effects are synthesised locally; no paid service is used besides the narration.
+# Docs: docs/mixed-explainer.md
